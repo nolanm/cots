@@ -21,10 +21,10 @@ function oauthGetTweets($config) {
 	return $result;
 }
 function twitterify($ret) {
-  $ret = preg_replace("#(^|[\n ])([\w]+?://[\w]+[^ \"\n\r\t< ]*)#", "\\1<a href=\"\\2\" >\\2</a>", $ret);
-  $ret = preg_replace("#(^|[\n ])((www|ftp)\.[^ \"\t\n\r< ]*)#", "\\1<a href=\"http://\\2\" >\\2</a>", $ret);
-  $ret = preg_replace("/@(\w+)/", "<a href=\"http://www.twitter.com/\\1\" >@\\1</a>", $ret);
-  $ret = preg_replace("/#(\w+)/", "<a href=\"https://twitter.com/search?q=\\1\" >#\\1</a>", $ret);
+  $ret = preg_replace("#(^|[\n ])([\w]+?://[\w]+[^ \"\n\r\t< ]*)#", "\\1<a href=\"\\2\" target=\"_blank\">\\2</a>", $ret);
+  $ret = preg_replace("#(^|[\n ])((www|ftp)\.[^ \"\t\n\r< ]*)#", "\\1<a href=\"http://\\2\" target=\"_blank\">\\2</a>", $ret);
+  $ret = preg_replace("/@(\w+)/", "<a href=\"http://www.twitter.com/\\1\" target=\"_blank\">@\\1</a>", $ret);
+  $ret = preg_replace("/#(\w+)/", "<a href=\"https://twitter.com/search?q=\\1\" target=\"_blank\">#\\1</a>", $ret);
 return $ret;
 }
 function parseTweets($results = array()) {
@@ -33,11 +33,13 @@ function parseTweets($results = array()) {
 	if(!empty($results)&&!isset($results['error'])){
 		foreach($results as $result) {
 			$temp = explode(' ', $result['created_at']);
-			$timestamp = $temp[2] . ' ' . $temp[1] . ' ' . $temp[5];
+			$timestamp = $temp[1] . '. ' . $temp[2] . ', ' . $temp[5];
+			//var_dump($result);
 			$tweets[] = array(
 				'timestamp' => $timestamp,
 				'text' => twitterify($result['text'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH),
-				'id' => $result['id_str']
+				'id' => $result['id_str'],
+				'url' => (isset($result['entities']['urls']['url']))?$result['entities']['urls']['url']:''
 			);
 		}
 	}

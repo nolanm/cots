@@ -16,10 +16,14 @@ get_header();
                       endif;	
                 endwhile; 
             }
-			$post_category = get_post_meta(get_the_ID(),'imic_advanced_post_taxonomy',true);
-						if(!empty($post_category)){
-						$post_categories= get_category($post_category);
-						$post_category= $post_categories->slug; }
+			
+			/*$post_category = get_post_meta(get_the_ID(),'imic_advanced_post_taxonomy',true);
+			if(!empty($post_category)){
+			$post_categories= get_category($post_category);
+			$post_category= $post_categories->slug; }*/
+			
+			$post_category = imic_get_term_category(get_the_ID(),'imic_advanced_post_taxonomy','category');	
+						
             global $wp_query;
             $temp_wp_query = clone $wp_query;
             query_posts(array(
@@ -43,7 +47,7 @@ get_header();
                         case 'video':
                             $imic_gallery_video_url = get_post_meta(get_the_ID(), 'imic_gallery_video_url', true);
                             if (!empty($imic_gallery_video_url)) {
-                                echo imic_video_embed($imic_gallery_video_url);
+                                echo '<div class="fw-video">'.imic_video_embed($imic_gallery_video_url).'</div>';
                             }
                             break;
                         case 'audio':
@@ -75,7 +79,9 @@ get_header();
                             }
                             break;
                     }
+					echo '<div class="page-content">';
                     echo imic_excerpt(50);
+					echo '</div>';
                     echo'<p><a href="' . get_permalink() . '" class="btn btn-primary">' . __('Continue reading', 'framework') . '<i class="fa fa-long-arrow-right"></i></a></p>
                 </div>
               </div>

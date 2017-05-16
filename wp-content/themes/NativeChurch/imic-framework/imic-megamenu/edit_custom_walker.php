@@ -88,28 +88,28 @@ class Walker_Nav_Menu_Edit_Custom extends Walker_Nav_Menu {
                     <span class="item-order hide-if-js">
                         <a href="<?php
                         echo wp_nonce_url(
-                                add_query_arg(
+                                esc_url(add_query_arg(
                                         array(
                             'action' => 'move-up-menu-item',
                             'menu-item' => $item_id,
                                         ), remove_query_arg($removed_args, admin_url('nav-menus.php'))
                                 ), 'move-menu_item'
-                        );
+                        ));
                         ?>" class="item-move-up"><abbr title="<?php esc_attr_e('Move up','framework'); ?>">&#8593;</abbr></a>
                         |
                         <a href="<?php
                         echo wp_nonce_url(
-                                add_query_arg(
+                                esc_url(add_query_arg(
                                         array(
                             'action' => 'move-down-menu-item',
                             'menu-item' => $item_id,
                                         ), remove_query_arg($removed_args, admin_url('nav-menus.php'))
                                 ), 'move-menu_item'
-                        );
+                        ));
                         ?>" class="item-move-down"><abbr title="<?php esc_attr_e('Move down', 'framework'); ?>">&#8595;</abbr></a>
                     </span>
-                    <a class="item-edit" id="edit-<?php echo $item_id; ?>" title="<?php esc_attr_e('Edit Menu Item'); ?>" href="<?php
-                    echo ( isset($_GET['edit-menu-item']) && $item_id == $_GET['edit-menu-item'] ) ? admin_url('nav-menus.php') : add_query_arg('edit-menu-item', $item_id, remove_query_arg($removed_args, admin_url('nav-menus.php#menu-item-settings-' . $item_id)));
+                    <a class="item-edit" id="edit-<?php echo $item_id; ?>" title="<?php esc_attr_e('Edit Menu Item','framework'); ?>" href="<?php
+                    echo ( isset($_GET['edit-menu-item']) && $item_id == $_GET['edit-menu-item'] ) ? admin_url('nav-menus.php') : esc_url(add_query_arg('edit-menu-item', $item_id, remove_query_arg($removed_args, admin_url('nav-menus.php#menu-item-settings-' . $item_id))));
                     ?>"><?php _e('Edit Menu Item', 'framework'); ?></a>
                 </span>
                 </dt>
@@ -204,6 +204,20 @@ class Walker_Nav_Menu_Edit_Custom extends Walker_Nav_Menu {
                     </label>
                 </p>
                 <p class="field-custom description description-wide">
+                <label for="edit-menu-sidebars-<?php echo esc_attr($item_id); ?>">
+                <select name ="menu-sidebars[<?php echo esc_attr($item_id); ?>]" class="menu-sidebars edit-menu-item-custom" id="edit-menu-sidebars-<?php echo esc_attr($item_id); ?>" >
+                <?php
+								$sidebars = imic_get_all_sidebars();
+								echo '<option value ="">' . esc_html__('Select Sidebar', 'framework') . '</option>';
+								foreach ($sidebars as $key=>$value) {
+									$activePost = ($key == $item->menusidebars)? 'selected' : '';
+									echo '<option value="'.esc_attr($key).'"'.$activePost.'>'.esc_attr($value).'</option>';
+								}
+								?>
+                </select>
+                </label>
+                </p>
+                <p class="field-custom description description-wide">
                     <label for="edit-menu-post-<?php echo $item_id; ?>">
                         <?php _e('Enter Number of Post Ex-3','framework'); ?><input type="text" id="edit-menu-post-<?php echo $item_id; ?>" class="menu-post edit-menu-item-custom"   name="menu-post[<?php echo $item_id; ?>]" value="<?php echo ($item->menupost); ?>" /> 
                     </label>
@@ -235,13 +249,13 @@ class Walker_Nav_Menu_Edit_Custom extends Walker_Nav_Menu {
                         <?php endif; ?>
                     <a class="item-delete submitdelete deletion" id="delete-<?php echo $item_id; ?>" href="<?php
                     echo wp_nonce_url(
-                            add_query_arg(
+                            esc_url(add_query_arg(
                                     array(
                         'action' => 'delete-menu-item',
                         'menu-item' => $item_id,
                                     ), remove_query_arg($removed_args, admin_url('nav-menus.php'))
                             ), 'delete-menu_item_' . $item_id
-                    );
+                    ));
                     ?>"><?php _e('Remove', 'framework'); ?></a> <span class="meta-sep"> | </span> <a class="item-cancel submitcancel" id="cancel-<?php echo $item_id; ?>" href="<?php echo esc_url(add_query_arg(array('edit-menu-item' => $item_id, 'cancel' => time()), remove_query_arg($removed_args, admin_url('nav-menus.php'))));
                     ?>#menu-item-settings-<?php echo $item_id; ?>"><?php _e('Cancel', 'framework'); ?></a>
                 </div>

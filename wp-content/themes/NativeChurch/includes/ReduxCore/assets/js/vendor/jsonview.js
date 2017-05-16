@@ -16,6 +16,7 @@
  * MIT license / copyfree (f) F.A.T. Lab http://fffff.at
  * Speed Project Approved: 2h
  */
+
 function collapse(evt) {
 	var collapser = evt.target;
 	var target = collapser.parentNode.getElementsByClassName('collapsible');
@@ -36,6 +37,7 @@ function collapse(evt) {
 	}
 	collapser.innerHTML = (collapser.innerHTML === '-') ? '+' : '-';
 }
+
 function addCollapser(item) {
 	// This mainly filters out the root object (which shouldn't be collapsible)
 	if (item.nodeName !== 'LI') {
@@ -47,6 +49,7 @@ function addCollapser(item) {
 	collapser.addEventListener('click', collapse, false);
 	item.insertBefore(collapser, item.firstChild);
 }
+
 function jsonView(id, target) {
 	this.debug = false;
 	if (id.indexOf("#") !== -1) {
@@ -94,6 +97,7 @@ function jsonView(id, target) {
 		if (this.debug) { console.log("JSONView: sexytime!"); }
 		// JSONFormatter json->HTML prototype straight from Firefox JSONView
 		// For reference: http://code.google.com/p/jsonview
+
 		function JSONFormatter() {
 			// No magic required.
 		}

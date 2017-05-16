@@ -33,7 +33,8 @@ function embedSelectedShortcode() {
 		var staff_number = document.getElementById('staff-number').value;
 		var staff_order = document.getElementById('staff-order').value;	
 		var staff_category = document.getElementById('staff-category').value;
-		var staff_column = document.getElementById('staff-column').value;	
+		var staff_column = document.getElementById('staff-column').value;
+		var staff_excerpt_length = document.getElementById('staff-excerpt-length').value;
 		// Sermon
 		var sermon_number = document.getElementById('sermon-number').value;
 		var sermon_title = document.getElementById('sermon-title').value;
@@ -158,11 +159,29 @@ function embedSelectedShortcode() {
 		var modal_title = document.getElementById('modal-title').value;
 		var modal_text = document.getElementById('modal-text').value;
 		var modal_button = document.getElementById('modal-button').value;	
-	         // Fullscreen Video
+	   	// Fullscreen Video
 		var fwvideo_videourl = document.getElementById('fwvideo-videourl').value;
-	          // Calendar  Event Category
+		var fwvideo_autoplay = document.getElementById('fwvideo-autoplay').value;
+		var full_width = "";
+			
+		if (document.getElementById('fw-video').checked) {
+			full_width = 'yes';
+		} else {
+			full_width = 'no';
+		}
+	    // Calendar  Event Category
 		var calendar_event_category = document.getElementById('calendar_event_category').value;	
-	         // Form Email
+	    // Calendar Google Calendar ID
+		var calendar_googlecal_id = document.getElementById('calendar_googlecal_id').value;
+	    // Calendar Google Calendar ID 1
+		var calendar_googlecal_id1 = document.getElementById('calendar_googlecal_id1').value;
+	    // Calendar Google Calendar ID 2
+		var calendar_googlecal_id2 = document.getElementById('calendar_googlecal_id2').value;
+		// calender filter
+		var calendar_filter = document.getElementById('calender_filter').value;
+		//Calendar Default View
+		var calendar_view = document.getElementById('calendar-view').value;
+	    // Form Email
 		var form_email = document.getElementById('form_email').value;	
 		/////////////////////////////////////////
 		////	BUTTON SHORTCODE OUTPUT
@@ -177,11 +196,11 @@ function embedSelectedShortcode() {
 		if (shortcode_select == 'shortcode-form') {
 			shortcodeHTML = '<br/>[imic_form form_email="'+form_email+'"]<br/>';	
 		}
-                /////////////////////////////////////////
+        /////////////////////////////////////////
 		////	Calendar SHORTCODE OUTPUT
 		/////////////////////////////////////////
 		if (shortcode_select == 'shortcode-calendar') {
-			shortcodeHTML = '<br/>[event_calendar category_id="'+calendar_event_category+'"]<br/>';
+			shortcodeHTML = '<br/>[event_calendar view="'+calendar_view+'" category_id="'+calendar_event_category+'" filter="'+calendar_filter+'" google_cal_id="'+calendar_googlecal_id+'" google_cal_id1="'+calendar_googlecal_id1+'" google_cal_id2="'+calendar_googlecal_id2+'"]<br/>';
                        
 		}
 		
@@ -306,7 +325,7 @@ function embedSelectedShortcode() {
 		////	STAFF SHORTCODE OUTPUT
 		/////////////////////////////////////////
 		if (shortcode_select == 'shortcode-staff') {
-			shortcodeHTML = '<br/>[staff number="'+staff_number+'" category="'+staff_category+'" column="'+staff_column+'" order="'+staff_order+'"]<br/>';	
+			shortcodeHTML = '<br/>[staff number="'+staff_number+'" category="'+staff_category+'" column="'+staff_column+'" order="'+staff_order+'" excerpt_length="'+staff_excerpt_length+'"]<br/>';	
 		}
                 /////////////////////////////////////////
 		////	Sermon SHORTCODE OUTPUT
@@ -411,7 +430,7 @@ function embedSelectedShortcode() {
 		/////////////////////////////////////////
                  if (shortcode_select == 'shortcode-fwvideo') {
 			
-			shortcodeHTML = '[fullscreenvideo  videourl="'+ fwvideo_videourl +'"]<br/>';
+			shortcodeHTML = '[fullscreenvideo  videourl="'+ fwvideo_videourl +'" autoplay="'+fwvideo_autoplay+'" fullwidth="'+ full_width +'"]<br/>';
 		
 		}
 		/////////////////////////////////////////

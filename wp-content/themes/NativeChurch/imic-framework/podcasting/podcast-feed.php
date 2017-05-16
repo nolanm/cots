@@ -17,10 +17,10 @@ $args = array(
 $sermon_podcast_query = new WP_Query($args);
 
 echo '<?xml version="1.0" encoding="UTF-8"?>' ?>
-
+<title><?php echo esc_attr( $options['podcast_title'] ) ?></title>
 <rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
 	<channel>
-		<title><?php echo esc_url( $options['podcast_title'] ) ?></title>
+		<title><?php echo esc_attr( $options['podcast_title'] ) ?></title>
 		<link><?php echo esc_url( $options['podcast_website_url'] ) ?></link>
 		<atom:link href="<?php if ( !empty($_SERVER['HTTPS']) ) { echo 'https://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI']; } else { echo 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI']; } ?>" rel="self" type="application/rss+xml" />
 		<language><?php echo esc_html( $options['podcast_language'] ) ?></language>
@@ -34,8 +34,8 @@ echo '<?xml version="1.0" encoding="UTF-8"?>' ?>
 			<itunes:email><?php echo esc_html( $options['podcast_itunes_owner_email'] ) ?></itunes:email>
 		</itunes:owner>
 		<itunes:explicit>no</itunes:explicit>
-		<?php global $imic_options;
-		$cover_image = $imic_options['podcast_itunes_cover_image']['url'];
+		<?php
+		$cover_image = $options['podcast_itunes_cover_image']['url'];
 		if($cover_image != ''){
 		 ?>
 			<itunes:image href="<?php echo $cover_image ?>" />
@@ -68,10 +68,10 @@ $podcast_desc = get_post_meta($post->ID, 'imic_sermons_podcast_description', 'tr
 		<item>
 			<title><?php the_title() ?></title>
 			<link><?php the_permalink() ?></link>
-			<description><?php echo $podcast_desc ?></description>
-			<itunes:author><?php echo $speaker ?></itunes:author>
-			<itunes:subtitle><?php echo $series ?></itunes:subtitle>
-			<itunes:summary><?php echo $podcast_desc ?></itunes:summary>
+			<description><?php echo esc_html( $podcast_desc ); ?></description>
+			<itunes:author><?php echo esc_html( $speaker ); ?></itunes:author>
+			<itunes:subtitle><?php echo esc_html( $series ); ?></itunes:subtitle>
+			<itunes:summary><?php echo esc_html( $podcast_desc); ?></itunes:summary>
 			<?php if ( $post_image ) : ?>
 			<itunes:image href="<?php echo $post_image; ?>" />
 			<?php endif; ?>
@@ -80,7 +80,7 @@ $podcast_desc = get_post_meta($post->ID, 'imic_sermons_podcast_description', 'tr
 			<pubDate><?php get_the_date('D, d M Y H:i:s O'); ?></pubDate>
 			<itunes:duration><?php echo esc_html( $audio_duration ); ?></itunes:duration>
 			<?php if ( $topic ) : ?>
-			<?php echo $topic . "\n" ?>
+			<?php echo esc_html( $topic) . "\n" ?>
 			<?php endif; ?>
 		</item>
 <?php endif; ?>

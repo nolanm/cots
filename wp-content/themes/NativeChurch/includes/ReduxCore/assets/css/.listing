@@ -1,9 +1,0 @@
-drwxr-sr-x   5 ftp2156171 3033641      4096 Jan 24  2015 .
-drwxr-sr-x   5 ftp2156171 3033641      4096 Jan 24  2015 ..
--rw-r--r--   1 ftp2156171 3033641     90977 Jan 24  2015 admin.css
--rw-r--r--   1 ftp2156171 3033641     32371 Jan 24  2015 admin.less
-drwxr-sr-x   2 ftp2156171 3033641      4096 Jan 24  2015 color-picker
-drwxr-sr-x   2 ftp2156171 3033641      4096 Jan 24  2015 import_export
--rw-r--r--   1 ftp2156171 3033641    532526 Jan 24  2015 redux.css
--rw-r--r--   1 ftp2156171 3033641       493 Jan 24  2015 rtl.css
-drwxr-sr-x   5 ftp2156171 3033641      4096 Jan 24  2015 vendor

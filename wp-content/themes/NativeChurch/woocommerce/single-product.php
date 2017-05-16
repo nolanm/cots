@@ -1,16 +1,11 @@
 <?php
-/**
- * The Template for displaying all single products.
- * @author 		WooThemes
- * @package 	WooCommerce/Templates
- * @version     2.1.8
- */
 get_header();
 $pageOptions = imic_page_design(); //page design options
+imic_sidebar_position_module();
 ?>
 <div class="container">
     <div class="row">
-        <div class="<?php echo $pageOptions['class']; ?>"> 
+        <div class="<?php echo $pageOptions['class']; ?>" id="content-col"> 
            <?php
                 while ( have_posts() ) : the_post(); 
 			 		wc_get_template_part( 'content', 'single-product' );
@@ -28,7 +23,7 @@ $pageOptions = imic_page_design(); //page design options
            </div>
        <?php if(!empty($pageOptions['sidebar'])){ ?>
         <!-- Start Sidebar -->
-        <div class="col-md-3 sidebar">
+        <div class="col-md-3 sidebar" id="sidebar-col">
             <?php dynamic_sidebar($pageOptions['sidebar']); ?>
         </div>
         <!-- End Sidebar -->

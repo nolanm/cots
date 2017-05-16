@@ -1,4 +1,16 @@
 jQuery(function($) {
+	$("form.sermon-filter-search").submit(function()
+    { 
+		if( !$('#sermons-category').val() ) { 
+			$('#sermons-category').attr("disabled", "disabled");
+		}
+    if( !$('#sermons-tag').val() ) { 
+			$('#sermons-tag').attr("disabled", "disabled");
+		}
+		if( !$('#sermons-speakers').val() ) { 
+			$('#sermons-speakers').attr("disabled", "disabled");
+		}
+    });
     var NATIVE = window.NATIVE || {};
     NATIVE.megaMenu = function() {
         jQuery('.megamenu-sub-title').closest('ul.sub-menu').wrapInner('<div class="row" />').wrapInner('<div class ="megamenu-container container" />').wrapInner('<li />');
@@ -39,7 +51,7 @@ jQuery(function($) {
      Contact Form Validations
      ================================================== */
     NATIVE.ContactForm = function() {
-        $('.contact-form').each(function() {
+        $('.contact-form-native').each(function() {
             var formInstance = $(this);
             formInstance.submit(function() {
                 var action = $(this).attr('action');
@@ -59,12 +71,12 @@ jQuery(function($) {
                             function(data) {
                                 document.getElementById('message').innerHTML = data;
                                 $('#message').slideDown('slow');
-                                $('.contact-form img.loader').fadeOut('slow', function() {
+                                $('.contact-form-native img.loader').fadeOut('slow', function() {
                                     $(this).remove()
                                 });
                                 $('#submit').removeAttr('disabled');
                                 if (data.match('success') != null)
-                                    $('.contact-form').slideUp('slow');
+                                    $('.contact-form-native').slideUp('slow');
                             }
                     );
                 });
@@ -77,18 +89,25 @@ jQuery(function($) {
      ================================================== */
 		NATIVE.navMenu = function() {
 			// Responsive Menu Events
+			$( ".top-navigation" ).clone().appendTo( "#top-nav-clone" );
 			$(".menu-toggle").click(function(){
 				$(this).toggleClass("opened");
 				$(".main-menu-wrapper").slideToggle(500);
+				$(".header-style4 #top-nav-clone").slideToggle(500);
 				return false;
 			});
 			$(window).resize(function(){
 				if($(".menu-toggle").hasClass("opened")){
 					$(".main-menu-wrapper").css("display","block");
+					$(".header-style4 #top-nav-clone").css("display","block");
 				} else {
 					$(".menu-toggle").css("display","none");
 				}
 			});
+			$('.enabled-top-mobile .top-navigation').tinyNav({
+        		header: '---',
+        		indent: '→'
+      		});
 		}
 	/* ==================================================
      User Login Register
@@ -231,6 +250,34 @@ jQuery(function($) {
                 directionNav: carouselArrows,
                 prevText: "",
                 nextText: "",
+				smoothHeight: false,
+				start: function(slider) { // Fires when the slider loads the first slide
+				  var slide_count = slider.count - 1;
+			
+				  $(slider)
+					.find('img.lazy:eq(0)')
+					.each(function() {
+					  var src = $(this).attr('data-src');
+					  $(this).attr('src', src).removeAttr('data-src');
+					});
+				},
+				before: function(slider) { // Fires asynchronously with each slider animation
+				  var slides     = slider.slides,
+					  index      = slider.animatingTo,
+					  $slide     = $(slides[index]),
+					  $img       = $slide.find('img[data-src]'),
+					  current    = index,
+					  nxt_slide  = current + 1,
+					  prev_slide = current - 1;
+			
+				  $slide
+					.parent()
+					.find('img.lazy:eq(' + current + '), img.lazy:eq(' + prev_slide + '), img.lazy:eq(' + nxt_slide + ')')
+					.each(function() {
+					  var src = $(this).attr('data-src');
+					  $(this).attr('src', src).removeAttr('data-src');
+					});
+				}
             });
         });
     }
@@ -243,23 +290,39 @@ jQuery(function($) {
             social_tools: "",
             deeplinking: false
         });
+		jQuery('.sort-source a').click(function(){
+			var sortval = jQuery(this).parent().attr('data-option-value');
+			$(".sort-destination li a").removeAttr('data-rel');
+    		$(".sort-destination li a").attr('data-rel', "prettyPhoto["+sortval+"]");
+		});
     }
     /* ==================================================
      Animated Counters
      ================================================== */
     NATIVE.Counters = function() {
-        $('.counters').each(function() {
-            $(".timer .count").appear(function() {
-                var counter = $(this).html();
-                $(this).countTo({
-                    from: 0,
-                    to: counter,
-                    speed: 2000,
-                    refreshInterval: 60,
-                });
-            });
-        });
-    }
+      	$('.counters').each(function () {
+			$(".timer .count").appear(function() {
+			var counter = $(this).html();
+			$(this).countTo({
+				from: 0,
+				to: counter,
+				speed: 2000,
+				refreshInterval: 60,
+				});
+			});
+		});
+		
+			$(".countdown .timer .count").appear(function() {
+			var counter = $(this).html();
+			$(this).countTo({
+				from: 0,
+				to: counter,
+				speed: 2000,
+				refreshInterval: 60,
+				});
+			});
+		
+	}
     /* ==================================================
      SuperFish menu
      ================================================== */
@@ -273,6 +336,10 @@ jQuery(function($) {
         });
         $(".navigation > ul > li:has(ul)").find("a:first").append(" <i class='fa fa-angle-down'></i>");
         $(".navigation > ul > li > ul > li:has(ul)").find("a:first").append(" <i class='fa fa-angle-right'></i>");
+        $(".navigation > ul > li > ul > li > ul > li:has(ul)").find("a:first").append(" <i class='fa fa-angle-right'></i>");
+        $(".top-navigation > li:has(ul)").find("a:first").append(" <i class='fa fa-angle-down'></i>");
+        $(".top-navigation > li > ul > li:has(ul)").find("a:first").append(" <i class='fa fa-angle-right'></i>");
+        $(".top-navigation > li > ul > li > ul > li:has(ul)").find("a:first").append(" <i class='fa fa-angle-right'></i>");
     }
     /* ==================================================
      IsoTope Portfolio
@@ -355,10 +422,12 @@ jQuery(function($) {
         NATIVE.navMenu();
         NATIVE.TwitterWidget();
         NATIVE.FlexSlider();
-        NATIVE.PrettyPhoto();
+        //NATIVE.PrettyPhoto();
         NATIVE.SuperFish();
         NATIVE.Counters();
         NATIVE.IsoTope();
+		$("#additional-media-sermons").find(".tab-content").find('.tab-pane:first-child').addClass('active');
+		$("#additional-media-sermons").find(".nav-tabs").find('li:first-child').addClass('active');
     });
 	
 	$( document ).ajaxStop( function() {
@@ -366,7 +435,7 @@ jQuery(function($) {
 	});
 	
 // FITVIDS
-    $(".container").fitVids();
+    $(".navigation, .widget, .fw-video, .video-container").fitVids();
 // Design Functions
     $(".events-listing .item").each(function() {
         var eventHeight = $(this).height();
@@ -379,6 +448,12 @@ jQuery(function($) {
         });
     });
     $(".navigation ul li").mouseover(function() {
+        the_width = $(this).find("a").width();
+        child_width = $(this).find("ul").width();
+        width = parseInt((child_width - the_width) / 2);
+        $(this).find("ul").css('left', -width);
+    });
+    $(".top-navigation li").mouseover(function() {
         the_width = $(this).find("a").width();
         child_width = $(this).find("ul").width();
         width = parseInt((child_width - the_width) / 2);
@@ -444,6 +519,7 @@ $('select[name="donation amount"]').change(function(){
     $('.custom-donate-amount').hide();
   }
 });
+jQuery('video.custom-video').mediaelementplayer();
 // Initialize Audio Player (MediaElement.js)
     // (done before video so video can use API to stop audio playback)
     if ($('.audio-player').length) {
@@ -469,10 +545,6 @@ $('select[name="donation amount"]').change(function(){
             $('.mejs-time-rail').width($('.mejs-time-rail').width() - 2);
         });
     }
-	// Featured Event Widget
-	$(".widget_featured_event").find(".sidebar-widget-title h3").prepend("<span class='featured-star'><i class='fa fa-star'></i></span>");
-	$(".widget_featured_event").find("h4.featured-event-title a").append(" <i class='fa fa-caret-right'></i>");
-	$(".widget_featured_event").has("img.featured-event-image").find(".featured-event-time").css("position","absolute");
     // Play Video Link
     $('.play-video-link').click(function(event) {
         event.preventDefault();
@@ -519,6 +591,10 @@ $('select[name="donation amount"]').change(function(){
         // Snap volume into place on first load
         $(window).trigger('resize');
     });
+	// Featured Event Widget
+	$(".widget_featured_event").find(".sidebar-widget-title h3").prepend("<span class='featured-star'><i class='fa fa-star'></i></span>");
+	$(".widget_featured_event").find("h4.featured-event-title a").append(" <i class='fa fa-caret-right'></i>");
+	$(".widget_featured_event").has("img.featured-event-image").find(".featured-event-time").css("position","absolute");
     /* Timer */
     var target = $('#counter').data('date');
             finished = false,
@@ -614,15 +690,13 @@ $('select[name="donation amount"]').change(function(){
         $(".wheighter").css("height", wheighter);
         $(".wwidth").css("width", wwidth);
     });
-	jQuery(document).ready(function($){
-		var $tallestCol;
-		$('.content').each(function(){
-		   $tallestCol = 0;
-		   $(this).find('.staff-item').each(function(){
-				($(this).height() > $tallestCol) ? $tallestCol = $(this).height() : $tallestCol = $tallestCol;
-			});   
-			if($tallestCol == 0) $tallestCol = 'auto';
-			$(".staff-item .grid-item-inner").css('height',$tallestCol);
+	// Staff Items Equal Height
+	jQuery(function() {
+		// apply matchHeight to each item container's items
+		$('.content').each(function() {
+			$(this).find('.staff-item').find('.grid-item-inner').matchHeight({
+				//property: 'min-height'
+			});
 		});
 	});
 });

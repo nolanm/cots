@@ -2,26 +2,29 @@
 /*** Widget code for Selected Post ***/
 class custom_category extends WP_Widget {
 	// constructor
-	function custom_category() {
+	public function __construct() {
 		 $widget_ops = array('description' => __( "Display latest and selected post categories of different post type.", 'imic-framework-admin') );
-        parent::WP_Widget(false, $name = __( 'Custom Categories','imic-framework-admin'), $widget_ops);
+        parent::__construct(false, $name = __( 'Custom Categories','imic-framework-admin'), $widget_ops);
 	}
 	// widget form creation
-	function form($instance) {
+	public function form($instance) {
 	
 		// Check values
 		if( $instance) {
 			 $title = esc_attr($instance['title']);
 			 $type = esc_attr($instance['type']);
+		$show = $instance['show'] ? 'checked="checked"' : '';
 		} else {
 			 $title = '';
 			 $type = '';
+			$show = '';
 		}
 	?>
         <p>
             <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', 'imic-framework-admin'); ?></label>
             <input class="spTitle" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
-        </p><p>
+        </p>
+        <p>
             <label for="<?php echo $this->get_field_id('type'); ?>"><?php _e('Select Post Type', 'imic-framework-admin'); ?></label>
             <select class="spType" id="<?php echo $this->get_field_id('type'); ?>" name="<?php echo $this->get_field_name('type'); ?>">
                 <?php
@@ -43,22 +46,26 @@ class custom_category extends WP_Widget {
                 ?>
             </select> 
         </p> 
+        <p>
+			<input class="checkbox" type="checkbox" <?php echo $show; ?> id="<?php echo $this->get_field_id('show'); ?>" name="<?php echo $this->get_field_name('show'); ?>" /> <label for="<?php echo $this->get_field_id('show'); ?>"><?php _e('Display as dropdown','framework'); ?></label></p>
 	<?php
 	}
          // update widget
-	function update($new_instance, $old_instance) {
+	public function update($new_instance, $old_instance) {
 		  $instance = $old_instance;
 		  // Fields
 		  $instance['title'] = strip_tags($new_instance['title']);
 		  $instance['type'] = strip_tags($new_instance['type']);
+		$instance['show'] = $new_instance['show'] ? 1 : 0;
 		  return $instance;
 	}
          // display widget
-	function widget($args, $instance) {
+	public function widget($args, $instance) {
 	   extract( $args );
 	   // these are the widget options
 	   $post_title = apply_filters('widget_title', $instance['title']);
 	   $type = apply_filters('widget_type', $instance['type']);
+		$d = ! empty( $instance['show'] ) ? '1' : '0';
 	   
 	   $numberPost = (!empty($number))? $number : 3 ;	
 	   echo $args['before_widget'];
@@ -83,47 +90,35 @@ class custom_category extends WP_Widget {
                 }else{
                   $post_terms = get_terms($type.'-category');  
                 }
+		if($d == '1') {
+			echo '<div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" style="font-family:sans-serif; color:#777" data-toggle="dropdown" aria-expanded="false">
+    '.$type.' '.__( 'Categories','imic-framework-admin').' <span class="caret"></span>
+  </button><ul class="dropdown-menu" role="menu">';
+		} else {
 		echo '<ul>';
+		}
 		foreach ($post_terms as $term) {
                     $term_name = $term->name;
                    $term_link = get_term_link($term,$type.'-category'); 
                $count = $term->count;
                         if($type == 'event') {
 							$count = 0;
-			global $post;
-			$argss = array( 'post_type' => 'event', 'event-category'=>$term->slug,'posts_per_page'=>-1);
-			$events_count = get_posts( $argss );
-			$inc = 0;
-			foreach($events_count as $post) {
-				setup_postdata( $post );
-				$frequency = get_post_meta(get_the_ID(),'imic_event_frequency',true);
-				$frequency_count = get_post_meta(get_the_ID(),'imic_event_frequency_count',true);
-				$event_start_date = get_post_meta(get_the_ID(),'imic_event_start_dt',true);
-				$event_start_time = get_post_meta(get_the_ID(),'imic_event_start_tm',true);
-				$event_start_date = strtotime($event_start_date.' '.$event_start_time);
-				$event_start_date = $event_start_date;
-				$current_date = date('U');
-				while($inc<=$frequency_count) {
-				$event_start_date = get_post_meta(get_the_ID(),'imic_event_start_dt',true);
-				$event_start_time = get_post_meta(get_the_ID(),'imic_event_start_tm',true);
-				$event_start_date = strtotime($event_start_date.' '.$event_start_time);
-				$event_start_date = $event_start_date;
-				$new_frequency = $inc*$frequency;
-				$increase_days = $new_frequency*86400;
-				$event_start_date = $event_start_date+$increase_days;
-				if($event_start_date>$current_date) {
-					$count = $count+1;
-				} $inc++; }
-			}
-			wp_reset_postdata();
+							$events = imic_recur_events('future','',$term->slug,'');
+							$count = count($events);
 			}
                         if((!empty($term_link))&&($count>0)){
 			echo '<li><a href="' . $term_link .'">' . $term_name . '</a> (' . $count . ')</li>';
                 }}
 		echo '</ul>';
+		if($d == '1') {
+			echo '</div>';
+		}
                 echo $args['after_widget'];
 	}
 }
 // register widget
-add_action('widgets_init', create_function('', 'return register_widget("custom_category");'));
+add_action( 'widgets_init', function(){
+	register_widget( 'custom_category' );
+});
 ?>

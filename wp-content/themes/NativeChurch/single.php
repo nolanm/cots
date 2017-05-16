@@ -1,8 +1,9 @@
 <?php get_header(); 
-$pageOptions = imic_page_design(); //page design options ?>
+$pageOptions = imic_page_design(); //page design options
+imic_sidebar_position_module(); ?>
 <div class="container">
     <div class="row">
-        <div class="<?php echo $pageOptions['class']; ?>"> 
+        <div class="<?php echo $pageOptions['class']; ?>" id="content-col"> 
         	<?php while (have_posts()):the_post(); ?>
             <header class="single-post-header clearfix">
                 <div class="pull-right post-comments-count">
@@ -27,8 +28,17 @@ $pageOptions = imic_page_design(); //page design options ?>
                         the_post_thumbnail('full');
                         echo '</div>';
                     endif;
-                   
+                   	echo '<div class="page-content">';
                     the_content();
+					wp_link_pages( array(
+						'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'framework' ) . '</span>',
+						'after'       => '</div>',
+						'link_before' => '<span>',
+						'link_after'  => '</span>',
+						'pagelink'    => '<span class="screen-reader-text"></span>%',
+						'separator'   => '<span class="screen-reader-text">/ </span>',
+					) );
+					echo '</div>';
                 if (has_tag()) {
                     echo'<div class="post-meta">';
                     echo'<i class="fa fa-tags"></i>';
@@ -44,7 +54,7 @@ $pageOptions = imic_page_design(); //page design options ?>
         </div>
         <?php if(!empty($pageOptions['sidebar'])){ ?>
         <!-- Start Sidebar -->
-        <div class="col-md-3 sidebar">
+        <div class="col-md-3 sidebar" id="sidebar-col">
             <?php dynamic_sidebar($pageOptions['sidebar']); ?>
         </div>
         <!-- End Sidebar -->

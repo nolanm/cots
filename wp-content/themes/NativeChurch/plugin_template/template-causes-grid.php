@@ -19,7 +19,11 @@ if(is_plugin_active('Payment-Imithemes/causes.php')) { ?>
                     ?>
                 	<?php
 					$paged = (get_query_var('paged'))?get_query_var('paged'):1;
-                    query_posts(array('post_type'=>'causes','paged'=>$paged,'meta_key'=>'imic_cause_status','meta_value'=>'active'));
+                    query_posts(array('post_type'=>'causes',
+					'paged'=>$paged,
+					'meta_key'=>'imic_cause_status',
+					'meta_value'=>'active'
+					));
                     if(have_posts()): ?>
                     <ul class="grid-holder col-3 causes-grid">
                     	<?php while(have_posts()):the_post();
@@ -115,9 +119,7 @@ if(is_plugin_active('Payment-Imithemes/causes.php')) { ?>
 <div class="main" role="main">
 	<div id="content" class="content full">
   		<div class="container">
-        	<div class="row">
-            	<?php _e('Please activate "Payment Imithemes" plugin first. ','framework'); ?>
-            </div>
+           	<?php _e('Please activate "Payment Imithemes" plugin first. ','framework'); ?>
         </div>
     </div>
 </div>

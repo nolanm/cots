@@ -20,6 +20,7 @@ if (!defined('ABSPATH'))
  *      imic_video_embed()
  *      imic_video_youtube()
  *      imic_video_vimeo()
+ *      imic_audio_soundcloud()
  * 	imic_register_sidebars()
  *      imic_custom_taxonomies_terms_links()    
  * 	event_time_columns()
@@ -46,12 +47,14 @@ if (!defined('ABSPATH'))
  *      imicAddQueryVarsFilter()
  *      ImicConvertDate()
  *      imic_cat_count_flag()
- *	imic_page_design()
+ *		imic_page_design()
  *      imic_get_home_recursive_event_data()
  *      imicBlogTemplateRedirect()
  *      imicGetThumbAndLargeSize()
  *      imic_disable_admin_bar()
+ * 		imic_sidebar_position_module()
  *		imic_share_buttons
+ *		IMIC SAVE EVENTS MODULE
  */
 /* THEME ACTIVATION
   ================================================== */
@@ -260,183 +263,58 @@ if (!function_exists('imic_custom_styles')) {
         echo '<style type="text/css">' . "\n";
         // Custom CSS
         $custom_css = $options['custom_css'];
-		 $header_height = $options['header_area_height'];
-                        $header_height=!empty($header_height)?$header_height:80;
-			$logo_height=!empty($header_height)?$header_height:80;
-                       $slider_height=!empty($header_height)?$header_height+1:81;
-		      $slider_margin=!empty($header_height)?$header_height+1:81;
-			  $header_style3a=!empty($header_height)?$header_height+39:119;
-			  $header_style3b=!empty($header_height)?$header_height+79:159;
+		$content_height = $options['content_min_height'];
+		$slider_behind_header = (isset($options['slider_behind_header']))?$options['slider_behind_header']:1;
+        $content_height=!empty($content_height)?$content_height:400;
+		$site_width = $options['site_width'];
+        $site_width=!empty($site_width)?$site_width:1040;
+		$site_width_spaced=!empty($site_width)?$site_width+40:1080;
+		$site_width_nav=!empty($site_width)?$site_width-30:1010;
+		$header_height = $options['header_area_height'];
+        $header_height=!empty($header_height)?$header_height:80;
+		$logo_height=!empty($header_height)?$header_height-15:65;
+        $slider_height=!empty($header_height)?$header_height+1:81;
+		$slider_margin=!empty($header_height)?$header_height+1:81;
+		$header_style3a=!empty($header_height)?$header_height+39:119;
+		$header_style3b=!empty($header_height)?$header_height+79:159;
         if ($options['theme_color_type'][0] == 1) {
             $customColor = $options['custom_theme_color'];
-            echo '.text-primary, .btn-primary .badge, .btn-link,a.list-group-item.active > .badge,.nav-pills > .active > a > .badge, p.drop-caps:first-child:first-letter, .accent-color, .events-listing .event-detail h4 a, .featured-sermon h4 a, .page-header h1, .post-more, ul.nav-list-primary > li a:hover, .widget_recent_comments a, .navigation .megamenu-container .megamenu-sub-title, .woocommerce div.product span.price, .woocommerce div.product p.price, .woocommerce #content div.product span.price, .woocommerce #content div.product p.price, .woocommerce-page div.product span.price, .woocommerce-page div.product p.price, .woocommerce-page #content div.product span.price, .woocommerce-page #content div.product p.price, .woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price, .cause-item .progress-label, .payment-to-cause a, .event-ticket h4, .event-ticket .ticket-ico{
-                                    color:' . $customColor . ';
-                            }
-                            a:hover{
-                                    color:' . $customColor . ';
-                            }
-                            .events-listing .event-detail h4 a:hover, .featured-sermon h4 a:hover, .featured-gallery p, .post-more:hover, .widget_recent_comments a:hover{
-                                    opacity:.9
-                            }
-                            p.drop-caps.secondary:first-child:first-letter, .accent-bg, .fa.accent-color, .btn-primary,
-                            .btn-primary.disabled,
-                            .btn-primary[disabled],
-                            fieldset[disabled] .btn-primary,
-                            .btn-primary.disabled:hover,
-                            .btn-primary[disabled]:hover,
-                            fieldset[disabled] .btn-primary:hover,
-                            .btn-primary.disabled:focus,
-                            .btn-primary[disabled]:focus,
-                            fieldset[disabled] .btn-primary:focus,
-                            .btn-primary.disabled:active,
-                            .btn-primary[disabled]:active,
-                            fieldset[disabled] .btn-primary:active,
-                            .btn-primary.disabled.active,
-                            .btn-primary[disabled].active,
-                            fieldset[disabled] .btn-primary.active,
-                            .dropdown-menu > .active > a,
-                            .dropdown-menu > .active > a:hover,
-                            .dropdown-menu > .active > a:focus,
-                            .nav-pills > li.active > a,
-                            .nav-pills > li.active > a:hover,
-                            .nav-pills > li.active > a:focus,
-                            .pagination > .active > a,
-                            .pagination > .active > span,
-                            .pagination > .active > a:hover,
-                            .pagination > .active > span:hover,
-                            .pagination > .active > a:focus,
-                            .pagination > .active > span:focus,
-                            .label-primary,
-                            .progress-bar,
-                            a.list-group-item.active,
-                            a.list-group-item.active:hover,
-                            a.list-group-item.active:focus,.panel-primary > .panel-heading, .carousel-indicators .active, .owl-theme .owl-controls .owl-page.active span, .owl-theme .owl-controls.clickable .owl-page:hover span, hr.sm, .flex-control-nav a:hover, .flex-control-nav a.flex-active, .title-note, .timer-col #days, .featured-block strong, .featured-gallery, .nav-backed-header, .next-prev-nav a, .event-description .panel-heading, .media-box .media-box-wrapper, .staff-item .social-icons a, .accordion-heading .accordion-toggle.active, .accordion-heading:hover .accordion-toggle, .accordion-heading:hover .accordion-toggle.inactive, .nav-tabs li a:hover, .nav-tabs li a:active, .nav-tabs li.active a, .fc-event, .fc-events, .site-header .social-icons a, .fc-event-inner, .timeline > li > .timeline-badge, .header-style3 .toprow, .featured-star, .featured-event-time,.goingon-events-floater-inner, .ticket-cost{
-                              background-color: ' . $customColor . ';
-                            }
-                            .mejs-controls .mejs-time-rail .mejs-time-loaded, p.demo_store, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce #respond input#submit.alt, .woocommerce #content input.button.alt, .woocommerce-page a.button.alt, .woocommerce-page button.button.alt, .woocommerce-page input.button.alt, .woocommerce-page #respond input#submit.alt, .woocommerce-page #content input.button.alt, .woocommerce .woocommerce-info:before, .woocommerce-page .woocommerce-info:before, .woocommerce .woocommerce-message:before, .woocommerce-page .woocommerce-message:before, .woocommerce span.onsale, .woocommerce-page span.onsale, .wpcf7-form .wpcf7-submit, .woocommerce .widget_price_filter .ui-slider .ui-slider-handle, .woocommerce-page .widget_price_filter .ui-slider .ui-slider-handle, .woocommerce .widget_layered_nav ul li.chosen a, .woocommerce-page .widget_layered_nav ul li.chosen a{
-                              background: ' . $customColor . ';
-                            }
-							.share-buttons.share-buttons-tc > li > a{
-							  background: . $customColor . !important;
-							}
-                            .btn-primary:hover,
-                            .btn-primary:focus,
-                            .btn-primary:active,
-                            .btn-primary.active,
-                            .open .dropdown-toggle.btn-primary, .next-prev-nav a:hover, .staff-item .social-icons a:hover, .site-header .social-icons a:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover, .woocommerce #respond input#submit.alt:hover, .woocommerce #content input.button.alt:hover, .woocommerce-page a.button.alt:hover, .woocommerce-page button.button.alt:hover, .woocommerce-page input.button.alt:hover, .woocommerce-page #respond input#submit.alt:hover, .woocommerce-page #content input.button.alt:hover, .woocommerce a.button.alt:active, .woocommerce button.button.alt:active, .woocommerce input.button.alt:active, .woocommerce #respond input#submit.alt:active, .woocommerce #content input.button.alt:active, .woocommerce-page a.button.alt:active, .woocommerce-page button.button.alt:active, .woocommerce-page input.button.alt:active, .woocommerce-page #respond input#submit.alt:active, .woocommerce-page #content input.button.alt:active, .wpcf7-form .wpcf7-submit{
-                              background: ' . $customColor . ';
-                              opacity:.9
-                            }
-							.woocommerce .woocommerce-info, .woocommerce-page .woocommerce-info, .woocommerce .woocommerce-message, .woocommerce-page .woocommerce-message{
-							border-top-color: ' .$customColor . ';
-							}
-                            .nav .open > a,
-                            .nav .open > a:hover,
-                            .nav .open > a:focus,
-                            .pagination > .active > a,
-                            .pagination > .active > span,
-                            .pagination > .active > a:hover,
-                            .pagination > .active > span:hover,
-                            .pagination > .active > a:focus,
-                            .pagination > .active > span:focus,
-                            a.thumbnail:hover,
-                            a.thumbnail:focus,
-                            a.thumbnail.active,
-                            a.list-group-item.active,
-                            a.list-group-item.active:hover,
-                            a.list-group-item.active:focus,
-                            .panel-primary,
-                            .panel-primary > .panel-heading, .fc-event, .fc-events, .event-ticket-left .ticket-handle{
-                                    border-color:' . $customColor . ';
-                            }
-                            .panel-primary > .panel-heading + .panel-collapse .panel-body{
-                                    border-top-color:' . $customColor . ';
-                            }
-                            .panel-primary > .panel-footer + .panel-collapse .panel-body{
-                                    border-bottom-color:' . $customColor . ';
-                            }
-                            blockquote{
-                                    border-left-color:' . $customColor . ';
-                            }';
+            echo '.text-primary, .btn-primary .badge, .btn-link,a.list-group-item.active > .badge,.nav-pills > .active > a > .badge, p.drop-caps:first-child:first-letter, .accent-color, .events-listing .event-detail h4 a, .featured-sermon h4 a, .page-header h1, .post-more, ul.nav-list-primary > li a:hover, .widget_recent_comments a, .navigation .megamenu-container .megamenu-sub-title, .woocommerce div.product span.price, .woocommerce div.product p.price, .woocommerce #content div.product span.price, .woocommerce #content div.product p.price, .woocommerce-page div.product span.price, .woocommerce-page div.product p.price, .woocommerce-page #content div.product span.price, .woocommerce-page #content div.product p.price, .woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price, .cause-item .progress-label, .payment-to-cause a, .event-ticket h4, .event-ticket .ticket-ico{color:' . $customColor . ';}a:hover{color:' . $customColor . ';}.events-listing .event-detail h4 a:hover, .featured-sermon h4 a:hover, .featured-gallery p, .post-more:hover, .widget_recent_comments a:hover{opacity:.9}p.drop-caps.secondary:first-child:first-letter, .accent-bg, .fa.accent-color, .btn-primary,.btn-primary.disabled,.btn-primary[disabled],fieldset[disabled] .btn-primary,.btn-primary.disabled:hover,.btn-primary[disabled]:hover,fieldset[disabled] .btn-primary:hover,.btn-primary.disabled:focus,.btn-primary[disabled]:focus,fieldset[disabled] .btn-primary:focus,.btn-primary.disabled:active,.btn-primary[disabled]:active,fieldset[disabled] .btn-primary:active,.btn-primary.disabled.active,.btn-primary[disabled].active,fieldset[disabled] .btn-primary.active,.dropdown-menu > .active > a,.dropdown-menu > .active > a:hover,.dropdown-menu > .active > a:focus,.nav-pills > li.active > a,.nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus,.pagination > .active > a,.pagination > .active > span,.pagination > .active > a:hover,.pagination > .active > span:hover,.pagination > .active > a:focus,.pagination > .active > span:focus,.label-primary,.progress-bar,a.list-group-item.active,a.list-group-item.active:hover,a.list-group-item.active:focus,.panel-primary > .panel-heading, .carousel-indicators .active, .owl-theme .owl-controls .owl-page.active span, .owl-theme .owl-controls.clickable .owl-page:hover span, hr.sm, .flex-control-nav a:hover, .flex-control-nav a.flex-active, .title-note, .timer-col #days, .featured-block strong, .featured-gallery, .nav-backed-header, .next-prev-nav a, .event-description .panel-heading, .media-box .media-box-wrapper, .staff-item .social-icons a, .accordion-heading .accordion-toggle.active, .accordion-heading:hover .accordion-toggle, .accordion-heading:hover .accordion-toggle.inactive, .nav-tabs li a:hover, .nav-tabs li a:active, .nav-tabs li.active a, .site-header .social-icons a, .timeline > li > .timeline-badge, .header-style3 .toprow, .featured-star, .featured-event-time,.goingon-events-floater-inner, .ticket-cost, .bbp-search-form input[type="submit"]:hover{background-color: ' . $customColor . ';}.fc-event{background-color: ' . $customColor . ';}.mejs-controls .mejs-time-rail .mejs-time-loaded, p.demo_store, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce #respond input#submit.alt, .woocommerce #content input.button.alt, .woocommerce-page a.button.alt, .woocommerce-page button.button.alt, .woocommerce-page input.button.alt, .woocommerce-page #respond input#submit.alt, .woocommerce-page #content input.button.alt, .woocommerce span.onsale, .woocommerce-page span.onsale, .wpcf7-form .wpcf7-submit, .woocommerce .widget_price_filter .ui-slider .ui-slider-handle, .woocommerce-page .widget_price_filter .ui-slider .ui-slider-handle, .woocommerce .widget_layered_nav ul li.chosen a, .woocommerce-page .widget_layered_nav ul li.chosen a{background: ' . $customColor . ';}.share-buttons.share-buttons-tc > li > a{background: . $customColor . !important;}.btn-primary:hover,.btn-primary:focus,.btn-primary:active,.btn-primary.active,.open .dropdown-toggle.btn-primary, .next-prev-nav a:hover, .staff-item .social-icons a:hover, .site-header .social-icons a:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover, .woocommerce #respond input#submit.alt:hover, .woocommerce #content input.button.alt:hover, .woocommerce-page a.button.alt:hover, .woocommerce-page button.button.alt:hover, .woocommerce-page input.button.alt:hover, .woocommerce-page #respond input#submit.alt:hover, .woocommerce-page #content input.button.alt:hover, .woocommerce a.button.alt:active, .woocommerce button.button.alt:active, .woocommerce input.button.alt:active, .woocommerce #respond input#submit.alt:active, .woocommerce #content input.button.alt:active, .woocommerce-page a.button.alt:active, .woocommerce-page button.button.alt:active, .woocommerce-page input.button.alt:active, .woocommerce-page #respond input#submit.alt:active, .woocommerce-page #content input.button.alt:active, .wpcf7-form .wpcf7-submit{background: ' . $customColor . ';opacity:.9}.woocommerce .woocommerce-info, .woocommerce-page .woocommerce-info, .woocommerce .woocommerce-message, .woocommerce-page .woocommerce-message{border-top-color: ' .$customColor . ';}.nav .open > a,.nav .open > a:hover,.nav .open > a:focus,.pagination > .active > a,.pagination > .active > span,.pagination > .active > a:hover,.pagination > .active > span:hover,.pagination > .active > a:focus,.pagination > .active > span:focus,a.thumbnail:hover,a.thumbnail:focus,a.thumbnail.active,a.list-group-item.active,a.list-group-item.active:hover,a.list-group-item.active:focus,.panel-primary,.panel-primary > .panel-heading, .fc-events, .event-ticket-left .ticket-handle{border-color:' . $customColor . ';}.fc-event{border-color:' . $customColor . ';}.panel-primary > .panel-heading + .panel-collapse .panel-body{border-top-color:' . $customColor . ';}.panel-primary > .panel-footer + .panel-collapse .panel-body{border-bottom-color:' . $customColor . ';}blockquote{border-left-color:' . $customColor . ';}';
         }
-		echo '.site-header .topbar{
-								height:'.$header_height.'px;
-							}
-							.site-header h1.logo{
-								height:'.$logo_height.'px;
-							}
-							.home .hero-slider{
-								top:-'.$slider_height.'px;
-								margin-bottom:-'.$slider_margin.'px;
-							}
-							.home .slider-revolution-new{
-								top:-'.$slider_height.'px;
-								margin-bottom:-'.$slider_margin.'px;
-							}
-							@media only screen and (max-width: 992px) {
-								.main-menu-wrapper{
-									top:'.$header_height.'px;
-								}
-							}
-							@media only screen and (max-width: 992px) {
-								.header-style3 .main-menu-wrapper{
-									top:'.$header_style3a.'px;
-								}
-							}
-							@media only screen and (max-width: 767px) {
-								.header-style3 .main-menu-wrapper{
-									top:'.$header_style3b.'px;
-								}
-							}';
+		echo '@media (min-width:1200px){.container{width:'.$site_width.'px;} .navigation{width:'.$site_width_nav.'px}}
+		body.boxed .body{max-width:'.$site_width_spaced.'px}
+		@media (min-width: 1200px) {body.boxed .body .site-header, body.boxed .body .main-menu-wrapper{width:'.$site_width_spaced.'px;}}';
+		if ($options['header_wide_width'] == 1) {
+			echo '.topbar > .container, .toprow > .container{width:100%;}';
+		}
+		if ($options['footer_wide_width'] == 1) {
+			echo '.site-footer > .container, .site-footer-bottom > .container{width:100%;}';
+		}
+		if ($options['recurring_icon'] == 1) {
+			echo '.recurring-info-icon{display:inline-block;}';
+		} else {
+			echo '.recurring-info-icon{display:none;}';
+		}
+		if($slider_behind_header == 0){
+			echo '@media only screen and (max-width: 767px) {.home .hero-slider, .home .slider-revolution-new{top:0!important; margin-bottom:0!important;}}';
+		}
+		if ($options['sidebar_position'] == 2) {
+			echo ' #content-col, #sidebar-col{float:right!important;}';
+		}
+		if (isset($options['content_wide_width'])&&$options['content_wide_width'] == 1)
+		{
+			echo '.content .container{width:100%;}';
+		}
+		if ($options['event_google_icon'] == 1) {
+			echo '.event-detail h4 a[href^="https://www.google"]:before, .events-grid .grid-content h3 a[href^="https://www.google"]:before, h3.timeline-title a[href^="https://www.google"]:before{display:inline-block;}';
+		} else {
+			echo '.event-detail h4 a[href^="https://www.google"]:before, .events-grid .grid-content h3 a[href^="https://www.google"]:before, h3.timeline-title a[href^="https://www.google"]:before{display:none;}';
+		}
 		
-		//Body Fonts
-		$body_font=$options['body_font_typography']['font-family'];
-        $body_font=!empty($body_font)?$body_font:'Roboto';
-		//$body_font_color=$options['body_font_typography']['color'];
-        //$body_font_color=!empty($body_font_color)?$body_font_color:'#333333';
-		$body_font_spacing=$options['body_font_typography']['letter-spacing'];
-        $body_font_spacing=!empty($body_font_spacing)?$body_font_spacing:'0px';
-		$body_font_backup=$options['body_font_typography']['font-backup'];
-        $body_font_backup=!empty($body_font_backup)?$body_font_backup:$body_font;
-		$body_font_word=$options['body_font_typography']['word-spacing'];
-        $body_font_word=!empty($body_font_word)?$body_font_word:'';
-		//Heading Fonts
-        $heading_font=$options['heading_font_typography']['font-family'];
-        $heading_font=!empty($heading_font)?$heading_font:'Roboto Condensed';
-		//$heading_font_color=$options['body_font_typography']['color'];
-        //$heading_font_color=!empty($heading_font_color)?$heading_font_color:'#cccccc';
-		$heading_font_spacing=$options['heading_font_typography']['letter-spacing'];
-        $heading_font_spacing=!empty($heading_font_spacing)?$heading_font_spacing:'0px';
-		$heading_font_backup=$options['heading_font_typography']['font-backup'];
-        $heading_font_backup=!empty($heading_font_backup)?$heading_font_backup:$heading_font;
-		$heading_font_word=$options['heading_font_typography']['word-spacing'];
-        $heading_font_word=!empty($heading_font_word)?$heading_font_word:'';
-		//Meta Fonts
-        $metatext_date_font=$options['metatext_date_font_typography']['font-family'];
-        $metatext_date_font=!empty($metatext_date_font)?$metatext_date_font:'Volkhov';
-		//$metatext_date_font_color=$options['body_font_typography']['color'];
-        //$metatext_date_font_color=!empty($metatext_date_font_color)?$metatext_date_font_color:'#ffffff';
-		$metatext_date_font_spacing=$options['metatext_date_font_typography']['letter-spacing'];
-        $metatext_date_font_spacing=!empty($metatext_date_font_spacing)?$metatext_date_font_spacing:'0';
-		$metatext_date_font_backup=$options['metatext_date_font_typography']['font-backup'];
-        $metatext_date_font_backup=!empty($metatext_date_font_backup)?$metatext_date_font_backup:$metatext_date_font;
-		$metatext_date_font_word=$options['metatext_date_font_typography']['word-spacing'];
-        $metatext_date_font_word=!empty($metatext_date_font_word)?$metatext_date_font_word:'0';
-                 echo 'h1,h2,h3,h4,h5,h6,body,.event-item .event-detail h4,.site-footer-bottom{
-                                    font-family:"' .$body_font .'","'.$body_font_backup.'";
-										letter-spacing:'.$body_font_spacing.';
-										word-spacing:'.$body_font_word.';
-                                    }';
-                  echo 'h4,.title-note,.btn,.top-navigation,.navigation,.notice-bar-title strong,.timer-col #days, .timer-col #hours, .timer-col #minutes, .timer-col #seconds,.event-date,.event-date .date,.featured-sermon .date,.page-header h1,.timeline > li > .timeline-badge span,.woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce #respond input#submit, .woocommerce #content input.button, .woocommerce-page a.button, .woocommerce-page button.button, .woocommerce-page input.button, .woocommerce-page #respond input#submit, .woocommerce-page #content input.button{
-                                    font-family:"' .$heading_font .'","'.$heading_font_backup.'";
-										letter-spacing:'.$heading_font_spacing.';
-										word-spacing:'.$heading_font_word.';
-                                    }';
-                   echo 'blockquote p,.cursive,.meta-data,.fact{
-                                    font-family:"' .$metatext_date_font .'","'.$metatext_date_font_backup.'";
-										letter-spacing:'.$metatext_date_font_spacing.';
-										word-spacing:'.$metatext_date_font_word.';
-                                    }';
+		echo '
+			.content{min-height:'.$content_height.'px;}.site-header .topbar{height:'.$header_height.'px;}.site-header h1.logo{height:'.$logo_height.'px;}.home .hero-slider{top:-'.$slider_height.'px;margin-bottom:-'.$slider_margin.'px;}.home .slider-revolution-new{top:-'.$slider_height.'px;margin-bottom:-'.$slider_margin.'px;}.header-style4 .top-navigation > li ul{top:'.$header_height.'px;}.header-style4 .top-navigation > li > a{line-height:'.$header_height.'px;}@media only screen and (max-width: 992px) {.main-menu-wrapper{top:'.$header_height.'px;}}@media only screen and (max-width: 992px) {.header-style3 .main-menu-wrapper{top:'.$header_style3a.'px;}.header-style4 #top-nav-clone{top:'.$header_height.'px;}}@media only screen and (max-width: 767px) {.header-style3 .main-menu-wrapper{top:'.$header_style3b.'px;}}';
+
+		
         // USER STYLES
         if ($custom_css) {
             echo "\n" . '/*========== User Custom CSS Styles ==========*/' . "\n";
@@ -478,32 +356,44 @@ if (!function_exists('imic_content_filter')) {
 /* VIDEO EMBED FUNCTIONS
   ================================================== */
 if (!function_exists('imic_video_embed')) {
-    function imic_video_embed($url, $width = 200, $height = 150) {
+    function imic_video_embed($url, $width = 200, $height = 150,$autopaly=0) {
         if (strpos($url, 'youtube') || strpos($url, 'youtu.be')) {
-            return imic_video_youtube($url, $width, $height);
+            return imic_video_youtube($url, $width, $height,$autopaly);
         } else {
-            return imic_video_vimeo($url, $width, $height);
+            return imic_video_vimeo($url, $width, $height,$autopaly);
         }
     }
 }
 /* Video Youtube
   ================================================== */
 if (!function_exists('imic_video_youtube')) {
-    function imic_video_youtube($url, $width = 200, $height = 150) {
+    function imic_video_youtube($url, $width = 200, $height = 150,$autopaly) {
         if (stristr($url,'youtu.be/'))
-        { preg_match('/(https:|http:|)(\/\/www\.|\/\/|)(.*?)\/(.{11})/i', $url, $video_id); return '<iframe itemprop="video" src="http://www.youtube.com/embed/' . $video_id[4] . '?wmode=transparent&autoplay=0" width="' . $width . '" height="' . $height . '" ></iframe>'; }
+        { preg_match('/(https:|http:|)(\/\/www\.|\/\/|)(.*?)\/(.{11})/i', $url, $video_id); return '<iframe itemprop="video" src="https://youtube.com/embed/' . $video_id[4] . '?autoplay='.$autopaly.'&rel=0" width="' . $width . '" height="' . $height . '" ></iframe>'; }
     else 
-        { preg_match('/(https:|http:|):(\/\/www\.|\/\/|)(.*?)\/(embed\/|watch\?v=|(.*?)&v=|v\/|e\/|.+\/|watch.*v=|)([a-z_A-Z0-9]{11})/i', $url, $video_id); return '<iframe itemprop="video" src="http://www.youtube.com/embed/' . $video_id[6] . '?wmode=transparent&autoplay=0" width="' . $width . '" height="' . $height . '" ></iframe>';
+        { preg_match('/(https:|http:|):(\/\/www\.|\/\/|)(.*?)\/(embed\/|watch\?v=|(.*?)&v=|v\/|e\/|.+\/|watch.*v=|)([a-z_A-Z0-9]{11})/i', $url, $video_id); return '<iframe itemprop="video" src="https://youtube.com/embed/' . $video_id[6] . '?autoplay='.$autopaly.'&rel=0" width="' . $width . '" height="' . $height . '" ></iframe>';
 		}
     }
 }
 /* Video Vimeo
   ================================================== */
 if (!function_exists('imic_video_vimeo')) {
-   function imic_video_vimeo($url, $width = 200, $height = 150) {
+   function imic_video_vimeo($url, $width = 200, $height = 150,$autopaly) {
         preg_match('/https?:\/\/vimeo.com\/(\d+)$/', $url, $video_id);
-        return '<iframe src="//player.vimeo.com/video/' . $video_id[1] . '?title=0&amp;byline=0&amp;autoplay=0&amp;portrait=0" width="' . $width . '" height="' . $height . '" allowfullscreen></iframe>';
+        return '<iframe src="https://player.vimeo.com/video/' . $video_id[1] . '" width="' . $width . '" height="' . $height . '" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
     }
+}
+
+/* Soundcloud Audio
+====================================================== */
+//Get the SoundCloud URL
+if (!function_exists('imic_audio_soundcloud')) {
+   function imic_audio_soundcloud($url, $width = "100%", $height = 250) {
+$getValues=file_get_contents('http://soundcloud.com/oembed?format=js&url='.$url.'&iframe=true');
+$decodeiFrame=substr($getValues, 1, -2);
+$jsonObj = json_decode($decodeiFrame);
+return str_replace('height="200"', 'height="250"', $jsonObj->html);
+   }
 }
 /* REGISTER SIDEBARS
   ================================================== */
@@ -596,185 +486,14 @@ if (!function_exists('imic_register_sidebars')) {
     }
     add_action('init', 'imic_register_sidebars', 35);
 }
-/* EVENT GRID FUNCTION
-  ================================================== */
-function imic_event_grid() {
-	$EventTerm = '';
-	$offset = get_option('timezone_string');
-		if($offset=='') { $offset = "Australia/Melbourne"; }
-	date_default_timezone_set($offset);
-    echo '<div class="listing events-listing">
-	<header class="listing-header">
-		<div class="row">
-			<div class="col-md-6 col-sm-6">
-				<h3>' . __('All events', 'framework') . '</h3>
-		  </div>
-		  <div class="listing-header-sub col-md-6 col-sm-6">';
-    $currentEventTime = $_POST['date'];
-	$EventTerm = $_POST['term'];
-    $prev_month = date('Y-m', strtotime('-1 month', strtotime($currentEventTime)));
-    $next_month = date('Y-m', strtotime('+1 month', strtotime($currentEventTime)));
-    echo '<h5>' . date_i18n('F', strtotime($currentEventTime)) . '</h5>
-				<nav class="next-prev-nav">
-					<a href="javascript:" class="upcomingEvents" rel="'.$EventTerm.'" id="' . $prev_month . '"><i class="fa fa-angle-left"></i></a>
-					<a href="javascript:" class="upcomingEvents" rel="'.$EventTerm.'" id="' . $next_month . '"><i class="fa fa-angle-right"></i></a>
-				</nav>
-		  </div>
-	  </div>
-	</header>
-	<section class="listing-cont">
-	  <ul>';
-    $today = date('Y-m');
-	$curr_month = date('Y-m-t', strtotime('-1 month', strtotime($currentEventTime)));
-    $currentTime = date(get_option('time_format'));
-    query_posts(array(
-        'post_type' => 'event',
-		'event-category'=>$EventTerm,
-        'meta_key' => 'imic_event_start_dt',
-        'meta_query' => array(
-            'relation' => 'AND',
-			array(
-                'key' => 'imic_event_frequency_end',
-                'value' => $curr_month,
-                'compare' => '>'
-            ),
-            array(
-                'key' => 'imic_event_start_dt',
-                'value' => date('Y-m-t 23:59', strtotime($currentEventTime)),
-                'compare' => '<='
-            )),
-        'orderby' => 'meta_value',
-        'order' => 'ASC',
-        'posts_per_page' => -1
-            )
-    );
-    $count = 0;
-	$sinc = 1;
-	$sp = array();
-    if (have_posts()) {
-        while (have_posts()):the_post();
-            $custom_event = get_post_custom(get_the_ID());
-            $eventStartDate = strtotime(get_post_meta(get_the_ID(),'imic_event_start_dt',true));
-            $eventStartTime = strtotime(get_post_meta(get_the_ID(),'imic_event_start_tm',true));
-            $eventMonth = date('n', $eventStartDate);
-			$frequency = get_post_meta(get_the_ID(),'imic_event_frequency',true);
-			$frequency_count = '';
-			$frequency_count = get_post_meta(get_the_ID(),'imic_event_frequency_count',true);
-			if($frequency>0) { $frequency_count = $frequency_count; } else { $frequency_count = 0; }
-			$seconds = $frequency*86400;
-			$sai = 0;
-			while($sai<=$frequency_count) {
-			$icon = "";
-			$eventStartDate = $custom_event['imic_event_start_dt'][0];
-			$eventStartTime = $custom_event['imic_event_start_tm'][0];
-			$eventStartDate = strtotime($eventStartDate.' '.$eventStartTime);
-			if($frequency==30) {
-			$eventStartDate = strtotime("+".$sai." month", $eventStartDate);
-			}
-			else {
-			$sv = $sai*$seconds;
-			$eventStartDate = $eventStartDate+$sv;
-			}
-			$sn = date('Y-m-t 23:59',strtotime($currentEventTime));
-			$month_start_date = date('Y-m-1',strtotime($currentEventTime));
-			if($eventStartDate>=strtotime($month_start_date)&&($eventStartDate<=strtotime($sn))) {
-            if (strtotime($currentEventTime) == strtotime($today)) {
-                if ($eventStartDate == strtotime(date('Y-m-d'))) {
-                    if ($eventStartTime > strtotime($currentTime)) {
-						$sp[$eventStartDate+$sinc] = get_the_ID();
-						$sinc++;
-                        $count++;
-                    }
-                } elseif ($eventStartDate > strtotime(date('Y-m-d'))) {
-					$sp[$eventStartDate+$sinc] = get_the_ID();
-						$sinc++;
-                    $count++;
-                }
-            } else {
-				$sp[$eventStartDate+$sinc] = get_the_ID();
-						$sinc++;
-                $count++;
-            } } $sai++; }
-        endwhile; 
-    }
-	$this_month_last = strtotime(date('Y-m-t 23:59', strtotime($currentEventTime)));
-	$google_events = getGoogleEvent($this_month_last);
-	$new_events = $google_events+$sp;
-        ksort($new_events);
-        if(!empty($new_events)){
-	foreach($new_events as $key =>$value) {
-          if(preg_match('/^[0-9]+$/',$value)){
-            $frequency = get_post_meta($value, 'imic_event_frequency', true);
-       	$frequency_count = get_post_meta($value, 'imic_event_frequency_count', true);
-		switch($frequency) {
-			case 1:
-			$recur = 'Every Day';
-			break;
-			case 2:
-			$recur = 'Every Second Day';
-			break;
-			case 3:
-			$recur = 'Every Third Day';
-			break;
-			case 4:
-			$recur = 'Every Fourth Day';
-			break;
-			case 5:
-			$recur = 'Every Fifth Day';
-			break;
-			case 6:
-			$recur = 'Every Sixth Day';
-			break;
-			case 7:
-			$recur = 'Every Week';
-			break;
-			case 30:
-			$recur = 'Every Month';
-			break;
-		}   
-				$satime = get_post_meta($value,'imic_event_start_tm',true);
-				$satime = strtotime($satime);
-                                $date_converted=date('Y-m-d',$key );
-                                $custom_event_url =  imic_query_arg($date_converted,$value);
-                               $event_title= get_the_title($value);
-                                }
-                                else{
-                                   $google_data =(explode('!',$value)); 
-                                   $event_title=$google_data[0];
-                                   $custom_event_url=$google_data[1];
-                                   $satime =$key;
-                                }
-                                echo '<li class="item event-item">	
-				  <div class="event-date"> <span class="date">' . date_i18n('d', $key) . '</span> <span class="month">' .imic_global_month_name($key). '</span> </div>
-				  <div class="event-detail">
-                                      <h4><a href="'.$custom_event_url.'">' . $event_title .'</a>'.imicRecurrenceIcon($value).'</h4>';
-                $stime = '';
-                if ($satime != '') {
-                    $stime = ' | ' . date(get_option('time_format'), $satime);
-                }
-                   
-            
-                echo '<span class="event-dayntime meta-data">' . date_i18n('l', $key) . $stime . '</span> </div>
-				  <div class="to-event-url">
-					<div><a href="' .$custom_event_url.'" class="btn btn-default btn-sm">' . __('Details', 'framework') . '</a></div>
-				  </div>
-				</li>';
-	}
-        }
-        else {
-        echo '<li class="item event-item">	
-			  <div class="event-detail">
-				<h4>' . __('Sorry, there are no events for this month.', 'framework') . '</h4>
-			  </div>
-			</li>';
-    }
-    echo '</ul>
-	</section>
-  </div>';
-    die();
+if (!function_exists('imic_dateDiff')) {
+function imic_dateDiff($start, $end) {
+  $start_ts = strtotime($start);
+  $end_ts = strtotime($end);
+  $diff = $end_ts - $start_ts;
+  return round($diff / 86400);
 }
-add_action('wp_ajax_nopriv_imic_event_grid', 'imic_event_grid');
-add_action('wp_ajax_imic_event_grid', 'imic_event_grid');
+}
 // get taxonomies terms links
 if (!function_exists('imic_custom_taxonomies_terms_links')) {
     function imic_custom_taxonomies_terms_links() {
@@ -804,73 +523,6 @@ if (!function_exists('imic_custom_taxonomies_terms_links')) {
             }
         }
         return implode('', $out);
-    }
-}
-//Manage Custom Columns for Event Post Type 
-if (!function_exists('event_time_columns')) {
-    add_filter('manage_edit-event_columns', 'event_time_columns');
-    function event_time_columns($columns) {
-        $columns['Event'] = __('Event', 'framework');
-        $columns['Attendees'] = __('Attendees', 'framework');
-        $columns['Staff'] = __('Staff', 'framework');
-		$columns['Recurring'] = __('Recurring', 'framework');
-        return $columns;
-    }
-}
-if (!function_exists('event_time_column_content')) {
-    add_action('manage_event_posts_custom_column', 'event_time_column_content', 10, 2);
-    function event_time_column_content($column_name, $post_id) {
-        switch ($column_name) {
-            case 'Event':
-                $sdate = get_post_meta($post_id, 'imic_event_start_dt', true);
-                $stime = get_post_meta($post_id, 'imic_event_start_tm', true);
-				$edate = get_post_meta($post_id, 'imic_event_end_dt', true);
-                $etime = get_post_meta($post_id, 'imic_event_end_tm', true);
-                echo '<abbr title="'.$sdate .' '.$stime.'">'.$sdate.'</abbr><br title="'.$edate.' '.$etime.'">'.$edate;
-                break;
-            case 'Attendees':
-                $attendees = get_post_meta($post_id, 'imic_event_attendees', true);
-                echo $attendees;
-                break;
-            case 'Staff':
-                $staff = get_post_meta($post_id, 'imic_event_staff_members', true);
-                echo $staff;
-                break;
-			case 'Recurring':
-                $frequency = get_post_meta($post_id, 'imic_event_frequency', true);
-				$frequency_count = get_post_meta($post_id, 'imic_event_frequency_count', true);
-				if($frequency==1){ $sent = "Every Day"; }
-				elseif($frequency==2){ $sent = "Every 2nd Day"; }
-				elseif($frequency==3){ $sent = "Every 3rd Day"; }
-				elseif($frequency==4){ $sent = "Every 4th Day"; }
-				elseif($frequency==5){ $sent = "Every 5th Day"; }
-				elseif($frequency==6){ $sent = "Every 6th Day"; }
-				elseif($frequency==30){ $sent = "Every Month"; }
-				else{ $sent = "Every week"; }
-				if($frequency>0) {
-                echo '<abbr title="'.$sent .' '.$sent.'">'.$sent.'</abbr><br>'.$frequency_count.' time';
-				}
-                break;
-        }
-    }
-}
-if (!function_exists('sortable_event_column')) {
-    add_filter('manage_edit-event_sortable_columns', 'sortable_event_column');
-    function sortable_event_column($columns) {
-        $columns['Event'] = 'event';
-        return $columns;
-    }
-}
-if (!function_exists('event_time_orderby')) {
-    add_action('pre_get_posts', 'event_time_orderby');
-    function event_time_orderby($query) {
-        if (!is_admin())
-            return;
-        $orderby = $query->get('orderby');
-        if ('event' == $orderby) {
-            $query->set('meta_key', 'imic_event_start_dt');
-            $query->set('orderby', 'meta_value');
-        }
     }
 }
 /**
@@ -908,7 +560,19 @@ if (!function_exists('imic_register_meta_box')) {
                     'type' => 'select',
                     'options' => imic_get_all_sidebars(),
                 ),
-            )
+                array(
+                    'name' => 'Select Sidebar Position',
+                    'id' => $prefix . 'select_sidebar_position',
+                    'desc' => __("Select Sidebar Postion", 'framework'),
+                    'type' => 'radio',
+                    'options' => array(
+						'1' => 'Right',
+						'2' => 'Left'
+					),
+					'default' => '1'
+                ),
+            ),
+            
         );
         new RW_Meta_Box($meta_box);
     }
@@ -944,13 +608,23 @@ function afterSavePost()
 	$post_type = get_post_type($postId);
 	if($post_type=='event')
 	{
-		
+		/////////////////////////////////////////////////////////////////
 		$sdate = get_post_meta($postId,'imic_event_start_dt',true);
+		$start_time = get_post_meta($postId,'imic_event_start_tm',true);
+		$end_time = get_post_meta($postId,'imic_event_end_tm',true);
+		$all_day = get_post_meta($postId,'imic_event_all_day',true);
+		$all_day = ($all_day == null||$all_day == 0)?0:$all_day;
+		////////////////////////////////////////////////////////////////
+		$sdate_unix = strtotime($sdate);
+		$sdate_ymd = date('Y-m-d',$sdate_unix);
 		$end_event_date = get_post_meta($postId,'imic_event_end_dt',true);
+		$edate_unix = strtotime($end_event_date);
+		$edate_ymd = date('Y-m-d',$edate_unix);
 		if($end_event_date=='') { update_post_meta($postId,'imic_event_end_dt',$sdate); }
 		$frequency = get_post_meta($postId,'imic_event_frequency',true);
 		$frequency_count = get_post_meta($postId,'imic_event_frequency_count',true);
 		$value = strtotime($sdate);
+		if($frequency==32) { $frequency_count = 20; }
 		if($frequency==30) {
 		$svalue = strtotime("+".$frequency_count." month", $value);
 		$suvalue = date('Y-m-d',$svalue);
@@ -960,7 +634,18 @@ function afterSavePost()
 		$suvalue = $svalue+$value;
 		$suvalue = date('Y-m-d',$suvalue);
 		}
-		update_post_meta($postId,'imic_event_frequency_end',$suvalue);
+		$count_days = imic_dateDiff($sdate_ymd,$edate_ymd);
+		if($count_days>0) { $suvalue = $edate_ymd; }
+		update_post_meta($postId,'imic_event_frequency_end',$suvalue); 
+		#if user not check all day checkbox as well as empty start,end time than update time here.
+		if($all_day == 0 && empty($start_time))
+		{
+			update_post_meta($postId,'imic_event_start_tm','23:59');
+		}
+		if($all_day == 0 && empty($end_time))
+		{
+			update_post_meta($postId,'imic_event_end_tm','23:59');
+		}
 	} }
 }
 afterSavePost();
@@ -1101,42 +786,7 @@ if (!function_exists('imic_get_recursive_event_data')) {
         $event_add_menu = array();
         $sinc = 1;
         $item_output = '';
-        $today_menu = date('Y-m-d');
-        $posts_event = get_posts(array('post_type' => $menuposttype, 'p' => $p, 'post_status' => 'publish', 'meta_key' => 'imic_event_start_dt', 'suppress_filters' => false, 'meta_query' => array(array('key' => 'imic_event_frequency_end', 'value' => $today_menu, 'compare' => '>=')), 'orderby' => 'meta_value', 'order' => 'ASC', 'posts_per_page' => $menupost));
-        if (!empty($posts_event)) {
-            foreach ($posts_event as $event_post_data) {
-                $eventDate = strtotime(get_post_meta($event_post_data->ID, 'imic_event_start_dt', true));
-                $eventTime = get_post_meta($event_post_data->ID, 'imic_event_start_tm', true);
-               
-                $frequency = get_post_meta($event_post_data->ID, 'imic_event_frequency', true);
-                $frequency_count = '';
-                $frequency_count = get_post_meta($event_post_data->ID, 'imic_event_frequency_count', true);
-                if ($frequency > 0) {
-                    $frequency_count = $frequency_count;
-                } 
-                else { $frequency_count = 0; }
-                $seconds = $frequency * 86400;
-                $fr_repeat = 0;
-                while ($fr_repeat <= $frequency_count) {
-                    $eventDate = get_post_meta($event_post_data->ID, 'imic_event_start_dt', true);
-					$eventStartTime = get_post_meta($event_post_data->ID,'imic_event_start_tm',true);
-                    $eventDate = strtotime($eventDate.' '.$eventStartTime);
-                    if($frequency==30) {
-			$eventDate = strtotime("+".$fr_repeat." month", $eventDate);
-			}
-			else {
-            $new_date = $seconds * $fr_repeat;
-            $eventDate = $eventDate + $new_date;
-			}
-                  
-                    $date_sec = date('Y-m-d', $eventDate);
-                    $exact_time = strtotime($date_sec . ' ' .$eventTime);
-                    if ($exact_time >= date('U')) {
-                        $event_add_menu[$eventDate + $sinc] = $event_post_data->ID;
-                        $sinc++;
-                    } $fr_repeat++;
-                }
-            }
+		$event_add_menu = imic_recur_events("future","","","");
             $nos_event_menu = 1;
             ksort($event_add_menu);
             foreach ($event_add_menu as $key => $value) {
@@ -1166,7 +816,6 @@ if (!function_exists('imic_get_recursive_event_data')) {
                 if (++$nos_event_menu > $menupost)
                     break;
             }
-        }
         return $item_output;
     }
 }
@@ -1319,7 +968,7 @@ function RevSliderShortCode(){
         foreach($sliders as $slider){
           $title=$slider->getParam('title','false');
            $shortcode=$slider->getParam('shortcode','false');
-            $slidernames[$shortcode]=$title;
+            $slidernames[esc_attr($shortcode)]=$title;
         }}
            
 }
@@ -1392,7 +1041,7 @@ if (!function_exists('imic_sermon_attach_full_pdf')) {
   ----------------------------------------------------------------------------------- */
 if(!function_exists('imic_query_arg')){
  function imic_query_arg($date_converted,$id){
-        $custom_event_url=add_query_arg('event_date',$date_converted,get_permalink($id));
+        $custom_event_url=esc_url_raw(add_query_arg('event_date',$date_converted,get_permalink($id)));
     return $custom_event_url;
   }
 }
@@ -1404,7 +1053,7 @@ if(!function_exists('imic_query_arg')){
   ----------------------------------------------------------------------------------- */
 if(!function_exists('imic_query_arg_event_cat')){
  function imic_query_arg_event_cat($string,$url){
-        $imic_event_category_page_url=add_query_arg('event_cat',$string,$url);
+        $imic_event_category_page_url=esc_url(add_query_arg('event_cat',$string,$url));
     return $imic_event_category_page_url;
         
     }
@@ -1419,6 +1068,8 @@ function imicAddQueryVarsFilter( $vars ){
   $vars[] = "event_date";
   $vars[] = "event_cat";
   $vars[] = "pg";
+  $vars[] = "login";
+	$vars[] = "calendar";
   return $vars;
 }
 add_filter('query_vars','imicAddQueryVarsFilter');
@@ -1486,7 +1137,7 @@ function imic_cat_count_flag(){
               }
              global $cat;
              if(!empty($cat)){
-                  $cat_data= get_category($cat);
+               	$cat_data= get_category($cat);
                 $flag=($cat_data->count==0)?0:1;
              }
              return $flag;
@@ -1500,6 +1151,7 @@ if(!function_exists('imic_page_design')){
 		//Make page design according sidebar conditions
 		$options = get_option('imic_options');
 		$ID = (!empty($id) &&  $id != '')? $id : get_the_ID();
+		if(is_home()) { $ID = get_option('page_for_posts'); }
 		$pageSidebar = get_post_meta($ID,'imic_select_sidebar_from_list', true);
 		$post_type = get_post_type($ID);
 		$sidebar_value = $sidebar = '';
@@ -1584,7 +1236,7 @@ $sinc++;
 $nos_event_menu = 1;
 ksort($event_add_menu);
 foreach ($event_add_menu as $key => $value) {
-$date_converted=date('Y-m-d',$key );
+/*$date_converted=date('Y-m-d',$key );
 $custom_event_url= imic_query_arg($date_converted,$value);
 $eventDataTitle = get_the_title($value);
 $eventDataURL = $custom_event_url;
@@ -1599,6 +1251,32 @@ $firstEventDateData = date('F j, Y', $key) . ' ' . $counter_time;
 $item_output.='<div id="counter" class="col-md-4 col-sm-6 col-xs-12 counter" data-date="'.strtotime($firstEventDateData).'">';
 if (++$nos_event_menu > 1)
     break;
+}*/
+$options = get_option('imic_options');
+$eventTime = get_post_meta($value, 'imic_event_start_tm', true);
+$event_End_time = get_post_meta($value, 'imic_event_end_tm', true);
+$event_End_time = strtotime($event_End_time);
+$eventTime = strtotime($eventTime);
+$count_from = (isset($options['countdown_timer']))?$options['countdown_timer']:'';
+if($count_from==1) { $counter_time = date('G:i',$event_End_time); }
+else { $counter_time = date('G:i',$eventTime); }
+$firstEventDateData = date('Y-m-d', $key) . ' ' . $counter_time;
+$firstEventTitle = get_the_title($value);
+$firstEventDate = date_i18n( get_option( 'date_format' ),$key);
+$date_converted=date('Y-m-d',$key );
+$firstEventURL = imic_query_arg($date_converted,$value);
+$item_output.='<h5><a href="'.$firstEventURL.'">'.$firstEventTitle.'</a></h5>';
+$item_output.='<span class="meta-data">'.$firstEventDate.'</span></div>';
+$item_output.='<div id="counter" class="col-md-4 col-sm-6 col-xs-12 counter" data-date="'.strtotime($firstEventDate).'">';
+$item_output.='<div class="timer-col"> <span id="days"></span> <span class="timer-type">'. __('days', 'framework');
+$item_output.='</span></div>';
+$item_output.='<div class="timer-col"> <span id="hours"></span> <span class="timer-type">'. __('hrs', 'framework');
+$item_output.='</span></div>';
+$item_output.='<div class="timer-col"> <span id="minutes"></span> <span class="timer-type">'.__('mins', 'framework');
+$item_output.='</span></div>';
+$item_output.='<div class="timer-col"> <span id="seconds"></span> <span class="timer-type">'.__('secs', 'framework');
+$item_output.='</span></div></div>';
+break;
 }
 }}
 return $item_output;
@@ -1616,7 +1294,7 @@ $page_for_posts= get_option('page_for_posts');
 if(is_home()&&!empty($page_for_posts)){
 $page_for_posts= get_option('page_for_posts');
 $page_template= get_post_meta(get_option('page_for_posts'),'_wp_page_template',true);
-if($page_template!='default'){
+if($page_template!='default' && !empty($page_template)){
 include (TEMPLATEPATH . '/'.$page_template);
 exit;
 }}
@@ -1793,63 +1471,83 @@ exit;
 }
 add_action( 'admin_init', 'imic_redirect_admin' );   
 }
+function imic_regenerate_calender_index($index,$google_event_array)
+{
+    $index = ($index+1);
+    if(array_key_exists($index,$google_event_array))
+    {
+        return imic_regenerate_calender_index($index,$google_event_array);
+    }
+    return $index;
+}
 function getGoogleEvent($month_last='') {
     global $imic_options;
     $google_event_array=array();
-   if(isset($imic_options['google_feed'])&&!empty($imic_options['google_feed'])){
-  $items_to_show=999; ///999 = unlimited
-$items_shown=0;
-if(empty($month_last)){
-    $futureevents ='true';
-}
-else{
-  $futureevents ='false';  
-}
-$calendarfeed = $imic_options['google_feed']."?singleevents=true&futureevents=".$futureevents."&max-results=".$items_to_show."&orderby=starttime&sortorder=a";
-$xml = file_get_contents($calendarfeed);
-$feed = simplexml_load_string($xml);
-foreach ($feed->entry as $entry) {
-$event_summary = str_replace('When:','',$entry->summary);
-$google_event_summary = explode('<br>',$event_summary);
-$for_address =$google_event_summary[2];
-$google_event_address ='';
-if (strpos($for_address,'Where') !== false) {
-$google_event_address = str_replace('Where:','',$for_address);
-}
-$gogle_event_time_temp = explode('to',$google_event_summary[0]);
-$google_event_time =current($gogle_event_time_temp);
-$google_event_end_time =$gogle_event_time_temp[1];
-$google_event_end_time=str_replace('IST','', $google_event_end_time);
-$google_event_end_time=preg_replace( "#(^(&nbsp;|\s)+|(&nbsp;|\s)+$)#", "",$google_event_end_time);
-$event_titles=$entry->title;
-$event_start_time = strtotime($google_event_time);
-if(empty($month_last)){
-   $google_event_array[$event_start_time] = $event_titles.'!'.$entry->link['href'].'!'.$google_event_end_time.'!'.$google_event_address;
-$items_shown++; 
-}
-else{
-if($month_last=='goingEvent'){
-$today = date('Y-m-d');
-$currentGoingTime=date('U');
- if((date('Y-m-d',$event_start_time) == $today)&&($event_start_time<=$currentGoingTime)&&($currentGoingTime<=strtotime($google_event_end_time))&&!empty($event_start_time)) {
-  $google_event_array[$event_start_time] = $event_titles.'!'.$entry->link['href'].'!'.$google_event_end_time.'!'.$google_event_address;
-$items_shown++;  
-   } 
-}
-elseif($month_last=='past'){
-$today = date('Y-m-d');
-if((date('Y-m-d',$event_start_time) <$today)) {
-$google_event_array[$event_start_time] = $event_titles.'!'.$entry->link['href'].'!'.$google_event_end_time.'!'.$google_event_address;
-$items_shown++;  
- } 
-}
-  elseif(date('y m',strtotime($google_event_time))==date('y m',$month_last)){
-   $google_event_array[$event_start_time] = $event_titles.'!'.$entry->link['href'].'!'.$google_event_end_time.'!'.$google_event_address;
-$items_shown++; 
-  }  
-}
-}}
-return $google_event_array; }
+   if(isset($imic_options['google_feed_id'])&&!empty($imic_options['google_feed_id'])){
+   $items_to_show=999; ///999 = unlimited
+   $items_shown=0;
+    if(empty($month_last)){
+        $futureevents ='true';
+    }
+    else{
+      $futureevents ='false';
+    }
+		$google_event_address = '';
+$currentEventTime = (isset($_POST['date'])?date(DATE_ATOM, strtotime($_POST['date'])):date(DateTime::ATOM));
+require_once('google_api/google_api.php');
+$calender_id = $imic_options['google_feed_id'];
+$api_key = $imic_options['google_feed_key'];
+$items = GetCalendarEvents($calender_id,$api_key,$currentEventTime,$items_to_show);
+ foreach ($items as $entry)
+ {
+    $title=$entry['title'];
+    $link=$entry['url'];
+    $event_start_time = $entry['start_time'];
+    $google_event_end_time   = $entry['end_time'];
+    $index = strtotime($event_start_time);
+    if(array_key_exists($index,$google_event_array))
+    {
+       $index = imic_regenerate_calender_index($index,$google_event_array);
+    }
+    if(empty($month_last))
+    {
+       $google_event_array[$index] = $title.'!'.$link.'!'.$google_event_end_time.'!'.$google_event_address;
+       $items_shown++;
+    }
+    else
+    {
+        if($month_last=='goingEvent')
+        {
+              $today = date('Y-m-d');
+              $currentGoingTime=date('U');
+           
+             if((date('Y-m-d',$event_start_time) == $today)&&
+             ($event_start_time<=$currentGoingTime)&&($currentGoingTime<=strtotime($google_event_end_time))
+             &&!empty($event_start_time))
+             {
+                $google_event_array[$index] = $title.'!'.$link.'!'.$google_event_end_time.'!'.$google_event_address;
+               $items_shown++;
+             }
+        }
+        elseif($month_last=='past')
+        {
+           $today = date('Y-m-d');
+           if((date('Y-m-d',$event_start_time) <$today))
+           {
+             $google_event_array[$index] = $title.'!'.$link.'!'.$google_event_end_time.'!'.$google_event_address;
+            $items_shown++;
+           }
+        }
+         elseif(date('y m',$index)==date('y m',$month_last))
+         {
+           $google_event_array[$index] = $title.'!'.$link.'!'.$google_event_end_time.'!'.$google_event_address;
+           $items_shown++;
+        }
+    }
+  }
+ }
+ return $google_event_array;
+} 
 function imicRecurrenceIcon($value){
       $frequency = get_post_meta($value,'imic_event_frequency', true);
     switch($frequency) {
@@ -1882,11 +1580,30 @@ function imicRecurrenceIcon($value){
                          break;
 		}
                 $frequency_count = get_post_meta($value, 'imic_event_frequency_count', true);
-                $icon = ' <a data-placement="bottom" data-toggle="tooltip-live" data-original-title="Recurring '.$recur.', for '.$frequency_count.' Times" rel="tooltip"><i class="fa fa-refresh"></i></a>';
+                $icon = ' <a data-placement="bottom" data-toggle="tooltip-live" data-original-title="Recurring '.$recur.', for '.$frequency_count.' Times" rel="tooltip" class="recurring-info-icon"><i class="fa fa-refresh"></i></a>';
 				  $recurrence = get_post_meta($value,'imic_event_frequency',true);
-				  if($recurrence>0) { $icon = $icon; } else { $icon = ''; }
+				  if($recurrence>0&&$recur!='') { $icon = $icon; } else { $icon = ''; }
                                   return $icon;
 }
+ /**
+ * IMIC SIDEBAR POSITION
+ */
+if(!function_exists('imic_sidebar_position_module')){
+	function imic_sidebar_position_module(){
+		$sidebar_position = get_post_meta(get_the_ID(),'imic_select_sidebar_position',true);
+		if(is_home())
+		{
+			$id = get_option('page_for_posts');
+			$sidebar_position = get_post_meta($id,'imic_select_sidebar_position',true);
+		}
+		if($sidebar_position == 2){
+		echo ' <style type="text/css">#content-col, #sidebar-col{float:right!important;}</style>';	
+		} elseif($sidebar_position == 1){
+		echo ' <style type="text/css">#content-col, #sidebar-col{float:left!important;}</style>';	
+		}
+	}
+}
+
  /**
  * IMIC SHARE BUTTONS
  */
@@ -1896,6 +1613,16 @@ $posttitle = get_the_title();
 $postpermalink = get_permalink();
 $postexcerpt = get_the_excerpt();
 global $imic_options;
+$facebook_share_alt = $imic_options['facebook_share_alt'];
+$twitter_share_alt = $imic_options['twitter_share_alt'];
+$google_share_alt = $imic_options['google_share_alt'];
+$tumblr_share_alt = $imic_options['tumblr_share_alt'];
+$pinterest_share_alt = $imic_options['pinterest_share_alt'];
+$reddit_share_alt = $imic_options['reddit_share_alt'];
+$linkedin_share_alt = $imic_options['linkedin_share_alt'];
+$email_share_alt = $imic_options['email_share_alt'];
+$vk_share_alt = $imic_options['vk_share_alt'];
+			
 			
             echo '<div class="share-bar">';
 			if($imic_options['sharing_style'] == '0'){
@@ -1915,33 +1642,1152 @@ global $imic_options;
             		echo '<ul class="share-buttons share-buttons-gs share-buttons-squared">';
 				}
 			};
-                	echo '<li class="share-title"><i class="fa fa-share-alt fa-2x"></i></li>';
 					if($imic_options['share_icon']['1'] == '1'){
-                   		echo '<li class="facebook-share"><a href="https://www.facebook.com/sharer/sharer.php?u=' . $postpermalink . '&t=' . $posttitle . '" target="_blank" title="Share on Facebook"><i class="fa fa-facebook"></i></a></li>';
+                   		echo '<li class="facebook-share"><a href="https://www.facebook.com/sharer/sharer.php?u=' . $postpermalink . '&amp;t=' . esc_attr($posttitle) . '" target="_blank" title="' . esc_attr($facebook_share_alt) . '"><i class="fa fa-facebook"></i></a></li>';
 					}
 					if($imic_options['share_icon']['2'] == '1'){
-                     	echo '<li class="twitter-share"><a href="https://twitter.com/intent/tweet?source=' . $postpermalink . '&text=' . $posttitle . ':' . $postpermalink . '" target="_blank" title="Tweet"><i class="fa fa-twitter"></i></a></li>';
+                     	echo '<li class="twitter-share"><a href="https://twitter.com/intent/tweet?source=' . $postpermalink . '&amp;text=' . esc_attr($posttitle) . ':' . $postpermalink . '" target="_blank" title="' . esc_attr($twitter_share_alt) . '"><i class="fa fa-twitter"></i></a></li>';
 					}
 					if($imic_options['share_icon']['3'] == '1'){
-                    echo '<li class="google-share"><a href="https://plus.google.com/share?url=' . $postpermalink . '" target="_blank" title="Share on Google+"><i class="fa fa-google-plus"></i></a></li>';
+                    echo '<li class="google-share"><a href="https://plus.google.com/share?url=' . $postpermalink . '" target="_blank" title="' . esc_attr($google_share_alt) . '"><i class="fa fa-google-plus"></i></a></li>';
 					}
 					if($imic_options['share_icon']['4'] == '1'){
-                    	echo '<li class="tumblr-share"><a href="http://www.tumblr.com/share?v=3&u=' . $postpermalink . '&t=' . $posttitle . '&s=" target="_blank" title="Post to Tumblr"><i class="fa fa-tumblr"></i></a></li>';
+                    	echo '<li class="tumblr-share"><a href="http://www.tumblr.com/share?v=3&amp;u=' . $postpermalink . '&amp;t=' . esc_attr($posttitle) . '&amp;s=" target="_blank" title="' . esc_attr($tumblr_share_alt) . '"><i class="fa fa-tumblr"></i></a></li>';
 					}
 					if($imic_options['share_icon']['5'] == '1'){
-                    	echo '<li class="pinterest-share"><a href="http://pinterest.com/pin/create/button/?url=' . $postpermalink . '&description=' . $postexcerpt . '" target="_blank" title="Pin it"><i class="fa fa-pinterest"></i></a></li>';
+                    	echo '<li class="pinterest-share"><a href="http://pinterest.com/pin/create/button/?url=' . $postpermalink . '&amp;description=' . esc_attr($postexcerpt) . '" target="_blank" title="' . esc_attr($pinterest_share_alt) . '"><i class="fa fa-pinterest"></i></a></li>';
 					}
 					if($imic_options['share_icon']['6'] == '1'){
-                    	echo '<li class="reddit-share"><a href="http://www.reddit.com/submit?url=' . $postpermalink . '&title=' . $posttitle . '" target="_blank" title="Submit to Reddit"><i class="fa fa-reddit"></i></a></li>';
+                    	echo '<li class="reddit-share"><a href="http://www.reddit.com/submit?url=' . $postpermalink . '&amp;title=' . esc_attr($posttitle) . '" target="_blank" title="' . esc_attr($reddit_share_alt) . '"><i class="fa fa-reddit"></i></a></li>';
 					}
 					if($imic_options['share_icon']['7'] == '1'){
-                    	echo '<li class="linkedin-share"><a href="http://www.linkedin.com/shareArticle?mini=true&url=' . $postpermalink . '&title=' . $posttitle . '&summary=' . $postexcerpt . '&source=' . $postpermalink . '" target="_blank" title="Share on LinkedIn"><i class="fa fa-linkedin"></i></a></li>';
+                    	echo '<li class="linkedin-share"><a href="http://www.linkedin.com/shareArticle?mini=true&url=' . $postpermalink . '&amp;title=' . esc_attr($posttitle) . '&amp;summary=' . esc_attr($postexcerpt) . '&amp;source=' . $postpermalink . '" target="_blank" title="' . esc_attr($linkedin_share_alt) . '"><i class="fa fa-linkedin"></i></a></li>';
 					}
 					if($imic_options['share_icon']['8'] == '1'){
-                    	echo '<li class="email-share"><a href="mailto:?subject=' . $posttitle . '&body=' . $postexcerpt . ':' . $postpermalink . '" target="_blank" title="Email"><i class="fa fa-envelope"></i></a></li>';
+                    	echo '<li class="email-share"><a href="mailto:?subject=' . esc_attr($posttitle) . '&amp;body=' . esc_attr($postexcerpt) . ':' . $postpermalink . '" target="_blank" title="' . esc_attr($email_share_alt) . '"><i class="fa fa-envelope"></i></a></li>';
+					}
+					if((isset($imic_options['share_icon']['9']))&&($imic_options['share_icon']['9'] == '1')){
+                    	echo '<li class="vk-share"><a href="http://vk.com/share.php?url=' . $postpermalink . '" target="_blank" title="' . esc_attr($vk_share_alt) . '"><i class="fa fa-vk"></i></a></li>';
 					}
                 echo '</ul>
             </div>';
 	}
 }
+/* EVENT GRID FUNCTION
+  ================================================== */
+function imic_event_grid() {
+	$EventTerm = '';
+	$offset = get_option('timezone_string');
+		if($offset=='') { $offset = "Australia/Melbourne"; }
+	date_default_timezone_set($offset);
+    echo '<div class="listing events-listing">
+	<header class="listing-header">
+		<div class="row">
+			<div class="col-md-6 col-sm-6">
+				<h3>' . __('All events', 'framework') . '</h3>
+		  </div>
+		  <div class="listing-header-sub col-md-6 col-sm-6">';
+    $currentEventTime = $_POST['date'];
+	$EventTerm = $_POST['term'];
+    $prev_month = date('Y-m', strtotime('-1 month', strtotime($currentEventTime)));
+    $next_month = date('Y-m', strtotime('+1 month', strtotime($currentEventTime)));
+    echo '<h5>' . date_i18n('F', strtotime($currentEventTime)) . '</h5>
+				<nav class="next-prev-nav">
+					<a href="javascript:" class="upcomingEvents" rel="'.$EventTerm.'" id="' . $prev_month . '"><i class="fa fa-angle-left"></i></a>
+					<a href="javascript:" class="upcomingEvents" rel="'.$EventTerm.'" id="' . $next_month . '"><i class="fa fa-angle-right"></i></a>
+				</nav>
+		  </div>
+	  </div>
+	</header>
+	<section class="listing-cont">
+	  <ul>';
+    $today = date('Y-m');
+	$curr_month = date('Y-m-t', strtotime('-1 month', strtotime($currentEventTime)));
+    $currentTime = date(get_option('time_format'));
+    $sp = imic_recur_events('future','nos',$EventTerm,$currentEventTime);
+	$this_month_last = strtotime(date('Y-m-t 23:59', strtotime($currentEventTime)));
+	$google_events = getGoogleEvent($this_month_last);
+	if(!empty($google_events)) 
+       $new_events = $google_events+$sp;
+	   else  $new_events = $sp;
+	   
+        ksort($new_events);
+        if(!empty($new_events)){
+	foreach($new_events as $key =>$value) {
+          if(preg_match('/^[0-9]+$/',$value)){
+                $frequency = get_post_meta($value, 'imic_event_frequency', true);
+       	        $frequency_count = get_post_meta($value, 'imic_event_frequency_count', true);
+				$satime = get_post_meta($value,'imic_event_start_tm',true);
+				$satime = strtotime($satime);
+                                $date_converted=date('Y-m-d',$key );
+                                $custom_event_url =  imic_query_arg($date_converted,$value);
+                               $event_title= get_the_title($value);
+							   /* event time date formate */
+							  $eventStartTime =  strtotime(get_post_meta($value, 'imic_event_start_tm', true));
+							  $eventStartDate =  strtotime(get_post_meta($value, 'imic_event_start_dt', true));
+							  $eventEndTime   =  strtotime(get_post_meta($value, 'imic_event_end_tm', true));
+							  $eventEndDate   =  strtotime(get_post_meta($value, 'imic_event_end_dt', true));
+							  $evstendtime = $eventStartTime.'|'.$eventEndTime;
+							  $evstenddate = $eventStartDate.'|'.$eventEndDate;
+							  $event_dt_out = imic_get_event_timeformate( $evstendtime,$evstenddate,$value,$key);
+			                  $event_dt_out = explode('BR',$event_dt_out);
+							  /* event time date formate end */
+                                }
+                                else{
+                                   $google_data =(explode('!',$value)); 
+                                   $event_title=$google_data[0];
+                                   $custom_event_url=$google_data[1];
+								   $options = get_option('imic_options');
+                                   $satime =$key;
+								   /* event time date formate */
+								  $event_dt_out = imic_get_event_timeformate($key.'|'.strtotime($google_data[2]),
+								  $key.'|'.$key,$value,$key);
+						          $event_dt_out = explode('BR',$event_dt_out);
+							 /* event time date formate end */
+                                }
+							  
+                                echo '<li class="item event-item">	
+				  <div class="event-date"> <span class="date">' . date_i18n('d', $key) . '</span> <span class="month">' .imic_global_month_name($key). '</span> </div>
+				  <div class="event-detail">
+                                      <h4><a href="'.$custom_event_url.'">' . $event_title .'</a>'.imicRecurrenceIcon($value).'</h4>'; 
+            
+                echo '<span class="event-dayntime meta-data">' . $event_dt_out[1].',&nbsp;&nbsp;'.$event_dt_out[0] . '</span> </div>
+				  <div class="to-event-url">
+					<div><a href="' .$custom_event_url.'" class="btn btn-default btn-sm">' . __('Details', 'framework') . '</a></div>
+				  </div>
+				</li>';
+	}
+        }
+        else {
+        echo '<li class="item event-item">	
+			  <div class="event-detail">
+				<h4>' . __('Sorry, there are no events for this month.', 'framework') . '</h4>
+			  </div>
+			</li>';
+    }
+    echo '</ul>
+	</section>
+  </div>';
+    die();
+}
+add_action('wp_ajax_nopriv_imic_event_grid', 'imic_event_grid');
+add_action('wp_ajax_imic_event_grid', 'imic_event_grid');
+//Event Global Function
+if (!function_exists('imic_recur_events')) {
+function imic_recur_events($status,$featured="nos",$term='',$month='') 
+{
+  ##################### getset options and defaut value  ###############
+  $featured                = ($featured=="yes")?"no":"nos";
+  $today                   = date('Y-m-d');
+  $imic_options            = get_option('imic_options');
+  $offset                  = get_option('timezone_string');
+  $offset                  = ($offset == '')?"Australia/Melbourne":$offset;
+  $event_add               = array();
+  $sinc                    = 1;
+  $event_show_until        = (isset($imic_options['countdown_timer']))?$imic_options['countdown_timer']:'0';
+  $meta_query              = '';
+  date_default_timezone_set($offset);
+  #######################################################################
+ if($month != "") 
+ {
+	$stop_date = $month;
+	$curr_month = date('Y-m-t 23:59', strtotime('-1 month', strtotime($stop_date)));
+	$current_end_date = date('Y-m-d H:i:s', strtotime($stop_date . ' + 1 day'));
+	$previous_month_end = strtotime(date('Y-m-d 00:01', strtotime($stop_date)));
+	$next_month_start = strtotime(date('Y-m-d 00:01', strtotime('+1 month', strtotime($stop_date))));
+
+	   $meta_query = array(
+						  'relation' => 'AND',
+						   array(
+								 'key' => 'imic_event_frequency_end',
+								 'value' => $curr_month,
+								 'compare' => '>'
+								 ),
+						   array(
+								 'key' => 'imic_event_start_dt',
+								 'value' => date('Y-m-t 23:59', strtotime($stop_date)),
+								 'compare' => '<'
+								 ),
+						);
+ }
+ else 
+ {
+	if($status=='future') 
+	{
+	  $meta_query = array(
+					   array(
+							  'key' => 'imic_event_frequency_end',
+							  'value' => $today,
+							  'compare' => '>='
+							  ),
+						);
+	 }
+	else 
+	{
+
+		$meta_query = array(
+						array(
+							'key' => 'imic_event_start_dt',
+							'value' => $today,
+							'compare' => '<'
+							),
+					);
+	}
+ }
+ 
+ $post_query = array(
+					'post_type' => 'event',
+					'event-category' => $term,
+					'meta_key' => 'imic_event_start_dt',
+					'meta_query' => $meta_query,
+					'orderby' => 'meta_value',
+					'order' => 'ASC',
+					'posts_per_page' => -1
+					);
+#exicute query
+query_posts($post_query);
+			 
+if (have_posts()):
+    while (have_posts()):the_post();
+	    ###############################################################################
+        $frequency            = get_post_meta(get_the_ID(), 'imic_event_frequency', true);
+        $frequency_count      = get_post_meta(get_the_ID(), 'imic_event_frequency_count', true);
+		$frequency_month_day  = get_post_meta(get_the_ID(),'imic_event_day_month',true);
+		$frequency_week_day   = get_post_meta(get_the_ID(),'imic_event_week_day',true);
+		$multiple_dates       = get_post_meta(get_the_ID(),'imic_event_recurring_dt',true);
+		$seconds              = $frequency * 86400;
+		$fr_repeat            = 0;
+		###############################################################################
+        if ($frequency != '0' && $frequency!='32') 
+		{
+            $frequency_count = $frequency_count;
+        } 
+		elseif($frequency=='32') 
+		{
+			$frequency_count = count($multiple_dates);
+		}
+		else 
+		{ 
+		   $frequency_count = 0;
+		}
+        while ($fr_repeat <= $frequency_count) 
+		{
+            $event_start_dt = $eventDate = get_post_meta(get_the_ID(), 'imic_event_start_dt', true);
+			$event_start_tm = $MetaStartTime  = get_post_meta(get_the_ID(),'imic_event_start_tm',true);
+			$eventEndDate   = get_post_meta(get_the_ID(),'imic_event_end_dt',true);
+			$MetaEndTime    = get_post_meta(get_the_ID(),'imic_event_end_tm',true);
+			$inc = '';
+			$eventEndDate = strtotime($eventEndDate.' '.$MetaEndTime);
+            $eventDate = strtotime($eventDate.' '.$MetaStartTime);
+			$diff_start = date('Y-m-d',$eventDate);
+			$diff_end = date('Y-m-d', $eventEndDate);
+			$days_extra = imic_dateDiff($diff_start, $diff_end);
+			if($days_extra>0) 
+			{
+				$start_day = 0;
+				while($start_day<=$days_extra) 
+				{
+					$diff_sec = 86400*$start_day;
+					$new_date = $eventDate+$diff_sec;
+					$str_only_date = date('Y-m-d',$new_date);
+					$en_only_time = date("G:i", $eventEndDate);
+					$start_dt_tm = strtotime($str_only_date.' '.$en_only_time);
+					if($start_dt_tm > date('U')) 
+					{
+						$eventDate = $new_date;
+						break;
+					}
+					$start_day++;
+				}
+			}
+			if($days_extra<1) 
+				{
+					if(($frequency!='35')&&($frequency!='32')) 
+					{
+						if($frequency==30)
+						 {
+						   $eventDate = strtotime("+".$fr_repeat." month", $eventDate);
+						  $eventEndDate = strtotime("+".$fr_repeat." month", $eventEndDate);
+						}
+						else 
+						{
+							$new_date = $seconds * $fr_repeat;
+							$eventDate = $eventDate + $new_date;
+							$eventEndDate = $eventEndDate + $new_date;
+						}
+					}
+					elseif($frequency=='32') 
+					{
+						if($fr_repeat!=$frequency_count) 
+						{ 
+							$eventDate = $multiple_dates[$fr_repeat];
+							$eventDate = strtotime($eventDate);
+					    }
+					}
+				 else 
+				 {
+					$eventTime = date('G:i',$eventDate);
+					$eventDate = strtotime( date('Y-m-01',$eventDate) );
+					if($fr_repeat==0) { $fr_repeat = $fr_repeat+1; }
+					$eventDate = strtotime("+".$fr_repeat." month", $eventDate);
+					$next_month = date('F',$eventDate);
+					$next_event_year = date('Y',$eventDate);
+					$freq_strtotime = $frequency_month_day.' '.$frequency_week_day.' of '.$next_month.' '.$next_event_year;
+					$eventDate = date('Y-m-d '.$eventTime, strtotime($freq_strtotime));
+					$eventDate = strtotime($eventDate);
+				}
+			 }
+			 	if($MetaStartTime!='')
+            	{
+				if($event_show_until=='1')
+				{
+					$en_tm = date("G:i",$eventEndDate);
+				}
+				else
+				{
+					$en_tm = date("G:i",$eventDate);
+				}
+				}
+				else
+            	{
+                	$en_tm = "23:59";
+            	}
+			$st_dt = date('Y-m-d',$eventDate);
+			$dt_tm = strtotime($st_dt.' '.$en_tm);
+			if($month != '') 
+			{
+				if(($dt_tm > $previous_month_end) && ($dt_tm < $next_month_start)){
+                    $event_add[$dt_tm + $sinc + $inc] = get_the_ID();
+                       $sinc++;
+                }
+			}
+			else 
+			{
+				if($status=="future")
+				 {
+					if ($dt_tm >= date('U')) 
+					{
+						$event_add[$dt_tm + $sinc + $inc] = get_the_ID();
+						$sinc++;
+					} 
+				}
+				else 
+				{
+					if ($dt_tm <= date('U')) 
+					{
+						$event_add[$dt_tm + $sinc + $inc] = get_the_ID();
+						$sinc++;
+					} 	
+				}
+		  } 
+		  if($days_extra<1) { $fr_repeat++; } 
+		  else { $fr_repeat = 1000000; }
+        } 
+    endwhile; 
+endif;
+	 //global $wp_query;
+	 //print_r($wp_query->request);
+
+   wp_reset_query(); 
+   return $event_add;
+ }
+}
+
+//Uncomment below code to use bbpress on localhost. Change the localhost URL as per your need
+	/* add_filter( 'bbp_verify_nonce_request_url', 'my_bbp_verify_nonce_request_url', 999, 1 );
+	function my_bbp_verify_nonce_request_url( $requested_url )
+	{
+		return 'http://localhost:8888' . $_SERVER['REQUEST_URI'];
+	} */
+	
+
+/* GET TEMPLATE URL
+  ================================================*/
+if(!function_exists('imic_get_template_url')) {
+function imic_get_template_url($TEMPLATE_NAME){
+ $url;
+$pages = query_posts(array(
+    'post_type' =>'page',
+    'meta_key'  =>'_wp_page_template',
+    'meta_value'=> $TEMPLATE_NAME
+));
+$url = null;
+if(isset($pages[0])) {
+    $url = get_page_link($pages[0]->ID);
+}
+wp_reset_query();
+return $url;
+}
+}
+
+/* GET EVENT TIME FORMATE
+  ================================================*/
+  /*
+    @params $time = start time + end time
+	$date = start date + end date
+	$post_id = post id
+	@return time + date
+  */ 
+if(!function_exists('imic_get_event_timeformate')) {
+function imic_get_event_timeformate($time,$date,$post_id = null,$key = null, $single = false){
+#check all day event
+$allday    = get_post_meta($post_id, 'imic_event_all_day', true);
+$time = explode('|',$time);
+$date = explode('|',$date);
+//get event time and date option  format	
+$options = get_option('imic_options');
+$event_tm_opt = isset($options['event_tm_opt'])?$options['event_tm_opt']:'0';
+$event_dt_opt = isset($options['event_dt_opt'])?$options['event_dt_opt']:'0';
+//get time format
+$time_format = get_option('time_format');
+//get date format
+$date_format = get_option('date_format');
+$time_opt = $date_opt = '';
+$event_dt_opt = ($single==true)?'2':$event_dt_opt;
+	switch($event_tm_opt)
+	{
+		 case '0':
+		    if(!empty($time[0]) && $time[0] != strtotime(date('23:59')))
+			{
+		      $time_opt = date_i18n($time_format, $time[0]);
+			}
+			else
+			{
+				if($allday || empty($time[0])|| $time[0] == strtotime(date('23:59')))
+				{
+					$time_opt = __('All Day','framework');
+				}
+			}
+		 break;
+		 case '1':
+			 if(!empty($time[1]) && $time[1] != strtotime(date('23:59')))
+			 {
+			  $time_opt = date_i18n($time_format, $time[1]);
+			 }
+			 else
+			 {
+				if($allday || empty($time[1]) || $time[1] == strtotime(date('23:59')))
+				{
+					$time_opt = __('All Day','framework');
+				}
+			}
+		 break;
+		 case '2':
+		 if((!empty($time[0]) && !empty($time[1])) &&
+           ($time[0] != strtotime(date('23:59')) || $time[1] != strtotime(date('23:59'))))
+			{
+				 $time_opt_0 = date_i18n($time_format, $time[0]);
+				 $time_opt_1 = date_i18n($time_format, $time[1]);
+				 if($time[0] != $time[1])
+				 {
+				   $time_opt =  $time_opt_0.' - '.$time_opt_1;
+				 }
+				 else
+				 {
+					 $time_opt =  $time_opt_0;
+				 }
+		   }
+		    else
+			{
+				if($allday || empty($time[0])||$time[0] == strtotime(date('23:59'))||$time[1] == strtotime(date('23:59')))
+				{
+					$time_opt = __('All Day','framework');
+				}
+			}
+		 break;
+		 default : 
+		  if(!empty($time[0]))
+		  {
+		    $time_opt = date_i18n($time_format, $time[0]);
+		  }
+		 break;
+	}
+	switch($event_dt_opt)
+	{
+		 case '0':
+		  if(!empty($date[0]))
+		  {
+			 $diff_date = imic_dateDiff($date[0], $date[1]);
+			 if($diff_date>0)
+			 {
+		       $date_opt = date_i18n($date_format, $date[0]);
+		       $date_opt = '<strong>' . date_i18n('l', $date[0]) . '</strong> | ' . $date_opt;
+			 }
+			 else
+			 {
+				 $date_opt = date_i18n($date_format, $key);
+		         $date_opt = '<strong>' . date_i18n('l', $key) . '</strong> | ' . $date_opt;
+			 }
+		  }
+		 break;
+		 case '1':
+		  if(!empty($date[1]))
+		  {
+			$diff_date = imic_dateDiff($date[0], $date[1]);
+			if($diff_date>0)
+			 {
+		       $date_opt = date_i18n($date_format, $date[1]);
+		       $date_opt = '<strong>' . date_i18n('l', $date[1]) . '</strong> | ' . $date_opt;
+			 }
+			 else
+			 {
+				 $date_opt = date_i18n($date_format, $key);
+		         $date_opt = '<strong>' . date_i18n('l', $key) . '</strong> | ' . $date_opt;
+			 }
+		  }
+		 break;
+		 case '2':
+		  if(!empty($date[0]) && !empty($date[1]))
+		  {
+			  $date_opt_0 = date_i18n($date_format, $date[0]);
+			  $date_opt_0 = '<strong>' . date_i18n('l', $date[0]) . '</strong> | ' . $date_opt_0;
+			  if($date[0] !== $date[1])
+			  {
+				$date_opt_1 = date_i18n($date_format, $date[1]);
+				$date_opt_1 = '<strong>' . date_i18n('l', $date[1]) . '</strong> | ' . $date_opt_1;
+				$date_opt =  $date_opt_0.' '.__('to','framework').' '.$date_opt_1;
+			  }
+			  else
+			  {
+				  $date_opt = date_i18n($date_format, $key);
+			  }
+		  }
+		 break;
+		 default :
+		 if(!empty($date[0]))
+		  {
+			 $diff_date = imic_dateDiff($date[0], $date[1]);
+			 if($diff_date>0)
+			 {
+		       $date_opt = date_i18n($date_format, $date[0]);
+		       $date_opt = '<strong>' . date_i18n('l', $date[0]) . '</strong> | ' . $date_opt;
+			 }
+			 else
+			 {
+				 $date_opt = date_i18n($date_format, $key);
+		         $date_opt = '<strong>' . date_i18n('l', $key) . '</strong> | ' . $date_opt;
+			 }
+		  }
+		 break;
+	}
+	return  $time_opt .'BR'.$date_opt;
+}
+}
+
+/* GET TERM CATEGORY 
+  ================================================*/
+  /*
+    @params $post_id = post id of post
+	$texonomy = texonomy name of page
+	$category = category of texonomy @default = event-category
+	@return all texonomy categories slugs
+  */ 
+if(!function_exists('imic_get_term_category')) {
+function imic_get_term_category($post_id,$texonomy,$category ='event-category',$boolean = true ){
+	
+	$event_category = get_post_meta($post_id,$texonomy,$boolean);
+	if($event_category!='')
+	{
+		$event_category = explode(',',$event_category);
+		$event_category_rel = '';
+		foreach($event_category as $event_cat_id)
+		{
+			$event_categories= get_term_by('id',$event_cat_id,$category);
+			$event_category_rel.= $event_categories->slug.','; 
+		}
+		$event_category = rtrim($event_category_rel,',');
+	}
+	return  $event_category;
+	
+}
+}
+////////////////////////////////////////////////////////////////
+///////////  CUSTOM ADMIN EVENT LIST DIAPLSY ///////////////////
+////////////////////////////////////////////////////////////////
+class REARRANGE_ADMIN_EVENT_LIST_COLS
+{
+	/**
+	 * Constructor
+	 */
+	public function __construct() {
+		#WP List table columns. Defined here so they are always available for events such as inline editing.
+		add_filter('manage_event_posts_columns', array( $this, 'event_columns' ) );
+		add_filter('manage_edit-event_sortable_columns', array( $this, 'sortable_event_column' ));
+		add_action('pre_get_posts', array( $this, 'event_sort_by_start_date' ));
+		add_action('manage_event_posts_custom_column', array( $this, 'render_event_columns' ), 2 );
+	}
+	/**
+	 * Define custom columns for events
+	 * @param  array $existing_columns
+	 * @return array
+	 */
+	public function event_columns( $existing_columns ) {
+
+		if ( empty( $existing_columns ) && ! is_array( $existing_columns ) ) {
+			$existing_columns = array();
+		}
+		 unset( 
+				$existing_columns['title'],
+				$existing_columns['date'],
+				$existing_columns['author'],
+				$existing_columns['taxonomy-event-category']
+			  );
+		$columns                                   = array();
+		$columns['title']                          = __('Name', 'framework' );
+		$columns['author']                         = __('Owner', 'framework' );
+		$columns['taxonomy-event-category']        = __('Categories', 'framework' );
+		#$columns['contact']                        = __('Contact Number', 'framework' );
+		$columns['address']                        = __('Address', 'framework' );
+        $columns['attendees']                      = __('Attendees', 'framework');
+        $columns['staff']                          = __('Staff', 'framework');
+		$columns['recurring']                      = __('Recurring', 'framework');
+		$columns['event_date']                     = __('Date', 'framework');
+		return array_merge( $existing_columns,$columns);
+	}
+	/**
+	 * Ouput custom columns for events
+	 * @param  string $column
+	 */
+	public function render_event_columns( $column ) {
+		global $post;
+		switch ( $column ) {
+			case 'contact' :
+				echo get_post_meta($post->ID,'imic_event_contact',true);
+				break;
+			case 'address' :
+				echo get_post_meta($post->ID,'imic_event_address',true);
+				break;
+				case 'event_date':
+                $sdate = get_post_meta($post->ID, 'imic_event_start_dt', true);
+                $stime = get_post_meta($post->ID, 'imic_event_start_tm', true);
+				$edate = get_post_meta($post->ID, 'imic_event_end_dt', true);
+                $etime = get_post_meta($post->ID, 'imic_event_end_tm', true);
+                /*echo '<abbr title="'.$sdate .' '.$stime.'">'.__('Start:', 'framework').'&nbsp;'.$sdate.
+				     '</abbr><br title="'.$edate.' '.$etime.'">'.__('End:', 'framework').'&nbsp;'.$edate;*/
+			  echo '<abbr title="'.$sdate .' '.$stime.'">'.$sdate.
+				    '</abbr><br title="'.$edate.' '.$etime.'">'.$edate;
+                break;
+            case 'attendees':
+                $attendees = get_post_meta($post->ID, 'imic_event_attendees', true);
+                echo $attendees;
+                break;
+            case 'staff':
+                $staff = get_post_meta($post->ID, 'imic_event_staff_members', true);
+                echo $staff;
+                break;
+			case 'recurring':
+                $frequency = get_post_meta($post->ID, 'imic_event_frequency', true);
+				$frequency_count = get_post_meta($post->ID, 'imic_event_frequency_count', true);
+				if($frequency==1){ $sent = __('Every Day', 'framework'); }
+				elseif($frequency==2){ $sent = __('Every 2nd Day', 'framework'); }
+				elseif($frequency==3){ $sent = __('Every 3rd Day', 'framework'); }
+				elseif($frequency==4){ $sent = __('Every 4th Day', 'framework'); }
+				elseif($frequency==5){ $sent = __('Every 5th Day', 'framework'); }
+				elseif($frequency==6){ $sent = __('Every 6th Day', 'framework'); }
+				elseif($frequency==6){ $sent = __('Every week', 'framework'); }
+				elseif($frequency==30){ $sent = __('Every Month', 'framework'); }
+				else{ $sent = ""; }
+				if($frequency>0) {
+                echo '<abbr title="'.$sent .' '.$sent.'">'.$sent.'</abbr><br>'.$frequency_count.' time';
+				}
+                break;
+			default :
+				break;
+		}
+	}
+    /* make soratable by event start date asc/desc on click this */
+    public function sortable_event_column($columns) {
+        $columns['event_date'] = 'event';
+        return $columns;
+    }
+	/* sort post event list in admin section by post meta event start date */ 
+	public function event_sort_by_start_date( $query )
+	{
+		global $pagenow;
+		if('edit.php' == $pagenow && isset( $_GET['orderby']) && isset( $_GET['order'] )
+			&& isset( $_GET['post_type'] ) && $_GET['post_type'] == 'event' && $_GET['order'] == 'asc' )
+			{
+				$query->set( 'meta_key', 'imic_event_start_dt' );
+				$query->set( 'orderby', 'meta_value' );
+				$query->set( 'order', 'ASC' );
+		   }
+		  elseif('edit.php' == $pagenow && isset( $_GET['orderby']) && isset( $_GET['order'] )
+			&& isset( $_GET['post_type'] ) && $_GET['post_type'] == 'event' && $_GET['order'] == 'desc' )
+			{
+				$query->set( 'meta_key', 'imic_event_start_dt' );
+				$query->set( 'orderby', 'meta_value' );
+				$query->set( 'order', 'DESC' );
+		   }
+		   elseif('edit.php' == $pagenow && !isset( $_GET['orderby'] )
+			&& isset( $_GET['post_type'] ) && $_GET['post_type'] == 'event' )
+			{
+				$query->set( 'meta_key', 'imic_event_start_dt' );
+				$query->set( 'orderby', 'meta_value' );
+				$query->set( 'order', 'DESC' );
+		   }
+     }
+}
+/* acivate REARRANGE_ADMIN_EVENT_LIST_COLS if user admin */
+if(is_admin())
+{
+  $REARRANGE_EVENT_LIST = new REARRANGE_ADMIN_EVENT_LIST_COLS();
+  unset($REARRANGE_EVENT_LIST);
+}
+if (!function_exists('imic_recur_events_calendar')) 
+{
+	function imic_recur_events_calendar($status,$featured="nos",$term='',$month='') 
+	{
+    	$offset = get_option('timezone_string');
+    	if($offset=='') 
+		{ 
+			$offset = "Australia/Melbourne"; 
+		}
+    	date_default_timezone_set($offset);
+    	global $imic_options;
+    	$event_show_until = (isset($imic_options['countdown_timer']))?$imic_options['countdown_timer']:'0';
+		$featured = ($featured=="yes")?"no":"nos";
+		$today = date('Y-m-d');
+		if($month!="") 
+		{
+    		$stop_date = $month;
+    		$curr_month = date('Y-m-t 23:59', strtotime('-1 month', strtotime($stop_date)));
+    		$current_end_date = date('Y-m-d H:i:s', strtotime($stop_date . ' + 1 day'));
+    		$previous_month_end = strtotime(date('Y-m-d 00:01', strtotime($stop_date)));
+    		$next_month_start = strtotime(date('Y-m-d 00:01', strtotime('+1 month', strtotime($stop_date))));
+    		query_posts(array('post_type' => 'event','event-category' => $term,'meta_key' => 'imic_event_start_dt','meta_query' => array('relation' => 'AND',array('key' => 'imic_event_frequency_end','value' => $curr_month,'compare' => '>'),array('key' => 'imic_event_start_dt','value' => date('Y-m-t 23:59', strtotime($stop_date)),'compare' => '<')),'orderby' => 'meta_value','order' => 'ASC','posts_per_page' => -1));
+		}
+		else 
+		{
+			if($status=='future') 
+			{
+				query_posts(array('post_type' => 'event', 'event-category'=>$term, 'meta_key' => 'imic_event_start_dt', 'meta_query' => array(array('key' => 'imic_event_frequency_end', 'value' => $today, 'compare' => '>=')), 'orderby' => 'meta_value', 'order' => 'ASC', 'posts_per_page' => -1)); }
+			else 
+			{
+    			query_posts(array('post_type' => 'event', 'event-category'=>$term, 'meta_key' => 'imic_event_start_dt', 'meta_query' => array(array('key' => 'imic_event_start_dt', 'value' => $today, 'compare' => '<')), 'orderby' => 'meta_value', 'order' => 'ASC', 'posts_per_page' => -1));
+			} 
+		}
+      	$event_add = array();
+		$sinc = 1;
+		if (have_posts()):
+    		while (have_posts()):the_post();
+        		$frequency = get_post_meta(get_the_ID(), 'imic_event_frequency', true);
+        		$frequency_count = get_post_meta(get_the_ID(), 'imic_event_frequency_count', true);
+        		$frequency_month_day = get_post_meta(get_the_ID(),'imic_event_day_month',true);
+        		$frequency_week_day = get_post_meta(get_the_ID(),'imic_event_week_day',true);
+        		$multiple_dates = get_post_meta(get_the_ID(),'imic_event_recurring_dt',true);
+        		if ($frequency != '0' && $frequency!='32') 
+				{
+            		$frequency_count = $frequency_count;
+        		}
+        		elseif($frequency=='32') 
+				{
+            		$frequency_count = count($multiple_dates);
+        		}
+        		else 
+				{ 
+					$frequency_count = 0; 
+				}
+        		$seconds = $frequency * 86400;
+        		$fr_repeat = 0;
+        		while ($fr_repeat <= $frequency_count) 
+				{
+            		$eventDate = get_post_meta(get_the_ID(), 'imic_event_start_dt', true);
+            		$MetaStartTime = get_post_meta(get_the_ID(),'imic_event_start_tm',true);
+            		$eventEndDate = get_post_meta(get_the_ID(),'imic_event_end_dt',true);
+            		$MetaEndTime = get_post_meta(get_the_ID(),'imic_event_end_tm',true);
+            		$inc = '';
+            		$eventEndDate = strtotime($eventEndDate.' '.$MetaEndTime);
+            		$eventDate = strtotime($eventDate.' '.$MetaStartTime);
+            		$diff_start = date('Y-m-d',$eventDate);
+            		$diff_end = date('Y-m-d', $eventEndDate);
+            		$days_extra = imic_dateDiff($diff_start, $diff_end);
+					$go_cl = '';
+            		//echo "sn";
+            		if($days_extra>0) 
+					{
+						$go_cl = '';
+						$en_dt_cl = strtotime(get_post_meta(get_the_ID(),'imic_event_end_dt',true));
+            			$st_dt_cl = strtotime(get_post_meta(get_the_ID(),'imic_event_start_dt',true));
+						$en_dt_cl_mn = date('m', $en_dt_cl);
+						$st_dt_cl_mn = date('m', $st_dt_cl);
+						if($en_dt_cl_mn!=$st_dt_cl_mn)
+						{
+							$go_cl = 1;
+						}
+                		$start_day = 0;
+                		while($start_day<=$days_extra) 
+						{
+                    		$diff_sec = 86400*$start_day;
+                    		$new_date = $eventDate+$diff_sec;
+                    		$str_only_date = date('Y-m-d',$new_date);
+                    		$en_only_time = date("G:i", $eventEndDate);
+                    		$start_dt_tm = strtotime($str_only_date.' '.$en_only_time);
+                    		//echo date('U');
+                    		if($start_dt_tm>date('U')) 
+							{
+                        		$eventDate = $new_date;
+                        		break;
+                    		}
+                    		$start_day++;
+                		}
+            		}
+            		if($days_extra<1) 
+					{
+            			if(($frequency!='35')&&($frequency!='32')) 
+						{
+            				if($frequency==30) 
+							{
+            					$eventDate = strtotime("+".$fr_repeat." month", $eventDate);
+            					$eventEndDate = strtotime("+".$fr_repeat." month", $eventEndDate);
+            				}
+            				else 
+							{
+            					$new_date = $seconds * $fr_repeat;
+            					$eventDate = $eventDate + $new_date;
+            					$eventEndDate = $eventEndDate + $new_date;
+            					//echo $eventEndDate;
+            				}
+            			}
+            			elseif($frequency=='32') 
+						{
+                		if($fr_repeat!=$frequency_count) 
+						{
+                			$eventDate = $multiple_dates[$fr_repeat];
+                			$eventDate = strtotime($eventDate); }
+            			}
+            			else 
+						{
+                			$eventTime = date('G:i',$eventDate);
+                			$eventDate = strtotime( date('Y-m-01',$eventDate) );
+                			//$eventEndDate = date('G:i',$eventEndDate);
+                			//$eventEndDate = strtotime( date('Y-m-01',$eventEndDate) );
+                			if($fr_repeat==0) 
+							{ 
+								$fr_repeat = $fr_repeat+1; 
+							}
+            				$eventDate = strtotime("+".$fr_repeat." month", $eventDate);
+            				//$eventEndDate = strtotime("+".$fr_repeat." month", $eventEndDate);
+            				$next_month = date('F',$eventDate);
+            				$next_event_year = date('Y',$eventDate);
+            				//echo $next_month;
+            				$eventDate = date('Y-m-d '.$eventTime, strtotime($frequency_month_day.' '.$frequency_week_day.' of '.$next_month.' '.$next_event_year));
+            				//Changed in v1.1
+            				//$eventEndDate = date('Y-m-d '.$eventTime, strtotime($frequency_month_day.' '.$frequency_week_day.' of '.$next_month.' '.$next_event_year));
+            				//echo $eventDate;
+            				$eventDate = strtotime($eventDate);
+            				//Changed in 1.1
+            				//$eventEndDate = strtotime($eventEndDate);
+           				} 
+					}
+           			$st_dt = date('Y-m-d',$eventDate);
+            		if($MetaStartTime!='')
+            		{
+            			if($event_show_until=='1')
+            			{
+                			$en_tm = date("G:i",$eventEndDate);
+            			}
+            			else
+            			{
+                			$en_tm = date("G:i",$eventDate);
+            			}
+            		}
+            		else
+            		{
+                		$en_tm = "23:59";
+            		}
+            		$dt_tm = strtotime($st_dt.' '.$en_tm);
+            		if($month!='') 
+					{
+                		if((($dt_tm > $previous_month_end) && ($dt_tm < $next_month_start))||($go_cl==1))
+						{
+                    		$event_add[$dt_tm + $sinc + $inc] = get_the_ID();
+                       		$sinc++;
+                		}
+            		}
+					else 
+					{
+            			if($status=="future") 
+						{
+            				if ($dt_tm >= date('U')) 
+							{
+                				$event_add[$dt_tm + $sinc + $inc] = get_the_ID();
+                				$sinc++;
+            				} 
+						}
+            			else 
+						{
+            				if ($dt_tm <= date('U')) 
+							{
+                				$event_add[$dt_tm + $sinc + $inc] = get_the_ID();
+                				$sinc++;
+            				}    
+            			} 
+					} 
+				if($days_extra<1) 
+				{ 
+					$fr_repeat++; 
+				} 
+				else 
+				{ 
+				$fr_repeat = 1000000; 
+			}
+        }
+    	endwhile;
+   endif; 
+   wp_reset_query(); 
+   return $event_add; 
+   }
+}
+
+/* save event via outside link */
+if(!function_exists('imic_save_event'))
+{
+     function imic_save_event()
+     {
+             //date_default_timezone_set('Antarctica/Troll');
+          $query_string = base64_decode($_SERVER['QUERY_STRING']);
+          parse_str($query_string);
+          if(isset($action) && isset($id) && isset($key) && $key == 'imic_save_event')
+          {
+              $custom_post          = get_post($id);
+              $title                = $custom_post->post_title;
+              $content              = $custom_post->post_content;
+              $imic_event_address   = get_post_meta($id, 'imic_event_address', true);
+              $eventStartTime       = get_post_meta($id, 'imic_event_start_tm', true);
+              $eventStartDate       = get_post_meta($id, 'imic_event_start_dt', true);
+              $eventEndTime         = get_post_meta($id, 'imic_event_end_tm', true);
+              $eventEndDate         = get_post_meta($id, 'imic_event_end_dt', true);
+              $random_name          = substr(rand().rand().rand().rand(),0,20);
+                $user_tz = get_option('timezone_string');
+
+                $schedule_date_start = new DateTime($eventStartDate.' '.$eventStartTime, new DateTimeZone($user_tz) );
+                $schedule_date_start->setTimeZone(new DateTimeZone('UTC'));
+                $triggerOn_start =  $schedule_date_start->format('Y-m-d H:i:s');
+                $schedule_date_end = new DateTime($eventEndDate.' '.$eventEndTime, new DateTimeZone($user_tz) );
+                $schedule_date_end->setTimeZone(new DateTimeZone('UTC'));
+                $triggerOn_end =  $schedule_date_end->format('Y-m-d H:i:s');
+              switch($action)
+              {
+                  case 'gcalendar' :
+                     $google_save_url  = 'https://www.google.com/calendar/render?action=TEMPLATE';
+                     $google_save_url .= '&dates='.date("Ymd\THis\Z",strtotime("$triggerOn_start"));
+                     $google_save_url .= '/'.date("Ymd\THis\Z",strtotime("$triggerOn_end"));
+                     $google_save_url .= '&location='.urlencode($imic_event_address);
+                     $google_save_url .= '&text='.urlencode($title);
+                    //$google_save_url .= '&ctz=Antarctica/Troll';
+                     $google_save_url .= '&details='.urlencode($content);
+                     wp_redirect($google_save_url); exit;
+                  break;
+                  case 'icalendar' :
+                    ob_start();
+                    header("Content-Type: text/calendar; charset=utf-8");
+                    header("Content-Disposition: inline; filename=addto_calendar_".$random_name.".ics");
+                     $title                = addslashes($title);
+                     $title                = str_replace(array(",",":",";"),array("\,","\:","\;"),$title);
+                     $content              = addslashes($content);
+                     $content              = str_replace(array(",",":",";"),array("\,","\:","\;"),$content);
+                     $content              = preg_replace('/\s+/',' ', $content);
+                     $imic_event_address   = addslashes($imic_event_address);
+                     $imic_event_address   = str_replace(array(",",":",";"),array("\,","\:","\;"),$imic_event_address);
+                    echo "BEGIN:VCALENDAR\n";
+                    echo "VERSION:2.0\n";
+                    echo "PRODID:Imitheme.com \n";
+                    echo "BEGIN:VEVENT\n";
+                    echo "UID:".date('Ymd').'T'.date('His').rand()."\n";
+                    echo "DTSTAMP;TZID=UTC:".date('Ymd').'T'.date('His')."\n";
+                    echo "DTSTART;TZID=UTC:".date("Ymd\THis",strtotime("$eventStartDate $eventStartTime"))."\n";
+                    echo "DTEND;TZID=UTC:".date("Ymd\THis",strtotime("$eventEndDate $eventEndTime"))."\n";
+                    echo "SUMMARY:$title\n";
+                    echo "LOCATION:$imic_event_address\n";
+                    echo "DESCRIPTION:$content\n";
+                    echo "END:VEVENT\n";
+                    echo "END:VCALENDAR\n";
+                    ob_flush();
+                    exit;
+                  break;
+                  case 'outlook' :
+                    ob_start();
+                    header("Content-Type: text/calendar; charset=utf-8");
+                    header("Content-Disposition: inline; filename=addto_calendar_".$random_name.".ics");
+                    echo "BEGIN:VCALENDAR\n";
+                    echo "VERSION:2.0\n";
+                    echo "PRODID:Imitheme.com\n";
+                    echo "BEGIN:VEVENT\n";
+                    echo "UID:".date('Ymd').'T'.date('His')."-".rand()."\n";
+                    echo "DTSTAMP:".date('Ymd').'T'.date('His')."\n";
+                    echo "DTSTART:".date("Ymd\THis\Z",strtotime("$eventStartDate $eventStartTime"))."\n";
+                    echo "DTEND:".date("Ymd\THis\Z",strtotime("$eventEndDate $eventEndTime"))."\n";
+                    echo "SUMMARY:$title\n";
+                    echo "LOCATION:$imic_event_address\n";
+                    echo "DESCRIPTION: $content\n";
+                    echo "END:VEVENT\n";
+                    echo "END:VCALENDAR\n";
+                    ob_flush();
+                    exit;
+                  break;
+                  case 'outlooklive' :
+                     $outlooklive_url  = 'https://bay03.calendar.live.com/calendar/calendar.aspx?rru=addevent';
+                     $outlooklive_url .= '&summary='.urlencode($title);
+                     $outlooklive_url .= '&location='.urlencode($imic_event_address);
+                     $outlooklive_url .= '&description='.urlencode($content);
+                     $outlooklive_url .= '&dtstart='.date("Ymd\THis\Z",strtotime("$eventStartDate $eventStartTime"));
+                     $outlooklive_url .= '&dtend='.date("Ymd\THis\Z",strtotime("$eventEndDate $eventEndTime"));
+                     wp_redirect($outlooklive_url); exit;
+                  break;
+                  case 'yahoo' :
+                     $yahoo_url  = 'https://calendar.yahoo.com/?view=d&v=60&type=20';
+                     $yahoo_url .= '&title='.urlencode($title);
+                     $yahoo_url .= '&in_loc='.urlencode($imic_event_address);
+                     $yahoo_url .= '&desc='.urlencode($content);
+                     $yahoo_url .= '&st='.date("Ymd\THis\Z",strtotime("$eventStartDate $eventStartTime"));
+                     $yahoo_url .= '&et='.date("Ymd\THis\Z",strtotime("$eventEndDate $eventEndTime"));
+                     wp_redirect($yahoo_url); exit;
+                  break;
+              }
+          }  
+     }
+} 
+/* add action on init*/
+add_action('init','imic_save_event');
+//Add Sermons Filter Shortcode
+if(!function_exists('imic_sermons_filter_shortcode'))
+{
+	function imic_sermons_filter_shortcode($atts, $content = null) 
+	{
+    extract(shortcode_atts(array(
+		'categories' => '',
+		'tags' => '',
+		'speakers' => ''
+    	), $atts));
+		$output = '';
+		$output .= '<form class="sermon-filter-search searchandfilter" method="get" action="'.esc_url(home_url()).'">
+		<div>
+		<ul>';
+		$get_sermon_categories = get_terms('sermons-category');
+		if(!empty($get_sermon_categories))
+		{
+			$output .= '<li>
+			<select id="sermons-category" class="postform" name="sermons-category">
+			<option selected value="">'.__('Sermons Categories', 'framework').'</option>';
+			foreach($get_sermon_categories as $category)
+			{
+				$selected = ($categories==$category->slug)?'selected':'';
+				$output .= '<option '.$selected.' value="'.$category->slug.'">'.$category->name.' ('.$category->count.')</option>';
+			}
+			$output .= '</select>
+			</li>';
+		}
+		$get_sermon_tags = get_terms('sermons-tag');
+		if(!empty($get_sermon_tags))
+		{
+			$output .= '<li>
+			<select id="sermons-tag" class="postform" name="sermons-tag">
+			<option selected value="">'.__('Sermons Tag', 'framework').'</option>';
+			foreach($get_sermon_tags as $tag)
+			{
+				$selected = ($tags==$tag->slug)?'selected':'';
+				$output .= '<option '.$selected.' value="'.$tag->slug.'">'.$tag->name.' ('.$tag->count.')</option>';
+			}
+			$output .= '</select>
+			</li>';
+		}
+		$get_sermon_speakers = get_terms('sermons-speakers');
+		if(!empty($get_sermon_speakers))
+		{
+			$output .= '<li>
+			<select id="sermons-speakers" class="postform" name="sermons-speakers">
+			<option selected value="">'.__('Sermons Speakers', 'framework').'</option>';
+			foreach($get_sermon_speakers as $speaker)
+			{
+				$selected = ($speakers==$speaker->slug)?'selected':'';
+				$output .= '<option '.$selected.' value="'.$speaker->slug.'">'.$speaker->name.' ('.$speaker->count.')</option>';
+			}
+			$output .= '</select>
+			</li>';
+		}
+		$output .= '<li>
+		<input class="btn btn-default" type="submit" value="'.__('Filter', 'framework').'">
+		</li>
+		</ul>
+		</div>
+		</form>';
+		return $output;
+	}
+	add_shortcode( 'imic-searchandfilter', 'imic_sermons_filter_shortcode' );
+}
+/* SIDEBAR SHORTCODES
+  =================================================*/
+function nativechurch_sidebar($atts, $content = null) {
+    extract(shortcode_atts(array(
+        "id" => "",
+		"column" => 4
+     ), $atts));
+	 ob_start();
+dynamic_sidebar($id);
+$html = ob_get_contents();
+ob_end_clean();
+return $html;
+}
+add_shortcode('sidebar_megamenu', 'nativechurch_sidebar');
+function nativechurch_dynamic_category_list()
+{
+	$cpt = $_POST['cpt'];
+	$selected_cat = $_POST['selected_cat'];
+	switch($cpt)
+	{
+		case 'product':
+		$cat = 'product_cat';
+		break;
+		case 'causes':
+		$cat = 'causes-category';
+		break;
+		case 'gallery':
+		$cat = 'gallery-category';
+		break;
+		case 'staff':
+		$cat = 'staff-category';
+		break;
+		case 'sermons':
+		$cat = 'sermons-category';
+		break;
+		case 'event':
+		$cat = 'event-category';
+		break;
+		default:
+		$cat = 'category';
+	}
+	$post_cats = get_terms($cat);
+  if(!empty($post_cats))
+	{
+		echo '<option value="">'.__('Select Post Category','imic-framework-admin').'</option>';
+ 		foreach ($post_cats as $post_cat) 
+		{                        
+ 			$name = $post_cat->name;
+      $id = $post_cat->term_id;
+      $activePost = ($id == $selected_cat)? 'selected' : '';
+      echo '<option value="'. $id .'"'. $activePost.'>' . $name . '</option>';
+    }
+ 	}
+	die();
+}
+add_action('wp_ajax_nopriv_nativechurch_dynamic_category_list', 'nativechurch_dynamic_category_list');
+add_action('wp_ajax_nativechurch_dynamic_category_list', 'nativechurch_dynamic_category_list');
+
+//Functions for Front End Event Listing
+if(!function_exists('imic_insert_attachment'))
+{
+	function imic_insert_attachment($file_handler,$post_id,$setthumb='false') {
+	if ($_FILES[$file_handler]['error'] !== UPLOAD_ERR_OK){ return __return_false(); 
+	} 
+	require_once(ABSPATH . "wp-admin" . '/includes/image.php');
+	require_once(ABSPATH . "wp-admin" . '/includes/file.php');
+	require_once(ABSPATH . "wp-admin" . '/includes/media.php');
+	
+	$attach_id = media_handle_upload( $file_handler, $post_id );
+	//set post thumbnail if setthumb is 1
+	if ($setthumb == 1) update_post_meta($post_id,'_thumbnail_id',$attach_id);
+	return $attach_id;
+	}
+}
+//End Front End Event Listing
 ?>

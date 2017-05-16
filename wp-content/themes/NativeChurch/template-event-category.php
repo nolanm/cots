@@ -5,54 +5,26 @@ Template Name: Event Category
 get_header();
 $imic_event_category_page_url=  get_permalink();
 $pageOptions = imic_page_design(); //page design options
+imic_sidebar_position_module();
 ?>
 <div class="container">
 <div class="row">
-<div class="<?php echo $pageOptions['class']; ?> posts-archive">
+<div class="<?php echo $pageOptions['class']; ?> posts-archive" id="content-col">
 <?php 
 while(have_posts()):the_post();
+echo '<div class="page-content">';
 the_content();		
+echo '</div>';
 endwhile; 
 $event_add = array();
 $rec = 1;
 $no_event = 0;
 $today = date('Y-m-d');
 $event_cat= get_query_var('event_cat');
+$event_cat = imic_get_term_category(get_the_ID(),'imic_advanced_event_list_taxonomy');
 $event_cat= !empty($event_cat)?$event_cat:'';
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-query_posts(array('post_type' => 'event','event-category'=>$event_cat,'meta_key' => 'imic_event_start_dt','meta_query' => array( array( 'key' => 'imic_event_frequency_end', 'value' => $today, 'compare' => '>=') ), 'orderby' => 'meta_value', 'order' => 'ASC', 'posts_per_page'=>50));
-if(have_posts()):while(have_posts()):the_post();
-$frequency = get_post_meta(get_the_ID(), 'imic_event_frequency', true);
-$frequency_count = 0;
-$frequency_count = get_post_meta(get_the_ID(), 'imic_event_frequency_count', true);
-if ($frequency_count > 0) {
-$frequency_count = $frequency_count;
-}
-else {
-$frequency_count = 0;
-}
-$date_diff = $frequency * 86400;
-$sinc = 0;
-while ($sinc <= $frequency_count) {
-$diff_date = $sinc * $date_diff;
-$st_date = get_post_meta(get_the_ID(), 'imic_event_start_dt', true);
-$eventTime = get_post_meta(get_the_ID(), 'imic_event_start_tm', true);
-$eventTime = ($eventTime!='')?$eventTime:'23:59';
-if($frequency==30) {
-$st_date = strtotime($st_date.' '.$eventTime);
-$diff_date = strtotime("+".$sinc." month", $st_date);
-}
-else {
-$st_date = strtotime($st_date.' '.$eventTime);
-$diff_date = $st_date + $diff_date;
-}
-if($diff_date>=date('U')) {
-$event_add[$diff_date + $rec] = get_the_ID();
-$no_event++;
-}
-$sinc++; $rec++; }
-endwhile; endif;
-wp_reset_query();
+$event_add = imic_recur_events('future','',$event_cat,'');
 $now = date('U');
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $count = 1;
@@ -157,19 +129,22 @@ echo '<h3><a href="' . $custom_event_url. '">' . $event_title .'</a>'.imicRecurr
 echo '<span class="post-meta meta-data">
 <span><i class="fa fa-calendar"></i>'.date_i18n( get_option( 'date_format' ),$key ). '</span>';
 if($google_flag==1){
-echo'<span><i class="fa fa-archive"></i>' . $output . '</span> <span>';
-comments_popup_link('<i class="fa fa-comment"></i>' . __('No comments yet', 'framework'), '<i class="fa fa-comment"></i>1', '<i class="fa fa-comment"></i>%', 'comments-link', __('Comments are off for this post', 'framework'));
+echo'<span><i class="fa fa-archive"></i>' . $output . '</span>';
 }
-echo'</span></span>';
+echo'</span>';
 if($google_flag==1){
+	echo '<div class="page-content">';
 echo imic_excerpt(50);
+echo '</div>';
 }
 echo '<p><a href="'.$custom_event_url.'" class="btn btn-primary">' . __('Continue reading', 'framework') . '<i class="fa fa-long-arrow-right"></i></a></p>';
 echo '</div></div>';
 echo '</article>';
 } $count++; }
 wp_reset_postdata();
-pagination($TotalPages,$perPage);
+$TotalPages = floor($TotalPages);
+if($TotalPages>1) {
+pagination($TotalPages,$perPage); }
 }
 else{
 echo '<article class="post">';
@@ -182,7 +157,7 @@ echo '</article>';
 </div>
 <?php if(!empty($pageOptions['sidebar'])){ ?>
 <!-- Start Sidebar -->
-<div class="col-md-3 sidebar">
+<div class="col-md-3 sidebar" id="sidebar-col">
     <?php dynamic_sidebar($pageOptions['sidebar']); ?>
 </div>
 <!-- End Sidebar -->

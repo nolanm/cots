@@ -26,7 +26,7 @@ $meta_boxes[] = array(
         array(
             'name' => __('Facebook', 'framework'),
             'id' => $prefix . 'staff_member_facebook',
-            'desc' => __("Enter the staff member's Facebook URL.", 'framework'),
+            'desc' => __("Enter staff member's Facebook URL.", 'framework'),
             'clone' => false,
             'type' => 'hidden',
             'std' => '',
@@ -35,7 +35,7 @@ $meta_boxes[] = array(
         array(
             'name' => __('Twitter', 'framework'),
             'id' => $prefix . 'staff_member_twitter',
-            'desc' => __("Enter the staff member's Twitter username.", 'framework'),
+            'desc' => __("Enter staff member's Twitter username.", 'framework'),
             'clone' => false,
             'type' => 'hidden',
             'std' => '',
@@ -44,7 +44,7 @@ $meta_boxes[] = array(
         array(
             'name' => __('Google+', 'framework'),
             'id' => $prefix . 'staff_member_google_plus',
-            'desc' => __("Enter the staff member's Google+ URL.", 'framework'),
+            'desc' => __("Enter staff member's Google+ URL.", 'framework'),
             'type' => 'hidden',
             'std' => '',
         ),
@@ -52,7 +52,7 @@ $meta_boxes[] = array(
         array(
             'name' => __('Pinterest', 'framework'),
             'id' => $prefix . 'staff_member_pinterest',
-            'desc' => __("Enter the staff member's Pinterest URL.", 'framework'),
+            'desc' => __("Enter staff member's Pinterest URL.", 'framework'),
             'type' => 'hidden',
             'std' => '',
         ),
@@ -60,27 +60,36 @@ $meta_boxes[] = array(
         array(
             'name' => __('Email', 'framework'),
             'id' => $prefix . 'staff_member_email',
-            'desc' => __("Enter the staff member's Email.", 'framework'),
+            'desc' => __("Enter staff member's Email.", 'framework'),
+            'type' => 'text',
+            'std' => '',
+        ),
+      // Staff member Phone number
+        array(
+            'name' => __('Phone Number', 'framework'),
+            'id' => $prefix . 'staff_member_phone',
+            'desc' => __("Enter staff member's Phone Number.", 'framework'),
             'type' => 'text',
             'std' => '',
         ),
 		array(
             'name' => __('Job Title', 'framework'),
             'id' => $prefix . 'staff_job_title',
-            'desc' => __("Enter the staff job title.", 'framework'),
+            'desc' => __("Enter staff member's job title.", 'framework'),
             'type' => 'text',
             'std' => '',
         ),
- 	  array(
-                    'name'  => __('Social Icon', 'framework'),
-                    'id'    => $prefix."social_icon_list",
-                    'desc'  =>  __('Enter Social Icon and Url.', 'framework'),
-                    'type'  => 'text_list',
-                    'clone' => true,
-                    'options' => array(
-                            '0' => __('Social', 'framework'),
-                            '1' => __('Url', 'framework'))
-                      ),
+ 	  	array(
+			'name'  => __('Social Icon', 'framework'),
+			'id'    => $prefix."social_icon_list",
+			'desc'  =>  __('Select Social Icons and enter URL.', 'framework'),
+			'type'  => 'text_list',
+			'clone' => true,
+			'options' => array(
+				'0' => __('Social', 'framework'),
+				'1' => __('URL', 'framework')
+			)
+		),
     )
 );
 /* Causes Meta Box
@@ -93,9 +102,9 @@ $meta_boxes[] = array(
     'fields' => array( 
         //Cause End Date
         array(
-            'name' => __(' Cause End Date', 'framework'),
+            'name' => __('Cause End Date', 'framework'),
             'id' => $prefix . 'cause_end_dt',
-            'desc' => __("Insert date of Cause end.", 'framework'),
+            'desc' => __("Choose date when this cause will end and stop accepting donations.", 'framework'),
             'type' => 'date',
 			'js_options' => array(
 				'dateFormat'      =>'yy-mm-dd',
@@ -108,13 +117,13 @@ $meta_boxes[] = array(
 		array(
             'name' => __('Cause Amount', 'framework'),
             'id' => $prefix . 'cause_amount',
-            'desc' => __("Insert total number of amount required for cause.", 'framework'),
+            'desc' => __("Insert total amount required for cause.", 'framework'),
             'type' => 'text',
         ), 
 		array(
             'name' => __('Cause Amount Received', 'framework'),
             'id' => $prefix . 'cause_amount_received',
-            'desc' => __("This is the total amount reveived for this cause.", 'framework'),
+            'desc' => __("Total amount received so far for this cause.", 'framework'),
             'type' => 'text',
         ),      
     )
@@ -131,7 +140,7 @@ $meta_boxes[] = array(
         array(
             'name' => __('Event Start Date', 'framework'),
             'id' => $prefix . 'event_start_dt',
-            'desc' => __("Insert date of Event start.", 'framework'),
+            'desc' => __("Choose date when this event will start.", 'framework'),
             'type' => 'date',
 			'js_options' => array(
 	                'dateFormat'      => 'yy-mm-dd',
@@ -144,7 +153,7 @@ $meta_boxes[] = array(
         array(
             'name' => __(' Event End Date', 'framework'),
             'id' => $prefix . 'event_end_dt',
-            'desc' => __("Insert date of Event end.", 'framework'),
+            'desc' => __("Choose date when this event will end.", 'framework'),
             'type' => 'date',
 			'js_options' => array(
 				'dateFormat'      =>'yy-mm-dd',
@@ -153,17 +162,24 @@ $meta_boxes[] = array(
 				'showButtonPanel' => false,
 			),
         ),
+		#Event All Day Event
+        array(
+            'name' => __('All Day Event', 'framework'),
+            'desc' => __("Check this option if this event will be happening for the day of the chosen start/end date. This will work for single day events only.", 'framework'),
+            'id' => $prefix . 'event_all_day',
+            'type' => 'checkbox',
+        ),
         //Event Start Time
 		array(
 			'name' => __( 'Event Start Time', 'framework' ),
 			'id' => $prefix.'event_start_tm',
 			'type' => 'time',
-			
 			// jQuery datetime picker options. See here http://trentrichardson.com/examples/timepicker/
 			'js_options' => array(
-			'stepMinute' => 5,
+			'stepMinute' => 1,
 			'showSecond' => false,
-			'stepSecond' => 10,
+			'hourMax'=> 24,
+			'stepSecond' => 1,
 			),
 			),
         //Event End Time
@@ -171,12 +187,12 @@ $meta_boxes[] = array(
 			'name' => __( 'Event End Time', 'framework' ),
 			'id' => $prefix.'event_end_tm',
 			'type' => 'time',
-			
 			// jQuery datetime picker options. See here http://trentrichardson.com/examples/timepicker/
 			'js_options' => array(
-			'stepMinute' => 5,
+			'stepMinute' => 1,
 			'showSecond' => false,
-			'stepSecond' => 10,
+			'hourMax'=> 24,
+			'stepSecond' => 1,
 			),
 			),
          //Address
@@ -192,16 +208,16 @@ $meta_boxes[] = array(
 		array(
 			'name'  => __('Contact Number', 'framework'),
 			'id'    => $prefix."event_contact",
-			'desc'  =>  __('Enter event\'s contact number.', 'framework'),
+			'desc'  =>  __('Enter event\'s manager contact number. This is a static value which you might want to show on single event page.', 'framework'),
 			'type'  => 'text',
-		),  
+		), 
 		array(
             'name' => __('Event Registration', 'framework'),
             'id' => $prefix . 'event_registration_status',
-            'desc' => __("Select Enabled to active Event Registration.", 'framework'),
+            'desc' => __("Select Enable to activate Event Registration.", 'framework'),
             'type' => 'select',
             'options' => array(
-		'0' => __('Disable', 'framework'),
+				'0' => __('Disable', 'framework'),
 				'1' => __('Enable','framework'),
             ),
 			'std' => 0,
@@ -209,9 +225,33 @@ $meta_boxes[] = array(
 		array(
 			'name'  => __('Event Registration Fee', 'framework'),
 			'id'    => $prefix."event_registration_fee",
-			'desc'  =>  __('Enter event\'s registration fee(This field will work only when native-church-plugin activated.)', 'framework'),
+			'desc'  =>  __('Enter event\'s registration fee(This field will work only when imithemes payment plugin is active and above option Event Registration is enabled.) For multiple type tickets use the other metabox"Event Tickets Type" below and leave this field empty.', 'framework'),
 			'type'  => 'text',
-		),      
+		),
+		array(
+            'name' => __('Guest Registration', 'framework'),
+            'id' => $prefix . 'event_registration_required',
+            'desc' => __("Select Enable to activate Guest Registration(When enabled it will not be mandatory for users to register on your website to be able to register for an event) Works only when above option Event Registration is enabled.", 'framework'),
+            'type' => 'select',
+            'options' => array(
+				'0' => __('Disable', 'framework'),
+				'1' => __('Enable','framework'),
+            ),
+			'std' => 0,
+        ), 
+		array(
+			'name' => __( 'Custom Registration Button URL', 'framework' ),
+			'id' => $prefix.'custom_event_registration',
+			'desc' => __("For example EventBrite Event page URL of yours. This URL will be used for the registration button on single event page when the above option Event Registration is enabled", 'framework'),
+			'type' => 'text'
+		),
+		array(
+			'name' => __( 'Open custom URL in new Tab/Window', 'framework' ),
+			'id' => $prefix.'custom_event_registration_target',
+			'type' => 'checkbox',
+			// Value can be 0 or 1
+			'std' => 1,
+		),
     )
 );
 /*** Event Recurrence Meta box ***/   
@@ -236,13 +276,57 @@ $meta_boxes[] = array(
 				'6' => __('Every Sixth Day', 'framework'),
                 '7' => __('Every Week', 'framework'),
 				'30' => __('Every Month', 'framework'),
+				'35' => __('More Options', 'framework'),
+				'32' => __('Multiple Dates Options', 'framework'),
             ),
+        ),
+		array(
+            'name' => __('Event Week Day', 'framework'),
+            'id' => $prefix . 'event_week_day',
+            'desc' => __("Select Week Day.", 'framework'),
+            'type' => 'select',
+            'options' => array(
+				'sunday' => __('Sunday','framework'),
+                'monday' => __('Monday', 'framework'),
+				'tuesday' => __('Tuesday', 'framework'),
+				'wednesday' => __('Wednesday', 'framework'),
+				'thursday' => __('Thursday', 'framework'),
+				'friday' => __('Friday', 'framework'),
+				'saturday' => __('Saturday', 'framework'),
+        ),
+		),
+		array(
+            'name' => __('Day of Month', 'framework'),
+            'id' => $prefix . 'event_day_month',
+            'desc' => __("Select Day of Month.", 'framework'),
+            'type' => 'select',
+            'options' => array(
+				'first' => __('First','framework'),
+                'second' => __('Second', 'framework'),
+				'third' => __('Third', 'framework'),
+				'fourth' => __('Fourth', 'framework'),
+				'last' => __('Last', 'framework'),
+        ),
+		),
+		
+		array(
+            'name' => __('Event Multiple Recurring Date', 'framework'),
+            'id' => $prefix . 'event_recurring_dt',
+            'desc' => __("Insert multiple dates for recurring event, this will work only with single day event.", 'framework'),
+            'type' => 'date',
+			'clone' => true,
+			'js_options' => array(
+	                'dateFormat'      => 'yy-mm-dd',
+					'changeMonth'     => true,
+					'changeYear'      => true,
+					'showButtonPanel' => true,
+				),
         ),
 		//Frequency Count
 		array(
             'name' => __('Number of times to repeat event', 'framework'),
             'id' => $prefix . 'event_frequency_count',
-            'desc' => __("Enter the number of how many time this event should repeat.", 'framework'),
+            'desc' => __("Enter the number of how many time this event should repeat. max number of times an event can repeat is 999, events which have different start and end date could not recur.", 'framework'),
             'type' => 'text',
         ),    
 		array(
@@ -263,20 +347,20 @@ $meta_boxes[] = array(
        	array(
 			'name'  => __('Attendees', 'framework'),
 			'id'    => $prefix."event_attendees",
-			'desc'  =>  __('Enter number of attendees.', 'framework'),
+			'desc'  =>  __('Enter number of attendees. This is a static value which you might want to show on single event page.', 'framework'),
 			'type'  => 'text',
 		),
         //Staff Members
 		array(
 			'name'  => __('Staff Members', 'framework'),
 			'id'    => $prefix."event_staff_members",
-			'desc'  =>  __('Enter number of staff members.', 'framework'),
+			'desc'  =>  __('Enter number of staff members. This is a static value which you might want to show on single event page.', 'framework'),
 			'type'  => 'text',
 		),
 		array(
 			'name'  => __('Email Address', 'framework'),
 			'id'    => $prefix."event_email",
-			'desc'  =>  __('Enter Email for Event.', 'framework'),
+			'desc'  =>  __('Enter Email for Event. This email address is where theme will send event registrants info and can be used by event page visitors to contact directly', 'framework'),
 			'type'  => 'text',
 		),
     )
@@ -291,7 +375,7 @@ $meta_boxes[] = array(
        	array(
 			'name'  => __('Featured Event', 'framework'),
 			'id'    => $prefix."event_featured",
-			'desc'  =>  __('Select for featured event .', 'framework'),
+			'desc'  =>  __('Select for featured event. If this is set to Yes then this event will be available as an option to select for Featured Event Widget at Appearance > Widgets', 'framework'),
 			'type'  => 'select',
                        'options' => array(
                        '0' => __('No', 'framework'),
@@ -311,33 +395,33 @@ $meta_boxes[] = array(
         array(
             'name' => __('Video Url', 'framework'),
             'id' => $prefix . 'gallery_video_url',
-            'desc' => __("Enter the Video URL.", 'framework'),
+            'desc' => __("Enter the video URL.", 'framework'),
             'type' => 'url',
         ),
         // Gallery Link Url
         array(
             'name' => __('Link Url', 'framework'),
             'id' => $prefix . 'gallery_link_url',
-            'desc' => __("Enter the Link URL.", 'framework'),
+            'desc' => __("Enter the URL for Link gallery type post.", 'framework'),
             'type' => 'url',
         ),
         // Gallery Images
         array(
             'name' => __('Gallery Image', 'framework'),
             'id' => $prefix . 'gallery_images',
-            'desc' => __("Enter Gallery Image.", 'framework'),
+            'desc' => __("Choose/Upload gallery images.", 'framework'),
             'type' => 'image_advanced',
         ),
 		array(
-            'name' => __('Slider Image', 'framework'),
+            'name' => __('Slider Images', 'framework'),
             'id' => $prefix . 'gallery_slider_image',
-            'desc' => __("Enter Slider Image.", 'framework'),
+            'desc' => __("Enter slider images.", 'framework'),
             'type' => 'image_advanced',
         ),
 		array(
             'name' => __('Slider Speed', 'framework'),
             'id' => $prefix . 'gallery_slider_speed',
-            'desc' => __("Default Slider Speed is 5000.", 'framework'),
+            'desc' => __("Default slider speed is 5000. You can change it to anything you like. 1000 is equals to 1 second.", 'framework'),
             'type' => 'text',
         ),
        array(
@@ -373,7 +457,7 @@ $meta_boxes[] = array(
 		array(
             'name' => __('Slider Effects', 'framework'),
             'id' => $prefix . 'gallery_slider_effects',
-            'desc' => __("Select effects for slider.", 'framework'),
+            'desc' => __("Select effect for slider.", 'framework'),
             'type' => 'select',
             'options' => array(
                 'fade' => __('Fade', 'framework'),
@@ -384,10 +468,10 @@ $meta_boxes[] = array(
         array(
             'name' => __('Audio Display', 'framework'),
             'id' => $prefix . 'gallery_audio_display',
-            'desc' => __("Select Audio Display.", 'framework'),
+            'desc' => __("Select audio type.", 'framework'),
             'type' => 'select',
             'options' => array(
-                '1' => __('By Ifame', 'framework'),
+                '1' => __('By iFrame', 'framework'),
                 '2' => __('By Upload', 'framework'),
             ),
         ),
@@ -402,7 +486,7 @@ $meta_boxes[] = array(
         array(
             'name' => __('Audio', 'framework'),
             'id' => $prefix . 'gallery_uploaded_audio',
-            'desc' => __("Upload Audio.", 'framework'),
+            'desc' => __("Upload audio.", 'framework'),
             'type' => 'file_advanced',
             'max_file_uploads' => 1
         ),
@@ -413,24 +497,25 @@ $meta_boxes[] = array(
 $meta_boxes[] = array(
     'id' => 'post_page_meta_box',
     'title' => __('Page/Post Header Options', 'framework'),
-   'pages' => array('post','page','sermons','event','product'),
+   	'pages' => array('post','page','sermons','event','product', 'staff'),
     'fields' => array(
         // Custom title
         array(
             'name' => __('Custom Title', 'framework'),
             'id' => $prefix . 'post_page_custom_title',
-            'desc' => __("Enter Custom Title.", 'framework'),
+            'desc' => __("Enter custom title for the page.", 'framework'),
             'type' => 'text',
         ),
 		array(
             'name' => __('Choose Header Type', 'framework'),
             'id' => $prefix . 'pages_Choose_slider_display',
-            'desc' => __("Select Slider Display.", 'framework'),
+            'desc' => __("Select header type", 'framework'),
             'type' => 'select',
             'options' => array(
-				  '0' => __('Banner Image', 'framework'),
+				'0' => __('Image Banner', 'framework'),
                 '1' => __('Flex Slider', 'framework'),
                 '2' => __('Revolution Slider', 'framework'),
+				'3' => __('Color Banner', 'framework'),
             ),
         ),
 		array(
@@ -441,35 +526,35 @@ $meta_boxes[] = array(
             'max_file_uploads' => 1
         ),
         array(
-                   'name' => __('Select Revolution Slider from list','framework'),
-                    'id' => $prefix . 'pages_select_revolution_from_list',
-                    'desc' => __("Select Revolution Slider from list", 'framework'),
-                    'type' => 'select',
-                    'options' => RevSliderShortCode(),
-                ),
-        //Slider Image
+		   'name' => __('Select Revolution Slider from list','framework'),
+			'id' => $prefix . 'pages_select_revolution_from_list',
+			'desc' => __("Select Revolution Slider from the list", 'framework'),
+			'type' => 'select',
+			'options' => RevSliderShortCode(),
+		),
 		array(
-            'name' => __('Slider Height', 'framework'),
+            'name' => __('Header height in px', 'framework'),
             'id' => $prefix . 'pages_slider_height',
-            'desc' => __("Default Slider Height is 200.", 'framework'),
+            'desc' => __("Default height is 150px.", 'framework'),
             'type' => 'text',
+			'default' => '150',
         ),
         array(
-            'name' => __('Slider Image', 'framework'),
+            'name' => __('Slider Images', 'framework'),
             'id' => $prefix . 'pages_slider_image',
-            'desc' => __("Enter Slider Image.", 'framework'),
+            'desc' => __("Upload/Choose slider images.", 'framework'),
             'type' => 'image_advanced',
         ),
 		array(
             'name' => __('Slider Speed', 'framework'),
             'id' => $prefix . 'pages_slider_speed',
-            'desc' => __("Default Slider Speed is 5000.", 'framework'),
+            'desc' => __("Default slider speed is 5000. You can change it to anything you like. 1000 is equals to 1 second.", 'framework'),
             'type' => 'text',
         ),
 		array(
             'name' => __('Slider Pagination', 'framework'),
             'id' => $prefix . 'pages_slider_pagination',
-            'desc' => __("Enable to show pagination for slider.", 'framework'),
+            'desc' => __("Select Enable to show pagination for slider.", 'framework'),
             'type' => 'select',
             'options' => array(
                 'yes' => __('Enable', 'framework'),
@@ -506,6 +591,11 @@ $meta_boxes[] = array(
                 'slide' => __('Slide', 'framework'),
             ),
         ),
+		array(
+			'name' => __( 'Banner Color', 'framework' ),
+			'id' => $prefix.'pages_banner_color',
+			'type' => 'color',
+			),
         )
 );
 /* Post Meta Box
@@ -531,40 +621,13 @@ $meta_boxes[] = array(
     'title' => __('Sermons  Meta Box', 'framework'),
     'pages' => array('sermons'),
     'fields' => array(
-         //Pdf
-        array(
-            'name' => __('Upload Pdf', 'framework'),
-            'id' => $prefix . 'sermons_pdf_upload_option',
-            'desc' => __("Select Pdf Upload Option.", 'framework'),
-            'type' => 'select',
-            'options' => array(
-                '1' => __('By Upload', 'framework'),
-                '2' => __('By Url', 'framework'),
-            ),
-        ),
-        // Upload Pdf
-        array(
-            'name' => __('Upload Pdf', 'framework'),
-            'id' => $prefix . 'sermons_Pdf',
-            'desc' => __("Upload Pdf for Sermons.", 'framework'),
-            'type' => 'file_advanced',
-            'max_file_uploads' => 1
-        ),
-        // Upload Pdf by url
-        array(
-            'name' => __('Upload Pdf', 'framework'),
-            'id' => $prefix . 'sermons_pdf_by_url',
-            'desc' => __("Enter Pdf Url for Sermons.", 'framework'),
-            'type' => 'url',
-            
-        ),
-        // Sermons Url
-        array(
-            'name' => __('Sermons Url', 'framework'),
-            'id' => $prefix . 'sermons_url',
-            'desc' => __("Enter vimeo/youtube url for Sermons.", 'framework'),
-            'type' => 'url',
-        ),
+        // HEADING
+		array(
+			'type' => 'heading',
+			'name' => __( 'Audio for Sermon', 'framework' ),
+			'id' => 'heading_id3', // Not used but needed for plugin
+			'desc' => __( 'Add audio to your sermons either by direct URL or Upload here', 'framework' ),
+		),
          //Audio Display
         array(
             'name' => __('Upload Audio', 'framework'),
@@ -573,7 +636,7 @@ $meta_boxes[] = array(
             'type' => 'select',
             'options' => array(
                 '1' => __('By Upload', 'framework'),
-                '2' => __('By Url', 'framework'),
+                '2' => __('By URL', 'framework'),
             ),
         ),
         // Upload Audio
@@ -591,6 +654,160 @@ $meta_boxes[] = array(
             'type' => 'url',
            
         ),
+       
+        // HEADING
+		array(
+			'type' => 'heading',
+			'name' => __( 'Video for Sermon', 'framework' ),
+			'id' => 'heading_id2', // Not used but needed for plugin
+		),
+		// Sermons Video
+        array(
+            'name' => __('Sermon Video', 'framework'),
+            'id' => $prefix . 'sermons_video_upload_option',
+            'desc' => __("Select Video Option.", 'framework'),
+            'type' => 'select',
+            'options' => array(
+                '1' => __('By Vimeo/Youtube URL', 'framework'),
+                '2' => __('Custom Video', 'framework'),
+            ),
+        ),
+        // Sermons MP4
+        array(
+            'name' => __('Sermon Video .mp4', 'framework'),
+            'id' => $prefix . 'sermons_video_mp4',
+            'desc' => __("This is mandatory for custom video. MP4 for Safari, IE9, iPhone, iPad, Android, and Windows Phone 7", 'framework'),
+            'type' => 'file_input',
+            'max_file_uploads' => 1
+        ),
+        // Sermons Webm
+        array(
+            'name' => __('Sermon Video .webm', 'framework'),
+            'id' => $prefix . 'sermons_video_webm',
+            'desc' => __("WebM/VP8 for Firefox4, Opera, and Chrome", 'framework'),
+            'type' => 'file_input',
+            'max_file_uploads' => 1
+        ),
+        // Sermons OGV
+        array(
+            'name' => __('Sermon Video .ogv', 'framework'),
+            'id' => $prefix . 'sermons_video_ogv',
+            'desc' => __("Ogg/Vorbis for older Firefox and Opera versions", 'framework'),
+            'type' => 'file_input',
+            'max_file_uploads' => 1
+        ),
+        // Sermons Poster
+        array(
+            'name' => __('Sermon Video Poster Image', 'framework'),
+            'id' => $prefix . 'sermons_video_poster',
+            'desc' => __("An image which will appear as a poster prior to video play start.", 'framework'),
+            'type' => 'file_input',
+            'max_file_uploads' => 1
+        ),
+        // Sermons Url
+        array(
+            'name' => __('Sermon Url', 'framework'),
+            'id' => $prefix . 'sermons_url',
+            'desc' => __("Enter vimeo/youtube url for Sermons.", 'framework'),
+            'type' => 'url',
+        ),
+         // HEADING
+		array(
+			'type' => 'heading',
+			'name' => __( 'PDF for Sermon', 'meta-box' ),
+			'id' => 'heading_id1', // Not used but needed for plugin
+		),
+         //Pdf
+        array(
+            'name' => __('Upload Pdf', 'framework'),
+            'id' => $prefix . 'sermons_pdf_upload_option',
+            'desc' => __("Select Pdf Upload Option.", 'framework'),
+            'type' => 'select',
+            'options' => array(
+                '1' => __('By Upload', 'framework'),
+                '2' => __('By Url', 'framework'),
+            ),
+        ),
+        // Upload Pdf
+        array(
+            'name' => __('Upload Pdf', 'framework'),
+            'id' => $prefix . 'sermons_Pdf',
+            'desc' => __("Upload PDF for sermons.", 'framework'),
+            'type' => 'file_advanced',
+            'max_file_uploads' => 1
+        ),
+        // Upload Pdf by url
+        array(
+            'name' => __('Upload Pdf', 'framework'),
+            'id' => $prefix . 'sermons_pdf_by_url',
+            'desc' => __("Enter PDF URL for sermons.", 'framework'),
+            'type' => 'url',
+            
+        ),
+        // HEADING
+		array(
+			'type' => 'heading',
+			'name' => __( 'Additional Media Attachments', 'framework' ),
+			'desc' => __('These media items will be displayed on single sermon page','framework'),
+			'id' => 'heading_id4', // Not used but needed for plugin
+		),
+		// ADDITIONAL VIMEO VIDEO
+        array(
+            'name' => __('Additional Vimeo Video', 'framework'),
+            'id' => $prefix . 'sermons_add_vimeo_url',
+            'desc' => __("Enter Vimeo video URL", 'framework'),
+            'type' => 'url',
+           
+        ),
+		// ADDITIONAL YOUTUBE VIDEO
+        array(
+            'name' => __('Additional Youtube Video', 'framework'),
+            'id' => $prefix . 'sermons_add_youtube_url',
+            'desc' => __("Enter Youtube video URL", 'framework'),
+            'type' => 'url',
+           
+        ),
+		// ADDITIONAL SOUNDCLOUD AUDIO
+        array(
+            'name' => __('Additional Soundcloud Audio', 'framework'),
+            'id' => $prefix . 'sermons_add_soundcloud_url',
+            'desc' => __("Enter Soundcloud audio URL", 'framework'),
+            'type' => 'url',
+           
+        ),
+		// ADDITIONAL VIDEO MP4
+        array(
+            'name' => __('Additional Sermon Video .mp4', 'framework'),
+            'id' => $prefix . 'sermons_add_video_mp4',
+            'desc' => __("This is mandatory for custom video. MP4 for Safari, IE9, iPhone, iPad, Android, and Windows Phone 7", 'framework'),
+            'type' => 'file_input',
+            'max_file_uploads' => 1
+        ),
+		// ADDITIONAL VIDEO WebM
+        array(
+            'name' => __('Additional Sermon Video .webm', 'framework'),
+            'id' => $prefix . 'sermons_add_video_webm',
+            'desc' => __("WebM/VP8 for Firefox4, Opera, and Chrome", 'framework'),
+            'type' => 'file_input',
+            'max_file_uploads' => 1
+        ),
+		// ADDITIONAL VIDEO OGV
+        array(
+            'name' => __('Additional Sermon Video .ogv', 'framework'),
+            'id' => $prefix . 'sermons_add_video_ogv',
+            'desc' => __("Ogg/Vorbis for older Firefox and Opera versions", 'framework'),
+            'type' => 'file_input',
+            'max_file_uploads' => 1
+        ),
+		// ADDITIONAL VIDEO POSTER
+        array(
+            'name' => __('Additional Sermon Video Poster Image', 'framework'),
+            'id' => $prefix . 'sermons_add_video_poster',
+            'desc' => __("An image which will appear as a poster prior to video play start.", 'framework'),
+            'type' => 'file_input',
+            'max_file_uploads' => 1
+        ),
+        
       )
 );
 /* Sermon Meta Box
@@ -614,13 +831,19 @@ $meta_boxes[] = array(
     'id' => 'template-contact1',
     'title' => __('Email & Subject', 'framework'),
     'pages' => array('page'),
+	'show' => array(
+	// With all conditions below, use this logical operator to combine them. Default is 'OR'. Case insensitive. Optional.
+	'relation' => 'OR',
+	// List of page templates (used for page only). Array. Optional.
+	'template' => array( 'template-contact.php' ),
+	), 
     'show_names' => true,
     'fields' => array(
             //Email
         array(
             'name' => __('Email', 'framework'),
             'id' => $prefix . 'contact_email',
-            'desc' => __("Enter Email to Use in contact Form in default admin email used.", 'framework'),
+            'desc' => __("Enter email address to use in contact form. By default admin email will be used.", 'framework'),
             'type' => 'text',
             'std' => get_option('admin_email')
         ),
@@ -628,7 +851,7 @@ $meta_boxes[] = array(
         array(
             'name' => __('Subject', 'framework'),
             'id' => $prefix . 'contact_subject',
-            'desc' => __("Enter Subject to Use in contact Page.", 'framework'),
+            'desc' => __("Enter subject to use in contact page.", 'framework'),
             'type' => 'textarea',
         ),
     )
@@ -638,20 +861,26 @@ $meta_boxes[] = array(
     'id' => 'template-contact2',
     'title' => __('Map Box', 'framework'),
     'pages' => array('page'),
+	'show' => array(
+	// With all conditions below, use this logical operator to combine them. Default is 'OR'. Case insensitive. Optional.
+	'relation' => 'OR',
+	// List of page templates (used for page only). Array. Optional.
+	'template' => array( 'template-contact.php' ),
+	), 
     'show_names' => true,
     'fields' => array(
         //Our Location Text
         array(
             'name' => __('Our Location Text', 'framework'),
             'id' => $prefix . 'our_location_text',
-            'desc' => __("Enter the Our Location Text to display on cotact page.", 'framework'),
+            'desc' => __("Enter the our location text to display on contact page.", 'framework'),
             'type' => 'text',
         ),
         //Map Display
         array(
             'name' => __('Map Display', 'framework'),
             'id' => $prefix . 'contact_map_display',
-            'desc' => __("Select Map Display.", 'framework'),
+            'desc' => __("Display Map?", 'framework'),
             'type' => 'select',
             'options' => array(
                 'no' => __('No', 'framework'),
@@ -662,7 +891,7 @@ $meta_boxes[] = array(
         array(
             'name' => __('Map Box Code', 'framework'),
             'id' => $prefix . 'contact_map_box_code',
-            'desc' => __("Enter the code to display on cotact page.", 'framework'),
+            'desc' => __("Enter the map iframe embed code to display on contact page. You can get your embed code from http://maps.google.com/", 'framework'),
             'type' => 'textarea',
         ),
     )
@@ -672,12 +901,23 @@ $meta_boxes[] = array(
     'id' => 'template-home1',
     'title' => __('Slider Metabox', 'framework'),
     'pages' => array('page'),
+	'show' => array(
+	// With all conditions below, use this logical operator to combine them. Default is 'OR'. Case insensitive. Optional.
+	'relation' => 'OR',
+	// List of page templates (used for page only). Array. Optional.
+	'template' => array( 'template-home.php','template-home-pb.php','template-h-third.php' ),
+	), 
     'show_names' => true,
     'fields' => array(
-         array(
-            'name' => __('Choose Slider', 'framework'),
+		array(
+            'id' => $prefix . 'custom_homepage_message',
+            'std' => __('<p style="background-color:red; color:#fff; padding:5px 20px">If you are setting this page as your front page at Settings > Reading then use this metabox options for the page header slider instead of page/post header options.</p>', 'framework'),
+            'type' => 'custom_html',
+		),
+        array(
+            'name' => __('Choose slider', 'framework'),
             'id' => $prefix . 'Choose_slider_display',
-            'desc' => __("Select Slider Display.", 'framework'),
+            'desc' => __("Select slider type for your homepage.", 'framework'),
             'type' => 'select',
             'options' => array(
                 '0' => __('Flex Slider', 'framework'),
@@ -685,23 +925,23 @@ $meta_boxes[] = array(
             ),
         ),
         array(
-                   'name' => __("Select Revolution Slider from list","framework"),
-                    'id' => $prefix . 'select_revolution_from_list',
-                    'desc' => __("Select Revolution Slider from list", 'framework'),
-                    'type' => 'select',
-                    'options' => RevSliderShortCode(),
-                ),
+		   'name' => __("Select Revolution Slider from list","framework"),
+			'id' => $prefix . 'select_revolution_from_list',
+			'desc' => __("Select Revolution Slider from the list", 'framework'),
+			'type' => 'select',
+			'options' => RevSliderShortCode(),
+		),
         //Slider Image
         array(
             'name' => __('Slider Image', 'framework'),
             'id' => $prefix . 'slider_image',
-            'desc' => __("Enter Slider Image.", 'framework'),
+            'desc' => __("Choose/Upload slider images.", 'framework'),
             'type' => 'image_advanced',
         ),
 		array(
             'name' => __('Slider Speed', 'framework'),
             'id' => $prefix . 'slider_speed',
-            'desc' => __("Default Slider Speed is 5000.", 'framework'),
+            'desc' => __("Default slider speed is 5000. You can change it to anything you like. 1000 is equals to 1 second.", 'framework'),
             'type' => 'text',
         ),
 		array(
@@ -738,7 +978,7 @@ $meta_boxes[] = array(
 		array(
             'name' => __('Slider Effects', 'framework'),
             'id' => $prefix . 'slider_effects',
-            'desc' => __("Select effects for slider.", 'framework'),
+            'desc' => __("Select effect for slider.", 'framework'),
             'type' => 'select',
             'options' => array(
                 'fade' => __('Fade', 'framework'),
@@ -751,6 +991,12 @@ $meta_boxes[] = array(
     'id' => 'template-h-second-1',
     'title' => __('Categories Area', 'framework'),
     'pages' => array('page'),
+	'show' => array(
+	// With all conditions below, use this logical operator to combine them. Default is 'OR'. Case insensitive. Optional.
+	'relation' => 'OR',
+	// List of page templates (used for page only). Array. Optional.
+	'template' => array( 'template-h-second.php' ),
+	), 
     'show_names' => true,
     'fields' => array(
 		array(
@@ -769,7 +1015,7 @@ $meta_boxes[] = array(
             'id' => $prefix . 'category_to_show_on_home',
             'desc' => __("Choose Category to show  on Home page", 'framework'),
             'clone' => true,
-            'clone-group' => 'imic-clone-group',
+            //'clone-group' => 'imic-clone-group',
             'type' => 'select',
             'options' => imic_get_cat_list()
         ),
@@ -780,7 +1026,7 @@ $meta_boxes[] = array(
             'type' => 'text',
             'std' => '',
             'clone' => true,
-            'clone-group' => 'imic-clone-group',
+            //'clone-group' => 'imic-clone-group',
         ),
     ),
 );
@@ -789,6 +1035,12 @@ $meta_boxes[] = array(
     'id' => 'template-home6',
     'title' => __('Select option for Area Under Slider', 'framework'),
     'pages' => array('page'),
+	'show' => array(
+	// With all conditions below, use this logical operator to combine them. Default is 'OR'. Case insensitive. Optional.
+	'relation' => 'OR',
+	// List of page templates (used for page only). Array. Optional.
+	'template' => array( 'template-home.php','template-home-pb.php','template-h-third.php' ),
+	), 
     'show_names' => true,
     'fields' => array(
 		array(
@@ -805,24 +1057,24 @@ $meta_boxes[] = array(
         array(
             'name' => __('Recent Event/Sermon', 'framework'),
             'id' => $prefix . 'latest_sermon_events_to_show_on',
-            'desc' => __("Choose Latest item to show under slider", 'framework'),
+            'desc' => __("Choose latest item to show under slider", 'framework'),
             'type' => 'select',
             'options' => array(
                 'letest_event' => __('Latest event', 'framework'),
                 'letest_sermon' => __('Latest Sermon', 'framework'),
-				'text' => __('Custom Message', 'framework'),
+				'text' => __('Custom message', 'framework'),
             ),
         ),
 		array(
             'name' => __('Custom Text Message', 'framework'),
             'id' => $prefix . 'custom_text_message',
-            'desc' => __("Enter Custom Message, this field could also be use for shortcodes.", 'framework'),
+            'desc' => __("Enter custom message, this field accept shortcodes as well.", 'framework'),
             'type' => 'textarea',
         ),
         array(
         'name'    => __( 'Event Category', 'framework' ),
         'id'      => $prefix . 'advanced_event_taxonomy',
-        'desc' => __("Choose Event Category", 'framework'),
+        'desc' => __("Choose event category", 'framework'),
         'type'    => 'taxonomy_advanced',
         'options' => array(
                 // Taxonomy name
@@ -831,6 +1083,7 @@ $meta_boxes[] = array(
                 // Additional arguments for get_terms() function. Optional
                 'args' => array('orderby' => 'count', 'hide_empty' => true)
                 ),
+				'multiple' =>true,
             ),
         array(
             'name' => __('Switch for Going on events', 'framework'),
@@ -846,13 +1099,13 @@ $meta_boxes[] = array(
         	array(
             'name' => __('Custom Going On Events Title', 'framework'),
             'id' => $prefix . 'custom_going_on_events_title',
-            'desc' => __("Enter Going On Events Title.", 'framework'),
+            'desc' => __("Enter Going On Events title.", 'framework'),
             'type' => 'text',
         ),
             array(
         'name'    => __( 'Sermons Category', 'framework' ),
         'id'      => $prefix . 'advanced_sermons_category',
-        'desc' => __("Choose Sermons Category", 'framework'),
+        'desc' => __("Choose sermon category", 'framework'),
         'type'    => 'taxonomy_advanced',
         'options' => array(
                 // Taxonomy name
@@ -861,11 +1114,12 @@ $meta_boxes[] = array(
                 // Additional arguments for get_terms() function. Optional
                 'args' => array('orderby' => 'count', 'hide_empty' => true)
                 ),
+				'multiple' =>true,
             ),
         array(
             'name' => __('All Event/Sermon Button Url', 'framework'),
             'id' => $prefix . 'all_event_sermon_url',
-            'desc' => __("Enter Event/Sermon Button Url", 'framework'),
+            'desc' => __("Enter Event/Sermon button URL", 'framework'),
             'type' => 'text',
             'std' => ''
         ),
@@ -875,12 +1129,18 @@ $meta_boxes[] = array(
     'id' => 'template-home4',
     'title' => __('Featured Blocks Area', 'framework'),
     'pages' => array('page'),
+	'show' => array(
+	// With all conditions below, use this logical operator to combine them. Default is 'OR'. Case insensitive. Optional.
+	'relation' => 'OR',
+	// List of page templates (used for page only). Array. Optional.
+	'template' => array( 'template-home.php' ),
+	), 
     'show_names' => true,
     'fields' => array(
 		array(
             'name' => __('Switch for featured blocks', 'framework'),
             'id' => $prefix . 'imic_featured_blocks',
-            'desc' => __("Select enable or disable to show/hide feature blocks.", 'framework'),
+            'desc' => __("Select enable or disable to show/hide featured blocks.", 'framework'),
             'type' => 'select',
             'options' => array(
                 '1' => __('Enable', 'framework'),
@@ -891,14 +1151,14 @@ $meta_boxes[] = array(
         array(
             'name' => __('Featured Blocks to show on home page', 'framework'),
             'id' => $prefix . 'home_featured_blocks',
-            'desc' => __("Enter the Posts/Pages comma separated Id to show on Home page featured block. example - 1,2,3", 'framework'),
+            'desc' => __("Enter the Posts/Pages comma separated ID to show featured blocks on Home page. example - 1,2,3", 'framework'),
             'type' => 'text',
             'std' => ''
         ),
 		array(
             'name' => __('Title for featured blocks', 'framework'),
             'id' => $prefix . 'home_row_featured_blocks',
-            'desc' => __("Enter the title for featured blocks", 'framework'),
+            'desc' => __("Enter the title for featured blocks. Add more as per the entered page IDs", 'framework'),
             'type' => 'text',
 			'clone' => true,
             'std' => ''
@@ -930,6 +1190,12 @@ $meta_boxes[] = array(
     'id' => 'template-home7',
    'title' => __('Upcoming Events Area', 'framework'),
     'pages' => array('page'),
+	'show' => array(
+	// With all conditions below, use this logical operator to combine them. Default is 'OR'. Case insensitive. Optional.
+	'relation' => 'OR',
+	// List of page templates (used for page only). Array. Optional.
+	'template' => array( 'template-home.php','template-h-third.php' ),
+	), 
     'show_names' => true,
     'fields' => array(
 		array(
@@ -946,7 +1212,7 @@ $meta_boxes[] = array(
 		array(
         'name'    => __( 'Event Category', 'framework' ),
         'id'      => $prefix . 'upcoming_event_taxonomy',
-        'desc' => __("Choose Event Category", 'framework'),
+        'desc' => __("Choose event category", 'framework'),
         'type'    => 'taxonomy_advanced',
         'options' => array(
                 // Taxonomy name
@@ -955,18 +1221,19 @@ $meta_boxes[] = array(
                 // Additional arguments for get_terms() function. Optional
                 'args' => array('orderby' => 'count', 'hide_empty' => true)
                 ),
+				'multiple' =>true,
             ),
 		//Custom More Upcoming Events Title
 		array(
             'name' => __('Custom More Upcoming Events Title', 'framework'),
             'id' => $prefix . 'custom_upcoming_events_title',
-            'desc' => __("Enter More Upcoming Events Title.", 'framework'),
+            'desc' => __("Enter more upcoming events title.", 'framework'),
             'type' => 'text',
         ),
         array(
             'name' => __('Number of Events to show on home page', 'framework'),
             'id' => $prefix . 'events_to_show_on',
-            'desc' => __("Enter the number of Events to show on Home page. example - 3 .", 'framework'),
+            'desc' => __("Enter the number of events to show on home page. Example: 3", 'framework'),
             'type' => 'text',
             'std' => ''
         ),
@@ -976,6 +1243,12 @@ $meta_boxes[] = array(
     'id' => 'template-home5',
     'title' => __('Recent Posts Area', 'framework'),
     'pages' => array('page'),
+	'show' => array(
+	// With all conditions below, use this logical operator to combine them. Default is 'OR'. Case insensitive. Optional.
+	'relation' => 'OR',
+	// List of page templates (used for page only). Array. Optional.
+	'template' => array( 'template-home.php','template-h-third.php' ),
+	), 
     'show_names' => true,
     'fields' => array(
 		array(
@@ -992,7 +1265,7 @@ $meta_boxes[] = array(
 		array(
         'name'    => __( 'Post Category', 'framework' ),
         'id'      => $prefix . 'recent_post_taxonomy',
-        'desc' => __("Choose Post Category", 'framework'),
+        'desc' => __("Choose post category", 'framework'),
         'type'    => 'taxonomy_advanced',
         'options' => array(
                 // Taxonomy name
@@ -1002,18 +1275,37 @@ $meta_boxes[] = array(
                 'args' => array('orderby' => 'count', 'hide_empty' => true)
                 ),
 				'std' => '',
+				'multiple' =>true,
             ),
 	//Custom Latest News Title
 		array(
             'name' => __('Custom Latest News Title', 'framework'),
             'id' => $prefix . 'custom_latest_news_title',
-            'desc' => __("Enter Custom Latest News Title.", 'framework'),
+            'desc' => __("Enter custom latest news title.", 'framework'),
             'type' => 'text',
         ),
         array(
             'name' => __('Number of Recent Posts to show on home page.', 'framework'),
             'id' => $prefix . 'posts_to_show_on',
-            'desc' => __("Enter the number of Recent Posts to show on Home page. example - 3 .", 'framework'),
+            'desc' => __("Enter the number of recent posts to show on home page. Example: 3", 'framework'),
+            'type' => 'text',
+            'std' => ''
+        ),
+		array(
+            'name' => __('Show read more button', 'framework'),
+            'id' => $prefix . 'recent_posts_rmbutton',
+            'desc' => __("Show read more button for each recent post?", 'framework'),
+            'type' => 'select',
+            'options' => array(
+                '1' => __('Yes', 'framework'),
+                '2' => __('No', 'framework'),
+            ),
+			'std' => '2',
+        ),
+        array(
+            'name' => __('Custom read more button text', 'framework'),
+            'id' => $prefix . 'recent_posts_rmbutton_text',
+            'desc' => __("Enter button text for read more button", 'framework'),
             'type' => 'text',
             'std' => ''
         ),
@@ -1023,6 +1315,12 @@ $meta_boxes[] = array(
     'id' => 'template-home3',
     'title' => __('Recent Galleries Area', 'framework'),
     'pages' => array('page'),
+	'show' => array(
+	// With all conditions below, use this logical operator to combine them. Default is 'OR'. Case insensitive. Optional.
+	'relation' => 'OR',
+	// List of page templates (used for page only). Array. Optional.
+	'template' => array( 'template-home.php','template-h-third.php','template-h-second.php' ),
+	), 
     'show_names' => true,
     'fields' => array(
 		array(
@@ -1039,7 +1337,7 @@ $meta_boxes[] = array(
 		array(
         'name'    => __( 'Gallery Categories', 'framework' ),
         'id'      => $prefix . 'home_gallery_taxonomy',
-        'desc' => __("Choose Gallery Category", 'framework'),
+        'desc' => __("Choose gallery category", 'framework'),
         'type'    => 'taxonomy_advanced',
         'options' => array(
                 // Taxonomy name
@@ -1049,37 +1347,38 @@ $meta_boxes[] = array(
                 'args' => array('orderby' => 'count', 'hide_empty' => true)
                 ),
 				'std' => '',
+				'multiple' =>true,
             ),
 		//Custom Gallery Title
         array(
             'name' => __('Custom Gallery Title', 'framework'),
             'id' => $prefix . 'custom_gallery_title',
-            'desc' => __("Enter Custom Gallery Title.", 'framework'),
+            'desc' => __("Enter custom gallery title.", 'framework'),
             'type' => 'text',
         ),
         array(
             'name' => __('Custom More Galleries Title', 'framework'),
             'id' => $prefix . 'custom_more_galleries_title',
-            'desc' => __("Enter Custom More Galleries Title.", 'framework'),
+            'desc' => __("Enter custom more galleries title.", 'framework'),
             'type' => 'text',
         ),
         array(
             'name' => __('Custom More Galleries Url', 'framework'),
             'id' => $prefix . 'custom_more_galleries_url',
-            'desc' => __("Enter Custom More Galleries Url.", 'framework'),
+            'desc' => __("Enter custom more galleries URL.", 'framework'),
             'type' => 'url',
         ),
         array(
             'name' => __('Number of Galleries to show on home page', 'framework'),
             'id' => $prefix . 'galleries_to_show_on',
-            'desc' => __("Enter the number of Galleries to show on Home page. example - 3 .", 'framework'),
+            'desc' => __("Enter the number of gallery posts to show on home page. Example: 3", 'framework'),
             'type' => 'text',
             'std' => ''
         ),
         array(
             'name' => __('Upload Background Image', 'framework'),
             'id' => $prefix.'galleries_background_image',
-            'desc' => __("Upload Background Image", 'framework'),
+            'desc' => __("Upload background image for the latest gallery section of home page.", 'framework'),
             'type' => 'image_advanced',
             'max_file_uploads' => 1
         ),
@@ -1089,12 +1388,18 @@ $meta_boxes[] = array(
     'id' => 'template-h-third-1',
     'title' => __('Latest Sermon Albums', 'framework'),
     'pages' => array('page'),
+	'show' => array(
+	// With all conditions below, use this logical operator to combine them. Default is 'OR'. Case insensitive. Optional.
+	'relation' => 'OR',
+	// List of page templates (used for page only). Array. Optional.
+	'template' => array( 'template-h-third.php' ),
+	), 
     'show_names' => true,
     'fields' => array(
 		array(
             'name' => __('Switch for Sermon Albums', 'framework'),
             'id' => $prefix . 'switch_sermon_album',
-            'desc' => __("Select enable or disable to show/hide Sermon Albums posts area.", 'framework'),
+            'desc' => __("Select enable or disable to show/hide sermon albums posts area.", 'framework'),
             'type' => 'select',
             'options' => array(
                 '1' => __('Enable', 'framework'),
@@ -1106,14 +1411,14 @@ $meta_boxes[] = array(
         array(
             'name' => __('Custom Latest Sermon Albums Title', 'framework'),
             'id' => $prefix . 'custom_albums_title',
-            'desc' => __("Enter Custom Latest Sermon Albums Title", 'framework'),
+            'desc' => __("Enter custom latest sermon albums title", 'framework'),
             'type' => 'text',
             'std' => '',
            ),
         array(
             'name' => __('Number of Sermon Albums', 'framework'),
             'id' => $prefix . 'number_of_sermon_albums',
-            'desc' => __("Enter Number of Sermon Albums", 'framework'),
+            'desc' => __("Enter number of sermon albums to show", 'framework'),
             'type' => 'text',
             'std' => '',
            ),
@@ -1121,7 +1426,7 @@ $meta_boxes[] = array(
 	array(
             'name' => __('All Sermon Albums Url', 'framework'),
             'id' => $prefix . 'sermon_albums_url',
-            'desc' => __("Enter Sermon Albums Url", 'framework'),
+            'desc' => __("Enter sermon albums URL", 'framework'),
             'type' => 'text',
         ),
     ),
@@ -1131,6 +1436,12 @@ $meta_boxes[] = array(
     'id' => 'template-gallery-pagination1',
     'title' => __('Gallery Metabox', 'framework'),
     'pages' => array('page'),
+	'show' => array(
+	// With all conditions below, use this logical operator to combine them. Default is 'OR'. Case insensitive. Optional.
+	'relation' => 'OR',
+	// List of page templates (used for page only). Array. Optional.
+	'template' => array( 'template-gallery-pagination.php' ),
+	), 
     'show_names' => true,
     'fields' => array(
         //Number of Gallery to show
@@ -1144,14 +1455,14 @@ $meta_boxes[] = array(
          array(
             'name' => __('Gallery Columns Layout', 'framework'),
             'id' => $prefix . 'gallery_pagination_columns_layout',
-            'desc' => __("Enter the number of Columns for Layout to show on Gallery page. For example: 3", 'framework'),
+            'desc' => __("Enter the number of columns for layout to show on gallery page. Example: 3", 'framework'),
             'type' => 'text',
             'std' => ''
         ),
          array(
             'name' => __('Show gallery items title', 'framework'),
             'id' => $prefix . 'show_gallery_title',
-            'desc' => __("Select enable if you need to show gallery items title.", 'framework'),
+            'desc' => __("Select enable if you need to show gallery posts title.", 'framework'),
             'type' => 'select',
             'options' => array(
         		'0' => __('Disable', 'framework'),
@@ -1166,6 +1477,12 @@ $meta_boxes[] = array(
     'id' => 'template-gallery-masonry1',
     'title' => __('Gallery Metabox', 'framework'),
     'pages' => array('page'),
+	'show' => array(
+	// With all conditions below, use this logical operator to combine them. Default is 'OR'. Case insensitive. Optional.
+	'relation' => 'OR',
+	// List of page templates (used for page only). Array. Optional.
+	'template' => array( 'template-gallery-masonry.php' ),
+	), 
     'show_names' => true,
     'fields' => array(
         //Number of Gallery to show
@@ -1194,14 +1511,26 @@ $meta_boxes[] = array(
     'id' => 'template-gallery-filter1',
     'title' => __('Gallery Metabox', 'framework'),
     'pages' => array('page'),
+	'show' => array(
+	// With all conditions below, use this logical operator to combine them. Default is 'OR'. Case insensitive. Optional.
+	'relation' => 'OR',
+	// List of page templates (used for page only). Array. Optional.
+	'template' => array( 'template-gallery-filter.php' ),
+	), 
     'show_names' => true,
     'fields' => array(
        array(
             'name' => __('Gallery Columns Layout', 'framework'),
             'id' => $prefix . 'gallery_filter_columns_layout',
-            'desc' => __("Enter the number of columns for Layout to show on Gallery Filter page. For example: 3", 'framework'),
-            'type' => 'text',
-            'std' => ''
+            'desc' => __("Enter the number of columns for Layout to show on gallery filter page. Example: 3", 'framework'),
+            'type' => 'select',
+            'options' => array(
+        		2 => __('2 Columns', 'framework'),
+        		3 => __('3 Columns', 'framework'),
+                4 => __('4 Columns','framework'),
+                6 => __('6 Columns','framework'),
+            ),
+            'std' => 3
         ),
          array(
             'name' => __('Show gallery items title', 'framework'),
@@ -1221,12 +1550,18 @@ $meta_boxes[] = array(
     'id' => 'gallery-taxonomies',
     'title' => __('Gallery Categories', 'framework'),
     'pages' => array('page'),
+	'show' => array(
+	// With all conditions below, use this logical operator to combine them. Default is 'OR'. Case insensitive. Optional.
+	'relation' => 'OR',
+	// List of page templates (used for page only). Array. Optional.
+	'template' => array( 'template-gallery-filter.php','template-gallery-masonry.php','template-gallery-pagination.php'),
+	), 
     'show_names' => true,
     'fields' => array(
 		array(
         'name'    => __( 'Gallery Category', 'framework' ),
         'id'      => $prefix . 'advanced_gallery_taxonomy',
-        'desc' => __("Choose Gallery Category", 'framework'),
+        'desc' => __("Choose gallery category", 'framework'),
         'type'    => 'taxonomy_advanced',
         'options' => array(
                 // Taxonomy name
@@ -1236,7 +1571,9 @@ $meta_boxes[] = array(
                 'args' => array('orderby' => 'count', 'hide_empty' => true)
                 ),
 				'std' => '',
+				'multiple' =>true,
             ),
+			
     )
 );
 /* * ** Event  Category Meta Box 1 *** */
@@ -1244,12 +1581,18 @@ $meta_boxes[] = array(
     'id' => 'events-taxonomies',
     'title' => __('Events Categories', 'framework'),
     'pages' => array('page'),
+	'show' => array(
+	// With all conditions below, use this logical operator to combine them. Default is 'OR'. Case insensitive. Optional.
+	'relation' => 'OR',
+	// List of page templates (used for page only). Array. Optional.
+	'template' => array( 'template-event-category.php','template-events_grid.php','template-events-timeline.php','template-events.php' ),
+	), 
     'show_names' => true,
     'fields' => array(
 		array(
         'name'    => __( 'Event Category', 'framework' ),
         'id'      => $prefix . 'advanced_event_list_taxonomy',
-        'desc' => __("Choose Event Category", 'framework'),
+        'desc' => __("Choose event category", 'framework'),
         'type'    => 'taxonomy_advanced',
         'options' => array(
                 // Taxonomy name
@@ -1259,6 +1602,7 @@ $meta_boxes[] = array(
                 'args' => array('orderby' => 'count', 'hide_empty' => true)
                 ),
 			'std' => '',
+			'multiple' =>true,
             ),
     )
 );
@@ -1267,12 +1611,18 @@ $meta_boxes[] = array(
     'id' => 'post-taxonomies',
     'title' => __('Post Categories', 'framework'),
     'pages' => array('page'),
+	'show' => array(
+		// With all conditions below, use this logical operator to combine them. Default is 'OR'. Case insensitive. Optional.
+		'relation' => 'OR',
+		// List of page templates (used for page only). Array. Optional.
+		'template' => array( 'template-blog-full-width.php','template-blog-masonry.php','template-blog-medium-thumbnails.php','template-blog-timeline.php'),
+	), 
     'show_names' => true,
     'fields' => array(
 		array(
         'name'    => __( 'Post Category', 'framework' ),
         'id'      => $prefix . 'advanced_post_taxonomy',
-        'desc' => __("Choose Post Category", 'framework'),
+        'desc' => __("Choose post category", 'framework'),
         'type'    => 'taxonomy_advanced',
         'options' => array(
                 // Taxonomy name
@@ -1282,30 +1632,38 @@ $meta_boxes[] = array(
                 'args' => array('orderby' => 'count', 'hide_empty' => true)
                 ),
 				'std' => '',
+				'multiple' =>true,
+				
             ),
     )
 );
 /* * ** Post  Category Meta Box 1 *** */
 $meta_boxes[] = array(
     'id' => 'post-taxonomies-blog',
-    'title' => __('Post Categories', 'framework'),
+    'title' => __('Blog Post Categories', 'framework'),
     'pages' => array('page'),
     'show_names' => true,
     'fields' => array(
 		array(
-        'name'    => __( 'Post Category', 'framework' ),
-        'id'      => $prefix . 'advanced_blog_taxonomy',
-        'desc' => __("Choose Post Category If you are going to set this page as blog.", 'framework'),
-        'type'    => 'taxonomy_advanced',
-        'options' => array(
-                // Taxonomy name
-                'taxonomy' => 'category',
-                'type' => 'select',
-                // Additional arguments for get_terms() function. Optional
-                'args' => array('orderby' => 'count', 'hide_empty' => true)
-                ),
-				'std' => '',
-            ),
+            'id' => $prefix . 'custom_cats_blog_message',
+            'std' => __('<p style="background-color:red; color:#fff; padding:5px 20px">If you are setting this page as your posts page at Settings > Reading then use this metabox options for the post categories.</p>', 'framework'),
+            'type' => 'custom_html',
+		),
+		array(
+			'name'    => __( 'Post Category', 'framework' ),
+			'id'      => $prefix . 'advanced_blog_taxonomy',
+			'desc' => __("Choose post category/categories", 'framework'),
+			'type'    => 'taxonomy_advanced',
+			'options' => array(
+				// Taxonomy name
+				'taxonomy' => 'category',
+				'type' => 'select',
+				// Additional arguments for get_terms() function. Optional
+				'args' => array('orderby' => 'count', 'hide_empty' => true)
+			),
+			'std' => '',
+			'multiple' =>true,
+		),
     )
 );
 /* * ** Staff Page Meta Box 1 *** */
@@ -1313,33 +1671,92 @@ $meta_boxes[] = array(
     'id' => 'template-staff1',
     'title' => __('Staff to show', 'framework'),
     'pages' => array('page'),
+	'show' => array(
+	// With all conditions below, use this logical operator to combine them. Default is 'OR'. Case insensitive. Optional.
+	'relation' => 'OR',
+	// List of page templates (used for page only). Array. Optional.
+	'template' => array( 'template-staff.php' ),
+	), 
     'show_names' => true,
     'fields' => array(
         //Number of Staff to show
         array(
             'name' => __('Number of Staff to show', 'framework'),
             'id' => $prefix . 'staff_to_show_on',
-            'desc' => __("Enter the number of Staff  to show on Staff page. For example: 3", 'framework'),
+            'desc' => __("Enter the number of staff posts to show on staff page. Example: 3", 'framework'),
             'type' => 'text',
             'std' => ''
+        ),
+		array(
+        'name'    => __( 'Staff Category', 'framework' ),
+        'id'      => $prefix . 'advanced_staff_taxonomy',
+        'desc' => __("Choose staff category", 'framework'),
+        'type'    => 'taxonomy_advanced',
+        'options' => array(
+                // Taxonomy name
+                'taxonomy' => 'staff-category',
+                'type' => 'select',
+                // Additional arguments for get_terms() function. Optional
+                'args' => array('orderby' => 'count', 'hide_empty' => true)
+                ),
+				'multiple' =>true,
         ),
         array(
             'name' => __('Select orderby', 'framework'),
             'id' => $prefix . 'staff_select_orderby',
-            'desc' => __("Select Staff orderby.", 'framework'),
+            'desc' => __("Select staff orderby.", 'framework'),
             'type' => 'select',
             'options' => array(
                 'ID' => __('ID', 'framework'),
                 'menu_order' => __('Menu Order', 'framework'),
             ),
         ),
+        array(
+            'name' => __('Length of Excerpt to show', 'framework'),
+            'id' => $prefix . 'staff_excerpt_length',
+            'desc' => __("Enter the number of words you would like to show from the staff posts content/excerpt. Enter 0 to completely hide the excerpt and read more button", 'framework'),
+            'type' => 'text',
+            'std' => ''
+        ),
        )
+);
+
+/* * ** Events Timeline Meta Box 1 *** */
+$meta_boxes[] = array(
+    'id' => 'template-events-timeline',
+    'title' => __('Event Timeline View', 'framework'),
+    'pages' => array('page'),
+    'show' => array(
+		// With all conditions below, use this logical operator to combine them. Default is 'OR'. Case insensitive. Optional.
+		'relation' => 'OR',
+		// List of page templates (used for page only). Array. Optional.
+		'template' => array( 'template-events-timeline.php' ),
+	), 
+    'show_names' => true,
+    'fields' => array(
+        array(
+            'name' => __('Event type', 'framework'),
+            'id' => $prefix . 'events_timeline_view',
+            'desc' => __("Select events to show in timeline", 'framework'),
+            'type' => 'select',
+            'options' => array(
+                'future' => __('Future', 'framework'),
+                'past' => __('Past', 'framework'),
+            ),
+        ),
+    )
 );
 /* * ** Blog Masonry Meta Box 1 *** */
 $meta_boxes[] = array(
     'id' => 'template-blog-masonry',
     'title' => __('Blog Masonry Metabox', 'framework'),
     'pages' => array('page'),
+	'show' => array(
+	// With all conditions below, use this logical operator to combine them. Default is 'OR'. Case insensitive. Optional.
+	'relation' => 'OR',
+	// List of page templates (used for page only). Array. Optional.
+	'template' => array( 'template-blog-masonry.php','template-blog-medium-thumbnails.php' ),
+	), 
     'show_names' => true,
     'fields' => array(
          array(
@@ -1354,6 +1771,46 @@ $meta_boxes[] = array(
             'std' => 0,
         )
     )
+);
+/* * ** Sermon Albums Template Meta Box 1 *** */
+$meta_boxes[] = array(
+    'id' => 'template-sermons-albums1',
+    'title' => __('Show Sermon Categories/Albums', 'framework'),
+    'pages' => array('page'),
+	'show' => array(
+	// With all conditions below, use this logical operator to combine them. Default is 'OR'. Case insensitive. Optional.
+	'relation' => 'OR',
+	// List of page templates (used for page only). Array. Optional.
+	'template' => array( 'template-sermons-albums.php' ),
+	), 
+    'show_names' => true,
+    'fields' => array(
+        //Sort albums by
+        array(
+            'name' => __('Select Orderby', 'framework'),
+            'id' => $prefix . 'albums_select_orderby',
+            'desc' => __("Select how you want to sort albums by. Default is by count", 'framework'),
+            'type' => 'select',
+            'options' => array(
+                'count' => __('Count', 'framework'),
+                'ID' => __('ID', 'framework'),
+                'name' => __('Name', 'framework'),
+                'slug' => __('Slug', 'framework'),
+            ),
+			'std' => 'count',
+        ),
+        array(
+            'name' => __('Select Order', 'framework'),
+            'id' => $prefix . 'albums_select_order',
+            'desc' => __("Select the order of list. Default is by ASC", 'framework'),
+            'type' => 'select',
+            'options' => array(
+                'ASC' => __('Ascending', 'framework'),
+                'DESC' => __('Descending', 'framework'),
+            ),
+			'std' => 'ASC',
+        ),
+       )
 );
 /* * ******************* META BOX REGISTERING ********************** */
 /**

@@ -1,18 +1,27 @@
-<?php get_header(); 
+<?php get_header();
 $pages_e = get_pages(array(
     'meta_key' => '_wp_page_template',
     'meta_value' => 'template-sermons.php'
-        ));
+));
 $variable_post_id = $pages_e[0]->ID;
-$pageOptions = imic_page_design($variable_post_id, 8); //page design options 
+$SermonPageURL = get_permalink( $variable_post_id );
+$pageOptions = imic_page_design($variable_post_id, 9); //page design options 
+imic_sidebar_position_module();
+global $imic_options;
+$options = get_option('imic_options');
 ?>
 <div class="container">
     <div class="row">
-       <div class="<?php echo $pageOptions['class']; ?> sermon-archive"> 
+       <div class="<?php echo $pageOptions['class']; ?> sermon-archive" id="content-col"> 
                 <!-- Sermons Listing -->
                 <?php
-                if (have_posts()):
-                while (have_posts()):the_post();
+                if (have_posts()): ?>
+                <?php if ($options['switch_sermon_filters'] == 1) { ?>
+                <div class="search-filters">
+                    <?php echo do_shortcode( '[imic-searchandfilter categories="'.get_query_var('sermons-category').'" tags="'.get_query_var('sermons-tag').'" speakers="'.get_query_var('sermons-speakers').'"]' ); ?>
+                </div>
+                <?php } ?>
+                <?php while (have_posts()):the_post();
 				if ( '' != get_the_post_thumbnail() ) {
 					$class = "col-md-8";
 				} else {
@@ -59,7 +68,12 @@ $pageOptions = imic_page_design($variable_post_id, 8); //page design options
                                 </div>
                                 <?php endif; ?>
                                 <div class="<?php echo $class; ?>">
-                                    <?php echo imic_excerpt(100); ?>
+                                	
+                                    <?php
+                                    echo '<div class="page-content">';
+									echo imic_excerpt(100);
+									echo '</div>';
+									 ?>
                                     <p><a href="<?php the_permalink() ?>" class="btn btn-primary"><?php _e('Continue reading ', 'framework'); ?> <i class="fa fa-long-arrow-right"></i></a></p>
                                 </div>
                             </div>
@@ -85,7 +99,7 @@ $pageOptions = imic_page_design($variable_post_id, 8); //page design options
                     </div>
         <?php if(!empty($pageOptions['sidebar'])){ ?>
         <!-- Start Sidebar -->
-        <div class="col-md-4 sidebar">
+        <div class="col-md-3 sidebar" id="sidebar-col">
             <?php dynamic_sidebar($pageOptions['sidebar']); ?>
         </div>
         <!-- End Sidebar -->

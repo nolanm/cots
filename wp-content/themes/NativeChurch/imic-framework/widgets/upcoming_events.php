@@ -2,12 +2,12 @@
 /*** Widget code for Upcoming Events ***/
 class upcoming_events extends WP_Widget {
 	// constructor
-	function upcoming_events() {
+	public function __construct() {
 		 $widget_ops = array('description' => __( "Display Upcoming Events.", 'imic-framework-admin') );
-         parent::WP_Widget(false, $name = __('Upcoming Events','imic-framework-admin'), $widget_ops);
+         parent::__construct(false, $name = __('Upcoming Events','imic-framework-admin'), $widget_ops);
 	}
 	// widget form creation
-	function form($instance) {
+	public function form($instance) {
 	    // Check values
                 if( $instance) {
 			 $title = esc_attr($instance['title']);
@@ -16,7 +16,7 @@ class upcoming_events extends WP_Widget {
 		} else {
 			 $title = '';
 			 $number = '';
-                         $category='';
+             $category='';
 		}
 	?>
         <p>
@@ -51,7 +51,7 @@ class upcoming_events extends WP_Widget {
 	<?php
 	}
 	// update widget
-	function update($new_instance, $old_instance) {
+	public function update($new_instance, $old_instance) {
 		  $instance = $old_instance;
                 // Fields
 		  $instance['title'] = strip_tags($new_instance['title']);
@@ -60,14 +60,14 @@ class upcoming_events extends WP_Widget {
 		  return $instance;
 	}
 	// display widget
-	function widget($args, $instance) {
+	public function widget($args, $instance) {
            
 	   extract( $args );
            
 	   // these are the widget options
 	   $post_title = apply_filters('widget_title', $instance['title']);
 	   $number = apply_filters('widget_number', $instance['number']);
-           $category = apply_filters('widget-category', empty($instance['category']) ?'': $instance['category'], $instance, $this->id_base);
+       $category = apply_filters('widget-category', empty($instance['category']) ?'': $instance['category'], $instance, $this->id_base);
 	   $numberEvent = (!empty($number))? $number : 3 ;
 	   $EventHeading = (!empty($post_title))? $post_title : __('Upcoming Events','imic-framework-admin') ;
 	   $today = date('Y-m-d');
@@ -77,44 +77,12 @@ class upcoming_events extends WP_Widget {
 			echo apply_filters('widget_title',$EventHeading, $instance, $this->id_base);
 			echo $args['after_title'];
 		}
-		$events = query_posts(array('post_type' => 'event','event-category'=>$category,'meta_key' => 'imic_event_start_dt','meta_query' => array( array( 'key' => 'imic_event_frequency_end', 'value' => $today, 'compare' => '>=') ), 'orderby' => 'meta_value', 'order' => 'ASC', 'posts_per_page'=>50));
-		$event_add = array();
-		if(!empty($events)){ 
-			$sinc = 1;
-             foreach($events as $event){
-					$upcoming_event = get_post_custom($event->ID);
-					$eventDate = strtotime($upcoming_event['imic_event_start_dt'][0]);
-					$eventTime = $upcoming_event['imic_event_start_tm'][0];
-					if($eventTime=='') { $eventTime = ""; }
-					$eventTime = strtotime($eventTime);
-					$eventTime = date_i18n(get_option('time_format'),$eventTime);
-					$frequency = get_post_meta($event->ID,'imic_event_frequency',true);
-					$frequency_count = '';
-					$frequency_count = get_post_meta($event->ID,'imic_event_frequency_count',true);
-					if($frequency>0) { $frequency_count = $frequency_count; } else { $frequency_count = 0; }
-					$seconds = $frequency*86400;
-					$fr_repeat = 0;
-					while($fr_repeat<=$frequency_count) {
-					$eventDate = get_post_meta($event->ID,'imic_event_start_dt',true);
-					$eventTime = get_post_meta(get_the_ID(), 'imic_event_start_tm', true);
-					$eventTime = ($eventTime!='')?$eventTime:'23:59';
-					$eventDate = strtotime($eventDate.' '.$eventTime);
-					if($frequency==30) {
-					$eventDate = strtotime("+".$fr_repeat." month", $eventDate);
-					}
-					else {
-					$new_date = $seconds*$fr_repeat;
-					$eventDate = $eventDate+$new_date;
-					}
-					$date_sec = date('Y-m-d',$eventDate);
-					$exact_time = strtotime($date_sec.' '.$eventTime);
-					if($exact_time>=date('U')) {
-					$event_add[$eventDate+$sinc] = $event->ID;
-					$sinc++;		
-                } $fr_repeat++; } }}
+				$event_add = imic_recur_events('future','',$category,'');
 			  $nos_event = 1;
 			   $google_events = getGoogleEvent();
-                        $new_events = $google_events+$event_add;
+                         if(!empty($google_events))
+       $new_events = $google_events+$event_add;
+	   else  $new_events = $event_add;
                         ksort($new_events);
                         if(!empty($new_events)){
                       echo '<ul>';
@@ -122,9 +90,11 @@ class upcoming_events extends WP_Widget {
 			  {     
                               if(preg_match('/^[0-9]+$/',$value)){
 				  $eventTime = get_post_meta($value,'imic_event_start_tm',true);
-				  $eventTime = strtotime($eventTime);
+				  if(!empty($eventTime)){
+                                  $eventTime = strtotime($eventTime);
 				  $eventTime = date_i18n(get_option('time_format'),$eventTime);
-				 $date_converted=date('Y-m-d',$key );
+                                  }
+                                  $date_converted=date('Y-m-d',$key );
                                   $custom_event_url= imic_query_arg($date_converted,$value);
                               $event_title=  get_the_title($value);
                                   }
@@ -132,7 +102,10 @@ class upcoming_events extends WP_Widget {
              $google_data =(explode('!',$value)); 
             $event_title=$google_data[0];
            $custom_event_url=$google_data[1];
+           $eventTime='';
+           if(!empty($key)){
            $eventTime = ' | ' . date(get_option('time_format'), $key);
+           }
           }
                                   echo '<li class="item event-item clearfix">
 							  <div class="event-date"> <span class="date">'.date_i18n('d',$key).'</span> <span class="month">'.imic_global_month_name($key).'</span> </div>
@@ -152,5 +125,7 @@ class upcoming_events extends WP_Widget {
 	}
 }
 // register widget
-add_action('widgets_init', create_function('', 'return register_widget("upcoming_events");'));
+add_action( 'widgets_init', function(){
+	register_widget( 'upcoming_events' );
+});
 ?>

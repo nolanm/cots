@@ -11,10 +11,11 @@ $wp_query->set('orderby', $order);
 $wp_query->set('order', $sort_order);
 $wp_query->get_posts();
 $pageOptions = imic_page_design($variable_post_id); //page design options 
+imic_sidebar_position_module();
  ?>
 <div class="container">
     <div class="row">
-        <div class="<?php echo $pageOptions['class']; ?>">  
+        <div class="<?php echo $pageOptions['class']; ?>" id="content-col">  
             <?php
             if (have_posts()):
                 while (have_posts()):the_post();
@@ -38,7 +39,9 @@ $pageOptions = imic_page_design($variable_post_id); //page design options
                    echo imic_social_staff_icon();
                     $description = imic_excerpt();
                     if (!empty($description)) {
+						echo '<div class="page-content">';
                         echo $description;
+						echo '</div>';
                     }
                     echo'</div></div>
                     </div>
@@ -53,7 +56,7 @@ echo '<div class="clear"></div>';
         </div>
 		<?php if(!empty($pageOptions['sidebar'])){ ?>
         <!-- Start Sidebar -->
-        <div class="col-md-3 sidebar">
+        <div class="col-md-3 sidebar" id="sidebar-col">
             <?php dynamic_sidebar($pageOptions['sidebar']); ?>
         </div>
         <!-- End Sidebar -->

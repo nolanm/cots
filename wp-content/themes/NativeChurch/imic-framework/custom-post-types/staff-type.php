@@ -14,7 +14,7 @@ function staff_register() {
     'show_ui' => true,
     'show_in_nav_menus' => true,
     'args' => array('orderby' => 'term_order'),
-    'rewrite' => false,
+    'rewrite' => true,
     'query_var' => true,
 	'show_admin_column' => true,
 );
@@ -40,7 +40,7 @@ register_taxonomy('staff-category', 'staff', $args_c);
         'show_ui' => true,
         'show_in_menu' => true,
         'show_in_nav_menus' => false,
-        'rewrite' => false,
+        'rewrite' => true,
         'supports' => array('title', 'editor', 'thumbnail', 'page-attributes','excerpt', 'author'),
         'has_archive' => true,
     );

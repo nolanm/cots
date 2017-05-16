@@ -8,22 +8,18 @@ function imic_podcast_add_head(){
 	
 	remove_filter('the_content', 'add_imic_sermon_content');
 	$options = get_option('imic_options'); ?>
+	<title><?php echo esc_attr( $options['podcast_title'] ) ?></title>
 	<copyright><?php echo esc_html( $options['podcast_copyright'] ) ?></copyright>
 	<itunes:subtitle><?php echo esc_html( $options['podcast_itunes_subtitle'] ) ?></itunes:subtitle>
 	<itunes:author><?php echo esc_html( $options['podcast_itunes_author'] ) ?></itunes:author>
-	<?php $category_description = category_description();
-	if ( ! empty( $category_description ) ) { ?>
-		<itunes:summary><?php echo wp_filter_nohtml_kses( $category_description ); ?></itunes:summary>
-	<?php } else{ ?>
-		<itunes:summary><?php echo wp_filter_nohtml_kses( $options['podcast_itunes_summary'] ) ?></itunes:summary>
-	<?php } ?>		
+	<itunes:summary><?php echo wp_filter_nohtml_kses( $options['podcast_itunes_summary'] ) ?></itunes:summary>	
 	<itunes:owner>
 		<itunes:name><?php echo esc_html( $options['podcast_itunes_owner_name'] ) ?></itunes:name>
 		<itunes:email><?php echo esc_html( $options['podcast_itunes_owner_email'] ) ?></itunes:email>
 	</itunes:owner>
 	<itunes:explicit>no</itunes:explicit>
-		<?php global $imic_options;
-		$cover_image = $imic_options['podcast_itunes_cover_image']['url'];
+		<?php
+		$cover_image = $options['podcast_itunes_cover_image']['url'];
 		if($cover_image != ''){
 		 ?>
 			<itunes:image href="<?php echo $cover_image ?>" />
@@ -66,9 +62,9 @@ function imic_podcast_add_item(){
 	$podcast_desc = get_post_meta($post->ID, 'imic_sermons_podcast_description', 'true');
 	?>
     
-	<itunes:author><?php echo $speaker ?></itunes:author>
-	<itunes:subtitle><?php echo $series ?></itunes:subtitle>
-	<itunes:summary><?php echo $podcast_desc ?></itunes:summary>
+	<itunes:author><?php echo esc_html( $speaker ); ?></itunes:author>
+	<itunes:subtitle><?php echo esc_html(  $series ); ?></itunes:subtitle>
+	<itunes:summary><?php echo esc_html(  $podcast_desc ); ?></itunes:summary>
 	<?php if ( $post_image ) : ?>
 	<itunes:image href="<?php echo $post_image; ?>" />
 	<?php endif; ?>
@@ -125,7 +121,7 @@ function imic_sermon_podcast_feed_rewrite($wp_rewrite) {
 	);
 	$wp_rewrite->rules = $feed_rules + $wp_rewrite->rules;
 }
-add_filter('generate_rewrite_rules', 'imic_sermon_podcast_feed_rewrite');
+//add_filter('generate_rewrite_rules', 'imic_sermon_podcast_feed_rewrite');
 // Get the filesize of a remote file, used for Podcast data
 function imic_get_filesize( $url, $timeout = 10 ) {
 	$headers = wp_get_http_headers( $url);

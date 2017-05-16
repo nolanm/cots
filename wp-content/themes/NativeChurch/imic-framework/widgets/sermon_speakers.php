@@ -2,12 +2,12 @@
 /*** Widget code for Sermon Speakers ***/
 class sermon_speakers extends WP_Widget {
 	// constructor
-	function sermon_speakers() {
-		 $widget_ops = array('description' => __( "Display Sermon Speakers.", 'sermon-speakers') );
-         parent::WP_Widget(false, $name = 'Sermon Speakers', $widget_ops);
+	public function __construct() {
+		 $widget_ops = array('description' => __( "Display Sermon Speakers.", 'framework') );
+         parent::__construct(false, $name = 'Sermon Speakers', $widget_ops);
 	}
 	// widget form creation
-	function form($instance) {
+	public function form($instance) {
 	
 		// Check values
 		if( $instance) {
@@ -17,13 +17,13 @@ class sermon_speakers extends WP_Widget {
 		}
 	?>
         <p>
-            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', 'upcoming-events'); ?></label>
+            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', 'framework'); ?></label>
             <input class="spTitle" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
         </p>        
 	<?php
 	}
 	// update widget
-	function update($new_instance, $old_instance) {
+	public function update($new_instance, $old_instance) {
 		  $instance = $old_instance;
 		  // Fields
 		  $instance['title'] = strip_tags($new_instance['title']);
@@ -31,7 +31,7 @@ class sermon_speakers extends WP_Widget {
 		 return $instance;
 	}
 	// display widget
-	function widget($args, $instance) {
+	public function widget($args, $instance) {
 	   extract( $args );
 	   // these are the widget options
 	   $post_title = apply_filters('widget_title', $instance['title']);
@@ -57,5 +57,7 @@ class sermon_speakers extends WP_Widget {
 	}
 }
 // register widget
-add_action('widgets_init', create_function('', 'return register_widget("sermon_speakers");'));
+add_action( 'widgets_init', function(){
+	register_widget( 'sermon_speakers' );
+});
 ?>

@@ -24,7 +24,7 @@ function image_category_tax_custom_fields($tag) {
                    <td><?php
                        echo '<div><img id ="upload_image_preview" src ="' . $term_meta . '" width ="150px" height ="150px"/></div>';
                        echo '<input id="upload_category_button" type="button" class="button button-primary" value="'.__('Upload Image', 'framework').'" /> ';
-                      if(isset($_REQUEST['action'])){
+                      if(isset($_REQUEST['tag_ID'])){
                        echo '<input id="upload_category_button_remove" type="button" class="button button-primary" value="'.__('Remove Image', 'framework').'" />';
                       }
                        ?>

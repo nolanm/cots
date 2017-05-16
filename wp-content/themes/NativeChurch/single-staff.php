@@ -1,8 +1,9 @@
 <?php get_header(); 
-$pageOptions = imic_page_design(); //page design options ?>
+$pageOptions = imic_page_design(); //page design options
+imic_sidebar_position_module(); ?>
 <div class="container">
     <div class="row">
-        <div class="<?php echo $pageOptions['class']; ?>"> 
+        <div class="<?php echo $pageOptions['class']; ?>" id="content-col"> 
             <header class="post-title">
             <?php
             echo'<h2>'. get_the_title() .'</h2>';
@@ -22,7 +23,9 @@ $pageOptions = imic_page_design(); //page design options ?>
             <?php
             endif;
             while (have_posts()):the_post();
+			echo '<div class="page-content">';
             the_content();
+			echo '</div>';
             endwhile;
             $job_title = get_post_meta(get_the_ID(), 'imic_staff_job_title', true);
             $job = '';
@@ -38,7 +41,7 @@ $pageOptions = imic_page_design(); //page design options ?>
         </div>
         <?php if(!empty($pageOptions['sidebar'])){ ?>
         <!-- Start Sidebar -->
-        <div class="col-md-3 sidebar">
+        <div class="col-md-3 sidebar" id="sidebar-col">
             <?php dynamic_sidebar($pageOptions['sidebar']); ?>
         </div>
         <!-- End Sidebar -->

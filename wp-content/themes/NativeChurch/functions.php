@@ -49,6 +49,7 @@ if (function_exists('add_theme_support')) {
         $post_type_name = sanitize_key($_REQUEST['post_type']);
     }
     add_theme_support('post-thumbnails');
+	add_theme_support('title-tag');
     add_theme_support('automatic-feed-links');
     if ($post_type_name == 'gallery') {
         add_theme_support('post-formats', array(
@@ -98,13 +99,13 @@ if (!function_exists('pagination')) {
         }
         if (1 != $pages) {
             echo '<ul class="pagination">';
-            echo '<li><a href="' . get_pagenum_link(1) . '" title="'.__('First','framework').'"><i class="fa fa-chevron-left"></i></a></li>';
+            echo '<li><a href="' . get_pagenum_link(1) . '" title="'.__('First','framework').'"><i class="fa fa-angle-double-left"></i></a></li>';
             for ($i = 1; $i <= $pages; $i++) {
                 if (1 != $pages && (!($i >= $paged + $range + 3 || $i <= $paged - $range - 3) || $pages <= $showitems )) {
                     echo ($paged == $i) ? "<li class=\"active\"><span>" . $i . "</span></li>" : "<li><a href='" . get_pagenum_link($i) . "' class=\"\">" . $i . "</a></li>";
                 }
             }
-           echo '<li><a href="' . get_pagenum_link($pages) . '" title="'.__('Last','framework').'"><i class="fa fa-chevron-right"></i></a></li>';
+           echo '<li><a href="' . get_pagenum_link($pages) . '" title="'.__('Last','framework').'"><i class="fa fa-angle-double-right"></i></a></li>';
             echo '</ul>';
         }
     }
@@ -123,9 +124,9 @@ function remove_thumbnail_dimensions($html) {
   ----------------------------------------------------------------------------------- */
 if (!function_exists('imic_custom_read_more')) {
     function imic_custom_read_more() {
-        return '';
+           return '... '; 
+        }
     }
-}
 if (!function_exists('imic_excerpt')) {
     function imic_excerpt($limit = 50) {
         return '<p>' . wp_trim_words(get_the_excerpt(), $limit, imic_custom_read_more()) . '</p>';
@@ -237,8 +238,19 @@ function imic_social_staff_icon() {
             if (get_post_meta(get_the_ID(), 'imic_staff_member_email', true) != '') {
                 $output.='<a href="mailto:' . get_post_meta(get_the_ID(), 'imic_staff_member_email', true) . '"><i class="fa fa-envelope"></i></a>';
             }
+           if (get_post_meta(get_the_ID(), 'imic_staff_member_phone', true) != '') {
+                $output.='<span style="width:auto; background:none; color:#777; margin-top:10px; font-size:16px; display:block; text-align:left; width:100%"><i class="fa fa-phone"></i> '.get_post_meta(get_the_ID(), 'imic_staff_member_phone', true).'</span>';
+            }
             $output.='</nav>';
         }
         return $output;
     }
+	
+	
+//Remove Redux Framework Notices
+
+add_action( 'admin_menu', 'imic_remove_redux_menu',12 );
+function imic_remove_redux_menu() {
+    remove_submenu_page('tools.php','redux-about');
+}
 ?>

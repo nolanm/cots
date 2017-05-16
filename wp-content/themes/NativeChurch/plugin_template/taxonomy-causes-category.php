@@ -6,11 +6,12 @@ get_header();
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 if(is_plugin_active('Payment-Imithemes/causes.php')) {
 	$pageOptions = imic_page_design(); //page design options
+	imic_sidebar_position_module();
 ?> 
 <!-- Start Content -->
   		<div class="container">
     		<div class="row">
-                <div class="<?php echo $pageOptions['class']; ?> posts-archive causes-archive">
+                <div class="<?php echo $pageOptions['class']; ?> posts-archive causes-archive" id="content-col">
 					<?php //Display all causes in list view
                     if(have_posts()):while(have_posts()):the_post();
 					$cause_start_date = get_post_meta(get_the_ID(),'imic_cause_end_dt',true);
@@ -111,7 +112,7 @@ if(is_plugin_active('Payment-Imithemes/causes.php')) {
                 pagination();  //Causes Pagination
                 if(!empty($pageOptions['sidebar'])){ ?>
                 <!-- Start Sidebar -->
-                <div class="col-md-3 sidebar">
+                <div class="col-md-3 sidebar" id="sidebar-col">
                     <?php dynamic_sidebar($pageOptions['sidebar']); ?>
                 </div>
                 <!-- End Sidebar -->
@@ -123,9 +124,7 @@ if(is_plugin_active('Payment-Imithemes/causes.php')) {
 <div class="main" role="main">
 	<div id="content" class="content full">
   		<div class="container">
-        	<div class="row">
-            	<?php _e('Please activate "Payment Imithemes" plugin first. ','framework'); ?>
-            </div>
+          	<?php _e('Please activate "Payment Imithemes" plugin first. ','framework'); ?>
         </div>
     </div>
 </div>

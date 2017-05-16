@@ -14,7 +14,7 @@ function gallery_register() {
     'show_ui' => true,
     'show_in_nav_menus' => true,
     'args' => array('orderby' => 'term_order'),
-    'rewrite' => false,
+    'rewrite' => true,
     'query_var' => true,
 	'show_admin_column' => true,
 );
@@ -40,7 +40,7 @@ register_taxonomy('gallery-category', 'gallery', $args_c);
         'show_in_menu' => true,
         'show_in_nav_menus' => false,
         'hierarchical' => false,
-        'rewrite' => false,
+        'rewrite' => true,
         'supports' => array('title', 'thumbnail','post-formats', 'author'),
         'has_archive' => true,
        );

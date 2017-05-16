@@ -8,19 +8,23 @@
 (function (factory) {
 	if (typeof define === 'function' && define.amd) {
 		// AMD. Register as anonymous module.
-		define(['jquery'], factory);
+		jQueryCookie.define(['jquery'], factory);
 	} else {
 		// Browser globals.
 		factory(jQuery);
 	}
 }(function ($) {
+
 	var pluses = /\+/g;
+
 	function raw(s) {
 		return s;
 	}
+
 	function decoded(s) {
 		return decodeURIComponent(s.replace(pluses, ' '));
 	}
+
 	function converted(s) {
 		if (s.indexOf('"') === 0) {
 			// This is a quoted cookie as according to RFC2068, unescape
@@ -30,15 +34,20 @@
 			return config.json ? JSON.parse(s) : s;
 		} catch(er) {}
 	}
+
 	var config = $.cookie = function (key, value, options) {
+
 		// write
 		if (value !== undefined) {
 			options = $.extend({}, config.defaults, options);
+
 			if (typeof options.expires === 'number') {
 				var days = options.expires, t = options.expires = new Date();
 				t.setDate(t.getDate() + days);
 			}
+
 			value = config.json ? JSON.stringify(value) : String(value);
+
 			return (document.cookie = [
 				config.raw ? key : encodeURIComponent(key),
 				'=',
@@ -49,6 +58,7 @@
 				options.secure  ? '; secure' : ''
 			].join(''));
 		}
+
 		// read
 		var decode = config.raw ? raw : decoded;
 		var cookies = document.cookie.split('; ');
@@ -57,17 +67,22 @@
 			var parts = cookies[i].split('=');
 			var name = decode(parts.shift());
 			var cookie = decode(parts.join('='));
+
 			if (key && key === name) {
 				result = converted(cookie);
 				break;
 			}
+
 			if (!key) {
 				result[name] = converted(cookie);
 			}
 		}
+
 		return result;
 	};
+
 	config.defaults = {};
+
 	$.removeCookie = function (key, options) {
 		if ($.cookie(key) !== undefined) {
 			// Must not alter options, thus extending a fresh object...
@@ -76,4 +91,5 @@
 		}
 		return false;
 	};
+
 }));
