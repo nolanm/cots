@@ -1,0 +1,13 @@
+drwxr-sr-x   7 ftp2156171 3033641      4096 May 22  2014 .
+drwxr-sr-x  11 ftp2156171 3033641      8192 Sep  5  2014 ..
+drwxr-sr-x   2 ftp2156171 3033641      4096 May 22  2014 langs
+-rw-r--r--   1 ftp2156171 3033641     26427 May 22  2014 license.txt
+drwxr-sr-x  22 ftp2156171 3033641      4096 Sep  5  2014 plugins
+drwxr-sr-x   4 ftp2156171 3033641      4096 May 22  2014 skins
+drwxr-sr-x   3 ftp2156171 3033641      4096 May 22  2014 themes
+-rw-r--r--   1 ftp2156171 3033641    302335 Jan 24  2015 tinymce.min.js
+-rw-r--r--   1 ftp2156171 3033641     15016 Jan 24  2015 tiny_mce_popup.js
+drwxr-sr-x   2 ftp2156171 3033641      4096 May 22  2014 utils
+-rw-r--r--   1 ftp2156171 3033641      4691 Jan 24  2015 wp-mce-help.php
+-rw-r--r--   1 ftp2156171 3033641    136244 May  7  2015 wp-tinymce.js.gz
+-rw-r--r--   1 ftp2156171 3033641      1128 Sep  5  2014 wp-tinymce.php

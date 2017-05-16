@@ -1,0 +1,8 @@
+drwxr-sr-x   3 ftp2156171 3033641      4096 May 22  2014 .
+drwxr-sr-x  11 ftp2156171 3033641      8192 Sep  5  2014 ..
+-rw-r--r--   1 ftp2156171 3033641     12655 May 22  2014 handlers.js
+-rw-r--r--   1 ftp2156171 3033641      8867 May 22  2014 handlers.min.js
+-rw-r--r--   1 ftp2156171 3033641      1540 May 22  2014 license.txt
+drwxr-sr-x   2 ftp2156171 3033641      4096 May 22  2014 plugins
+-rw-r--r--   1 ftp2156171 3033641     37691 Sep  5  2014 swfupload.js
+-rw-r--r--   1 ftp2156171 3033641     13133 May 22  2014 swfupload.swf

@@ -1,0 +1,4 @@
+[03-Mar-2017 17:46:21 CST6CDT] PHP Fatal error:  Call to undefined function get_header() in /home/churcho0/public_html/wp-content/themes/twentyfifteen/404.php on line 10
+[03-Mar-2017 22:34:57 CST6CDT] PHP Fatal error:  Call to undefined function get_template_directory() in /home/churcho0/public_html/wp-content/themes/twentyfifteen/functions.php on line 41
+[16-Apr-2017 15:11:55 CST6CDT] PHP Fatal error:  Call to undefined function get_header() in /home/churcho0/public_html/wp-content/themes/twentyfifteen/404.php on line 10
+[17-Apr-2017 02:22:12 CST6CDT] PHP Fatal error:  Call to undefined function get_template_directory() in /home/churcho0/public_html/wp-content/themes/twentyfifteen/functions.php on line 41

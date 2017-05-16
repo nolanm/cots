@@ -1,0 +1,10 @@
+drwxr-sr-x   2 ftp2156171 3033641      4096 May 22  2014 .
+drwxr-sr-x  11 ftp2156171 3033641      8192 Sep  5  2014 ..
+-rw-r--r--   1 ftp2156171 3033641     15969 May 22  2014 handlers.js
+-rw-r--r--   1 ftp2156171 3033641     10467 May 22  2014 handlers.min.js
+-rw-r--r--   1 ftp2156171 3033641     17987 May 22  2014 license.txt
+-rw-r--r--   1 ftp2156171 3033641     29577 Apr 21  2015 plupload.flash.swf
+-rw-r--r--   1 ftp2156171 3033641    108163 May 22  2014 plupload.full.min.js
+-rw-r--r--   1 ftp2156171 3033641     62535 May 22  2014 plupload.silverlight.xap
+-rw-r--r--   1 ftp2156171 3033641     12692 Jan 24  2015 wp-plupload.js
+-rw-r--r--   1 ftp2156171 3033641      4907 Jan 24  2015 wp-plupload.min.js
