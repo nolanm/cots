@@ -14,7 +14,7 @@ function event_register() {
     'show_ui' => true,
     'show_in_nav_menus' => true,
     'args' => array('orderby' => 'term_order'),
-    'rewrite' => false,
+    'rewrite' => true,
     'query_var' => true,
 	'show_admin_column' => true,
 );
@@ -39,7 +39,7 @@ register_taxonomy('event-category', 'event', $args_c);
         'show_in_menu' => true,
         'show_in_nav_menus' => true,
         'hierarchical' => false,
-        'rewrite' => false,
+        'rewrite' => true,
         'supports' => array('title', 'editor', 'thumbnail', 'author'),
         'has_archive' => true,
         'taxonomies' => array('event-category'),

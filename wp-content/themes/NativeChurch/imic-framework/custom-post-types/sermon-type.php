@@ -14,7 +14,7 @@ function sermons_register() {
     'show_ui' => true,
     'show_in_nav_menus' => true,
     'args' => array('orderby' => 'term_order'),
-    'rewrite' => false,
+    'rewrite' => true,
    'query_var' => true,
    'show_admin_column' => true,
 );
@@ -27,7 +27,7 @@ $args_tag = array(
     'show_ui' => true,
     'show_in_nav_menus' => false,
     'args' => array('orderby' => 'term_order'),
-    'rewrite' => false,
+    'rewrite' => true,
    'query_var' => true,
    'show_admin_column' => true,
 );
@@ -40,7 +40,7 @@ $args_sermons_speaker = array(
     'show_ui' => true,
     'show_in_nav_menus' => false,
     'args' => array('orderby' => 'term_order'),
-    'rewrite' => false,
+    'rewrite' => true,
    'query_var' => true,
    'show_admin_column' => true,
 );
@@ -65,7 +65,7 @@ register_taxonomy('sermons-speakers', 'sermons',$args_sermons_speaker);
         'show_in_menu' => true,
         'show_in_nav_menus' => true,
         'hierarchical' => false,
-        'rewrite' => false,
+        'rewrite' => true,
         'supports' => array('title', 'editor', 'thumbnail','comments', 'author'),
         'has_archive' => true,
         'taxonomies' => array('sermons-tag','sermons-category','sermons-speakers')

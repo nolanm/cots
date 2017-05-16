@@ -29,12 +29,12 @@ $j(document).ready(function() {
 		'shortcode-toggle' : $j('#shortcode-toggle'),
 		'shortcode-modal' : $j('#shortcode-modal'),
 		'shortcode-form' : $j('#shortcode-form'),
-                'shortcode-calendar' : $j('#shortcode-calendar'),
+        'shortcode-calendar' : $j('#shortcode-calendar'),
 		'shortcode-staff' : $j('#shortcode-staff'),
-                'shortcode-sermon' : $j('#shortcode-sermon'),
+        'shortcode-sermon' : $j('#shortcode-sermon'),
 		'shortcode-sidebar' : $j('#shortcode-sidebar'),
-                'shortcode-event' : $j('#shortcode-event'),
-                'shortcode-fwvideo' : $j('#shortcode-fwvideo')
+        'shortcode-event' : $j('#shortcode-event'),
+        'shortcode-fwvideo' : $j('#shortcode-fwvideo')
 	};
 	
 	$j.typo_select = {

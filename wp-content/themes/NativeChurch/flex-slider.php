@@ -47,6 +47,7 @@ if ($imic_Choose_slider_display == 0) {
 } else {
     $imic_select_revolution_from_list = get_post_meta($home_id, 'imic_select_revolution_from_list', true);
 	echo '<div class="slider-revolution-new">';
+	$imic_select_revolution_from_list = preg_replace('/\\\\/', '', $imic_select_revolution_from_list);
     echo do_shortcode($imic_select_revolution_from_list);
 	echo '</div>';
 }

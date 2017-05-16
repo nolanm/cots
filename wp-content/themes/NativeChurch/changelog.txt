@@ -1,84 +1,84 @@
 *** NativeChurch Changelog ***
 16 March 2014- Version 1.0
-	* First Release
+	Initial Release
 
 19 March 2014- Version 1.1
-	* Fixed bug with widgets width
-	* Fixed Widgets title double bottom border
-	* Updated the documentation
-	* Header image option for Pages.
-	* Bugs removed from 404
-	* Bugs removed from Theme Options
-	* Thumbnail size removed
-	* Event widget updated category option given
-	* page.php class changed
-	* Sermon template, taxonomy sermon changed for Sermon Speaker
-	* Theme update file removed
-	* Recent Sermon widget updated
-	* Some issues rectified from all gallery template
-	* Shortcodes files updated
-	* Header.php updated  
+	FIXED! bug with widgets width
+	FIXED! Widgets title double bottom border
+	UPDATED! the documentation
+	NEW! Header image option for Pages.
+	FIXED! Bugs removed from 404
+	FIXED! Bugs removed from Theme Options
+	UPDATED! Thumbnail size removed
+	NEW! Event widget updated category option given
+	UPDATED! page.php class changed
+	NEW! Sermon template, taxonomy sermon changed for Sermon Speaker
+	FIXED! Theme update file removed
+	UPDATED! Recent Sermon widget updated
+	FIXED! Some issues rectified from all gallery template
+	UPDATED! Shortcodes files updated
+	UPDATED! Header.php updated  
 
 25 March 2014- Version 1.2
-	* Fixed bug featured sermon in widget not showing audio/pdf links
-	* Fixed theme not giving recommended plugins notice
-	* NEW FEATURE! Ability to add unlimited sidebars
-	* NEW FEATURE! Staff posts single pages
-	* Fixed bug on events grid page showing only current month events
-	* Fixed bug on contact function subject line
-	* Fixed when no event is created javascript stop working on homepage
+	FIXED! bug featured sermon in widget not showing audio/pdf links
+	FIXED! Theme not giving recommended plugins notice
+	NEW! Ability to add unlimited sidebars
+	NEW! Staff posts single pages
+	FIXED! bug on events grid page showing only current month events
+	FIXED! bug on contact function subject line
+	FIXED! When no event is created javascript stop working on homepage
  
 6 April 2014- Version 1.3
-	* Fixed image floats in content
-	* Fixed some typos on event page
-	* NEW FEATURE! Recurring Events
-	* NEW FEATURE! Mega Menu
-	* NEW FEATURE! Back to to link
-	* NEW FEATURE! Change height of header from theme options
-	* NEW FEATURE! Option to choose limit of recent posts on homepage
-	* Fixed Background problem with boxed layout
-	* BUG Fixed Pastors list comma separation
-	* Fixed Staff shortcode bug
-	* NEW FEATURE! Instagram social icon for footer
-	* NEW FEATURE! Email option for staff members
-	* NEW FEATURE! Columns width increase when no featured image found
-	* NEW FEATURE! Vimeo/Youtube video embedding shortcode
-	* NEA FEATURE! Team members order by page order number
+	FIXED! image floats in content
+	FIXED! some typos on event page
+	NEW! Recurring Events
+	NEW! Mega Menu
+	NEW! Back to to link
+	NEW! Change height of header from theme options
+	NEW! Option to choose limit of recent posts on homepage
+	FIXED! Background problem with boxed layout
+	FIXED! Pastors list comma separation
+	FIXED! Staff shortcode bug
+	NEW! Instagram social icon for footer
+	NEW! Email option for staff members
+	NEW! Columns width increase when no featured image found
+	NEW! Vimeo/Youtube video embedding shortcode
+	NEW! Team members order by page order number
 
 6 April 2014- Version 1.3.1
-	* FIXED! hidden Events tab from Dashboard when activating some plugins
-	* NEW FEATURE! Change height of header from theme options
-	* FIXED! Navigation on android phones Google Chrome
-	* NEW FEATURE! Vimeo icon added to footer social icons
+	FIXED! hidden Events tab from Dashboard when activating some plugins
+	NEW! Change height of header from theme options
+	FIXED! Navigation on android phones Google Chrome
+	NEW! Vimeo icon added to footer social icons
 
 22 April 2014- Version 1.4
-	* NEW FEATURE! 5 new page templates
-	* NEW FEATURE! Default header image for inner pages
-	* NEW FEATURE! Caption/Link options for slider images
-	* NEW FEATURE! Footer Columns Selection
-	* NEW FEATURE! Homepage slideshow controls in theme options
-	* NEW FEATURE! Job title field for staff post types
-	* NEW FEATURE! Custom time input for events
-	* NEW FEATURE! Option to repeat events every month
-	* NEW FEATURE! Excerpt content field for staff post type
-	* FIXED! All events link on homepage not displaying for some users
-	* NEW FEATURE! Spanish, French, Portuguese language .po/.mo files added
-	* FIXED! Wordpress 3.9 support added to theme
-	* NEW FEATURE! Now add custom menus in to mega menus
-	* NEW FEATURE! New columns short code added
-	* FIXED! Child Theme not overriding style.css of main theme 
-	* FIXED! Event sorting bug on blog type layout
+	NEW! 5 new page templates
+	NEW! Default header image for inner pages
+	NEW! Caption/Link options for slider images
+	NEW! Footer Columns Selection
+	NEW! Homepage slideshow controls in theme options
+	NEW! Job title field for staff post types
+	NEW! Custom time input for events
+	NEW! Option to repeat events every month
+	NEW! Excerpt content field for staff post type
+	FIXED! All events link on homepage not displaying for some users
+	NEW! Spanish, French, Portuguese language .po/.mo files added
+	FIXED! Wordpress 3.9 support added to theme
+	NEW! Now add custom menus in to mega menus
+	NEW! New columns short code added
+	FIXED! Child Theme not overriding style.css of main theme 
+	FIXED! Event sorting bug on blog type layout
 
 08 May 2014- Version 1.5
-	* NEW FEATURE! Slider Revolution added
-	* NEW FEATURE! WooCommerce Support added
-	* NEW FEATURE! Control pagination, arrow navigation, auto play option for each gallery
-	* NEW FEATURE! Contact Form 7 support added
-	* NEW FEATURE! Option to choose number of events to show on homepage version 1
-	* NEW FEATURE! Date format from the wordpress settings
-	* NEW FEATURE! Templates for staff post type and staff categories
-	* FIXED! Gallery format not showing on homepage 
-	* FIXED! Date bug for recent sermons widget
+	NEW! Slider Revolution added
+	NEW! WooCommerce Support added
+	NEW! Control pagination, arrow navigation, auto play option for each gallery
+	NEW! Contact Form 7 support added
+	NEW! Option to choose number of events to show on homepage version 1
+	NEW! Date format from the wordpress settings
+	NEW! Templates for staff post type and staff categories
+	FIXED! Gallery format not showing on homepage 
+	FIXED! Date bug for recent sermons widget
 
 10 May 2014- Version 1.5.1
 	FIXED! Blank page bug without installing WooCommerce
@@ -230,3 +230,320 @@ December 04, 2014 - Version 1.9.3
 December 30, 2014 - Version 1.9.4
 	FIXED! Problem with validation of podcast feeds
 	UPDATED! Revolution Slider to latest version 4.6.5
+
+January 03, 2015 - Version 1.9.4.1
+	FIXED! Bug with wp visual editor.
+
+January 25, 2015 - Version 1.9.5
+	NEW! Custom videos upload option for Sermons
+	NEW! Agenda Week, Agenda Day viewer events calendar and option to choose calendar header style at Theme Options > Calendar Options
+	NEW! Option to choose staff post type category on “Staff” page template
+	NEW! Option to set maximum number of events per day block of event calendar at Theme Options > Calendar Options
+	NEW! Option to hide recurring icon with tooltip that comes next to every event name. at Theme Options > Single Event Options
+	NEW! Retina Logo upload field at Theme Options > Header Options
+	NEW! Google Fonts List at Theme Options > Typography options will update weekly by own
+	NEW! Option to choose order of sermon albums for Sermon Albums Page Template
+	FIXED! Selected Post widget will have post as selection again
+	FIXED! Inconsistent overlapping issue of staff posts
+	FIXED! Bug with typography fields of Theme Options > Typography Options which causes fonts do not work in some cases of font selection
+	FIXED! Wrong feed URL at Theme Options > Podcast Options
+	FIXED! Some small styling issues with widgets
+	FIXED! Event time selection slider not working beyond 22 hours
+	FIXED! Bug with styling of homepage when more than 3 featured blocks were there
+	UPDATED! Payment imithemes plugin to fix the issues of payment status not updating in wp dashboard for causes and events payment
+	IMPROVED! Page load speed
+
+February 28, 2015 - Version 2.0
+	FIXED! Loop bug in upcoming events widget
+	FIXED! Logo display issue on firefox browser
+	FIXED! NativeChurch Logo displayed on retina devices
+	ADDED! Fixed width/height fields for retina logo in Theme Options > Header Options
+	FIXED! Wrong Events grid template name
+	NEW! Inner pages header can have custom color now
+	FIXED! Inner pages header not taking custom height
+	FIXED! Scroll bar comes in events calendar when more events are there
+	FIXED! tag cloud bg color when widget is in footer
+	UPDATED! Plugins update option within the wp dashboard
+	UPDATED! Revolution slider to latest version
+	FIXED! Built in contact form conflict with Jetpack contact forms
+	FIXED! Logged in user name not appearing in comments form
+	NEW! Google icon will display in events list and grid when event is coming from Google calendar feed
+	FIXED! Category description is showing in podcast when sermon is assigned to a category
+	FIXED! Tweet date not showing in twitter feed widget
+	FIXED! A bug in template-events.php to reset wp query
+
+March 04, 2015 - Version 2.0.1
+	FIXED! Event calendar bug
+
+March 12, 2015 - Version 2.1
+	UPDATED! More advanced options for event recurrence 
+	UPDATED! Core Event management functions
+
+March 18, 2015 - Version 2.2
+	NEW! bbpress compatibility added
+	NEW! Advanced styling options added at Theme Options
+	FIXED! Events calendar loading slow when event is recurring many number of times, now it will load events only of the viewing month
+	FIXED! Sub pages header height issue occurred in 2.0 version
+	NEW! Added support for custom Facebook open graph tags and twitter/google+ share options plugin
+	NEW! Read more button/link option for staff listing using shortcode/page template
+	UPDATED! Them Documentation to much advanced level
+	FIXED! Default logo showing when no logo image is there in Theme Options, now Blog name will be show with link to homepage
+	FIXED! Skype custom link not working for Header and Footer Social Icon Links
+
+March 19, 2015 - Version 2.2.1
+	FIXED! Social icons layout problem in footer
+
+April 28, 2015 - Version 2.3
+	UPDATED! Theme framework and included plugins for XSS vulnerability prevention
+	FIXED! Sermon albums page template order filter not working
+	FIXED! User will now see event register popup when they redirect back from login or register popup
+	FIXED! Featured Event not showing events
+	NEW! Templates for sermon categories, tags, speakers archives page
+	FIXED! Commented bbpress localhost compatibility code at imic-theme-functions.php
+	NEW! Medium thumbnails page template for blog posts
+	NEW! Option to increase font size of mobile menu icon and add text in front of it from theme options
+	NEW! Option to show sidebar at left globally or per page/post
+	UPDATED! Header title for sermon and event archives page to show “All Events” and “All Sermons” instead of “All Posts”
+	NEW! Option to show phone numbers for staff posts
+	FIXED! Woo commerce styling bugs for its latest version
+	FIXED! Additional p tag in single post content
+	FIXED! Spacing issue with social media widget
+	FIXED! Styling bug with dropdown with top navigation
+	FIXED! https protocol not working for youtube video embed
+
+May 09, 2015 - Version 2.4
+	NEW! Page Builder added
+	NEW! Option in video shortcode to make the videos full width is optional now
+	NEW! Option to set header banner images for staff posts
+	NEW! Calendar shortcode can now individual Google calendar ID and can have upto 3 Google Calendars sync
+	NEW! Sermons page template and its archive pages can have search filters now
+	NEW! Option to add additional video, youtube/vimeo videos, sound cloud audio for sermon posts
+	UPDATED! Revolution slider updated to latest version 4.6.93
+	FIXED! Calendar events not taking theme color and categories defined colors
+
+May 11, 2015 - Version 2.4.1
+	FIXED! Bug with sermon filters default URL
+	NEW! Added a new page for page builder prebuilt layouts
+
+May 11, 2015 - Version 2.4.2
+	FIXED! Wrong header/footer files mistakenly uploaded in v2.4.1
+
+May 15, 2015 - Version 2.4.3
+	FIXED! Galleries lightbox taking large thumb instead of full image
+	FIXED! Single sermon page showing small videos
+	FIXED! Calendar event color not working
+	FIXED! Social icons widget alignment issue
+
+June 30, 2015 - Version 2.4.4
+	NEW! Option to choose whether an event show on website till start time or end time
+	FIXED! prettyPhoto XSS fix
+
+July 01, 2015 - Version 2.4.5
+	UPDATED! TGM plugin activation class to latest version
+	FIXED! Mobile menu not displaying bug
+
+August 18, 2015 - Version 2.5
+	NEW! Translation option for header of calendar
+	NEW! Autoplay option for sermon video and shortcode
+	FIXED! Some strings not getting translated in single-event.php
+	NEW! Few page builder widgets added
+	NEW! Option to choose whether the events on website displays till start date/time of event or till end date/time of event
+	NEW! Option to choose if event will display Event Start time/date or End date/time or both
+	NEW! Added vk Icon for Header/Footer theme options and for Staff posts
+	FIXED! Problem with special characters in Events Calendar
+	NEW! Self hosted video will be shown in Latest Sermon Widget if Youtube/Vimeo video is not available else will show Featured Image
+	NEW! Top menu as select dropdown for mobile devices
+	UPDATED! TGM Class updated
+	UPDATED! Slider Revolution updated to latest version
+	NEW! Filters for Events Calendar
+	NEW! Gallery templates will show Categories as filters or its sub categories
+	NEW! Multiple category selections for all page templates
+	NEW! Option to show read more links on Home recent posts
+	FIXED! Featured event widget will not show expired events in the list now
+	FIXED! Issue with Google Events if are in different languages
+	FIXED! Issue when 2 Google events are on a same date and time only one shows
+	FIXED! Wrong Google Calendar URL in Theme Options gives error all over the pages
+	NEW! Option to choose category for recent post/selected posts widget
+	FIXED! Breadcrumbs not showing on sub pages with Revolution/Flex Slider
+	UPDATED! PrettyPhoto Plugin updated to latest version
+	FIXED! Unclosed div tag in single post page template
+	FIXED! Few styling bugs
+	NEW! All day event option
+	FIXED! If no time is set for an event then event was not visible, now if no time is selected for start or end then it will be updated to All day event
+	NEW! Events are now sorted by event date instead of its posted date
+
+August 20, 2015 - Version 2.5.1
+	FIXED! Issue with new version of Revolution Slider
+	FIXED! Sticky header not working with boxed layout
+
+August 22, 2015 - Version 2.5.2
+	UPDATED! Revolution Slider to latest version
+
+October 08, 2015 - Version 2.6
+	NEW! Prayer Wall plugin added
+	FIXED! Google events was not opening in new tab even after selecting this at Theme Options > Event Options
+	FIXED! homepage google event not taking time properly
+	FIXED! Job title not appearing for staff grid widget of page builder 
+	FIXED! Category color taking white by default
+	FIXED! Event page printing bug
+	FIXED! Event colors not working for recurring events
+	NEW! Option to add tooltip text for social sharing icons
+	NEW! Alt text option for Logo Image
+	IMPROVED! Ability to set event to repeat for any number of times
+	NEW! Twitter Feed – open links in new window
+	NEW! Option to choose magnific popup for whole site
+	NEW! Sermon title and date will appear on homepage latest sermon notice bar
+	NEW! Option to show upcoming event/sermon/custom text bar on homepage template 3 as well
+	FIXED! Additional media option soundcloud audio is not working
+	NEW! Lazy load for gallery sliders
+	FIXED! Site title for WP SEO plugin
+	FIXED! Past event shortcode not working
+	FIXED! Single Event not showing correct date while viewing through WP Admin or direct URL
+	NEW! Sticky header enabled for boxed layout as well
+	FIXED! Background image for homepage featured gallery not working
+	FIXED! Some styling bugs
+	IMPROVED! Site load time
+
+October 31, 2015 - Version 2.6	.1
+	FIXED! Events category selection not working for Calendar Shortcake
+	UPDATED! Theme Documentation to a new advance level
+
+November 07, 2015 - Version 2.6.2
+	UPDATED! Events Google Calendar syncing to now use the API info instead of XML Feed URL
+	UPDATED! Included prayer wall plugin to fix some bugs
+	UPDATED! Revolution Slider plugin to latest version 5.1
+
+December 06, 2015 - Version 2.6.3
+	FIXED! Date function showing error on single event page
+	FIXED! Date not translated on few templates
+	FIXED! Styling bug with Woocommerce related products list
+
+December 24, 2015 - Version 2.6.4
+	FIXED! Gallery filter not working. Filter categories doesn't seems to be clickable.
+	FIXED! Multiple category selection not working on homepage templates, blog templates
+	FIXED! Error init.js Type error for media element 
+	FIXED! Past events shortcakes giving warning
+	FIXED! Calendar shortcode for category filter was not working
+	FIXED! Recurring events showing date of first occurrence of the recurring event on event detailed page.
+	FIXED! Multi-Day Event Posts Wrong End Date
+	UPDATED! Search and Filters for sermons now use custom built function for more accurate results
+
+February 20, 2016 - Version 2.6.5
+	FIXED! Featured event widget thumbnail is now linked to event page
+	FIXED! Align left and align right classes formatting issue on small screens
+	FIXED! Woo commerce cart widget formatting issue
+	FIXED! Template blog full width template video post format full width issue
+	UPDATED! Revolution slider to latest version
+	UPDATED! Icons shortcake to latest version of font awesome icons
+	FIXED! Template home not showing latest posts when no category is selected in category filter
+	UPDATED! Woo commerce templates to latest version
+
+April 24, 2016 - Version 2.6.6
+	FIXED! Event title problem in json-feed.php
+	UPDATED! Currency options for payment options of PayPal
+	FIXED! A bug in imic-theme-functions.php
+	FIXED! Some styling bugs
+	FIXED! Gallery post title in Magnific Popup Optio
+	UPDATED! Revolution Slider plugin to latest version
+	NEW! Option to choose widget in the megamenu
+	UPDATED! Meta Box plugin to latest version
+	FIXED! Gallery slider showing all images in lightbox pagination
+	FIXED! Gallery format not showing image title in lightbox
+	FIXED! Youtube/ Vimeo videos in sermons crashing IE11 browser
+
+May 21, 2016 - Version 2.6.7
+	UPDATED! Revolution Slider to latest version
+	UPDATED! Font Awesome icons to latest version
+	FIXED! category filter on gallery filter widget showing category slug instead of name
+	FIXED! Unusual height of upcoming events block on Home page template
+	FIXED! Staff shortcode shows wrong column number in the content editor which was confusing
+
+July 05, 2016 - Version 2.7
+	UPDATED! Revolution Slider to latest version
+	UPDATED! Texture fields in tabs, tangles page builder widget to editor tinymce
+	UPDATED! Recent Sermon Widget to have featured image linked to single sermon post
+	UPDATED! Payment imithemes plugin
+	FIXED! Recurring event color field overriding color set for event categories
+	FIXED! If no content is for staff posts then read more button option should be disabled
+	UPDATED! Staff shortcode and page template staff to have option to set no. of words limit for the staff posts content
+	NEW! Option for sermons category in recent sermons widget
+	NEW! Email icon options for Header/Footer social icons
+	FIXED! get current user info in payment imithemes plugin
+	NEW! Option to enter custom URL for event register button
+	FIXED! Some styling Bugs
+	UPDATED! TGM Class
+
+July 08, 2016 - Version 2.7.1
+	FIXED! Header Topbar showing skype icon by default
+
+August 24, 2016 - Version 2.7.2
+	FIXED! Event ticket printing css was not working
+	UPDATED! Redux Framework
+	UPDATED! Metabox plugin
+	UPDATED! Metabox show/hide plugin
+	UPDATED! Metabox Group plugin
+	UPDATED! Mediaelement js plugin
+	FIXED! Google event link target blank theme option not working for every link
+	UPDATED! FullCalendar js plugin
+	UPDATED! Magnetic Popup js plugin
+	UPDATED! Deprecated WP function get_currentuserinfo
+	UPDATED! Payments imithemes plugin
+
+October 08, 2016 - Version 2.7.3
+	UPDATED! Redux Framework
+	UPDATED! MetaBox Plugin
+	FIXED! Payment issue with single cause template
+	NEW! Option to disable translucent header for mobile devices
+	FIXED! Category filter not working for event category page template
+	FIXED! Sermon feed not validating
+	UPDATED! Demo data
+	FIXED! Gallery category not showing in gallery filter page template
+
+November 02, 2016 - Version 2.8
+	NEW! Separate demo data added for page builder
+	NEW! Page builder widgets added for causes, events list, grid, timeline
+	FIXED! Error on template gallery filter when grid column field is empty
+	FIXED! 2 days events not showing correctly on events calendar
+	FIXED! Event grid template showing limitless pagination
+	FIXED! Event single page showing error when page is viewed directly without the date attribute in the URL
+	FIXED! Remove taxonomy banner image button not working
+	UPDATED! Meta Box Plugin
+	UPDATED! Slider Revolution Plugin
+
+November 30, 2016 - Version 2.9
+	NEW! Multiple ticket types and multiple ticket booking for events
+	UPDATED! Selected posts widget will show categories for the selected post type only
+	NEW! Option to add your own text or shortcode in place of search form in header style 3
+	UPDATED! Featured events widget will now move on to next “Set” featured event if your selected event passed by
+	NEW! Option to have direct month links for the monthly event list page
+	NEW! Classic style event listing page template
+	FIXED! Topmenu keep the last link always selected in select type mobile menu
+	UPDATED! Revolution Slider to latest version
+
+January 06, 2017 - Version 2.9.0.1
+	Security Update
+	UPDATED! Revolution Slider to latest version
+
+January 28, 2017 - Version 2.9.1
+	NEW! Option to choose past events for events timeline page template
+	FIXED! Event title not working in page builder events listing widget
+	FIXED! Event categories not working events listing with filters page builder widget
+	FIXED! Social share links not rendering correctly for some post title or excerpt
+	FIXED! Some translations were missing
+
+May 06, 2017 - Version 2.9.2
+	NEW! Option to unsubscribe to prayers feed in iPray plugin
+	UPDATED! Revolution Slider Plugin
+	UPDATED! Child theme
+	UPDATED! Demo data
+	UPDATED! Payment imithemes plugin
+	UPDATED! iPray plugin
+	UPDATED! Custom post types rewrite rules
+	FIXED! Prayer link not working in prayer notification email sent
+	FIXED! Prayer wall not working with SMTP mail setup
+	FIXED! Embedded Youtube code to not show relative videos
+	FIXED! Skype icon is showing by default in header and footer
+	FIXED! Some styling bugs
+	FIXED! Sidebar chosen for page set as posts not working
+	FIXED! Date in saving event in Google Calendar not correct
+	FIXED! Podcast title set at Theme Options will now be the feed title as well

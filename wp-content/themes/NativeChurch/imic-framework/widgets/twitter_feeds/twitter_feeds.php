@@ -2,12 +2,12 @@
 /*** Widget code for Twitter Feeds ***/
 class twitter_feeds extends WP_Widget {
 	// constructor
-	function twitter_feeds() {
+	public function __construct() {
 		 $widget_ops = array('description' => __( "Show latest twitter feeds.", 'imic-framework-admin') );
-         parent::WP_Widget(false, $name = __('Twitter Feeds','imic-framework-admin'), $widget_ops);
+         parent::__construct(false, $name = __('Twitter Feeds','imic-framework-admin'), $widget_ops);
 	}
 	// widget form creation
-	function form($instance) {
+	public function form($instance) {
 		// Check values
 		if( $instance) {
 			 $title = esc_attr($instance['title']);
@@ -58,7 +58,7 @@ class twitter_feeds extends WP_Widget {
 	<?php
 	}
 	// update widget
-	function update($new_instance, $old_instance) {
+	public function update($new_instance, $old_instance) {
 		  $instance = $old_instance;
 		  // Fields
 		  $instance['title'] = strip_tags($new_instance['title']);
@@ -71,7 +71,7 @@ class twitter_feeds extends WP_Widget {
 		 return $instance;
 	}
 	// display widget
-	function widget($args, $instance) {
+	public function widget($args, $instance) {
 	   extract( $args );
 	   // these are the widget options
 	   $title = apply_filters('widget_title', $instance['title']);
@@ -105,7 +105,7 @@ class twitter_feeds extends WP_Widget {
 		if($result!==NULL){
 			if(count($result)>0){
 				foreach($result as $feed){
-					echo '<li><i class="fa fa-twitter"></i> '.$feed['text'].'</li>';	
+					echo '<li><i class="fa fa-twitter"></i> '.$feed['text'].' <span class="date">'.$feed['timestamp'].'</span></li>';	
 				}
 			}else{
                             echo '<li>'.__( "Loading ...", 'imic-framework-admin').'</li>';
@@ -118,5 +118,7 @@ class twitter_feeds extends WP_Widget {
 	}
 }
 // register widget
-add_action('widgets_init', create_function('', 'return register_widget("twitter_feeds");'));
+add_action( 'widgets_init', function(){
+	register_widget( 'twitter_feeds' );
+});
 ?>

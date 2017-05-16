@@ -8,7 +8,9 @@ get_header(); ?>
 	<article class="col-md-12">
 		<?php if(have_posts()):
                 while(have_posts()):the_post();
+				echo '<div class="page-content">';
                     the_content();		
+				echo '</div>';
                 endwhile;
             endif; ?>
 			<?php if ($imic_options['switch_sharing'] == 1 && $imic_options['share_post_types']['2'] == '1') { ?>

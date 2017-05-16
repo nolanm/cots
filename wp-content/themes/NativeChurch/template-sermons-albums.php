@@ -3,17 +3,32 @@
   Template Name: Sermon Albums
  */
 $currentPageId = get_the_ID();
+$orderby= get_post_meta(get_the_ID(),'imic_albums_select_orderby',true);
+$order= get_post_meta(get_the_ID(),'imic_albums_select_order',true);
+if($orderby != ''){
+	$albumorderby = $orderby;
+} else {
+	$albumorderby = 'count';
+}
+if($order != ''){
+	$albumorder = $order;
+} else {
+	$albumorder = 'ASC';
+}
 get_header();
 $pageOptions = imic_page_design(); //page design options
+imic_sidebar_position_module();
 ?>
 <div class="container">
 <div class="row">
-<div class="<?php echo $pageOptions['class']; ?>">
+<div class="<?php echo $pageOptions['class']; ?>" id="content-col">
 	<?php 
         
         while(have_posts()):the_post();
         if($post->post_content!="") :
+					echo '<div class="page-content">';
                               the_content();        
+					echo '</div>';
                               echo '<div class="spacer-20"></div>';
                       endif;	
         endwhile;
@@ -21,7 +36,7 @@ $pageOptions = imic_page_design(); //page design options
 <div class="posts-archive">
 <?php
 $taxonomies = array('sermons-category');
-$args = array('orderby' => 'count', 'hide_empty' => true);
+$args = array('orderby' => $albumorderby, 'order' => $albumorder, 'hide_empty' => true);
 $sermonterms = get_terms($taxonomies, $args);
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $count=$catValue=$paginate=1;
@@ -109,7 +124,7 @@ endif;
 </div>
 <?php if(!empty($pageOptions['sidebar'])){ ?>
 <!-- Start Sidebar -->
-<div class="col-md-3 sidebar">
+<div class="col-md-3 sidebar" id="sidebar-col">
     <?php dynamic_sidebar($pageOptions['sidebar']); ?>
 </div>
 <!-- End Sidebar -->

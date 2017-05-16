@@ -6,10 +6,11 @@ if($pageID!=0){
 }else{
 	$pageOptions = imic_page_design(); //page design options	
 }
+imic_sidebar_position_module();
 ?>
 <div class="container">
     <div class="row">
-        <div class="<?php echo $pageOptions['class']; ?> posts-archive">
+        <div class="<?php echo $pageOptions['class']; ?> posts-archive" id="content-col">
             <?php
             if (have_posts()) :
                 while (have_posts()):the_post();
@@ -27,7 +28,9 @@ if($pageID!=0){
                     		<span><i class="fa fa-calendar"></i>' . get_the_time(get_option('date_format')) . '</span><span><i class="fa fa-archive"></i>'.imic_custom_taxonomies_terms_links().'</span> <span>';
                     comments_popup_link('<i class="fa fa-comment"></i>'.__('No comments yet','framework'), '<i class="fa fa-comment"></i>1', '<i class="fa fa-comment"></i>%', 'comments-link',__('Comments are off for this post','framework'));
                     echo'</span></span>';
+					echo '<div class="page-content">';
                     echo imic_excerpt(50);
+					echo '</div>';
                     echo '<p><a href="' . get_permalink() . '" class="btn btn-primary">' . __('Continue reading', 'framework') . '<i class="fa fa-long-arrow-right"></i></a></p>';
                     echo '</div></div>';
                     echo '</article>';
@@ -50,7 +53,7 @@ if($pageID!=0){
         </div>
         <?php if(!empty($pageOptions['sidebar'])){ ?>
         <!-- Start Sidebar -->
-        <div class="col-md-3 sidebar">
+        <div class="col-md-3 sidebar" id="sidebar-col">
             <?php dynamic_sidebar($pageOptions['sidebar']); ?>
         </div>
         <!-- End Sidebar -->

@@ -16,10 +16,10 @@ function extra_category_fields( $tag ) {
     $cat_meta = get_option( "category_$t_id" );
 ?>
 <tr class="form-field">
-    <th scope="row" valign="top"><label for="meta-color"><?php _e('Category Name Background Color'); ?></label></th>
+    <th scope="row" valign="top"><label for="meta-color"><?php _e('Category Name Background Color','framework'); ?></label></th>
     <td>
         <div id="colorpicker">
-            <input type="text" name="cat_meta[catBG]" class="colorpicker" size="3" style="width:20%;" value="<?php echo (isset($cat_meta['catBG'])) ? $cat_meta['catBG'] : '#fff'; ?>" />
+            <input type="text" name="cat_meta[catBG]" class="colorpicker" size="3" style="width:20%;" value="<?php echo (isset($cat_meta['catBG'])) ? $cat_meta['catBG'] : ''; ?>" />
         </div>
             <br />
         <span class="description"><?php _e(''); ?></span>

@@ -1,4 +1,5 @@
 <?php
+
     /**
      * Redux Framework is free software: you can redistribute it and/or modify
      * it under the terms of the GNU General Public License as published by
@@ -17,18 +18,22 @@
      * @author      Dovy Paukstys
      * @version     3.0.0
      */
+
 // Exit if accessed directly
     if ( ! defined( 'ABSPATH' ) ) {
         exit;
     }
+
 // Don't duplicate me!
     if ( ! class_exists( 'ReduxFramework_button_set' ) ) {
+
         /**
          * Main ReduxFramework_button_set class
          *
          * @since       1.0.0
          */
         class ReduxFramework_button_set {
+
             /**
              * Holds configuration settings for each field in a model.
              * Defining the field options
@@ -54,6 +59,7 @@
             static $_properties = array(
                 'id' => 'Identifier',
             );
+
             /**
              * Field Constructor.
              * Required - must call the parent constructor, then assign field and value to vars, and obviously call the render field function
@@ -63,10 +69,12 @@
              * @return      void
              */
             function __construct( $field = array(), $value = '', $parent ) {
+
                 $this->parent = $parent;
                 $this->field  = $field;
                 $this->value  = $value;
             }
+
             /**
              * Field Render Function.
              * Takes the vars and outputs the HTML for the field in the settings
@@ -76,33 +84,52 @@
              * @return      void
              */
             public function render() {
+                if ( !empty( $this->field['data'] ) && empty( $this->field['options'] ) ) {
+                    if ( empty( $this->field['args'] ) ) {
+                        $this->field['args'] = array();
+                    }
+
+                    $this->field['options'] = $this->parent->get_wordpress_data( $this->field['data'], $this->field['args'] );
+
+                    if ( empty( $this->field['options'] ) ) {
+                        return;
+                    }
+                }
+
                 // multi => true renders the field multi-selectable (checkbox vs radio)
                 echo '<div class="buttonset ui-buttonset">';
-                //$i = 0;
+                $i = 0;
                 foreach ( $this->field['options'] as $k => $v ) {
+
                     $selected = '';
                     if ( isset( $this->field['multi'] ) && $this->field['multi'] == true ) {
-                        $type                       = "checkbox";
-                        $this->field['name_suffix'] = "[]";
-//                    $i++;
+                        $type         = "checkbox";
+                        $multi_suffix = '[]';
+
                         if ( ! empty( $this->value ) && ! is_array( $this->value ) ) {
                             $this->value = array( $this->value );
                         }
-                        if ( in_array( $k, $this->value ) ) {
+
+                        if ( is_array( $this->value ) && in_array( $k, $this->value ) ) {
                             $selected = 'checked="checked"';
                         }
+
                     } else {
-                        $type     = "radio";
-                        $selected = checked( $this->value, $k, false );
+                        $multi_suffix = "";
+                        $type         = "radio";
+
+                        if ( is_scalar( $this->value ) ) {
+                            $selected = checked( $this->value, $k, false );
+                        }
                     }
-                    echo '<input data-id="' . $this->field['id'] . '" type="' . $type . '" id="' . $this->field['id'] . '-buttonset' . $k . '" name="' . $this->field['name'] . $this->field['name_suffix'] . '" class="buttonset-item ' . $this->field['class'] . '" value="' . $k . '" ' . $selected . '/>';
+
+                    echo '<input data-id="' . $this->field['id'] . '" type="' . $type . '" id="' . $this->field['id'] . '-buttonset' . $k . '" name="' . $this->field['name'] . $this->field['name_suffix'] . $multi_suffix . '" class="buttonset-item ' . $this->field['class'] . '" value="' . $k . '" ' . $selected . '/>';
                     echo '<label for="' . $this->field['id'] . '-buttonset' . $k . '">' . $v . '</label>';
-                    if ( isset( $this->field['multi'] ) && $this->field['multi'] == true ) {
-                        echo '<input type="hidden" id="' . $this->field['id'] . '" name="' . $this->field['name'] . $this->field['name_suffix'] . '" value="">';
-                    }
                 }
+
                 echo '</div>';
             }
+
             /**
              * Enqueue Function.
              * If this field requires any scripts, or css define this function and register/enqueue the scripts/css
@@ -112,13 +139,16 @@
              * @return      void
              */
             public function enqueue() {
-                wp_enqueue_script(
-                    'redux-field-button-set-js',
-                    ReduxFramework::$_url . 'inc/fields/button_set/field_button_set' . Redux_Functions::isMin() . '.js',
-                    array( 'jquery', 'jquery-ui-core', 'redux-js' ),
-                    time(),
-                    true
-                );
+
+                if (!wp_script_is ( 'redux-field-button-set-js' )) {
+                    wp_enqueue_script(
+                        'redux-field-button-set-js',
+                        ReduxFramework::$_url . 'inc/fields/button_set/field_button_set' . Redux_Functions::isMin() . '.js',
+                        array( 'jquery', 'jquery-ui-core', 'redux-js' ),
+                        time(),
+                        true
+                    );
+                }
             }
         }
     }

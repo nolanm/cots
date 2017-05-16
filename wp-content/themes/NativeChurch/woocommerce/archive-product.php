@@ -1,17 +1,12 @@
 <?php 
-/**
- * The Template for displaying product archives, including the main shop page which is a post type archive.
- * @author     WooThemes
- * @package 	WooCommerce/Templates
- * @version     2.1.8
- */
 get_header(); 
 $variable_post_id= get_option('woocommerce_shop_page_id');
-$pageOptions = imic_page_design($variable_post_id); //page design options ?>
+$pageOptions = imic_page_design($variable_post_id); //page design options
+imic_sidebar_position_module(); ?>
 <div class="container">
     <div class="row">
         <?php if (have_posts()):?>
-             <div class="<?php echo $pageOptions['class']; ?> product-archive">  
+             <div class="<?php echo $pageOptions['class']; ?> product-archive" id="content-col">  
                 <!-- Products Listing -->
                             <?php
                             /**
@@ -67,7 +62,7 @@ $pageOptions = imic_page_design($variable_post_id); //page design options ?>
         endif;
         if(!empty($pageOptions['sidebar'])){ ?>
         <!-- Start Sidebar -->
-        <div class="col-md-3 sidebar">
+        <div class="col-md-3 sidebar" id="sidebar-col">
             <?php dynamic_sidebar($pageOptions['sidebar']); ?>
         </div>
         <!-- End Sidebar -->

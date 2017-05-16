@@ -1,19 +1,66 @@
 jQuery(document).ready(function() {
-    jQuery('.calendar').prepend('<img id="loading-image" src="' + calenderEvents.homeurl + '/images/loader.gif" alt="Loading..." />');
+	
+	var d = new Date();
+
+    var n = d.getMonth()+1;
+
+    var y = d.getFullYear();
+	var this_month = y+'-'+n;
+	//alert(n);
+    jQuery('.calendar').prepend('<div id="loading-image"><img id="loading-image-img" src="' + calenderEvents.homeurl + '/images/loader-new.gif" alt="Loading..." /></div>');
+	if (calenderEvents.calheadview == 1) {
+		HeadLeft = "title";
+		HeadCenter = "";
+		HeadRight = "prev,next today";
+	} else if (calenderEvents.calheadview == 2) {
+		HeadLeft = "prev,next today";
+		HeadCenter = "title";
+		HeadRight = "month,agendaWeek,agendaDay";
+	} 
+	Limit = parseInt(calenderEvents.eventLimit);
       jQuery('.calendar').fullCalendar({
+		   eventAfterRender: function (event, element) {
+				element.find('.fc-title').html(event.title);
+			},
+		  viewRender: function (view, element) {
+    var b = jQuery('.calendar').fullCalendar('getDate');
+    this_month = b.format('YYYY-MM');
+	//alert(this_month);
+	jQuery('.calendar').fullCalendar('removeEventSource', calenderEvents.homeurl + '/includes/json-feed.php'); 
+	jQuery('.calendar').fullCalendar('refetchEvents');
+    jQuery('.calendar').fullCalendar('addEventSource', { url: calenderEvents.homeurl + '/includes/json-feed.php',
+					type: 'POST',
+					data: {
+					   event_cat_id: jQuery('.event_calendar').attr('id'),
+					   month_event: this_month,
+					  }})
+    jQuery('.calendar').fullCalendar('refetchEvents');
+ },
         monthNames: calenderEvents.monthNames,
         monthNamesShort: calenderEvents.monthNamesShort,
         dayNames: calenderEvents.dayNames,
         dayNamesShort: calenderEvents.dayNamesShort,
-        editable: true,
+        editable: false,
+		header: {left: HeadLeft,
+				center: HeadCenter,
+				right:  HeadRight
+				},
+		buttonText: {
+			today: calenderEvents.today,
+			month: calenderEvents.month,
+			week: calenderEvents.week,
+			day: calenderEvents.day
+		},
+		eventLimit: Limit, // for all non-agenda views
+		defaultView: calenderEvents.view,
         googleCalendarApiKey: calenderEvents.googlekey,
 			eventSources: [
 				{
-					url: calenderEvents.homeurl + '/includes/json-feed.php',
-					type: 'POST',
-					data: {
-					   event_cat_id: jQuery('.event_calendar').attr('id'),
-					  },
+					googleCalendarId:calenderEvents.googlecalid1
+					
+				},
+				{
+					googleCalendarId:calenderEvents.googlecalid2
 					
 				},
 				{
@@ -34,5 +81,44 @@ jQuery(document).ready(function() {
             else
                 jQuery('#loading-image').hide();
         },
-    });
+    });//alert(jQuery('.calendar').fullCalendar('getView').start);
+	
+	jQuery(".calender_filter").click(function(){
+	var term_id = jQuery(this).val();
+	jQuery(".fc-view-container,.fc-toolbar").hide();
+	reloadCal(term_id);
 });
+function reloadCal(event_term) {
+	
+	var source = {
+		googleCalendarApiKey: calenderEvents.googlekey,
+		googleCalendarId: calenderEvents.googlecalid
+	};
+	if((event_term!="google")&&(event_term!="")) {
+	jQuery('.calendar').fullCalendar('removeEventSource',source.googleCalendarId); }
+	else {
+		jQuery('.calendar').fullCalendar('removeEventSource',source.googleCalendarId);
+		jQuery('.calendar').fullCalendar('addEventSource', source);	
+	}
+	jQuery('.calendar').fullCalendar('removeEventSource', calenderEvents.homeurl + '/includes/json-feed.php'); 
+	jQuery('.calendar').fullCalendar('refetchEvents');
+	var b = jQuery('.calendar').fullCalendar('getDate');
+    this_month = b.format('YYYY-MM');
+    jQuery('.calendar').fullCalendar('addEventSource', { 
+	url: calenderEvents.homeurl + '/includes/json-feed.php',
+					type: 'POST',
+					data: {
+					   event_cat_id: event_term,
+					   month_event: this_month,
+					  },
+					  loading: function(bool) {
+						if (bool)
+							jQuery('#loading-image').show();
+						else
+							jQuery('#loading-image').hide();
+					},})
+    jQuery('.calendar').fullCalendar('refetchEvents');
+	jQuery(".fc-view-container,.fc-toolbar").show();
+}
+});
+

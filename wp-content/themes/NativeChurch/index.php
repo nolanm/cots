@@ -1,8 +1,11 @@
-<?php get_header(); 
-$pageOptions = imic_page_design(); //page design options ?>
+<?php
+ get_header();
+$blog_page_id = get_option('page_for_posts');
+$pageOptions = imic_page_design($blog_page_id); //page design options
+imic_sidebar_position_module(); ?>
 <div class="container">
     <div class="row">
-        <div class="<?php echo $pageOptions['class']; ?> posts-archive">
+        <div class="<?php echo $pageOptions['class']; ?> posts-archive" id="content-col">
             <?php $page_for_posts= get_option('page_for_posts');
 		$post_category = get_post_meta($page_for_posts,'imic_advanced_blog_taxonomy',true);
 						if(!empty($post_category)){
@@ -31,7 +34,9 @@ $pageOptions = imic_page_design(); //page design options ?>
                     		<span><i class="fa fa-calendar"></i>' . get_the_time(get_option('date_format')) . '</span><span><i class="fa fa-user"></i>'. __(' Posted By: ','framework'). get_the_author_meta('display_name').'</span><span><i class="fa fa-archive"></i>'.imic_custom_taxonomies_terms_links().'</span> <span>';
                     comments_popup_link('<i class="fa fa-comment"></i>'.__('No comments yet','framework'), '<i class="fa fa-comment"></i>1', '<i class="fa fa-comment"></i>%', 'comments-link',__('Comments are off for this post','framework'));
                     echo'</span></span>';
+					echo '<div class="page-content">';
                     echo imic_excerpt(50);
+					echo '</div>';
                     echo '<p><a href="' . get_permalink() . '" class="btn btn-primary">' . __('Continue reading', 'framework') . '<i class="fa fa-long-arrow-right"></i></a></p>';
                     echo '</div></div>';
                     echo '</article>';
@@ -57,8 +62,8 @@ $pageOptions = imic_page_design(); //page design options ?>
         </div>
         <?php if(!empty($pageOptions['sidebar'])){ ?>
         <!-- Start Sidebar -->
-        <div class="col-md-3 sidebar">
-            <?php dynamic_sidebar('post-sidebar'); ?>
+        <div class="col-md-3 sidebar" id="sidebar-col">
+            <?php dynamic_sidebar($pageOptions['sidebar']); ?>
         </div>
         <!-- End Sidebar -->
         <?php } ?>

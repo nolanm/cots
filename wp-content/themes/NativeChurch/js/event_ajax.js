@@ -1,8 +1,9 @@
 jQuery(document).ready(function() {
     jQuery("#ajax_events").on("click", "a.upcomingEvents", function(event) {
+		jQuery('body').find('.listing-cont').html('<div id="loading-image" style="display: block;float: left;margin: 0px 400px;"><img src="" alt="Loading..." /></div>');
        var dateEvent = jQuery(this).attr('id');
 		var termEvent = jQuery(this).attr('rel');
-        jQuery('.listing-cont').fadeOut('slow');
+        //jQuery('.listing-cont').fadeOut('slow');
         jQuery.ajax({
             type: 'POST',
             url: urlajax.ajaxurl,
@@ -15,7 +16,6 @@ jQuery(document).ready(function() {
                 jQuery('.listing-cont').fadeIn('slow');
                 jQuery('#ajax_events').html('');
                 jQuery('#ajax_events').append(data);
-                //jQuery('#ajax_events').fadeOut();
             },
             error: function(errorThrown) {
             }

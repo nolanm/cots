@@ -3,19 +3,32 @@
   Template Name: sermons
  */
 get_header();
-$pageOptions = imic_page_design(); //page design options ?>
+$pageOptions = imic_page_design(); //page design options
+imic_sidebar_position_module();
+global $imic_options;
+$options = get_option('imic_options');
+?>
+
 <div class="container">
     <div class="row">
-        <div class="<?php echo $pageOptions['class']; ?>">
+        <div class="<?php echo $pageOptions['class']; ?>" id="content-col">
         <?php 
 			
 			while(have_posts()):the_post();
 			if($post->post_content!="") :
+					echo '<div class="page-content">';
                               the_content();        
+					echo '</div>';
                               echo '<div class="spacer-20"></div>';
                       endif;	
 			endwhile;
-        $temp_wp_query = clone $wp_query;
+        $temp_wp_query = clone $wp_query; ?>
+                <?php if ($options['switch_sermon_filters'] == 1) { ?>
+                <div class="search-filters">
+                    <?php echo do_shortcode( '[imic-searchandfilter]' ); ?>
+                </div>
+                <?php } ?>
+                <?php 
         query_posts(array(
             'post_type' => 'sermons',
             'paged' => get_query_var('paged')
@@ -73,7 +86,9 @@ $pageOptions = imic_page_design(); //page design options ?>
                                 </div>
                                 <?php endif; ?>
                                 <div class="<?php echo $class; ?>">
+                                	<div class="page-content">
                                     <?php echo imic_excerpt(100); ?>
+                                    </div>
                                     <p><a href="<?php the_permalink() ?>" class="btn btn-primary"><?php _e('Continue reading ', 'framework'); ?> <i class="fa fa-long-arrow-right"></i></a></p>
                                 </div>
                             </div>
@@ -89,7 +104,7 @@ $pageOptions = imic_page_design(); //page design options ?>
         $wp_query = clone $temp_wp_query; ?>
         <?php if(!empty($pageOptions['sidebar'])){ ?>
         <!-- Start Sidebar -->
-        <div class="col-md-3 sidebar">
+        <div class="col-md-3 sidebar" id="sidebar-col">
             <?php dynamic_sidebar($pageOptions['sidebar']); ?>
         </div>
         <!-- End Sidebar -->

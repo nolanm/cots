@@ -53,9 +53,8 @@ if (comments_open()) :
                     <p><?php printf(__('You must be %1$slogged in%2$s to post a comment.', 'framework'), '<a href="' . get_option('siteurl') . '/wp-login.php?redirect_to=' . urlencode(get_permalink()) . '">', '</a>') ?></p>
                 <?php else : ?>
                     <form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform">
-                        <?php if (is_user_logged_in()) : ?>
-                            <p><?php printf(__('Logged in as %1$s. %2$sLog out &raquo;%3$s', 'framework'), '<a href="' . get_option('siteurl') . '/wp-admin/profile.php"></a>', '<a href="' . (function_exists('wp_logout_url') ? wp_logout_url(get_permalink()) : get_option('siteurl') . '/wp-login.php?action=logout" title="') . '" title="' . __('Log out of this account', 'framework') . '">', '</a>') ?></p>
-                        <?php else : ?>
+                        <?php if (is_user_logged_in()) :
+                            echo '<p class="logged-in-as">' . sprintf( __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>','framework' ), admin_url( 'profile.php' ), $user_identity, wp_logout_url( apply_filters( 'the_permalink', get_permalink( ) ) ) ) . '</p>'; else : ?>
                             <div class="row">
                                 <div class="form-group">
                                     <div class="col-md-4 col-sm-4">

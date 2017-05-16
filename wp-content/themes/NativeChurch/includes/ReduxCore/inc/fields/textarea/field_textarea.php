@@ -1,4 +1,5 @@
 <?php
+
     /*
      * @package     Redux_Framework
      * @subpackage  Fields
@@ -20,12 +21,15 @@
      * @type        boolean $required Whether this element is required
      * @type        string  $label    The display name for this element
      */
+
 // Exit if accessed directly
     if ( ! defined( 'ABSPATH' ) ) {
         exit;
     }
+
     if ( ! class_exists( 'ReduxFramework_textarea' ) ) {
         class ReduxFramework_textarea {
+
             /**
              * Field Constructor.
              *
@@ -40,6 +44,7 @@
                 $this->field  = $field;
                 $this->value  = $value;
             }
+
             /**
              * Field Render Function.
              * Takes the vars and outputs the HTML for the field in the settings
@@ -51,15 +56,24 @@
              * @return Object A new editor object.
              **/
             function render() {
+
                 $this->field['placeholder'] = isset( $this->field['placeholder'] ) ? $this->field['placeholder'] : "";
                 $this->field['rows']        = isset( $this->field['rows'] ) ? $this->field['rows'] : 6;
+                $readonly                   = ( isset( $this->field['readonly'] ) && $this->field['readonly']) ? ' readonly="readonly"' : '';
+                // The $this->field variables are already escaped in the ReduxFramework Class.
                 ?>
-                <textarea name="<?php echo $this->field['name'] . $this->field['name_suffix']; ?>"
-                          id="<?php echo $this->field['id']; ?>-textarea"
-                          placeholder="<?php echo esc_attr( $this->field['placeholder'] ); ?>"
-                          class="large-text <?php echo $this->field['class']; ?>"
-                          rows="<?php echo $this->field['rows']; ?>"><?php echo $this->value; ?></textarea>
+                <textarea <?php echo $readonly; ?> name="<?php echo esc_attr($this->field['name'] . $this->field['name_suffix']); ?>" id="<?php echo $this->field['id']; ?>-textarea" placeholder="<?php echo esc_attr( $this->field['placeholder'] ); ?>" class="large-text <?php echo esc_attr($this->field['class']); ?>" rows="<?php echo esc_attr($this->field['rows']); ?>"><?php echo esc_textarea( $this->value ); ?></textarea>
             <?php
+            }
+
+            function sanitize( $field, $value ) {
+                if ( ! isset( $value ) || empty( $value ) ) {
+                    $value = "";
+                } else {
+                    $value = esc_textarea( $value );
+                }
+
+                return $value;
             }
         }
     }

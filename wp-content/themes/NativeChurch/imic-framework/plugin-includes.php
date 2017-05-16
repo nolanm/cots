@@ -8,7 +8,7 @@
  *
  * @package    TGM-Plugin-Activation
  * @subpackage Example
- * @version    2.4.0
+ * @version    2.6.1
  * @author     Thomas Griffin <thomasgriffinmedia.com>
  * @author     Gary Jones <gamajo.com>
  * @copyright  Copyright (c) 2014, Thomas Griffin
@@ -18,7 +18,7 @@
 /**
  * Include the TGM_Plugin_Activation class.
  */
-require_once dirname( __FILE__ ) . '/class-tgm-plugin-activation.php';
+require_once dirname( __FILE__ ) . '/tgm/class-tgm-plugin-activation.php';
 add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
 /**
  * Register the required plugins for this theme.
@@ -41,40 +41,85 @@ function my_theme_register_required_plugins() {
         // This is an example of how to include a plugin pre-packaged with a theme.
         
        array(
-            'name'               => 'Payment Imithemes', // The plugin name.
+            'name'               => esc_html__('Payment Imithemes','framework'), // The plugin name.
             'slug'               => 'Payment-Imithemes', // The plugin slug (typically the folder name).
             'source'             => IMIC_FILEPATH . '/includes'. '/plugins/Payment-Imithemes.zip', // The plugin source.
             'required'           => false, // If false, the plugin is only 'recommended' instead of required.
-            'version'            => '1.0.2', // E.g. 1.0.0. If set, the active plugin must be this version or higher.
+            'version'            => '1.3', // E.g. 1.0.0. If set, the active plugin must be this version or higher.
+            'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+            'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+            'external_url'       => '', // If set, overrides default API URL and points to an external URL.
+        ),
+       	array(
+            'name'               => esc_html__('iPray','framework'), // The plugin name.
+            'slug'               => 'ipray', // The plugin slug (typically the folder name).
+            'source'             => IMIC_FILEPATH . '/includes'. '/plugins/ipray.zip', // The plugin source.
+            'required'           => false, // If false, the plugin is only 'recommended' instead of required.
+            'version'            => '1.3', // E.g. 1.0.0. If set, the active plugin must be this version or higher.
+            'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+            'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+            'external_url'       => '', // If set, overrides default API URL and points to an external URL.
+        ),
+		array(
+            'name'               => esc_html__('Revolution Slider','framework'), // The plugin name.
+            'slug'               => 'revslider', // The plugin slug (typically the folder name).
+            'source'             => IMIC_FILEPATH . '/includes'. '/plugins/revslider.zip', // The plugin source.
+            'required'           => true, // If false, the plugin is only 'recommended' instead of required.
+            'version'            => '5.4.3.1', // E.g. 1.0.0. If set, the active plugin must be this version or higher.
             'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
             'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
             'external_url'       => '', // If set, overrides default API URL and points to an external URL.
         ),
         // This is an example of how to include a plugin from the WordPress Plugin Repository.
         array(
-			'name' => __('Breadcrumb NavXT', 'framework'),
+			'name' => esc_html__('Breadcrumb NavXT', 'framework'),
 			'slug' => 'breadcrumb-navxt',
 			'required' 	=> false,
 		),
 		array(
-			'name' => __('SMK Sidebar Generator', 'framework'),
-			'slug' => 'smk-sidebar-generator',
+			'name' => esc_html__('Pojo Sidebars', 'framework'),
+			'slug' => 'pojo-sidebars',
 			'required' 	=> false,
 		),
              array(
-			'name' => __('WooCommerce - excelling eCommerce', 'framework'),
-		        'slug' => 'woocommerce',
+			'name' => esc_html__('WooCommerce - excelling eCommerce', 'framework'),
+			'slug' => 'woocommerce',
 			'required' 	=> false,
 		),
 		array(
-			'name' => __('Seamless Donations', 'framework'),
-		        'slug' => 'seamless-donations',
+			'name' => esc_html__('Give - WordPress Donation Plugin', 'framework'),
+		  	'slug' => 'give',
 			'required' 	=> false,
 		),
 		array(
-			'name' => __('Social Media Icon Widget', 'framework'),
-		        'slug' => 'social-media-icons-widget',
+			'name' => esc_html__('Contact Form 7', 'framework'),
+		    'slug' => 'contact-form-7',
 			'required' 	=> false,
+		),
+		array(
+			'name' => esc_html__('Social Media Icon Widget', 'framework'),
+		   	'slug' => 'social-media-icons-widget',
+			'required' 	=> false,
+		),
+		array(
+			'name' => esc_html__('Facebook Open Graph, Google+ and Twitter Card Tags', 'framework'),
+			'slug' => 'wonderm00ns-simple-facebook-open-graph-tags',
+			'required' 	=> false,
+		),
+		array(
+			'name' => esc_html__('Page Builder by SiteOrigin', 'framework'),
+		 	'slug' => 'siteorigin-panels',
+			'required' 	=> true,
+		),
+		array(
+			'name' => esc_html__('SiteOrigin Widgets Bundle', 'framework'),
+			'slug' => 'so-widgets-bundle',
+			'required' 	=> true,
+		),
+		array(
+			'name' => esc_html__('Black Studio TinyMCE Widget', 'framework'),
+		  	'slug' => 'black-studio-tinymce-widget',
+			'required' 	=> true,
 		)
             
             

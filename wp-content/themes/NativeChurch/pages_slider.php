@@ -9,10 +9,12 @@ $home_id = $id;
 }
 $custom_home = get_post_custom($home_id);
 $height = get_post_meta($home_id,'imic_pages_slider_height',true);
-$height = ($height == '') ? '200' : $height;
+$height = ($height == '') ? '150' : $height;
+$breadpad = $height - 60;
 echo '<style type="text/css">' . "\n";
 echo '.hero-slider{height:'.$height.'px;}';
 echo '.hero-slider.flexslider ul.slides li{height:'.$height.'px;}';
+echo '.body ol.breadcrumb{padding-top:'.$breadpad.'px;}';
 echo "</style>" . "\n";
 $imic_Choose_slider_display = get_post_meta($home_id, 'imic_pages_Choose_slider_display', true);
 if ($imic_Choose_slider_display == 1) {
@@ -22,7 +24,7 @@ if ($imic_Choose_slider_display == 1) {
     $direction = get_post_meta($home_id, 'imic_pages_slider_direction_arrows', true);
     $effect = get_post_meta($home_id, 'imic_pages_slider_effects', true);
     if (count($custom_home['imic_pages_slider_image']) > 0) {
-        ?>
+        ?><div style="position:relative;">
             <div class="hero-slider flexslider clearfix" data-autoplay=<?php echo $auto_slide; ?> data-pagination=<?php echo $pagination; ?> data-arrows=<?php echo $direction; ?> data-style=<?php echo $effect; ?> data-pause="yes" data-speed=<?php echo $speed; ?>>
                 <ul class="slides">
                     <?php
@@ -54,12 +56,33 @@ if ($imic_Choose_slider_display == 1) {
                     ?>
                 </ul>
         </div>
+        <div class="container">
+              <ol class="breadcrumb" style="padding-top: 0;position: absolute;bottom: 0px;z-index: 22;">
+                  <?php
+                  if (function_exists('bcn_display_list')) {
+                      bcn_display_list();
+                  }
+                  ?>
+              </ol>
+        </div>
+        </div>
         <?php
     }
 } else {
     $imic_select_revolution_from_list = get_post_meta($home_id, 'imic_pages_select_revolution_from_list', true);
 	echo '<div class="slider-revolution-new">';
-    echo do_shortcode($imic_select_revolution_from_list);
-	echo '</div>';
+	$imic_select_revolution_from_list = preg_replace('/\\\\/', '', $imic_select_revolution_from_list);
+    echo do_shortcode($imic_select_revolution_from_list); ?>
+	<div class="container">
+          <ol class="breadcrumb" style="padding-top: 0;position: absolute;bottom: 0px;z-index: 22;">
+              <?php
+              if (function_exists('bcn_display_list')) {
+                  bcn_display_list();
+              }
+              ?>
+          </ol>
+    </div>
+	</div>
+    <?php 
 }
 ?>

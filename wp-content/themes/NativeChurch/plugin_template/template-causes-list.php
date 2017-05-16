@@ -6,11 +6,12 @@ get_header();
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 if(is_plugin_active('Payment-Imithemes/causes.php')) {
 	$pageOptions = imic_page_design(); //page design options
+	imic_sidebar_position_module();
 ?> 
 <!-- Start Content -->
   		<div class="container">
     		<div class="row">
-                <div class="<?php echo $pageOptions['class']; ?> posts-archive causes-archive">
+                <div class="<?php echo $pageOptions['class']; ?> posts-archive causes-archive" id="content-col">
 					<?php 
                         while(have_posts()):the_post();
                         if($post->post_content!="") :
@@ -121,7 +122,7 @@ if(is_plugin_active('Payment-Imithemes/causes.php')) {
                 pagination();  //Causes Pagination
                 if(!empty($pageOptions['sidebar'])){ ?>
                 <!-- Start Sidebar -->
-                <div class="col-md-3 sidebar">
+                <div class="col-md-3 sidebar" id="sidebar-col">
                     <?php dynamic_sidebar($pageOptions['sidebar']); ?>
                 </div>
                 <!-- End Sidebar -->

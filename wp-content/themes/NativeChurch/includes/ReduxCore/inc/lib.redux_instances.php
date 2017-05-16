@@ -1,4 +1,5 @@
 <?php
+
     /**
      * ReduxFrameworkInstances Functions
      *
@@ -6,6 +7,7 @@
      * @subpackage  Core
      */
     if ( ! function_exists( 'get_redux_instance' ) ) {
+
         /**
          * Retreive an instance of ReduxFramework
          *
@@ -17,7 +19,9 @@
             return ReduxFrameworkInstances::get_instance( $opt_name );
         }
     }
+
     if ( ! function_exists( 'get_all_redux_instances' ) ) {
+
         /**
          * Retreive all instances of ReduxFramework
          * as an associative array.

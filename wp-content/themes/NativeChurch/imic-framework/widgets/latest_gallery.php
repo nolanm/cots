@@ -2,12 +2,12 @@
 /* * * Widget code for Latest Gallery ** */
 class latest_gallery extends WP_Widget {
     // constructor
-    function latest_gallery() {
+    public function __construct() {
         $widget_ops = array('description' => __("Display latest gallery.", 'imic-framework-admin'));
-        parent::WP_Widget(false, $name = __('Latest Gallery','imic-framework-admin'), $widget_ops);
+        parent::__construct(false, $name = __('Latest Gallery','imic-framework-admin'), $widget_ops);
     }
     // widget form creation
-    function form($instance) {
+    public function form($instance) {
         // Check values
         if ($instance) {
             $title = esc_attr($instance['title']);
@@ -18,7 +18,7 @@ class latest_gallery extends WP_Widget {
         }
         ?>
         <p>
-            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', 'latest_gallery'); ?></label>
+            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', 'framework'); ?></label>
             <input class="spTitle" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
         </p>
         <p>
@@ -28,7 +28,7 @@ class latest_gallery extends WP_Widget {
         <?php
     }
     // update widget
-    function update($new_instance, $old_instance) {
+    public function update($new_instance, $old_instance) {
         $instance = $old_instance;
         // Fields
         $instance['title'] = strip_tags($new_instance['title']);
@@ -36,7 +36,7 @@ class latest_gallery extends WP_Widget {
         return $instance;
     }
     // display widget
-    function widget($args, $instance) {
+    public function widget($args, $instance) {
         global $wp_query;
         $temp_wp_query = clone $wp_query;
         extract($args);
@@ -60,7 +60,14 @@ class latest_gallery extends WP_Widget {
                 if(!empty($thumbnail_id)){
                      $large_src_i = wp_get_attachment_image_src($thumbnail_id, 'full');
                              $postImage = get_the_post_thumbnail($post->ID );
-                                   echo'<li> <a href="'.$large_src_i[0].'" data-rel="prettyPhoto[postname]" class="media-box">'.$postImage.'</a></li>';
+                                   echo'<li>';
+								   if(isset($imic_options['switch_lightbox']) && $imic_options['switch_lightbox']== 0){
+										$Lightbox_init = '<a href="'.esc_url($large_src_i[0]) .'" data-rel="prettyPhoto" class="media-box">';
+									}elseif(isset($imic_options['switch_lightbox']) && $imic_options['switch_lightbox']== 1){
+										$Lightbox_init = '<a href="'.esc_url($large_src_i[0]) .'" title="'.get_the_title().'" class="media-box magnific-image">';
+									}
+									echo $Lightbox_init;
+									echo $postImage.'</a></li>';
             }}
             echo'</ul>';
         } else {
@@ -71,5 +78,7 @@ class latest_gallery extends WP_Widget {
     }
 }
 // register widget
-add_action('widgets_init', create_function('', 'return register_widget("latest_gallery");'));
+add_action( 'widgets_init', function(){
+	register_widget( 'latest_gallery' );
+});
 ?>

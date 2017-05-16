@@ -10,23 +10,29 @@ $column_class = 9;
 $column_class = 12;  
 }
 $pageOptions = imic_page_design(); //page design options
+imic_sidebar_position_module();
 ?>
 <div class="container">
         <div class="row">
-        	<div class="col-md-<?php echo $column_class ?>">
+        	<div class="col-md-<?php echo $column_class ?>" id="content-col">
     <?php 
             if(!is_home()){
            while(have_posts()):the_post();
 			if($post->post_content!="") :
-                              the_content();        
+							echo '<div class="page-content">';
+                              the_content();
+							  echo '</div>';        
                               echo '<div class="spacer-20"></div>';
                       endif;	
 			endwhile; 
             }
-			$post_category = get_post_meta(get_the_ID(),'imic_advanced_post_taxonomy',true);
-						if(!empty($post_category)){
-						$post_categories= get_category($post_category);
-						$post_category= $post_categories->slug; }
+			
+			/*$post_category = get_post_meta(get_the_ID(),'imic_advanced_post_taxonomy',true);
+			if(!empty($post_category)){
+			$post_categories= get_category($post_category);
+			$post_category= $post_categories->slug; }*/
+						
+			$post_category = imic_get_term_category(get_the_ID(),'imic_advanced_post_taxonomy','category');	
             global $wp_query;
     query_posts(array(
         'post_type' => 'post',
@@ -55,7 +61,9 @@ $pageOptions = imic_page_design(); //page design options
                   <p><small class="text-muted"><i class="fa fa-calendar"></i> '.get_the_time(get_option('date_format')).'</small></p>
                 </div>
                 <div class="timeline-body">';
+					echo '<div class="page-content">';
                    echo imic_excerpt(50);
+				   echo '</div>';
                 echo'</div>
               </div>
             </li>';
@@ -90,7 +98,7 @@ $pageOptions = imic_page_design(); //page design options
 </div>
             <?php if(is_active_sidebar($pageSidebar)) { ?>
     <!-- Start Sidebar -->
-   	<div class="col-md-3 sidebar">
+   	<div class="col-md-3 sidebar" id="sidebar-col">
     	<?php dynamic_sidebar($pageOptions['sidebar']); ?>
    	</div>
 	<!-- End Sidebar -->

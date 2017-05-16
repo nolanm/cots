@@ -5,12 +5,16 @@
 * http://github.com/KevinSheedy/jquery.alphanum
 *********************************************************************/
 (function( $ ){
+
 	// API ///////////////////////////////////////////////////////////////////
 	$.fn.alphanum = function(settings) {
 		
 		var combinedSettings = getCombinedSettingsAlphaNum(settings);
+
 		var $collection = this;
+
 		setupEventHandlers($collection, trimAlphaNum, combinedSettings);
+
 		return this;
 	};
 	
@@ -18,8 +22,11 @@
 		
 		var defaultAlphaSettings = getCombinedSettingsAlphaNum("alpha");
 		var combinedSettings = getCombinedSettingsAlphaNum(settings, defaultAlphaSettings);
+
 		var $collection = this;
+
 		setupEventHandlers($collection, trimAlphaNum, combinedSettings);
+
 		return this;
 	};
 	
@@ -27,10 +34,13 @@
 		
 		var combinedSettings = getCombinedSettingsNum(settings);
 		var $collection = this;
+
 		setupEventHandlers($collection, trimNum, combinedSettings);
+
 		$collection.blur(function(){
 			numericField_Blur(this, settings);
 		});
+
 		return this;
 	};
 	
@@ -83,6 +93,7 @@
 			allowCaseless : true
 		}
 	};
+
 	// Some pre-defined groups of settings for convenience
 	var CONVENIENCE_SETTINGS_NUMERIC = {
 		"integer" : {
@@ -131,18 +142,26 @@
 	
 	
 	// Implementation details go here ////////////////////////////////////////////////////////
+
 	function setupEventHandlers($textboxes, trimFunction, settings) {
+
 		$textboxes.each(function(){
+
 			var $textbox = $(this);
+
 			$textbox.bind("keyup change paste", function(e){
+
 				var pastedText = "";
+
 				if(e.originalEvent && e.originalEvent.clipboardData && e.originalEvent.clipboardData.getData)
 					pastedText = e.originalEvent.clipboardData.getData("text/plain")
+
 				// setTimeout is necessary for handling the 'paste' event
 				setTimeout(function(){
 					trimTextbox($textbox, trimFunction, settings, pastedText);
 				}, 0);
 			});
+
 			$textbox.bind("keypress", function(e){
 				
 				// Determine which key is pressed.
@@ -152,11 +171,14 @@
 					|| e.ctrlKey
 					|| e.metaKey ) // cmd on MacOS
 					return;
+
 				var newChar         = String.fromCharCode(charCode);
+
 				// Determine if some text was selected / highlighted when the key was pressed
 				var selectionObject = $textbox.selection();
 				var start = selectionObject.start;
 				var end   = selectionObject.end;
+
 				var textBeforeKeypress  = $textbox.val();
 				
 				// The new char may be inserted:
@@ -171,36 +193,46 @@
 				// are position sensitive eg the decimal point '.'' or the minus sign '-'' are only valid in certain positions.
 				var potentialTextAfterKeypress = textBeforeKeypress.substring(0, start) + newChar + textBeforeKeypress.substring(end);
 				var validatedText              = trimFunction(potentialTextAfterKeypress, settings);
+
 				// If the keypress would cause the textbox to contain invalid characters, then cancel the keypress event
 				if(validatedText != potentialTextAfterKeypress)
 					e.preventDefault();
 			});
 		});
+
 	}
+
 	// Ensure the text is a valid number when focus leaves the textbox
 	// This catches the case where a user enters '-' or '.' without entering any digits
 	function numericField_Blur(inputBox, settings) {
 		var fieldValueNumeric = parseFloat($(inputBox).val());
 		var $inputBox = $(inputBox);
+
 		if(isNaN(fieldValueNumeric)) {
 			$inputBox.val("");
 			return;
 		}
+
 		if(isNumeric(settings.min) && fieldValueNumeric < settings.min)
 			$inputBox.val("");
+
 		if(isNumeric(settings.max) && fieldValueNumeric > settings.max)
 			$inputBox.val("");
 	}
+
 	function isNumeric(value) {
 		return !isNaN(value);
 	}
+
 	function isControlKey(charCode) {
+
 		if(charCode >= 32)
 			return false;
 		if(charCode == 10)
 			return false;
 		if(charCode == 13)
 			return false;
+
 		return true;
 	}
 	
@@ -212,6 +244,7 @@
 	function trimTextbox($textBox, trimFunction, settings, pastedText){
 		
 		var inputString = $textBox.val();
+
 		if(inputString == "" && pastedText.length > 0)
 			inputString = pastedText;
 		
@@ -267,8 +300,10 @@
 	
 	// This is the heart of the algorithm
 	function alphanum_allowChar(validatedStringFragment, Char, settings){
+
 		if(settings.maxLength && validatedStringFragment.length >= settings.maxLength)
 			return false;
+
 		if(settings.allow.indexOf(Char) >=0 )
 			return true;
 		
@@ -304,25 +339,36 @@
 	}
 	
 	function numeric_allowChar(validatedStringFragment, Char, settings){
+
 		if(DIGITS[Char]) {
+
 			if(isMaxDigitsReached(validatedStringFragment, settings))
 				return false;
+
 			if(isMaxPreDecimalsReached(validatedStringFragment, settings))
 				return false;
+
 			if(isMaxDecimalsReached(validatedStringFragment, settings))
 				return false;
+
 			if(isGreaterThanMax(validatedStringFragment + Char, settings))
 				return false;
+
 			if(isLessThanMin(validatedStringFragment + Char, settings))
 				return false;
+
 			return true;
 		}
+
 		if(settings.allowPlus && Char == '+' && validatedStringFragment == '')
 			return true;
+
 		if(settings.allowMinus && Char == '-' && validatedStringFragment == '')
 			return true;
+
 		if(Char == THOU_SEP && settings.allowThouSep && allowThouSep(validatedStringFragment, Char))
 			return true;
+
 		if(Char == DEC_SEP) {
 			// Only one decimal separator allowed
 			if(validatedStringFragment.indexOf(DEC_SEP) >= 0)
@@ -333,60 +379,93 @@
 		
 		return false;
 	}
+
 	function countDigits(string) {
+
 		// Error handling, nulls etc
 		string = string + "";
+
 		// Count the digits
 		return string.replace(/[^0-9]/g,"").length;
 	}
+
 	function isMaxDigitsReached(string, settings) {
+
 		var maxDigits = settings.maxDigits;
+
 		if(maxDigits == "" || isNaN(maxDigits))
 			return false; // In this case, there is no maximum
+
 		var numDigits = countDigits(string);
+
 		if(numDigits >= maxDigits)
 			return true;
+
 		return false;
 	}
+
 	function isMaxDecimalsReached(string, settings) {
+
 		var maxDecimalPlaces = settings.maxDecimalPlaces;
+
 		if(maxDecimalPlaces == "" || isNaN(maxDecimalPlaces))
 			return false; // In this case, there is no maximum
+
 		var indexOfDecimalPoint = string.indexOf(DEC_SEP);
+
 		if(indexOfDecimalPoint == -1)
 			return false;
+
 		var decimalSubstring = string.substring(indexOfDecimalPoint);
 		var numDecimals = countDigits(decimalSubstring);
+
 		if(numDecimals >= maxDecimalPlaces)
 			return true;
+
 		return false;
 	}
+
 	function isMaxPreDecimalsReached(string, settings) {
+
 		var maxPreDecimalPlaces = settings.maxPreDecimalPlaces;
+
 		if(maxPreDecimalPlaces == "" || isNaN(maxPreDecimalPlaces))
 			return false; // In this case, there is no maximum
+
 		var indexOfDecimalPoint = string.indexOf(DEC_SEP);
+
 		if(indexOfDecimalPoint >= 0)
 			return false;
+
 		var numPreDecimalDigits = countDigits(string);
+
 		if(numPreDecimalDigits >= maxPreDecimalPlaces)
 			return true;
+
 		return false;
 	}
+
 	function isGreaterThanMax(numericString, settings) {
+
 		if(!settings.max || settings.max < 0)
 			return false;
+
 		var outputNumber = parseFloat(numericString);
 		if(outputNumber > settings.max)
 			return true;
+
 		return false;
 	}
+
 	function isLessThanMin(numericString, settings) {
+
 		if(!settings.min || settings.min > 0)
 			return false;
+
 		var outputNumber = parseFloat(numericString);
 		if(outputNumber < settings.min)
 			return true;
+
 		return false;
 	}
 	
@@ -505,27 +584,37 @@
 		
 		return azAZ;
 	}
+
 	function allowThouSep(currentString, Char) {
+
 		// Can't start with a THOU_SEP
 		if(currentString.length == 0)
 			return false;
+
 		// Can't have a THOU_SEP anywhere after a DEC_SEP
 		var posOfDecSep = currentString.indexOf(DEC_SEP);
 		if(posOfDecSep >= 0)
 			return false;
+
 		var posOfFirstThouSep       = currentString.indexOf(THOU_SEP);
+
 		// Check if this is the first occurrence of a THOU_SEP
 		if(posOfFirstThouSep < 0)
 			return true;
+
 		var posOfLastThouSep        = currentString.lastIndexOf(THOU_SEP);
 		var charsSinceLastThouSep   = currentString.length - posOfLastThouSep - 1;
+
 		// Check if there has been 3 digits since the last THOU_SEP
 		if(charsSinceLastThouSep < 3)
 			return false;
+
 		var digitsSinceFirstThouSep = countDigits(currentString.substring(posOfFirstThouSep));
+
 		// Check if there has been a multiple of 3 digits since the first THOU_SEP
 		if((digitsSinceFirstThouSep % 3) > 0)
 			return false;
+
 		return true;
 	}
 	
@@ -602,16 +691,25 @@
 		
 		return trimNum(inputString, combinedSettings);
 	};
+
 	$.fn.alphanum.setNumericSeparators = function(settings) {
+
 		if(settings.thousandsSeparator.length != 1)
 			return;
+
 		if(settings.decimalSeparator.length != 1)
 			return;
+
 		THOU_SEP = settings.thousandsSeparator;
 		DEC_SEP = settings.decimalSeparator;
 	}
+
 })( jQuery );
+
+
 //Include the 3rd party lib: jquery.caret.js
+
+
 // Set caret position easily in jQuery
 // Written by and Copyright of Luke Morton, 2011
 // Licensed under MIT
@@ -648,9 +746,11 @@
 			return el.selectionStart;
 		}
 	};
+
 	// The following methods are queued under fx for more
 	// flexibility when combining with $.fn.delay() and
 	// jQuery effects.
+
 	// Set caret to a particular index
 	$.fn.alphanum_caret = function (index, offset) {
 		if (typeof(index) === "undefined") {
@@ -676,6 +776,7 @@
 		});
 	};
 }(jQuery));
+
 /**********************************************************
 * Selection Library
 * Used to determine what text is highlighted in the textbox before a key is pressed.
