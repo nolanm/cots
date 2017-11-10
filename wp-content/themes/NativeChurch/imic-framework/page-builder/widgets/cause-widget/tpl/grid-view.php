@@ -75,12 +75,9 @@ if(is_plugin_active('Payment-Imithemes/causes.php')) { ?>
                               </div>
                             </div>
                       	</li>
-                     	<?php } endwhile; ?>
+                     	<?php } endwhile; endif; wp_reset_query(); ?>
                     </ul>
-                	<?php 
-					else:
-						_e('There is no any causes yet. ','framework');						
-					endif; wp_reset_query();
+                	<?php	
 					$paged = (get_query_var('paged'))?get_query_var('paged'):1;
                     query_posts(array('post_type'=>'causes','paged'=>$paged));
                     if(have_posts()):while(have_posts()):the_post(); ?>
@@ -100,8 +97,8 @@ if(is_plugin_active('Payment-Imithemes/causes.php')) { ?>
                           </div>
                         </div>
                       </div>
+                	</div>
               	<?php endwhile; endif; ?>
-                </div>
                 <!-- Pagination -->
                 <ul class="pager pull-right">
                   <li><?php previous_posts_link('&larr; Newer'); ?></li>

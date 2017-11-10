@@ -419,7 +419,7 @@ wp_head(); ?>
                                       </div>';
                                 } else {
                                     $imic_post_custom_title = !empty($custom['imic_post_page_custom_title'][0]) ? $custom['imic_post_page_custom_title'][0] : __('Sermons','framework');
-                                    $sterm = get_the_terms(get_the_ID(), 'sermons-category');
+                                    $sterm = wp_get_object_terms(get_the_ID(), 'sermons-category');
                                     echo '<div class="col-md-10 col-sm-10 col-xs-8">
                                             <h1>' . $imic_post_custom_title . '</h1>
                                           </div>';
@@ -442,7 +442,7 @@ wp_head(); ?>
                                       </div>';
                                 } else {
                                     $imic_post_custom_title = !empty($custom['imic_post_page_custom_title'][0]) ? $custom['imic_post_page_custom_title'][0] : get_the_title();
-                                    $sterm = get_the_terms(get_the_ID(), 'causes-category');
+                                    $sterm = wp_get_object_terms(get_the_ID(), 'causes-category');
                                     echo '<div class="col-md-10 col-sm-10 col-xs-8">
                                             <h1>' . $imic_post_custom_title . '</h1>
                                           </div>';
@@ -465,7 +465,7 @@ wp_head(); ?>
                                       </div>';
                                 } else {
                                     $imic_post_custom_title = !empty($custom['imic_post_page_custom_title'][0]) ? $custom['imic_post_page_custom_title'][0] :__('Team','framework');
-                                    $sterm = get_the_terms(get_the_ID(), 'staff-category');
+                                    $sterm = wp_get_object_terms(get_the_ID(), 'staff-category');
                                     echo '<div class="col-md-10 col-sm-10 col-xs-8">
                                             <h1>' . $imic_post_custom_title . '</h1>
                                           </div>';
@@ -489,7 +489,7 @@ wp_head(); ?>
                                       </div>';
                                 } else {
                                 $imic_post_custom_title = !empty($custom['imic_post_page_custom_title'][0]) ? $custom['imic_post_page_custom_title'][0] :__('Events','framework');
-                                $eterm = get_the_terms(get_the_ID(), 'event-category');
+                                $eterm = wp_get_object_terms(get_the_ID(), 'event-category');
                                   echo '<div class="col-md-10 col-sm-10 col-xs-8">
                                     <h1>' . $imic_post_custom_title . '</h1>
                                   </div>';

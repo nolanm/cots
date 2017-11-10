@@ -23,7 +23,7 @@ if ($imic_Choose_slider_display == 1) {
     $auto_slide = get_post_meta($home_id, 'imic_pages_slider_auto_slide', true);
     $direction = get_post_meta($home_id, 'imic_pages_slider_direction_arrows', true);
     $effect = get_post_meta($home_id, 'imic_pages_slider_effects', true);
-    if (count($custom_home['imic_pages_slider_image']) > 0) {
+    if (count(get_post_meta($home_id, 'imic_pages_slider_image', false)) > 0) {
         ?><div style="position:relative;">
             <div class="hero-slider flexslider clearfix" data-autoplay=<?php echo $auto_slide; ?> data-pagination=<?php echo $pagination; ?> data-arrows=<?php echo $direction; ?> data-style=<?php echo $effect; ?> data-pause="yes" data-speed=<?php echo $speed; ?>>
                 <ul class="slides">

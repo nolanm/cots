@@ -15,7 +15,12 @@ if (isset($_POST['event_cat_id'])&&!empty($_POST['event_cat_id'])){
   $event_cat_id = $_POST['event_cat_id'];
   $term_data = get_term_by( 'id', $event_cat_id, 'event-category', '', '' );
   $event_cat_id = $term_data->slug; }
-$events = imic_recur_events_calendar('','',$event_cat_id,$month_event);
+$prev_month = date_i18n('Y-m', strtotime($month_event . " - 15 day"));
+$prev_events = imic_recur_events_calendar('','',$event_cat_id,$prev_month);
+$current_events = imic_recur_events_calendar('','',$event_cat_id,$month_event);
+$next_month = date_i18n('Y-m', strtotime($month_event . " + 40 day"));
+$next_events = imic_recur_events_calendar('','',$event_cat_id,$next_month);
+$events = $prev_events+$current_events+$next_events;
 ksort($events);
 $jsonevents = array();
 // - loop -

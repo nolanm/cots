@@ -1584,6 +1584,7 @@
 
                 if ( ! empty ( $this->outputCSS ) && ( $this->args['output_tag'] == true || ( isset ( $_POST['customized'] ) ) ) ) {
                     echo '<style type="text/css" title="dynamic-css" class="options-output">' . $this->outputCSS . '</style>';
+									update_option('nativechurch_ajax_data', $this->outputCSS);	
                 }
             }
 
@@ -1687,6 +1688,7 @@
 
                         //echo '<link rel="stylesheet" id="options-google-fonts" title="" href="'.$protocol.$typography->makeGoogleWebfontLink( $this->typography ).'&amp;v='.$version.'" type="text/css" media="all" />';
                         wp_register_style( 'redux-google-fonts-' . $this->args['opt_name'], $protocol . $typography->makeGoogleWebfontLink( $this->typography ), '', $version );
+												update_option('nativechurch_typography_fonts', $protocol . $typography->makeGoogleWebfontLink( $this->typography ));
                         wp_enqueue_style( 'redux-google-fonts-' . $this->args['opt_name'] );
                     }
                 }
@@ -2794,7 +2796,7 @@
                 $redux = ReduxFrameworkInstances::get_instance( $_POST['opt_name'] );
 
                 if ( ! empty ( $_POST['data'] ) && ! empty ( $redux->args['opt_name'] ) ) {
-
+										
                     $values = array();
                     //if (function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc()) {
                     //    $process = array(&$_GET, &$_POST, &$_COOKIE, &$_REQUEST);
@@ -2867,7 +2869,7 @@
                         echo json_encode( array( 'status' => __( 'Your panel has no fields. Nothing to save.', 'redux-framework' ) ) );
                     }
                 }
-                if ( isset ( $this->transients['run_compiler'] ) && $this->transients['run_compiler'] ) {
+                //if ( isset ( $this->transients['run_compiler'] ) && $this->transients['run_compiler'] ) {
 
                     $this->no_output = true;
                     $this->_enqueue_output();
@@ -2890,7 +2892,7 @@
                          * @param string CSS that get sent to the compiler hook
                          */
                         do_action( "redux/options/{$this->args['opt_name']}/compiler", $this->options, $this->compilerCSS, $this->transients['changed_values'] );
-
+												
                         /**
                          * action 'redux/options/{opt_name}/compiler/advanced'
                          *
@@ -2904,7 +2906,8 @@
 
                     unset ( $this->transients['run_compiler'] );
                     $this->set_transients();
-                }
+									
+                //}
                 if ( isset( $return_array ) ) {
                     if ( $return_array['status'] == "success" ) {
                         require_once 'core/panel.php';

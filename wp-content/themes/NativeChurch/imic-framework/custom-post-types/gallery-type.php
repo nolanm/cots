@@ -13,7 +13,7 @@ function gallery_register() {
     'hierarchical' => true,
     'show_ui' => true,
     'show_in_nav_menus' => true,
-    'args' => array('orderby' => 'term_order'),
+    //'args' => array('orderby' => 'term_order'),
     'rewrite' => true,
     'query_var' => true,
 	'show_admin_column' => true,
