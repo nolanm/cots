@@ -547,3 +547,24 @@ May 06, 2017 - Version 2.9.2
 	FIXED! Sidebar chosen for page set as posts not working
 	FIXED! Date in saving event in Google Calendar not correct
 	FIXED! Podcast title set at Theme Options will now be the feed title as well
+
+June 01, 2017 - Version 2.9.3
+	UPDATED! WordPress v4.7.5 Compatibility
+	FIXED! Some styling bugs
+
+June 22, 2017 - Version 2.9.4
+	UPDATED! PHP 7.0 compatibility for Demo Importer
+	UPDATED! Revolution Slider plugin
+
+September 12, 2017 - Version 2.9.5
+	UPDATED! Slider Revolution Plugin
+	UPDATED! Changed theme options way of saving data
+
+October 18, 2017 - Version 2.9.6
+	UPDATED! Slider Revolution to latest version
+	FIXED! Cause page builder widget grid mode causing layout break
+	FIXED! Event Grid and Timeline widget number of events not working
+	FIXED! Correct time is not getting set for save event function
+	FIXED! Date were not consistent on single event page
+	UPDATED! Calendar events feed function
+	UPDATED! Embed youtube videos fullscreen mode active

@@ -369,9 +369,9 @@ if (!function_exists('imic_video_embed')) {
 if (!function_exists('imic_video_youtube')) {
     function imic_video_youtube($url, $width = 200, $height = 150,$autopaly) {
         if (stristr($url,'youtu.be/'))
-        { preg_match('/(https:|http:|)(\/\/www\.|\/\/|)(.*?)\/(.{11})/i', $url, $video_id); return '<iframe itemprop="video" src="https://youtube.com/embed/' . $video_id[4] . '?autoplay='.$autopaly.'&rel=0" width="' . $width . '" height="' . $height . '" ></iframe>'; }
+        { preg_match('/(https:|http:|)(\/\/www\.|\/\/|)(.*?)\/(.{11})/i', $url, $video_id); return '<iframe itemprop="video" src="https://youtube.com/embed/' . $video_id[4] . '?autoplay='.$autopaly.'&rel=0" width="' . $width . '" height="' . $height . '" allowfullscreen="allowfullscreen"></iframe>'; }
     else 
-        { preg_match('/(https:|http:|):(\/\/www\.|\/\/|)(.*?)\/(embed\/|watch\?v=|(.*?)&v=|v\/|e\/|.+\/|watch.*v=|)([a-z_A-Z0-9]{11})/i', $url, $video_id); return '<iframe itemprop="video" src="https://youtube.com/embed/' . $video_id[6] . '?autoplay='.$autopaly.'&rel=0" width="' . $width . '" height="' . $height . '" ></iframe>';
+        { preg_match('/(https:|http:|):(\/\/www\.|\/\/|)(.*?)\/(embed\/|watch\?v=|(.*?)&v=|v\/|e\/|.+\/|watch.*v=|)([a-z_A-Z0-9]{11})/i', $url, $video_id); return '<iframe itemprop="video" src="https://youtube.com/embed/' . $video_id[6] . '?autoplay='.$autopaly.'&rel=0" width="' . $width . '" height="' . $height . '" allowfullscreen="allowfullscreen"></iframe>';
 		}
     }
 }
@@ -1876,12 +1876,13 @@ if (have_posts()):
 			$event_start_tm = $MetaStartTime  = get_post_meta(get_the_ID(),'imic_event_start_tm',true);
 			$eventEndDate   = get_post_meta(get_the_ID(),'imic_event_end_dt',true);
 			$MetaEndTime    = get_post_meta(get_the_ID(),'imic_event_end_tm',true);
-			$inc = '';
+			$inc = $sinc = '';
 			$eventEndDate = strtotime($eventEndDate.' '.$MetaEndTime);
             $eventDate = strtotime($eventDate.' '.$MetaStartTime);
 			$diff_start = date('Y-m-d',$eventDate);
 			$diff_end = date('Y-m-d', $eventEndDate);
 			$days_extra = imic_dateDiff($diff_start, $diff_end);
+			$dt_tm = strtotime($event_start_dt.' '.$event_start_tm);
 			if($days_extra>0) 
 			{
 				$start_day = 0;
@@ -1957,7 +1958,7 @@ if (have_posts()):
 			if($month != '') 
 			{
 				if(($dt_tm > $previous_month_end) && ($dt_tm < $next_month_start)){
-                    $event_add[$dt_tm + $sinc + $inc] = get_the_ID();
+                    $event_add[$dt_tm + intval($sinc) + intval($inc)] = get_the_ID();
                        $sinc++;
                 }
 			}
@@ -1966,8 +1967,8 @@ if (have_posts()):
 				if($status=="future")
 				 {
 					if ($dt_tm >= date('U')) 
-					{
-						$event_add[$dt_tm + $sinc + $inc] = get_the_ID();
+					{ echo $inc;
+						$event_add[$dt_tm + intval($sinc) + intval($inc)] = get_the_ID();
 						$sinc++;
 					} 
 				}
@@ -1975,7 +1976,7 @@ if (have_posts()):
 				{
 					if ($dt_tm <= date('U')) 
 					{
-						$event_add[$dt_tm + $sinc + $inc] = get_the_ID();
+						$event_add[$dt_tm + intval($sinc) + intval($inc)] = get_the_ID();
 						$sinc++;
 					} 	
 				}
@@ -2542,111 +2543,111 @@ if (!function_exists('imic_recur_events_calendar'))
 /* save event via outside link */
 if(!function_exists('imic_save_event'))
 {
-     function imic_save_event()
-     {
-             //date_default_timezone_set('Antarctica/Troll');
-          $query_string = base64_decode($_SERVER['QUERY_STRING']);
-          parse_str($query_string);
-          if(isset($action) && isset($id) && isset($key) && $key == 'imic_save_event')
-          {
-              $custom_post          = get_post($id);
+	 function imic_save_event()
+	 {
+		 	//date_default_timezone_set('Antarctica/Troll');
+		  $query_string = base64_decode($_SERVER['QUERY_STRING']);
+		  parse_str($query_string);
+		  if(isset($action) && isset($id) && isset($key) && $key == 'imic_save_event')
+		  {
+			  $custom_post          = get_post($id); 
               $title                = $custom_post->post_title;
-              $content              = $custom_post->post_content;
-              $imic_event_address   = get_post_meta($id, 'imic_event_address', true);
-              $eventStartTime       = get_post_meta($id, 'imic_event_start_tm', true);
-              $eventStartDate       = get_post_meta($id, 'imic_event_start_dt', true);
-              $eventEndTime         = get_post_meta($id, 'imic_event_end_tm', true);
+			  $content              = $custom_post->post_content;
+			  $imic_event_address   = get_post_meta($id, 'imic_event_address', true);
+			  $eventStartTime       = get_post_meta($id, 'imic_event_start_tm', true);
+			  $eventStartDate       = get_post_meta($id, 'imic_event_start_dt', true);
+			  $eventEndTime         = get_post_meta($id, 'imic_event_end_tm', true);
               $eventEndDate         = get_post_meta($id, 'imic_event_end_dt', true);
-              $random_name          = substr(rand().rand().rand().rand(),0,20);
-                $user_tz = get_option('timezone_string');
+			  $random_name          = substr(rand().rand().rand().rand(),0,20);
+				$user_tz = get_option('timezone_string');
 
-                $schedule_date_start = new DateTime($eventStartDate.' '.$eventStartTime, new DateTimeZone($user_tz) );
-                $schedule_date_start->setTimeZone(new DateTimeZone('UTC'));
-                $triggerOn_start =  $schedule_date_start->format('Y-m-d H:i:s');
-                $schedule_date_end = new DateTime($eventEndDate.' '.$eventEndTime, new DateTimeZone($user_tz) );
-                $schedule_date_end->setTimeZone(new DateTimeZone('UTC'));
-                $triggerOn_end =  $schedule_date_end->format('Y-m-d H:i:s');
-              switch($action)
-              {
-                  case 'gcalendar' :
-                     $google_save_url  = 'https://www.google.com/calendar/render?action=TEMPLATE';
-                     $google_save_url .= '&dates='.date("Ymd\THis\Z",strtotime("$triggerOn_start"));
-                     $google_save_url .= '/'.date("Ymd\THis\Z",strtotime("$triggerOn_end"));
-                     $google_save_url .= '&location='.urlencode($imic_event_address);
-                     $google_save_url .= '&text='.urlencode($title);
-                    //$google_save_url .= '&ctz=Antarctica/Troll';
-                     $google_save_url .= '&details='.urlencode($content);
-                     wp_redirect($google_save_url); exit;
-                  break;
-                  case 'icalendar' :
-                    ob_start();
-                    header("Content-Type: text/calendar; charset=utf-8");
-                    header("Content-Disposition: inline; filename=addto_calendar_".$random_name.".ics");
-                     $title                = addslashes($title);
-                     $title                = str_replace(array(",",":",";"),array("\,","\:","\;"),$title);
-                     $content              = addslashes($content);
-                     $content              = str_replace(array(",",":",";"),array("\,","\:","\;"),$content);
-                     $content              = preg_replace('/\s+/',' ', $content);
-                     $imic_event_address   = addslashes($imic_event_address);
-                     $imic_event_address   = str_replace(array(",",":",";"),array("\,","\:","\;"),$imic_event_address);
-                    echo "BEGIN:VCALENDAR\n";
-                    echo "VERSION:2.0\n";
-                    echo "PRODID:Imitheme.com \n";
-                    echo "BEGIN:VEVENT\n";
-                    echo "UID:".date('Ymd').'T'.date('His').rand()."\n";
-                    echo "DTSTAMP;TZID=UTC:".date('Ymd').'T'.date('His')."\n";
-                    echo "DTSTART;TZID=UTC:".date("Ymd\THis",strtotime("$eventStartDate $eventStartTime"))."\n";
-                    echo "DTEND;TZID=UTC:".date("Ymd\THis",strtotime("$eventEndDate $eventEndTime"))."\n";
-                    echo "SUMMARY:$title\n";
-                    echo "LOCATION:$imic_event_address\n";
-                    echo "DESCRIPTION:$content\n";
-                    echo "END:VEVENT\n";
-                    echo "END:VCALENDAR\n";
-                    ob_flush();
-                    exit;
-                  break;
-                  case 'outlook' :
-                    ob_start();
-                    header("Content-Type: text/calendar; charset=utf-8");
-                    header("Content-Disposition: inline; filename=addto_calendar_".$random_name.".ics");
-                    echo "BEGIN:VCALENDAR\n";
-                    echo "VERSION:2.0\n";
-                    echo "PRODID:Imitheme.com\n";
-                    echo "BEGIN:VEVENT\n";
-                    echo "UID:".date('Ymd').'T'.date('His')."-".rand()."\n";
-                    echo "DTSTAMP:".date('Ymd').'T'.date('His')."\n";
-                    echo "DTSTART:".date("Ymd\THis\Z",strtotime("$eventStartDate $eventStartTime"))."\n";
-                    echo "DTEND:".date("Ymd\THis\Z",strtotime("$eventEndDate $eventEndTime"))."\n";
-                    echo "SUMMARY:$title\n";
-                    echo "LOCATION:$imic_event_address\n";
-                    echo "DESCRIPTION: $content\n";
-                    echo "END:VEVENT\n";
-                    echo "END:VCALENDAR\n";
-                    ob_flush();
-                    exit;
-                  break;
-                  case 'outlooklive' :
-                     $outlooklive_url  = 'https://bay03.calendar.live.com/calendar/calendar.aspx?rru=addevent';
-                     $outlooklive_url .= '&summary='.urlencode($title);
-                     $outlooklive_url .= '&location='.urlencode($imic_event_address);
-                     $outlooklive_url .= '&description='.urlencode($content);
-                     $outlooklive_url .= '&dtstart='.date("Ymd\THis\Z",strtotime("$eventStartDate $eventStartTime"));
-                     $outlooklive_url .= '&dtend='.date("Ymd\THis\Z",strtotime("$eventEndDate $eventEndTime"));
-                     wp_redirect($outlooklive_url); exit;
-                  break;
-                  case 'yahoo' :
-                     $yahoo_url  = 'https://calendar.yahoo.com/?view=d&v=60&type=20';
-                     $yahoo_url .= '&title='.urlencode($title);
-                     $yahoo_url .= '&in_loc='.urlencode($imic_event_address);
-                     $yahoo_url .= '&desc='.urlencode($content);
-                     $yahoo_url .= '&st='.date("Ymd\THis\Z",strtotime("$eventStartDate $eventStartTime"));
-                     $yahoo_url .= '&et='.date("Ymd\THis\Z",strtotime("$eventEndDate $eventEndTime"));
-                     wp_redirect($yahoo_url); exit;
-                  break;
-              }
-          }  
-     }
-} 
+				$schedule_date_start = new DateTime($edate.' '.$eventStartTime, new DateTimeZone($user_tz) );
+				$schedule_date_start->setTimeZone(new DateTimeZone('UTC'));
+				$triggerOn_start =  $schedule_date_start->format('Y-m-d H:i:s');
+				$schedule_date_end = new DateTime($edate.' '.$eventEndTime, new DateTimeZone($user_tz) );
+				$schedule_date_end->setTimeZone(new DateTimeZone('UTC'));
+				$triggerOn_end =  $schedule_date_end->format('Y-m-d H:i:s');
+			  switch($action)
+			  {
+				  case 'gcalendar' :
+				     $google_save_url  = 'https://www.google.com/calendar/render?action=TEMPLATE';
+				     $google_save_url .= '&dates='.date("Ymd\THis\Z",strtotime("$triggerOn_start"));
+					 $google_save_url .= '/'.date("Ymd\THis\Z",strtotime("$triggerOn_end"));
+					 $google_save_url .= '&location='.urlencode($imic_event_address);
+					 $google_save_url .= '&text='.urlencode($title);
+					//$google_save_url .= '&ctz=Antarctica/Troll';
+					 $google_save_url .= '&details='.urlencode($content);
+					 wp_redirect($google_save_url); exit;
+				  break;
+				  case 'icalendar' :
+				    ob_start();
+				    header("Content-Type: text/calendar; charset=utf-8");
+					header("Content-Disposition: inline; filename=addto_calendar_".$random_name.".ics");
+					 $title                = addslashes($title);
+					 $title                = str_replace(array(",",":",";"),array("\,","\:","\;"),$title);
+			         $content              = addslashes($content);
+					 $content              = str_replace(array(",",":",";"),array("\,","\:","\;"),$content);
+					 $content              = preg_replace('/\s+/',' ', $content);
+					 $imic_event_address   = addslashes($imic_event_address);
+					 $imic_event_address   = str_replace(array(",",":",";"),array("\,","\:","\;"),$imic_event_address);
+					echo "BEGIN:VCALENDAR\n";
+					echo "VERSION:2.0\n";
+					echo "PRODID:Imitheme.com \n";
+					echo "BEGIN:VEVENT\n";
+					echo "UID:".date('Ymd').'T'.date('His').rand()."\n"; 
+					echo "DTSTAMP;TZID=UTC:".date('Ymd').'T'.date('His')."\n";
+					echo "DTSTART;TZID=UTC:".date("Ymd\THis",strtotime("$triggerOn_start"))."\n"; 
+					echo "DTEND;TZID=UTC:".date("Ymd\THis",strtotime("$triggerOn_end"))."\n"; 
+					echo "SUMMARY:$title\n";
+					echo "LOCATION:$imic_event_address\n";
+					echo "DESCRIPTION:$content\n";
+					echo "END:VEVENT\n";
+					echo "END:VCALENDAR\n";
+				    ob_flush();
+					exit;
+				  break;
+				  case 'outlook' :
+				    ob_start();
+				    header("Content-Type: text/calendar; charset=utf-8");
+					header("Content-Disposition: inline; filename=addto_calendar_".$random_name.".ics");
+					echo "BEGIN:VCALENDAR\n";
+					echo "VERSION:2.0\n";
+					echo "PRODID:Imitheme.com\n";
+					echo "BEGIN:VEVENT\n";
+					echo "UID:".date('Ymd').'T'.date('His')."-".rand()."\n"; 
+					echo "DTSTAMP:".date('Ymd').'T'.date('His')."\n";
+					echo "DTSTART:".date("Ymd\THis\Z",strtotime("$triggerOn_start"))."\n"; 
+					echo "DTEND:".date("Ymd\THis\Z",strtotime("$triggerOn_end"))."\n"; 
+					echo "SUMMARY:$title\n";
+					echo "LOCATION:$imic_event_address\n";
+					echo "DESCRIPTION: $content\n";
+					echo "END:VEVENT\n";
+					echo "END:VCALENDAR\n";
+					ob_flush();
+					exit;
+				  break;
+				  case 'outlooklive' :
+				     $outlooklive_url  = 'https://bay03.calendar.live.com/calendar/calendar.aspx?rru=addevent';
+					 $outlooklive_url .= '&summary='.urlencode($title);
+					 $outlooklive_url .= '&location='.urlencode($imic_event_address);
+					 $outlooklive_url .= '&description='.urlencode($content);
+				     $outlooklive_url .= '&dtstart='.date("Ymd\THis\Z",strtotime("$eventStartDate $eventStartTime"));
+					 $outlooklive_url .= '&dtend='.date("Ymd\THis\Z",strtotime("$eventEndDate $eventEndTime"));
+					 wp_redirect($outlooklive_url); exit;
+				  break;
+				  case 'yahoo' :
+				     $yahoo_url  = 'https://calendar.yahoo.com/?view=d&v=60&type=20';
+					 $yahoo_url .= '&title='.urlencode($title);
+					 $yahoo_url .= '&in_loc='.urlencode($imic_event_address);
+					 $yahoo_url .= '&desc='.urlencode($content);
+				     $yahoo_url .= '&st='.date("Ymd\THis\Z",strtotime("$triggerOn_start"));
+					 $yahoo_url .= '&et='.date("Ymd\THis\Z",strtotime("$triggerOn_end"));
+					 wp_redirect($yahoo_url); exit;
+				  break;
+			  }
+		  }  
+	 }
+}
 /* add action on init*/
 add_action('init','imic_save_event');
 //Add Sermons Filter Shortcode

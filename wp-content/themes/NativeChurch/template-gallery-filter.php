@@ -64,7 +64,7 @@ $thumb_id=get_post_thumbnail_id(get_the_ID());
 $post_format_temp =get_post_format();
 if (has_post_thumbnail() || ((count($image_data) > 0)&&($post_format_temp=='gallery'))):
 $post_format =!empty($post_format_temp)?$post_format_temp:'image';
-$term_slug = get_the_terms(get_the_ID(), 'gallery-category');
+$term_slug = wp_get_object_terms(get_the_ID(), 'gallery-category');
 echo '<li class="' . $class . ' grid-item post format-'.$post_format.'';
 if (!empty($term_slug)) {
 foreach ($term_slug as $term) {

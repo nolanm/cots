@@ -1,4 +1,3 @@
-
 <?php
 $event_add = array();
 $rec = 1;
@@ -11,7 +10,7 @@ $event_categories= get_term_by('id',$event_category,'event-category');
 $event_category= $event_categories->slug; }*/
 
 $event_category = wp_kses_post($instance['categories']);
-$perPage = (!empty($instance['number_of_posts']))? $instance['number_of_posts'] : 4 ;
+$perPage = (!empty($instance['listing_layout']['number_of_posts']))? $instance['listing_layout']['number_of_posts'] : 4 ;
 $grid_column = (!empty($instance['listing_layout']['grid_column']))? $instance['listing_layout']['grid_column'] : 4 ;
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $event_add = imic_recur_events('future','',$event_category,'');

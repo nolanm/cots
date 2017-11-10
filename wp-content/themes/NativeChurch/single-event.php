@@ -59,10 +59,10 @@ $pageOptions = imic_page_design(); //page design options ?>
 			//var_dump($event_dt_out);
 
             if ($eventStartTime != '') {
-               $eventStartTime = date(get_option('time_format'), $eventStartTime);
+               $eventStartTime = date_i18n(get_option('time_format'), $eventStartTime);
             }
             if ($eventEndTime != '' && $eventEndTime != 'time') {
-                $eventEndTime = date(get_option('time_format'), $eventEndTime);
+                $eventEndTime = date_i18n(get_option('time_format'), $eventEndTime);
             }
             $stime = '';
             $etime = '';
@@ -131,7 +131,7 @@ $pageOptions = imic_page_design(); //page design options ?>
 						$days_extra = imic_dateDiff($st_dt, $en_dt);
 						if($days_extra>0)
 						{
-							$st_dt_unix1 = date(get_option('date_format'), $st_dt_unix);
+							$st_dt_unix1 = date_i18n(get_option('date_format'), $st_dt_unix);
 							$st_dt_unix = '<strong>' . date_i18n('l', $st_dt_unix) . '</strong> | ' . $st_dt_unix1;
 							$en_dt_unix1 = date_i18n(get_option('date_format'), $en_dt_unix);
 							$en_dt_unix = '<strong>' . date_i18n('l', $en_dt_unix) . '</strong> | ' . $en_dt_unix1;
@@ -139,7 +139,7 @@ $pageOptions = imic_page_design(); //page design options ?>
 						}
 						else
 						{
-							$st_dt_unix = date(get_option('date_format'), $key);
+							$st_dt_unix = date_i18n(get_option('date_format'), $key);
 							$date_opt = '<strong>' . date_i18n('l', $key) . '</strong> | ' . $st_dt_unix;
 							$event_dt_outs = '';
 						}
@@ -167,7 +167,7 @@ $pageOptions = imic_page_design(); //page design options ?>
 						$days_extra = imic_dateDiff($st_dt, $en_dt);
 						if($days_extra>0)
 						{
-							$st_dt_unix1 = date(get_option('date_format'), $st_dt_unix);
+							$st_dt_unix1 = date_i18n(get_option('date_format'), $st_dt_unix);
 							$st_dt_unix = '<strong>' . date_i18n('l', $st_dt_unix) . '</strong> | ' . $st_dt_unix1;
 							$en_dt_unix1 = date_i18n(get_option('date_format'), $en_dt_unix);
 							$en_dt_unix = '<strong>' . date_i18n('l', $en_dt_unix) . '</strong> | ' . $en_dt_unix1;
@@ -175,7 +175,7 @@ $pageOptions = imic_page_design(); //page design options ?>
 						}
 						else
 					   {
-							   $st_dt_unix_this = date(get_option('date_format'), $st_dt_unix);
+							   $st_dt_unix_this = date_i18n(get_option('date_format'), $st_dt_unix);
 							   $date_opt = '<strong>' . date_i18n('l', $st_dt_unix) . '</strong> | ' . $st_dt_unix_this;
 							   $event_dt_outs = '';
 					   }
@@ -286,7 +286,10 @@ $pageOptions = imic_page_design(); //page design options ?>
             ?>
             <?php if ($imic_options['switch_sharing'] == 1 && $imic_options['share_post_types']['3'] == '1') { ?>
             	<?php imic_share_buttons(); ?>
-            <?php } ?>
+            <?php } 
+				$ss = strip_tags($eventDetailsData[0]);
+				$sb = str_replace('|', ', ', $ss);
+			?>
             </div>
             </div>
             
@@ -301,11 +304,11 @@ $pageOptions = imic_page_design(); //page design options ?>
     				<span class="caret"></span>
   				</button>
   				<ul class="dropdown-menu" aria-labelledby="dLabel">
-                	<li><a target="_blank" href="<?php echo $_url.base64_encode('action=icalendar&key=imic_save_event&id='.get_the_ID()) ?>" title="<?php _e('Save to iCalendar','framework'); ?>"><i class="fa fa-calendar-plus-o"></i> <?php _e('Save to iCalendar','framework'); ?></a></li>
-                <li><a target="_blank" href="<?php echo $_url.base64_encode('action=gcalendar&key=imic_save_event&id='.get_the_ID()) ?>" title="<?php _e('Save to Google Calendar','framework'); ?>"><i class="fa fa-google"></i> <?php _e('Save to Google Calendar','framework'); ?></a></li>
-                <li><a target="_blank" href="<?php echo $_url.base64_encode('action=outlook&key=imic_save_event&id='.get_the_ID()) ?>" title="<?php _e('Save to Outlook','framework'); ?>"><i class="fa fa-envelope-o"></i> <?php _e('Save to Outlook','framework'); ?></a></li>
-                <li><a target="_blank" href="<?php echo $_url.base64_encode('action=outlooklive&key=imic_save_event&id='.get_the_ID()) ?>" title="<?php _e('Save to Outlook Online','framework'); ?>"><i class="fa fa-cloud-download"></i> <?php _e('Save to Outlook Online','framework'); ?></a></li>
-                <li><a target="_blank" href="<?php echo $_url.base64_encode('action=yahoo&key=imic_save_event&id='.get_the_ID()) ?>" title="<?php _e('Save to Yahoo! Calendar','framework'); ?>"><i class="fa fa-yahoo"></i> <?php _e('Save to Yahoo! Calendar','framework'); ?></a></li>
+                	<li><a target="_blank" href="<?php echo $_url.base64_encode('action=icalendar&key=imic_save_event&edate='.$sb.'&id='.get_the_ID()) ?>" title="<?php _e('Save to iCalendar','framework'); ?>"><i class="fa fa-calendar-plus-o"></i> <?php _e('Save to iCalendar','framework'); ?></a></li>
+                	<li><a target="_blank" href="<?php echo $_url.base64_encode('action=gcalendar&key=imic_save_event&edate='.$sb.'&id='.get_the_ID()) ?>" title="<?php _e('Save to Google Calendar','framework'); ?>"><i class="fa fa-google"></i> <?php _e('Save to Google Calendar','framework'); ?></a></li>
+                	<li><a target="_blank" href="<?php echo $_url.base64_encode('action=outlook&key=imic_save_event&edate='.$sb.'&id='.get_the_ID()) ?>" title="<?php _e('Save to Outlook','framework'); ?>"><i class="fa fa-envelope-o"></i> <?php _e('Save to Outlook','framework'); ?></a></li>
+                	<li><a target="_blank" href="<?php echo $_url.base64_encode('action=outlooklive&key=imic_save_event&edate='.$sb.'&id='.get_the_ID()) ?>" title="<?php _e('Save to Outlook Online','framework'); ?>"><i class="fa fa-cloud-download"></i> <?php _e('Save to Outlook Online','framework'); ?></a></li>
+                	<li><a target="_blank" href="<?php echo $_url.base64_encode('action=yahoo&key=imic_save_event&edate='.$sb.'&id='.get_the_ID()) ?>" title="<?php _e('Save to Yahoo! Calendar','framework'); ?>"><i class="fa fa-yahoo"></i> <?php _e('Save to Yahoo! Calendar','framework'); ?></a></li>
           		</ul>
           	</div>
             </div>
@@ -317,7 +320,7 @@ $pageOptions = imic_page_design(); //page design options ?>
 			   $date= get_post_meta(get_the_ID(),'imic_event_start_dt',true);
 			}
 			$date = strtotime($date);
-			$date_converted=date('Y-m-d',$date );
+			$date_converted=date_i18n('Y-m-d',$date );
 			$custom_event_url= imic_query_arg($date_converted,get_the_ID());
             ?>
     	</div>

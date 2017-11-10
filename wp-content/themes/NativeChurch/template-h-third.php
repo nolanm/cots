@@ -410,7 +410,7 @@ $upcoming_events_category= $events_categories->slug; }
                         }
                         $upcomingEvents .='<div class="grid-content">';
                         if($google_events_flag==1){
-                        $e_term = get_the_terms($value,'event-category');
+                        $e_term = wp_get_object_terms($value,'event-category');
                          $term_link='';
                         if (!empty($e_term)) {
                               $pages_e = get_pages(array(
