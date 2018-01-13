@@ -1,0 +1,3758 @@
+# Copyright (C) 2014 the WordPress team
+# This file is distributed under the GNU General Public License v2 or later.
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: domica\n"
+"POT-Creation-Date: 2017-10-13 17:30+0700\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: haintheme <haintheme@gmail.com>\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-KeywordsList: _e;__;esc_attr__;esc_html__;_x\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: css\n"
+"X-Poedit-SearchPathExcluded-1: js\n"
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:333
+#: TGM-Plugin-Activation/recommend_plugins.php:113
+msgid "Install Required Plugins"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:334
+#: TGM-Plugin-Activation/recommend_plugins.php:114
+msgid "Install Plugins"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:336
+#: TGM-Plugin-Activation/recommend_plugins.php:115
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:338
+#, php-format
+msgid "Updating Plugin: %s"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:339
+#: TGM-Plugin-Activation/recommend_plugins.php:116
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:391
+#: TGM-Plugin-Activation/recommend_plugins.php:127
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:392
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:919
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:2625
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:3672
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:393
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:3251
+#: TGM-Plugin-Activation/recommend_plugins.php:128
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:394
+msgid "The following plugin was activated successfully:"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:396
+#, php-format
+msgid "No action taken. Plugin %1$s was already active."
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:398
+#, php-format
+msgid "Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin."
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:400
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:401
+msgid "Dismiss this notice"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:402
+msgid "There are one or more required or recommended plugins to install, update or activate."
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:403
+msgid "Please contact the administrator of this site for help."
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:606
+msgid "This plugin needs to be updated to be compatible with your theme."
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:607
+msgid "Update Required"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:724
+msgid "Set the parent_slug config variable instead."
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:1026
+msgid "The remote plugin package does not contain a folder with the desired slug and renaming did not work."
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:1026
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:1029
+msgid "Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines."
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:1029
+msgid "The remote plugin package consists of more than one file, but the files are not packaged in a folder."
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:2074
+#, php-format
+msgid "TGMPA v%s"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:2365
+msgid "Required"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:2368
+msgid "Recommended"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:2384
+msgid "WordPress Repository"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:2387
+msgid "External Source"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:2390
+msgid "Pre-Packaged"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:2407
+msgid "Not Installed"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:2411
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:2413
+msgid "Active"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:2419
+msgid "Required Update not Available"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:2422
+msgid "Requires Update"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:2425
+msgid "Update recommended"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:2434
+#, php-format
+msgid "%1$s, %2$s"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:2574
+msgid "unknown"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:2582
+msgid "Installed version:"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:2590
+msgid "Minimum required version:"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:2602
+msgid "Available version:"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:2625
+msgid "No plugins to install, update or activate."
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:2639
+msgid "Plugin"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:2640
+#: inc/vc-maps.php:761
+msgid "Source"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:2641
+msgid "Type"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:2645
+msgid "Version"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:2646
+msgid "Status"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:2695
+#, php-format
+msgid "Install %2$s"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:2700
+#, php-format
+msgid "Update %2$s"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:2706
+#, php-format
+msgid "Activate %2$s"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:2776
+msgid "Upgrade message from the plugin author:"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:2809
+msgid "Install"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:2815
+msgid "Update"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:2818
+msgid "Activate"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:2849
+msgid "No plugins were selected to be installed. No action taken."
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:2851
+msgid "No plugins were selected to be updated. No action taken."
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:2892
+msgid "No plugins are available to be installed at this time."
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:2894
+msgid "No plugins are available to be updated at this time."
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:3000
+msgid "No plugins were selected to be activated. No action taken."
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:3026
+msgid "No plugins are available to be activated at this time."
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:3250
+msgid "Plugin activation failed."
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:3590
+#, php-format
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:3593
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:3595
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:3599
+msgid "The installation and activation process is starting. This process may take a while on some hosts, so please be patient."
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:3601
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:3601
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:3609
+msgid "Show Details"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:3601
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:3609
+msgid "Hide Details"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:3602
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:3604
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:3607
+msgid "The installation process is starting. This process may take a while on some hosts, so please be patient."
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:3609
+#, php-format
+msgid "%1$s installed successfully."
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:3610
+msgid "All installations have been completed."
+msgstr ""
+
+#: TGM-Plugin-Activation/class-tgm-plugin-activation.php:3612
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: TGM-Plugin-Activation/recommend_plugins.php:42
+msgid "Visual Composer"
+msgstr ""
+
+#: TGM-Plugin-Activation/recommend_plugins.php:53
+msgid "Revolution Slider"
+msgstr ""
+
+#: TGM-Plugin-Activation/recommend_plugins.php:65
+msgid "Unyson"
+msgstr ""
+
+#: TGM-Plugin-Activation/recommend_plugins.php:70
+msgid "HT Packages"
+msgstr ""
+
+#: TGM-Plugin-Activation/recommend_plugins.php:80
+msgid "Kirki"
+msgstr ""
+
+#: TGM-Plugin-Activation/recommend_plugins.php:85
+msgid "The Event Calendar"
+msgstr ""
+
+#: TGM-Plugin-Activation/recommend_plugins.php:91
+msgid "Contact form 7"
+msgstr ""
+
+#: TGM-Plugin-Activation/recommend_plugins.php:129
+#, php-format
+msgid "All plugins installed and activated successfully. %s"
+msgstr ""
+
+#: charitable/campaign-loop/stats.php:37 content-cause-search.php:46
+#: inc/widgets/cause-info/views/widget.php:22 vc_templates/cause.php:191
+msgid "RAISED"
+msgstr ""
+
+#: charitable/campaign-loop/stats.php:41 content-cause-search.php:50
+#: inc/widgets/cause-info/views/widget.php:26 vc_templates/cause.php:195
+msgid "GOAL"
+msgstr ""
+
+#: charitable/campaign-loop/stats.php:45 content-cause-search.php:54
+#: vc_templates/cause.php:199
+msgid "COMPLETED"
+msgstr ""
+
+#: comments.php:32 comments.php:44
+msgid " Older Comments"
+msgstr ""
+
+#: comments.php:33 comments.php:45
+msgid "Newer Comments "
+msgstr ""
+
+#: comments.php:72 content-aside.php:39
+msgid "Leave a comment"
+msgstr ""
+
+#: comments.php:76
+msgid "submit"
+msgstr ""
+
+#: content-aside.php:39
+msgid "1 Comment"
+msgstr ""
+
+#: content-aside.php:39
+msgid "% Comments"
+msgstr ""
+
+#: content-aside.php:42 image.php:30 inc/helpers.php:404 inc/helpers.php:424
+#: page-templates/contributors.php:31
+msgid "Edit"
+msgstr ""
+
+#: content-aside.php:48
+msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: content-aside.php:50 image.php:50
+msgid "Pages:"
+msgstr ""
+
+#: content-none.php:19
+#, php-format
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: framework-customizations/theme/options/customizer.php:7
+#: inc/customizer.php:804
+msgid "Header Layout"
+msgstr ""
+
+#: framework-customizations/theme/options/customizer.php:14
+#: framework-customizations/theme/options/posts/page.php:20
+#: framework-customizations/theme/options/posts/tribe_events.php:20
+#: inc/customizer.php:809
+msgid "Layout 1"
+msgstr ""
+
+#: framework-customizations/theme/options/customizer.php:20
+#: framework-customizations/theme/options/posts/page.php:21
+#: framework-customizations/theme/options/posts/tribe_events.php:21
+#: inc/customizer.php:810
+msgid "Layout 2"
+msgstr ""
+
+#: framework-customizations/theme/options/customizer.php:26
+#: framework-customizations/theme/options/posts/page.php:22
+#: framework-customizations/theme/options/posts/tribe_events.php:22
+#: inc/customizer.php:811
+msgid "Layout 3"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:7
+#: framework-customizations/theme/options/demo-2.php:705
+#: framework-customizations/theme/options/demo-2.php:835
+#: framework-customizations/theme/options/demo.php:7
+#: framework-customizations/theme/options/demo.php:692
+#: framework-customizations/theme/options/demo.php:820
+#: framework-customizations/theme/options/taxonomies/category.php:7
+#: framework-customizations/theme/options/taxonomies/category.php:689
+#: framework-customizations/theme/options/taxonomies/category.php:818
+#: inc/vc-maps.php:728
+msgid "Text"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:10
+#: framework-customizations/theme/options/demo-2.php:13
+#: framework-customizations/theme/options/demo-2.php:23
+#: framework-customizations/theme/options/demo-2.php:26
+#: framework-customizations/theme/options/demo-2.php:36
+#: framework-customizations/theme/options/demo-2.php:39
+#: framework-customizations/theme/options/demo-2.php:55
+#: framework-customizations/theme/options/demo-2.php:66
+#: framework-customizations/theme/options/demo-2.php:69
+#: framework-customizations/theme/options/demo-2.php:80
+#: framework-customizations/theme/options/demo-2.php:84
+#: framework-customizations/theme/options/demo-2.php:94
+#: framework-customizations/theme/options/demo-2.php:98
+#: framework-customizations/theme/options/demo-2.php:111
+#: framework-customizations/theme/options/demo-2.php:119
+#: framework-customizations/theme/options/demo-2.php:137
+#: framework-customizations/theme/options/demo-2.php:140
+#: framework-customizations/theme/options/demo-2.php:150
+#: framework-customizations/theme/options/demo-2.php:177
+#: framework-customizations/theme/options/demo-2.php:187
+#: framework-customizations/theme/options/demo-2.php:199
+#: framework-customizations/theme/options/demo-2.php:209
+#: framework-customizations/theme/options/demo-2.php:236
+#: framework-customizations/theme/options/demo-2.php:250
+#: framework-customizations/theme/options/demo-2.php:253
+#: framework-customizations/theme/options/demo-2.php:264
+#: framework-customizations/theme/options/demo-2.php:267
+#: framework-customizations/theme/options/demo-2.php:278
+#: framework-customizations/theme/options/demo-2.php:281
+#: framework-customizations/theme/options/demo-2.php:295
+#: framework-customizations/theme/options/demo-2.php:298
+#: framework-customizations/theme/options/demo-2.php:310
+#: framework-customizations/theme/options/demo-2.php:318
+#: framework-customizations/theme/options/demo-2.php:328
+#: framework-customizations/theme/options/demo-2.php:336
+#: framework-customizations/theme/options/demo-2.php:346
+#: framework-customizations/theme/options/demo-2.php:371
+#: framework-customizations/theme/options/demo-2.php:381
+#: framework-customizations/theme/options/demo-2.php:384
+#: framework-customizations/theme/options/demo-2.php:392
+#: framework-customizations/theme/options/demo-2.php:397
+#: framework-customizations/theme/options/demo-2.php:405
+#: framework-customizations/theme/options/demo-2.php:409
+#: framework-customizations/theme/options/demo-2.php:417
+#: framework-customizations/theme/options/demo-2.php:422
+#: framework-customizations/theme/options/demo-2.php:430
+#: framework-customizations/theme/options/demo-2.php:434
+#: framework-customizations/theme/options/demo-2.php:444
+#: framework-customizations/theme/options/demo-2.php:447
+#: framework-customizations/theme/options/demo-2.php:457
+#: framework-customizations/theme/options/demo-2.php:460
+#: framework-customizations/theme/options/demo-2.php:473
+#: framework-customizations/theme/options/demo-2.php:476
+#: framework-customizations/theme/options/demo-2.php:486
+#: framework-customizations/theme/options/demo-2.php:489
+#: framework-customizations/theme/options/demo-2.php:563
+#: framework-customizations/theme/options/demo-2.php:566
+#: framework-customizations/theme/options/demo-2.php:581
+#: framework-customizations/theme/options/demo-2.php:584
+#: framework-customizations/theme/options/demo-2.php:613
+#: framework-customizations/theme/options/demo-2.php:616
+#: framework-customizations/theme/options/demo-2.php:626
+#: framework-customizations/theme/options/demo-2.php:629
+#: framework-customizations/theme/options/demo-2.php:654
+#: framework-customizations/theme/options/demo-2.php:657
+#: framework-customizations/theme/options/demo-2.php:678
+#: framework-customizations/theme/options/demo-2.php:680
+#: framework-customizations/theme/options/demo-2.php:691
+#: framework-customizations/theme/options/demo-2.php:693
+#: framework-customizations/theme/options/demo-2.php:700
+#: framework-customizations/theme/options/demo-2.php:708
+#: framework-customizations/theme/options/demo-2.php:711
+#: framework-customizations/theme/options/demo-2.php:721
+#: framework-customizations/theme/options/demo-2.php:749
+#: framework-customizations/theme/options/demo-2.php:757
+#: framework-customizations/theme/options/demo-2.php:761
+#: framework-customizations/theme/options/demo-2.php:770
+#: framework-customizations/theme/options/demo-2.php:776
+#: framework-customizations/theme/options/demo-2.php:780
+#: framework-customizations/theme/options/demo-2.php:790
+#: framework-customizations/theme/options/demo-2.php:793
+#: framework-customizations/theme/options/demo-2.php:810
+#: framework-customizations/theme/options/demo-2.php:813
+#: framework-customizations/theme/options/demo-2.php:823
+#: framework-customizations/theme/options/demo-2.php:826
+#: framework-customizations/theme/options/demo-2.php:838
+#: framework-customizations/theme/options/demo-2.php:841
+#: framework-customizations/theme/options/demo-2.php:851
+#: framework-customizations/theme/options/demo-2.php:868
+#: framework-customizations/theme/options/demo-2.php:871
+#: framework-customizations/theme/options/demo-2.php:881
+#: framework-customizations/theme/options/demo-2.php:884
+#: framework-customizations/theme/options/demo-2.php:902
+#: framework-customizations/theme/options/demo-2.php:905
+#: framework-customizations/theme/options/demo-2.php:915
+#: framework-customizations/theme/options/demo-2.php:918
+#: framework-customizations/theme/options/demo-2.php:938
+#: framework-customizations/theme/options/demo-2.php:941
+#: framework-customizations/theme/options/demo-2.php:992
+#: framework-customizations/theme/options/demo-2.php:995
+#: framework-customizations/theme/options/demo-2.php:1063
+#: framework-customizations/theme/options/demo-2.php:1066
+#: framework-customizations/theme/options/demo-2.php:1119
+#: framework-customizations/theme/options/demo-2.php:1122
+#: framework-customizations/theme/options/demo.php:10
+#: framework-customizations/theme/options/demo.php:13
+#: framework-customizations/theme/options/demo.php:23
+#: framework-customizations/theme/options/demo.php:26
+#: framework-customizations/theme/options/demo.php:36
+#: framework-customizations/theme/options/demo.php:39
+#: framework-customizations/theme/options/demo.php:55
+#: framework-customizations/theme/options/demo.php:66
+#: framework-customizations/theme/options/demo.php:69
+#: framework-customizations/theme/options/demo.php:80
+#: framework-customizations/theme/options/demo.php:84
+#: framework-customizations/theme/options/demo.php:94
+#: framework-customizations/theme/options/demo.php:98
+#: framework-customizations/theme/options/demo.php:111
+#: framework-customizations/theme/options/demo.php:119
+#: framework-customizations/theme/options/demo.php:137
+#: framework-customizations/theme/options/demo.php:140
+#: framework-customizations/theme/options/demo.php:150
+#: framework-customizations/theme/options/demo.php:177
+#: framework-customizations/theme/options/demo.php:187
+#: framework-customizations/theme/options/demo.php:199
+#: framework-customizations/theme/options/demo.php:209
+#: framework-customizations/theme/options/demo.php:236
+#: framework-customizations/theme/options/demo.php:250
+#: framework-customizations/theme/options/demo.php:253
+#: framework-customizations/theme/options/demo.php:264
+#: framework-customizations/theme/options/demo.php:267
+#: framework-customizations/theme/options/demo.php:278
+#: framework-customizations/theme/options/demo.php:281
+#: framework-customizations/theme/options/demo.php:295
+#: framework-customizations/theme/options/demo.php:298
+#: framework-customizations/theme/options/demo.php:310
+#: framework-customizations/theme/options/demo.php:318
+#: framework-customizations/theme/options/demo.php:328
+#: framework-customizations/theme/options/demo.php:336
+#: framework-customizations/theme/options/demo.php:346
+#: framework-customizations/theme/options/demo.php:371
+#: framework-customizations/theme/options/demo.php:381
+#: framework-customizations/theme/options/demo.php:384
+#: framework-customizations/theme/options/demo.php:392
+#: framework-customizations/theme/options/demo.php:397
+#: framework-customizations/theme/options/demo.php:405
+#: framework-customizations/theme/options/demo.php:409
+#: framework-customizations/theme/options/demo.php:417
+#: framework-customizations/theme/options/demo.php:422
+#: framework-customizations/theme/options/demo.php:430
+#: framework-customizations/theme/options/demo.php:434
+#: framework-customizations/theme/options/demo.php:444
+#: framework-customizations/theme/options/demo.php:447
+#: framework-customizations/theme/options/demo.php:457
+#: framework-customizations/theme/options/demo.php:460
+#: framework-customizations/theme/options/demo.php:473
+#: framework-customizations/theme/options/demo.php:476
+#: framework-customizations/theme/options/demo.php:550
+#: framework-customizations/theme/options/demo.php:553
+#: framework-customizations/theme/options/demo.php:568
+#: framework-customizations/theme/options/demo.php:571
+#: framework-customizations/theme/options/demo.php:600
+#: framework-customizations/theme/options/demo.php:603
+#: framework-customizations/theme/options/demo.php:613
+#: framework-customizations/theme/options/demo.php:616
+#: framework-customizations/theme/options/demo.php:641
+#: framework-customizations/theme/options/demo.php:644
+#: framework-customizations/theme/options/demo.php:665
+#: framework-customizations/theme/options/demo.php:667
+#: framework-customizations/theme/options/demo.php:678
+#: framework-customizations/theme/options/demo.php:680
+#: framework-customizations/theme/options/demo.php:687
+#: framework-customizations/theme/options/demo.php:695
+#: framework-customizations/theme/options/demo.php:698
+#: framework-customizations/theme/options/demo.php:708
+#: framework-customizations/theme/options/demo.php:735
+#: framework-customizations/theme/options/demo.php:743
+#: framework-customizations/theme/options/demo.php:747
+#: framework-customizations/theme/options/demo.php:756
+#: framework-customizations/theme/options/demo.php:762
+#: framework-customizations/theme/options/demo.php:766
+#: framework-customizations/theme/options/demo.php:776
+#: framework-customizations/theme/options/demo.php:779
+#: framework-customizations/theme/options/demo.php:796
+#: framework-customizations/theme/options/demo.php:799
+#: framework-customizations/theme/options/demo.php:809
+#: framework-customizations/theme/options/demo.php:811
+#: framework-customizations/theme/options/demo.php:823
+#: framework-customizations/theme/options/demo.php:826
+#: framework-customizations/theme/options/demo.php:836
+#: framework-customizations/theme/options/demo.php:854
+#: framework-customizations/theme/options/demo.php:857
+#: framework-customizations/theme/options/demo.php:867
+#: framework-customizations/theme/options/demo.php:870
+#: framework-customizations/theme/options/demo.php:888
+#: framework-customizations/theme/options/demo.php:891
+#: framework-customizations/theme/options/demo.php:901
+#: framework-customizations/theme/options/demo.php:904
+#: framework-customizations/theme/options/demo.php:924
+#: framework-customizations/theme/options/demo.php:927
+#: framework-customizations/theme/options/demo.php:978
+#: framework-customizations/theme/options/demo.php:981
+#: framework-customizations/theme/options/demo.php:1049
+#: framework-customizations/theme/options/demo.php:1052
+#: framework-customizations/theme/options/demo.php:1105
+#: framework-customizations/theme/options/demo.php:1108
+#: framework-customizations/theme/options/taxonomies/category.php:10
+#: framework-customizations/theme/options/taxonomies/category.php:13
+#: framework-customizations/theme/options/taxonomies/category.php:23
+#: framework-customizations/theme/options/taxonomies/category.php:26
+#: framework-customizations/theme/options/taxonomies/category.php:36
+#: framework-customizations/theme/options/taxonomies/category.php:39
+#: framework-customizations/theme/options/taxonomies/category.php:55
+#: framework-customizations/theme/options/taxonomies/category.php:66
+#: framework-customizations/theme/options/taxonomies/category.php:69
+#: framework-customizations/theme/options/taxonomies/category.php:79
+#: framework-customizations/theme/options/taxonomies/category.php:83
+#: framework-customizations/theme/options/taxonomies/category.php:93
+#: framework-customizations/theme/options/taxonomies/category.php:97
+#: framework-customizations/theme/options/taxonomies/category.php:110
+#: framework-customizations/theme/options/taxonomies/category.php:118
+#: framework-customizations/theme/options/taxonomies/category.php:136
+#: framework-customizations/theme/options/taxonomies/category.php:139
+#: framework-customizations/theme/options/taxonomies/category.php:149
+#: framework-customizations/theme/options/taxonomies/category.php:176
+#: framework-customizations/theme/options/taxonomies/category.php:186
+#: framework-customizations/theme/options/taxonomies/category.php:198
+#: framework-customizations/theme/options/taxonomies/category.php:208
+#: framework-customizations/theme/options/taxonomies/category.php:235
+#: framework-customizations/theme/options/taxonomies/category.php:246
+#: framework-customizations/theme/options/taxonomies/category.php:249
+#: framework-customizations/theme/options/taxonomies/category.php:260
+#: framework-customizations/theme/options/taxonomies/category.php:263
+#: framework-customizations/theme/options/taxonomies/category.php:274
+#: framework-customizations/theme/options/taxonomies/category.php:277
+#: framework-customizations/theme/options/taxonomies/category.php:291
+#: framework-customizations/theme/options/taxonomies/category.php:294
+#: framework-customizations/theme/options/taxonomies/category.php:304
+#: framework-customizations/theme/options/taxonomies/category.php:312
+#: framework-customizations/theme/options/taxonomies/category.php:322
+#: framework-customizations/theme/options/taxonomies/category.php:330
+#: framework-customizations/theme/options/taxonomies/category.php:340
+#: framework-customizations/theme/options/taxonomies/category.php:368
+#: framework-customizations/theme/options/taxonomies/category.php:378
+#: framework-customizations/theme/options/taxonomies/category.php:381
+#: framework-customizations/theme/options/taxonomies/category.php:389
+#: framework-customizations/theme/options/taxonomies/category.php:394
+#: framework-customizations/theme/options/taxonomies/category.php:402
+#: framework-customizations/theme/options/taxonomies/category.php:406
+#: framework-customizations/theme/options/taxonomies/category.php:414
+#: framework-customizations/theme/options/taxonomies/category.php:419
+#: framework-customizations/theme/options/taxonomies/category.php:427
+#: framework-customizations/theme/options/taxonomies/category.php:431
+#: framework-customizations/theme/options/taxonomies/category.php:441
+#: framework-customizations/theme/options/taxonomies/category.php:444
+#: framework-customizations/theme/options/taxonomies/category.php:454
+#: framework-customizations/theme/options/taxonomies/category.php:457
+#: framework-customizations/theme/options/taxonomies/category.php:470
+#: framework-customizations/theme/options/taxonomies/category.php:473
+#: framework-customizations/theme/options/taxonomies/category.php:547
+#: framework-customizations/theme/options/taxonomies/category.php:550
+#: framework-customizations/theme/options/taxonomies/category.php:565
+#: framework-customizations/theme/options/taxonomies/category.php:568
+#: framework-customizations/theme/options/taxonomies/category.php:597
+#: framework-customizations/theme/options/taxonomies/category.php:600
+#: framework-customizations/theme/options/taxonomies/category.php:610
+#: framework-customizations/theme/options/taxonomies/category.php:613
+#: framework-customizations/theme/options/taxonomies/category.php:638
+#: framework-customizations/theme/options/taxonomies/category.php:641
+#: framework-customizations/theme/options/taxonomies/category.php:662
+#: framework-customizations/theme/options/taxonomies/category.php:664
+#: framework-customizations/theme/options/taxonomies/category.php:675
+#: framework-customizations/theme/options/taxonomies/category.php:677
+#: framework-customizations/theme/options/taxonomies/category.php:684
+#: framework-customizations/theme/options/taxonomies/category.php:692
+#: framework-customizations/theme/options/taxonomies/category.php:695
+#: framework-customizations/theme/options/taxonomies/category.php:705
+#: framework-customizations/theme/options/taxonomies/category.php:732
+#: framework-customizations/theme/options/taxonomies/category.php:740
+#: framework-customizations/theme/options/taxonomies/category.php:744
+#: framework-customizations/theme/options/taxonomies/category.php:753
+#: framework-customizations/theme/options/taxonomies/category.php:759
+#: framework-customizations/theme/options/taxonomies/category.php:763
+#: framework-customizations/theme/options/taxonomies/category.php:773
+#: framework-customizations/theme/options/taxonomies/category.php:776
+#: framework-customizations/theme/options/taxonomies/category.php:793
+#: framework-customizations/theme/options/taxonomies/category.php:796
+#: framework-customizations/theme/options/taxonomies/category.php:806
+#: framework-customizations/theme/options/taxonomies/category.php:809
+#: framework-customizations/theme/options/taxonomies/category.php:821
+#: framework-customizations/theme/options/taxonomies/category.php:824
+#: framework-customizations/theme/options/taxonomies/category.php:834
+msgid "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:15
+#: framework-customizations/theme/options/demo-2.php:28
+#: framework-customizations/theme/options/demo-2.php:41
+#: framework-customizations/theme/options/demo-2.php:71
+#: framework-customizations/theme/options/demo-2.php:86
+#: framework-customizations/theme/options/demo-2.php:100
+#: framework-customizations/theme/options/demo-2.php:121
+#: framework-customizations/theme/options/demo-2.php:142
+#: framework-customizations/theme/options/demo-2.php:179
+#: framework-customizations/theme/options/demo-2.php:201
+#: framework-customizations/theme/options/demo-2.php:238
+#: framework-customizations/theme/options/demo-2.php:255
+#: framework-customizations/theme/options/demo-2.php:269
+#: framework-customizations/theme/options/demo-2.php:283
+#: framework-customizations/theme/options/demo-2.php:300
+#: framework-customizations/theme/options/demo-2.php:320
+#: framework-customizations/theme/options/demo-2.php:338
+#: framework-customizations/theme/options/demo-2.php:373
+#: framework-customizations/theme/options/demo-2.php:386
+#: framework-customizations/theme/options/demo-2.php:399
+#: framework-customizations/theme/options/demo-2.php:411
+#: framework-customizations/theme/options/demo-2.php:424
+#: framework-customizations/theme/options/demo-2.php:436
+#: framework-customizations/theme/options/demo-2.php:449
+#: framework-customizations/theme/options/demo-2.php:462
+#: framework-customizations/theme/options/demo-2.php:478
+#: framework-customizations/theme/options/demo-2.php:491
+#: framework-customizations/theme/options/demo-2.php:568
+#: framework-customizations/theme/options/demo-2.php:586
+#: framework-customizations/theme/options/demo-2.php:618
+#: framework-customizations/theme/options/demo-2.php:631
+#: framework-customizations/theme/options/demo-2.php:659
+#: framework-customizations/theme/options/demo-2.php:681
+#: framework-customizations/theme/options/demo-2.php:694
+#: framework-customizations/theme/options/demo-2.php:713
+#: framework-customizations/theme/options/demo-2.php:751
+#: framework-customizations/theme/options/demo-2.php:763
+#: framework-customizations/theme/options/demo-2.php:782
+#: framework-customizations/theme/options/demo-2.php:795
+#: framework-customizations/theme/options/demo-2.php:815
+#: framework-customizations/theme/options/demo-2.php:828
+#: framework-customizations/theme/options/demo-2.php:843
+#: framework-customizations/theme/options/demo-2.php:873
+#: framework-customizations/theme/options/demo-2.php:886
+#: framework-customizations/theme/options/demo-2.php:907
+#: framework-customizations/theme/options/demo-2.php:920
+#: framework-customizations/theme/options/demo-2.php:943
+#: framework-customizations/theme/options/demo-2.php:997
+#: framework-customizations/theme/options/demo-2.php:1068
+#: framework-customizations/theme/options/demo-2.php:1124
+#: framework-customizations/theme/options/demo.php:15
+#: framework-customizations/theme/options/demo.php:28
+#: framework-customizations/theme/options/demo.php:41
+#: framework-customizations/theme/options/demo.php:71
+#: framework-customizations/theme/options/demo.php:86
+#: framework-customizations/theme/options/demo.php:100
+#: framework-customizations/theme/options/demo.php:121
+#: framework-customizations/theme/options/demo.php:142
+#: framework-customizations/theme/options/demo.php:179
+#: framework-customizations/theme/options/demo.php:201
+#: framework-customizations/theme/options/demo.php:238
+#: framework-customizations/theme/options/demo.php:255
+#: framework-customizations/theme/options/demo.php:269
+#: framework-customizations/theme/options/demo.php:283
+#: framework-customizations/theme/options/demo.php:300
+#: framework-customizations/theme/options/demo.php:320
+#: framework-customizations/theme/options/demo.php:338
+#: framework-customizations/theme/options/demo.php:373
+#: framework-customizations/theme/options/demo.php:386
+#: framework-customizations/theme/options/demo.php:399
+#: framework-customizations/theme/options/demo.php:411
+#: framework-customizations/theme/options/demo.php:424
+#: framework-customizations/theme/options/demo.php:436
+#: framework-customizations/theme/options/demo.php:449
+#: framework-customizations/theme/options/demo.php:462
+#: framework-customizations/theme/options/demo.php:478
+#: framework-customizations/theme/options/demo.php:555
+#: framework-customizations/theme/options/demo.php:573
+#: framework-customizations/theme/options/demo.php:605
+#: framework-customizations/theme/options/demo.php:618
+#: framework-customizations/theme/options/demo.php:646
+#: framework-customizations/theme/options/demo.php:668
+#: framework-customizations/theme/options/demo.php:681
+#: framework-customizations/theme/options/demo.php:700
+#: framework-customizations/theme/options/demo.php:737
+#: framework-customizations/theme/options/demo.php:749
+#: framework-customizations/theme/options/demo.php:768
+#: framework-customizations/theme/options/demo.php:781
+#: framework-customizations/theme/options/demo.php:801
+#: framework-customizations/theme/options/demo.php:813
+#: framework-customizations/theme/options/demo.php:828
+#: framework-customizations/theme/options/demo.php:859
+#: framework-customizations/theme/options/demo.php:872
+#: framework-customizations/theme/options/demo.php:893
+#: framework-customizations/theme/options/demo.php:906
+#: framework-customizations/theme/options/demo.php:929
+#: framework-customizations/theme/options/demo.php:983
+#: framework-customizations/theme/options/demo.php:1054
+#: framework-customizations/theme/options/demo.php:1110
+#: framework-customizations/theme/options/taxonomies/category.php:15
+#: framework-customizations/theme/options/taxonomies/category.php:28
+#: framework-customizations/theme/options/taxonomies/category.php:41
+#: framework-customizations/theme/options/taxonomies/category.php:71
+#: framework-customizations/theme/options/taxonomies/category.php:85
+#: framework-customizations/theme/options/taxonomies/category.php:99
+#: framework-customizations/theme/options/taxonomies/category.php:120
+#: framework-customizations/theme/options/taxonomies/category.php:141
+#: framework-customizations/theme/options/taxonomies/category.php:178
+#: framework-customizations/theme/options/taxonomies/category.php:200
+#: framework-customizations/theme/options/taxonomies/category.php:237
+#: framework-customizations/theme/options/taxonomies/category.php:251
+#: framework-customizations/theme/options/taxonomies/category.php:265
+#: framework-customizations/theme/options/taxonomies/category.php:279
+#: framework-customizations/theme/options/taxonomies/category.php:296
+#: framework-customizations/theme/options/taxonomies/category.php:314
+#: framework-customizations/theme/options/taxonomies/category.php:332
+#: framework-customizations/theme/options/taxonomies/category.php:370
+#: framework-customizations/theme/options/taxonomies/category.php:383
+#: framework-customizations/theme/options/taxonomies/category.php:396
+#: framework-customizations/theme/options/taxonomies/category.php:408
+#: framework-customizations/theme/options/taxonomies/category.php:421
+#: framework-customizations/theme/options/taxonomies/category.php:433
+#: framework-customizations/theme/options/taxonomies/category.php:446
+#: framework-customizations/theme/options/taxonomies/category.php:459
+#: framework-customizations/theme/options/taxonomies/category.php:475
+#: framework-customizations/theme/options/taxonomies/category.php:552
+#: framework-customizations/theme/options/taxonomies/category.php:570
+#: framework-customizations/theme/options/taxonomies/category.php:602
+#: framework-customizations/theme/options/taxonomies/category.php:615
+#: framework-customizations/theme/options/taxonomies/category.php:643
+#: framework-customizations/theme/options/taxonomies/category.php:665
+#: framework-customizations/theme/options/taxonomies/category.php:678
+#: framework-customizations/theme/options/taxonomies/category.php:697
+#: framework-customizations/theme/options/taxonomies/category.php:734
+#: framework-customizations/theme/options/taxonomies/category.php:746
+#: framework-customizations/theme/options/taxonomies/category.php:765
+#: framework-customizations/theme/options/taxonomies/category.php:778
+#: framework-customizations/theme/options/taxonomies/category.php:798
+#: framework-customizations/theme/options/taxonomies/category.php:811
+#: framework-customizations/theme/options/taxonomies/category.php:826
+msgid "Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:20
+#: framework-customizations/theme/options/demo.php:20
+#: framework-customizations/theme/options/taxonomies/category.php:20
+msgid "Short Text"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:33
+#: framework-customizations/theme/options/demo.php:33
+#: framework-customizations/theme/options/taxonomies/category.php:33
+msgid "Password"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:52
+#: framework-customizations/theme/options/demo-2.php:848
+#: framework-customizations/theme/options/demo.php:52
+#: framework-customizations/theme/options/demo.php:833
+#: framework-customizations/theme/options/taxonomies/category.php:52
+#: framework-customizations/theme/options/taxonomies/category.php:831
+msgid "Textarea"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:63
+#: framework-customizations/theme/options/demo.php:63
+#: framework-customizations/theme/options/taxonomies/category.php:63
+msgid "Rich Text Editor"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:77
+#: framework-customizations/theme/options/demo.php:77
+#: framework-customizations/theme/options/taxonomies/category.php:76
+msgid "HTML"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:91
+#: framework-customizations/theme/options/demo.php:91
+#: framework-customizations/theme/options/taxonomies/category.php:90
+msgid "Checkbox"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:96
+#: framework-customizations/theme/options/demo.php:96
+#: framework-customizations/theme/options/taxonomies/category.php:95
+msgid "Custom text"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:105
+#: framework-customizations/theme/options/demo.php:105
+#: framework-customizations/theme/options/taxonomies/category.php:104
+msgid "Checkboxes"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:114
+#: framework-customizations/theme/options/demo.php:114
+#: framework-customizations/theme/options/taxonomies/category.php:113
+msgid "Checkbox 1 Custom Text"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:115
+#: framework-customizations/theme/options/demo.php:115
+#: framework-customizations/theme/options/taxonomies/category.php:114
+msgid "Checkbox 2 Custom Text"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:116
+#: framework-customizations/theme/options/demo.php:116
+#: framework-customizations/theme/options/taxonomies/category.php:115
+msgid "Checkbox 3 Custom Text"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:126
+#: framework-customizations/theme/options/demo-2.php:1108
+#: framework-customizations/theme/options/demo.php:126
+#: framework-customizations/theme/options/demo.php:1094
+#: framework-customizations/theme/options/taxonomies/category.php:125
+msgid "Switch"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:130
+#: framework-customizations/theme/options/demo.php:130
+#: framework-customizations/theme/options/posts/post.php:22
+#: framework-customizations/theme/options/taxonomies/category.php:129
+#: inc/customizer.php:850 inc/helpers.php:978 inc/modify.php:37
+#: inc/modify.php:46 inc/vc-include.php:204 inc/vc-maps.php:79
+#: inc/vc-maps.php:97 inc/vc-maps.php:229 inc/vc-maps.php:247
+#: inc/vc-maps.php:380 inc/vc-maps.php:398 inc/vc-maps.php:495
+#: inc/vc-maps.php:513 inc/vc-maps.php:593 inc/vc-maps.php:611
+#: inc/vc-maps.php:698 inc/vc-maps.php:1024 inc/vc-maps.php:1243
+#: inc/vc-maps.php:1252 inc/vc-maps.php:1438 inc/vc-maps.php:1561
+#: inc/vc-maps.php:1664
+msgid "Yes"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:134
+#: framework-customizations/theme/options/demo.php:134
+#: framework-customizations/theme/options/posts/post.php:18
+#: framework-customizations/theme/options/taxonomies/category.php:133
+#: inc/customizer.php:851 inc/helpers.php:980
+msgid "No"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:147
+#: framework-customizations/theme/options/demo.php:147
+#: framework-customizations/theme/options/taxonomies/category.php:146
+msgid "Select"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:154
+#: framework-customizations/theme/options/demo-2.php:213
+#: framework-customizations/theme/options/demo.php:154
+#: framework-customizations/theme/options/demo.php:213
+#: framework-customizations/theme/options/taxonomies/category.php:153
+#: framework-customizations/theme/options/taxonomies/category.php:212
+msgid "Lorem ipsum"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:156
+#: framework-customizations/theme/options/demo-2.php:215
+#: framework-customizations/theme/options/demo.php:156
+#: framework-customizations/theme/options/demo.php:215
+#: framework-customizations/theme/options/taxonomies/category.php:155
+#: framework-customizations/theme/options/taxonomies/category.php:214
+msgid "Consectetur"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:164
+#: framework-customizations/theme/options/demo-2.php:223
+#: framework-customizations/theme/options/demo.php:164
+#: framework-customizations/theme/options/demo.php:223
+#: framework-customizations/theme/options/taxonomies/category.php:163
+#: framework-customizations/theme/options/taxonomies/category.php:222
+msgid "Optgroup Label"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:168
+#: framework-customizations/theme/options/demo-2.php:227
+#: framework-customizations/theme/options/demo.php:168
+#: framework-customizations/theme/options/demo.php:227
+#: framework-customizations/theme/options/taxonomies/category.php:167
+#: framework-customizations/theme/options/taxonomies/category.php:226
+msgid "Sed ut perspiciatis"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:169
+#: framework-customizations/theme/options/demo-2.php:228
+#: framework-customizations/theme/options/demo.php:169
+#: framework-customizations/theme/options/demo.php:228
+#: framework-customizations/theme/options/taxonomies/category.php:168
+#: framework-customizations/theme/options/taxonomies/category.php:227
+msgid "Excepteur sint occaecat"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:172
+#: framework-customizations/theme/options/demo-2.php:231
+#: framework-customizations/theme/options/demo.php:172
+#: framework-customizations/theme/options/demo.php:231
+#: framework-customizations/theme/options/taxonomies/category.php:171
+#: framework-customizations/theme/options/taxonomies/category.php:230
+msgid "One"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:173
+#: framework-customizations/theme/options/demo-2.php:232
+#: framework-customizations/theme/options/demo.php:173
+#: framework-customizations/theme/options/demo.php:232
+#: framework-customizations/theme/options/taxonomies/category.php:172
+#: framework-customizations/theme/options/taxonomies/category.php:231
+msgid "Two"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:174
+#: framework-customizations/theme/options/demo-2.php:233
+#: framework-customizations/theme/options/demo.php:174
+#: framework-customizations/theme/options/demo.php:233
+#: framework-customizations/theme/options/taxonomies/category.php:173
+#: framework-customizations/theme/options/taxonomies/category.php:232
+msgid "Three"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:184
+#: framework-customizations/theme/options/demo.php:184
+#: framework-customizations/theme/options/taxonomies/category.php:183
+msgid "Short Select"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:206
+#: framework-customizations/theme/options/demo.php:206
+#: framework-customizations/theme/options/taxonomies/category.php:205
+msgid "Select Multiple"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:247
+#: framework-customizations/theme/options/demo.php:247
+#: framework-customizations/theme/options/taxonomies/category.php:243
+msgid "Multi-Select: Posts"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:261
+#: framework-customizations/theme/options/demo.php:261
+#: framework-customizations/theme/options/taxonomies/category.php:257
+msgid "Multi-Select: Taxonomies"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:275
+#: framework-customizations/theme/options/demo.php:275
+#: framework-customizations/theme/options/taxonomies/category.php:271
+msgid "Multi-Select: Users"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:289
+#: framework-customizations/theme/options/demo.php:289
+#: framework-customizations/theme/options/taxonomies/category.php:285
+msgid "Multi-Select: Custom Array"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:292
+#: framework-customizations/theme/options/demo.php:292
+#: framework-customizations/theme/options/taxonomies/category.php:288
+msgid "Hello"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:293
+#: framework-customizations/theme/options/demo.php:293
+#: framework-customizations/theme/options/taxonomies/category.php:289
+msgid "World"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:307
+#: framework-customizations/theme/options/demo.php:307
+#: framework-customizations/theme/options/taxonomies/category.php:301
+msgid "Radio"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:313
+#: framework-customizations/theme/options/demo.php:313
+#: framework-customizations/theme/options/taxonomies/category.php:307
+msgid "Radio 1 Custom Text"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:314
+#: framework-customizations/theme/options/demo.php:314
+#: framework-customizations/theme/options/taxonomies/category.php:308
+msgid "Radio 2 Custom Text"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:315
+#: framework-customizations/theme/options/demo.php:315
+#: framework-customizations/theme/options/taxonomies/category.php:309
+msgid "Radio 3 Custom Text"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:325
+#: framework-customizations/theme/options/demo.php:325
+#: framework-customizations/theme/options/taxonomies/category.php:319
+msgid "Radio Text"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:331
+#: framework-customizations/theme/options/demo.php:331
+#: framework-customizations/theme/options/taxonomies/category.php:325
+msgid "25%"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:332
+#: framework-customizations/theme/options/demo.php:332
+#: framework-customizations/theme/options/taxonomies/category.php:326
+msgid "50%"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:333
+#: framework-customizations/theme/options/demo.php:333
+#: framework-customizations/theme/options/taxonomies/category.php:327
+msgid "100%"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:343
+#: framework-customizations/theme/options/demo-2.php:718
+#: framework-customizations/theme/options/demo.php:343
+#: framework-customizations/theme/options/demo.php:705
+#: framework-customizations/theme/options/taxonomies/category.php:337
+#: framework-customizations/theme/options/taxonomies/category.php:702
+msgid "Image Picker"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:378
+#: framework-customizations/theme/options/demo.php:378
+#: framework-customizations/theme/options/posts/post.php:101
+#: framework-customizations/theme/options/taxonomies/category.php:375
+#: inc/vc-include.php:310 inc/vc-maps.php:122 inc/vc-maps.php:272
+msgid "Icon"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:391
+#: framework-customizations/theme/options/demo.php:391
+#: framework-customizations/theme/options/taxonomies/category.php:388
+msgid "Single Upload"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:404
+#: framework-customizations/theme/options/demo-2.php:756
+#: framework-customizations/theme/options/demo.php:404
+#: framework-customizations/theme/options/demo.php:742
+#: framework-customizations/theme/options/posts/campaign.php:64
+#: framework-customizations/theme/options/posts/page.php:156
+#: framework-customizations/theme/options/posts/tribe_events.php:156
+#: framework-customizations/theme/options/taxonomies/category.php:401
+#: framework-customizations/theme/options/taxonomies/category.php:739
+msgid "Single Upload (Images Only)"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:416
+#: framework-customizations/theme/options/demo.php:416
+#: framework-customizations/theme/options/taxonomies/category.php:413
+msgid "Multi Upload"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:429
+#: framework-customizations/theme/options/demo.php:429
+#: framework-customizations/theme/options/taxonomies/category.php:426
+msgid "Multi Upload (Images Only)"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:441
+#: framework-customizations/theme/options/demo-2.php:787
+#: framework-customizations/theme/options/demo.php:441
+#: framework-customizations/theme/options/demo.php:773
+#: framework-customizations/theme/options/taxonomies/category.php:438
+#: framework-customizations/theme/options/taxonomies/category.php:770
+msgid "Color Picker"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:454
+#: framework-customizations/theme/options/demo-2.php:483
+#: framework-customizations/theme/options/demo.php:454
+#: framework-customizations/theme/options/taxonomies/category.php:451
+msgid "RGBA Color Picker"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:467
+#: framework-customizations/theme/options/demo.php:467
+#: framework-customizations/theme/options/taxonomies/category.php:464
+#: inc/vc-include.php:161
+msgid "Gradient"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:496
+#: framework-customizations/theme/options/demo.php:483
+#: framework-customizations/theme/options/taxonomies/category.php:480
+msgid "Background Image"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:573
+#: framework-customizations/theme/options/demo.php:560
+#: framework-customizations/theme/options/taxonomies/category.php:557
+#: inc/customizer.php:47
+msgid "Typography"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:591
+#: framework-customizations/theme/options/demo.php:578
+#: framework-customizations/theme/options/taxonomies/category.php:575
+msgid "Typography V2"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:625
+#: framework-customizations/theme/options/demo.php:612
+#: framework-customizations/theme/options/taxonomies/category.php:609
+msgid "Demo date range"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:653
+#: framework-customizations/theme/options/demo.php:640
+#: framework-customizations/theme/options/taxonomies/category.php:637
+msgid "Date & Time picker"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:675
+#: framework-customizations/theme/options/demo.php:662
+#: framework-customizations/theme/options/taxonomies/category.php:659
+msgid "Slider"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:685
+#: framework-customizations/theme/options/demo.php:672
+#: framework-customizations/theme/options/taxonomies/category.php:669
+msgid "Range Slider"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:698
+#: framework-customizations/theme/options/demo-2.php:768
+#: framework-customizations/theme/options/demo.php:685
+#: framework-customizations/theme/options/demo.php:754
+#: framework-customizations/theme/options/taxonomies/category.php:682
+#: framework-customizations/theme/options/taxonomies/category.php:751
+msgid "Addable Popup"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:775
+#: framework-customizations/theme/options/demo.php:761
+#: framework-customizations/theme/options/taxonomies/category.php:758
+msgid "Multi Upload (images only)"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:804
+#: framework-customizations/theme/options/demo.php:790
+#: framework-customizations/theme/options/taxonomies/category.php:787
+msgid "Addable Option"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:820
+#: framework-customizations/theme/options/demo.php:806
+#: framework-customizations/theme/options/taxonomies/category.php:803
+msgid "Addable Box"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:865
+#: framework-customizations/theme/options/demo.php:851
+msgid "Text in Group"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:878
+#: framework-customizations/theme/options/demo.php:864
+msgid "Password in Group"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:899
+#: framework-customizations/theme/options/demo.php:885
+msgid "Text in Multi"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:912
+#: framework-customizations/theme/options/demo.php:898
+msgid "Textarea in Multi"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:932
+#: framework-customizations/theme/options/demo.php:918
+msgid "Multi Picker: Select"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:935
+#: framework-customizations/theme/options/demo-2.php:989
+#: framework-customizations/theme/options/demo-2.php:1041
+#: framework-customizations/theme/options/demo-2.php:1116
+#: framework-customizations/theme/options/demo.php:921
+#: framework-customizations/theme/options/demo.php:975
+#: framework-customizations/theme/options/demo.php:1027
+#: framework-customizations/theme/options/demo.php:1102 inc/hooks.php:467
+#: vc_templates/event_organizer.php:36
+msgid "Phone"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:936
+#: framework-customizations/theme/options/demo-2.php:990
+#: framework-customizations/theme/options/demo-2.php:1052
+#: framework-customizations/theme/options/demo-2.php:1112
+#: framework-customizations/theme/options/demo.php:922
+#: framework-customizations/theme/options/demo.php:976
+#: framework-customizations/theme/options/demo.php:1038
+#: framework-customizations/theme/options/demo.php:1098
+msgid "Laptop"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:952
+#: framework-customizations/theme/options/demo-2.php:967
+#: framework-customizations/theme/options/demo-2.php:1006
+#: framework-customizations/theme/options/demo-2.php:1021
+#: framework-customizations/theme/options/demo-2.php:1077
+#: framework-customizations/theme/options/demo-2.php:1092
+#: framework-customizations/theme/options/demo-2.php:1133
+#: framework-customizations/theme/options/demo-2.php:1148
+#: framework-customizations/theme/options/demo.php:938
+#: framework-customizations/theme/options/demo.php:953
+#: framework-customizations/theme/options/demo.php:992
+#: framework-customizations/theme/options/demo.php:1007
+#: framework-customizations/theme/options/demo.php:1063
+#: framework-customizations/theme/options/demo.php:1078
+#: framework-customizations/theme/options/demo.php:1119
+#: framework-customizations/theme/options/demo.php:1134
+msgid "Price"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:956
+#: framework-customizations/theme/options/demo-2.php:1010
+#: framework-customizations/theme/options/demo-2.php:1081
+#: framework-customizations/theme/options/demo-2.php:1137
+#: framework-customizations/theme/options/demo.php:942
+#: framework-customizations/theme/options/demo.php:996
+#: framework-customizations/theme/options/demo.php:1067
+#: framework-customizations/theme/options/demo.php:1123
+msgid "Memory"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:958
+#: framework-customizations/theme/options/demo-2.php:1012
+#: framework-customizations/theme/options/demo-2.php:1083
+#: framework-customizations/theme/options/demo-2.php:1139
+#: framework-customizations/theme/options/demo.php:944
+#: framework-customizations/theme/options/demo.php:998
+#: framework-customizations/theme/options/demo.php:1069
+#: framework-customizations/theme/options/demo.php:1125
+msgid "16Gb"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:959
+#: framework-customizations/theme/options/demo-2.php:1013
+#: framework-customizations/theme/options/demo-2.php:1084
+#: framework-customizations/theme/options/demo-2.php:1140
+#: framework-customizations/theme/options/demo.php:945
+#: framework-customizations/theme/options/demo.php:999
+#: framework-customizations/theme/options/demo.php:1070
+#: framework-customizations/theme/options/demo.php:1126
+msgid "32Gb"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:960
+#: framework-customizations/theme/options/demo-2.php:1014
+#: framework-customizations/theme/options/demo-2.php:1085
+#: framework-customizations/theme/options/demo-2.php:1141
+#: framework-customizations/theme/options/demo.php:946
+#: framework-customizations/theme/options/demo.php:1000
+#: framework-customizations/theme/options/demo.php:1071
+#: framework-customizations/theme/options/demo.php:1127
+msgid "64Gb"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:971
+#: framework-customizations/theme/options/demo-2.php:1025
+#: framework-customizations/theme/options/demo-2.php:1096
+#: framework-customizations/theme/options/demo-2.php:1152
+#: framework-customizations/theme/options/demo.php:957
+#: framework-customizations/theme/options/demo.php:1011
+#: framework-customizations/theme/options/demo.php:1082
+#: framework-customizations/theme/options/demo.php:1138
+msgid "Webcam"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:986
+#: framework-customizations/theme/options/demo.php:972
+msgid "Multi Picker: Radio"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-2.php:1037
+#: framework-customizations/theme/options/demo.php:1023
+msgid "Multi Picker: Image Picker"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-box.php:7
+msgid "Demo Options"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-box.php:11
+msgid "Without Box"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-box.php:18
+msgid "With Box"
+msgstr ""
+
+#: framework-customizations/theme/options/demo-box.php:22
+msgid "Box"
+msgstr ""
+
+#: framework-customizations/theme/options/demo.php:712
+#: framework-customizations/theme/options/taxonomies/category.php:709
+msgid "First Image"
+msgstr ""
+
+#: framework-customizations/theme/options/demo.php:723
+#: framework-customizations/theme/options/taxonomies/category.php:720
+msgid "Second Image"
+msgstr ""
+
+#: framework-customizations/theme/options/general-settings.php:7
+#: inc/customizer.php:12
+msgid "General"
+msgstr ""
+
+#: framework-customizations/theme/options/general-settings.php:11
+msgid "General Settings"
+msgstr ""
+
+#: framework-customizations/theme/options/general-settings.php:17
+msgid "Custom swith option"
+msgstr ""
+
+#: framework-customizations/theme/options/general-settings.php:21
+#: framework-customizations/theme/options/posts/page.php:82
+#: framework-customizations/theme/options/posts/tribe_events.php:82
+msgid "Logo"
+msgstr ""
+
+#: framework-customizations/theme/options/general-settings.php:22
+msgid "Write your website logo name"
+msgstr ""
+
+#: framework-customizations/theme/options/general-settings.php:27
+msgid "Favicon"
+msgstr ""
+
+#: framework-customizations/theme/options/general-settings.php:28
+msgid "Upload a favicon image"
+msgstr ""
+
+#: framework-customizations/theme/options/general-settings.php:32
+msgid "Footer Description"
+msgstr ""
+
+#: framework-customizations/theme/options/general-settings.php:36
+msgid "Copyright Text"
+msgstr ""
+
+#: framework-customizations/theme/options/general-settings.php:40
+msgid "Footer links"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/campaign.php:6
+#: framework-customizations/theme/options/posts/campaign.php:16
+#: framework-customizations/theme/options/posts/page.php:6
+#: framework-customizations/theme/options/posts/tribe_events.php:6
+msgid "Header"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/campaign.php:19
+#: framework-customizations/theme/options/posts/page.php:19
+#: framework-customizations/theme/options/posts/page.php:85
+#: framework-customizations/theme/options/posts/page.php:111
+#: framework-customizations/theme/options/posts/page.php:183
+#: framework-customizations/theme/options/posts/page.php:193
+#: framework-customizations/theme/options/posts/tribe_events.php:19
+#: framework-customizations/theme/options/posts/tribe_events.php:85
+#: framework-customizations/theme/options/posts/tribe_events.php:111
+#: inc/modify.php:55 inc/modify.php:74 inc/vc-maps.php:1261
+#: inc/vc-maps.php:1280 inc/vc-maps.php:1803 inc/vc-maps.php:2473
+msgid "Default"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/campaign.php:20
+#: framework-customizations/theme/options/posts/page.php:86
+#: framework-customizations/theme/options/posts/page.php:112
+#: framework-customizations/theme/options/posts/tribe_events.php:86
+#: framework-customizations/theme/options/posts/tribe_events.php:112
+#: inc/vc-include.php:159 inc/vc-maps.php:1815 inc/vc-maps.php:2485
+msgid "Custom"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/campaign.php:21
+#: framework-customizations/theme/options/posts/page.php:113
+#: framework-customizations/theme/options/posts/page.php:185
+#: framework-customizations/theme/options/posts/page.php:194
+#: framework-customizations/theme/options/posts/tribe_events.php:113
+msgid "Disable"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/campaign.php:29
+#: framework-customizations/theme/options/posts/page.php:121
+#: framework-customizations/theme/options/posts/tribe_events.php:121
+#: inc/customizer.php:405 inc/customizer.php:505 inc/customizer.php:739
+#: inc/customizer.php:866 inc/vc-include.php:334 inc/vc-maps.php:679
+#: inc/vc-maps.php:992
+msgid "Text color"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/campaign.php:30
+#: framework-customizations/theme/options/posts/page.php:122
+#: framework-customizations/theme/options/posts/tribe_events.php:122
+msgid "Display text color of page breadcumbs"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/campaign.php:35
+#: framework-customizations/theme/options/posts/page.php:127
+#: framework-customizations/theme/options/posts/post.php:31
+#: framework-customizations/theme/options/posts/tribe_events.php:127
+msgid "Alternative Title"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/campaign.php:36
+#: framework-customizations/theme/options/posts/page.php:128
+#: framework-customizations/theme/options/posts/tribe_events.php:128
+msgid "This will replace heading page title"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/campaign.php:41
+#: framework-customizations/theme/options/posts/page.php:133
+#: framework-customizations/theme/options/posts/tribe_events.php:133
+msgid "Text Header"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/campaign.php:42
+#: framework-customizations/theme/options/posts/page.php:134
+#: framework-customizations/theme/options/posts/tribe_events.php:134
+#: inc/customizer.php:939 inc/customizer.php:1059
+msgid "This will display under breadcrumbs (optional)"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/campaign.php:51
+#: framework-customizations/theme/options/posts/page.php:143
+#: framework-customizations/theme/options/posts/tribe_events.php:143
+msgid "Background Style"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/campaign.php:52
+#: framework-customizations/theme/options/posts/page.php:144
+#: framework-customizations/theme/options/posts/tribe_events.php:144
+#: inc/customizer.php:957 inc/customizer.php:1103
+msgid "If select background image option, the theme recommends a header size of at least 1170 width pixels"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/campaign.php:55
+#: framework-customizations/theme/options/posts/page.php:147
+#: framework-customizations/theme/options/posts/tribe_events.php:147
+#: inc/customizer.php:962 inc/customizer.php:1107 inc/vc-maps.php:125
+#: inc/vc-maps.php:275
+msgid "Use Image"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/campaign.php:56
+#: framework-customizations/theme/options/posts/page.php:148
+#: framework-customizations/theme/options/posts/tribe_events.php:148
+#: inc/customizer.php:963 inc/customizer.php:1108
+msgid "Use Solid Color"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/campaign.php:70
+#: framework-customizations/theme/options/posts/page.php:162
+#: framework-customizations/theme/options/posts/tribe_events.php:162
+#: inc/vc-include.php:185 inc/vc-maps.php:1681
+msgid "Background Color"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/campaign.php:85
+#: framework-customizations/theme/options/posts/page.php:203
+#: framework-customizations/theme/options/posts/tribe_events.php:177
+msgid "Page Customizing"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/page.php:16
+#: framework-customizations/theme/options/posts/page.php:180
+#: framework-customizations/theme/options/posts/tribe_events.php:16
+msgid "Layout"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/page.php:31
+#: framework-customizations/theme/options/posts/tribe_events.php:31
+msgid "Topbar background"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/page.php:32
+#: framework-customizations/theme/options/posts/page.php:38
+#: framework-customizations/theme/options/posts/page.php:44
+#: framework-customizations/theme/options/posts/page.php:50
+#: framework-customizations/theme/options/posts/page.php:56
+#: framework-customizations/theme/options/posts/page.php:62
+#: framework-customizations/theme/options/posts/page.php:68
+#: framework-customizations/theme/options/posts/tribe_events.php:32
+#: framework-customizations/theme/options/posts/tribe_events.php:38
+#: framework-customizations/theme/options/posts/tribe_events.php:44
+#: framework-customizations/theme/options/posts/tribe_events.php:50
+#: framework-customizations/theme/options/posts/tribe_events.php:56
+#: framework-customizations/theme/options/posts/tribe_events.php:62
+#: framework-customizations/theme/options/posts/tribe_events.php:68
+msgid "Choose color"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/page.php:37
+#: framework-customizations/theme/options/posts/tribe_events.php:37
+msgid "Topbar text color"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/page.php:43
+#: framework-customizations/theme/options/posts/tribe_events.php:43
+msgid "Topbar border color"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/page.php:49
+#: framework-customizations/theme/options/posts/tribe_events.php:49
+msgid "Menu background"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/page.php:55
+#: framework-customizations/theme/options/posts/tribe_events.php:55
+msgid "Heading menu text color"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/page.php:61
+#: framework-customizations/theme/options/posts/tribe_events.php:61
+msgid "Button background"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/page.php:67
+#: framework-customizations/theme/options/posts/tribe_events.php:67
+msgid "Button text color"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/page.php:94
+#: framework-customizations/theme/options/posts/post.php:53
+#: framework-customizations/theme/options/posts/post.php:112
+#: framework-customizations/theme/options/posts/post.php:134
+#: framework-customizations/theme/options/posts/tribe_events.php:94
+msgid "Choose image"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/page.php:108
+#: framework-customizations/theme/options/posts/tribe_events.php:108
+msgid "Breadcrumbs"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/page.php:176
+#: inc/customizer.php:33
+msgid "Footer"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/page.php:184
+#: inc/vc-maps.php:1780 inc/vc-maps.php:2450
+msgid "Enable"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/page.php:190
+#: inc/customizer.php:1196
+msgid "Copyright"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/post.php:15
+msgid "Custom Page Title"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/post.php:32
+msgid "This will replace heading post title"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/post.php:36
+msgid "Custom Text Header"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/post.php:37
+msgid "White some text (optional)"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/post.php:48 inc/vc-maps.php:165
+#: inc/vc-maps.php:315
+msgid "Image"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/post.php:52
+#: framework-customizations/theme/options/posts/post.php:63
+msgid "Image upload"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/post.php:59
+#: inc/vc-maps.php:2677
+msgid "Gallery"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/post.php:64
+msgid "Choose image(s)"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/post.php:70 inc/vc-maps.php:753
+msgid "Video"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/post.php:74
+msgid "Video type"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/post.php:75
+msgid "Support Youtube and Vimeo"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/post.php:78 inc/vc-maps.php:765
+msgid "Youtube"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/post.php:79 inc/vc-maps.php:766
+msgid "Vimeo"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/post.php:84
+msgid "Video url"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/post.php:92
+#: framework-customizations/theme/options/posts/post.php:106 inc/vc-maps.php:85
+#: inc/vc-maps.php:235 inc/vc-maps.php:386 inc/vc-maps.php:501
+#: inc/vc-maps.php:599 inc/vc-maps.php:1588
+msgid "Link"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/post.php:96 inc/modify.php:60
+#: inc/vc-maps.php:67 inc/vc-maps.php:368 inc/vc-maps.php:581
+#: inc/vc-maps.php:1266 inc/vc-maps.php:1359 inc/vc-maps.php:1918
+#: inc/vc-maps.php:2708 inc/vc-maps.php:2804 inc/vc-maps.php:2861
+#: inc/vc-maps.php:2902 inc/widgets/twitter/class-widget-twitter.php:52
+msgid "Title"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/post.php:97 inc/vc-maps.php:68
+#: inc/vc-maps.php:218 inc/vc-maps.php:369 inc/vc-maps.php:476
+msgid "Enter your title"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/post.php:102
+msgid "Choose icon"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/post.php:107
+msgid "Enter your url here"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/post.php:111
+msgid "Background image"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/post.php:118
+#: framework-customizations/theme/options/posts/post.php:122
+#: taxonomy-post_format.php:35
+msgid "Audio"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/post.php:123
+msgid "Enter audio url"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/post.php:129
+#: framework-customizations/theme/options/posts/post.php:143
+msgid "Quote"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/post.php:133
+msgid "Quote background image"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/post.php:138
+#: inc/vc-maps.php:2699
+msgid "Sub title"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/post.php:139
+msgid "Enter your subtitle here"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/post.php:144
+msgid "Enter your quote here"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/post.php:148 inc/modify.php:59
+#: inc/vc-maps.php:1265
+msgid "Author"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/post.php:149
+msgid "Enter your author here"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/post.php:159
+msgid "Sub Title"
+msgstr ""
+
+#: framework-customizations/theme/options/posts/post.php:169
+msgid "Post Customizing"
+msgstr ""
+
+#: framework-customizations/theme/options/taxonomies/category.php:157
+#: framework-customizations/theme/options/taxonomies/category.php:216
+msgid "Label overrides text"
+msgstr ""
+
+#: image.php:61
+msgid "Previous Image"
+msgstr ""
+
+#: image.php:62
+msgid "Next Image"
+msgstr ""
+
+#: inc/customizer.php:19
+msgid "Page Breadcrumbs"
+msgstr ""
+
+#: inc/customizer.php:26
+msgid "Blog"
+msgstr ""
+
+#: inc/customizer.php:40
+msgid "Colors"
+msgstr ""
+
+#: inc/customizer.php:54
+msgid "Shop"
+msgstr ""
+
+#: inc/customizer.php:61
+msgid "Cause View"
+msgstr ""
+
+#: inc/customizer.php:70
+msgid "Primary color"
+msgstr ""
+
+#: inc/customizer.php:141
+msgid "Secondary color"
+msgstr ""
+
+#: inc/customizer.php:221
+msgid "Body font"
+msgstr ""
+
+#: inc/customizer.php:244
+msgid "Heading font"
+msgstr ""
+
+#: inc/customizer.php:267
+msgid "H1"
+msgstr ""
+
+#: inc/customizer.php:283
+msgid "H2"
+msgstr ""
+
+#: inc/customizer.php:299
+msgid "H3"
+msgstr ""
+
+#: inc/customizer.php:315
+msgid "H4"
+msgstr ""
+
+#: inc/customizer.php:331
+msgid "H5"
+msgstr ""
+
+#: inc/customizer.php:347
+msgid "H6"
+msgstr ""
+
+#: inc/customizer.php:367 inc/customizer.php:472 inc/customizer.php:707
+msgid "Header Background"
+msgstr ""
+
+#: inc/customizer.php:380 inc/customizer.php:479 inc/customizer.php:714
+#: inc/customizer.php:956 inc/customizer.php:1102
+msgid "Background"
+msgstr ""
+
+#: inc/customizer.php:398 inc/customizer.php:498 inc/customizer.php:732
+msgid "Menu"
+msgstr ""
+
+#: inc/customizer.php:423 inc/customizer.php:522 inc/customizer.php:756
+msgid "Text highlight color"
+msgstr ""
+
+#: inc/customizer.php:443 inc/customizer.php:542 inc/customizer.php:776
+msgid "Sticky Menu"
+msgstr ""
+
+#: inc/customizer.php:456 inc/customizer.php:555 inc/customizer.php:789
+msgid "Sticky?"
+msgstr ""
+
+#: inc/customizer.php:461 inc/customizer.php:560 inc/customizer.php:794
+#: inc/customizer.php:834 inc/customizer.php:921 inc/customizer.php:1093
+msgid "On"
+msgstr ""
+
+#: inc/customizer.php:462 inc/customizer.php:561 inc/customizer.php:795
+#: inc/customizer.php:833 inc/customizer.php:922 inc/customizer.php:1094
+msgid "Off"
+msgstr ""
+
+#: inc/customizer.php:569
+msgid "Topbar Custom"
+msgstr ""
+
+#: inc/customizer.php:600
+msgid "Background color topbar"
+msgstr ""
+
+#: inc/customizer.php:624
+msgid "Text color topbar"
+msgstr ""
+
+#: inc/customizer.php:650
+msgid "Content Left"
+msgstr ""
+
+#: inc/customizer.php:676
+msgid "Content Right"
+msgstr ""
+
+#: inc/customizer.php:807
+msgid "Choose Header Preset Select your main header preset here to apply for all pages"
+msgstr ""
+
+#: inc/customizer.php:819
+msgid "Logo image"
+msgstr ""
+
+#: inc/customizer.php:820
+msgid "Select logo image your website"
+msgstr ""
+
+#: inc/customizer.php:828
+msgid "Loading effect"
+msgstr ""
+
+#: inc/customizer.php:831
+msgid "This option shows animated page loader"
+msgstr ""
+
+#: inc/customizer.php:844
+msgid "Display"
+msgstr ""
+
+#: inc/customizer.php:891 inc/vc-maps.php:34
+msgid "Text align"
+msgstr ""
+
+#: inc/customizer.php:898
+msgid "Default: Center"
+msgstr ""
+
+#: inc/customizer.php:899 inc/vc-maps.php:43 inc/vc-maps.php:59
+#: inc/vc-maps.php:720 inc/vc-maps.php:1519 inc/vc-maps.php:1844
+#: inc/vc-maps.php:2514
+msgid "Left"
+msgstr ""
+
+#: inc/customizer.php:900 inc/vc-maps.php:45 inc/vc-maps.php:60
+#: inc/vc-maps.php:721 inc/vc-maps.php:1521 inc/vc-maps.php:1845
+#: inc/vc-maps.php:2515
+msgid "Right"
+msgstr ""
+
+#: inc/customizer.php:917
+msgid "Navigation bar"
+msgstr ""
+
+#: inc/customizer.php:938 inc/customizer.php:1058
+msgid "Header description"
+msgstr ""
+
+#: inc/customizer.php:977 inc/customizer.php:1122
+msgid "Upload Image"
+msgstr ""
+
+#: inc/customizer.php:981 inc/customizer.php:1124
+msgid "Upload background image of page header here!"
+msgstr ""
+
+#: inc/customizer.php:1007 inc/customizer.php:1149
+msgid "Select Color"
+msgstr ""
+
+#: inc/customizer.php:1039
+msgid "This option only for Posts page"
+msgstr ""
+
+#: inc/customizer.php:1048
+msgid "Header Title"
+msgstr ""
+
+#: inc/customizer.php:1049
+msgid "My Blog!"
+msgstr ""
+
+#: inc/customizer.php:1060
+msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur suscipit nulla ligula, nec tincid unt tortor pulvinar a. Proin nunc leo, imperdiet nec risus non."
+msgstr ""
+
+#: inc/customizer.php:1070
+msgid "Shop page title"
+msgstr ""
+
+#: inc/customizer.php:1079
+msgid "Shop page text"
+msgstr ""
+
+#: inc/customizer.php:1088
+msgid "Footer widget"
+msgstr ""
+
+#: inc/customizer.php:1178
+msgid "Widget Title Color"
+msgstr ""
+
+#: inc/customizer.php:1204 inc/vc-maps.php:1003
+msgid "Background color"
+msgstr ""
+
+#: inc/customizer.php:1235
+msgid "Grid page link"
+msgstr ""
+
+#: inc/customizer.php:1242
+msgid "List page link"
+msgstr ""
+
+#: inc/helpers.php:229
+msgid "&larr; Previous"
+msgstr ""
+
+#: inc/helpers.php:230
+msgid "Next &rarr;"
+msgstr ""
+
+#: inc/helpers.php:274
+msgid "Post navigation"
+msgstr ""
+
+#: inc/helpers.php:280
+msgid "<span class=\"meta-nav\">Published In</span>%title"
+msgstr ""
+
+#: inc/helpers.php:283
+msgid "<span class=\"meta-nav\">Previous Post</span>%title"
+msgstr ""
+
+#: inc/helpers.php:284
+msgid "<span class=\"meta-nav\">Next Post</span>%title"
+msgstr ""
+
+#: inc/helpers.php:300
+msgid "Sticky"
+msgstr ""
+
+#: inc/helpers.php:616
+msgid "Search for:"
+msgstr ""
+
+#: inc/helpers.php:617 inc/widgets/cause-search/views/widget.php:13
+#: vc_templates/search_causes.php:14
+msgid "Enter keyword..."
+msgstr ""
+
+#: inc/helpers.php:666 inc/helpers.php:682 inc/helpers.php:698
+#, php-format
+msgid "View all posts in %s"
+msgstr ""
+
+#: inc/helpers.php:929
+msgid "Footer Menu 2"
+msgstr ""
+
+#: inc/hooks.php:186
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: inc/hooks.php:233
+msgid "Blog Widget Area"
+msgstr ""
+
+#: inc/hooks.php:235
+msgid "Appears in the blog sidebar section of the site."
+msgstr ""
+
+#: inc/hooks.php:242
+msgid "Footer Widget Area"
+msgstr ""
+
+#: inc/hooks.php:244
+msgid "Appears in the footer section of the site."
+msgstr ""
+
+#: inc/hooks.php:255
+msgid "Shop Widget Area"
+msgstr ""
+
+#: inc/hooks.php:257
+msgid "Appears in the sidebar of shop page."
+msgstr ""
+
+#: inc/hooks.php:268
+msgid "Campaign sidebar"
+msgstr ""
+
+#: inc/hooks.php:269
+msgid "The campaign sidebar."
+msgstr ""
+
+#: inc/hooks.php:278
+msgid "Campaign Single sidebar"
+msgstr ""
+
+#: inc/hooks.php:279
+msgid "The campaign single sidebar."
+msgstr ""
+
+#: inc/hooks.php:367
+msgid "Domica Demo"
+msgstr ""
+
+#: inc/hooks.php:461
+msgid "Your name *"
+msgstr ""
+
+#: inc/hooks.php:463
+msgid "Email *"
+msgstr ""
+
+#: inc/hooks.php:465
+msgid "Address *"
+msgstr ""
+
+#: inc/hooks.php:488
+msgid "Please specify the amount of money you want to donate for this cause. You can choose one of these options below:"
+msgstr ""
+
+#: inc/hooks.php:505
+msgid "Make this a monthly donate"
+msgstr ""
+
+#: inc/hooks.php:527
+msgid "Monthly Donate"
+msgstr ""
+
+#: inc/hooks.php:559
+msgid "Checkbox Field"
+msgstr ""
+
+#: inc/hooks.php:593 inc/hooks.php:607
+msgid "Additional Note"
+msgstr ""
+
+#: inc/hooks.php:636
+msgid "Note Field"
+msgstr ""
+
+#: inc/menus.php:8
+msgid "Top primary menu"
+msgstr ""
+
+#: inc/menus.php:9
+msgid "Secondary menu in left sidebar"
+msgstr ""
+
+#: inc/modify.php:3 inc/vc-maps.php:1212
+msgid "Blog News"
+msgstr ""
+
+#: inc/modify.php:4 inc/vc-maps.php:1213
+msgid "Add a Blog News"
+msgstr ""
+
+#: inc/modify.php:7 inc/vc-maps.php:15 inc/vc-maps.php:201 inc/vc-maps.php:351
+#: inc/vc-maps.php:456 inc/vc-maps.php:564 inc/vc-maps.php:662
+#: inc/vc-maps.php:756 inc/vc-maps.php:802 inc/vc-maps.php:880
+#: inc/vc-maps.php:946 inc/vc-maps.php:976 inc/vc-maps.php:1057
+#: inc/vc-maps.php:1096 inc/vc-maps.php:1216 inc/vc-maps.php:1342
+#: inc/vc-maps.php:1394 inc/vc-maps.php:1509 inc/vc-maps.php:1618
+#: inc/vc-maps.php:1723 inc/vc-maps.php:1897 inc/vc-maps.php:1969
+#: inc/vc-maps.php:2000 inc/vc-maps.php:2072 inc/vc-maps.php:2119
+#: inc/vc-maps.php:2142 inc/vc-maps.php:2229 inc/vc-maps.php:2291
+#: inc/vc-maps.php:2350 inc/vc-maps.php:2409 inc/vc-maps.php:2556
+#: inc/vc-maps.php:2616 inc/vc-maps.php:2680 inc/vc-maps.php:2737
+#: inc/vc-maps.php:2799 inc/vc-maps.php:2832 inc/vc-maps.php:2856
+#: inc/vc-maps.php:2897
+msgid "Bridge Theme"
+msgstr ""
+
+#: inc/modify.php:12 inc/vc-include.php:149 inc/vc-include.php:295
+#: inc/vc-include.php:355 inc/vc-maps.php:21 inc/vc-maps.php:207
+#: inc/vc-maps.php:357 inc/vc-maps.php:462 inc/vc-maps.php:570
+#: inc/vc-maps.php:667 inc/vc-maps.php:807 inc/vc-maps.php:885
+#: inc/vc-maps.php:1221 inc/vc-maps.php:1347 inc/vc-maps.php:2234
+#: inc/vc-maps.php:2296 inc/vc-maps.php:2355 inc/vc-maps.php:2561
+#: inc/vc-maps.php:2621 inc/vc-maps.php:2685 inc/vc-maps.php:2742
+msgid "Style"
+msgstr ""
+
+#: inc/modify.php:15 inc/vc-maps.php:888 inc/vc-maps.php:1351
+#: inc/vc-maps.php:2564
+msgid "Style 1"
+msgstr ""
+
+#: inc/modify.php:16 inc/vc-maps.php:889 inc/vc-maps.php:1352
+msgid "Style 2"
+msgstr ""
+
+#: inc/modify.php:17 inc/vc-maps.php:2691
+msgid "Style 3"
+msgstr ""
+
+#: inc/modify.php:18
+msgid "Style 4"
+msgstr ""
+
+#: inc/modify.php:19
+msgid "Style 5"
+msgstr ""
+
+#: inc/modify.php:27 inc/vc-maps.php:1233
+msgid "Count"
+msgstr ""
+
+#: inc/modify.php:28 inc/vc-maps.php:1234
+msgid "Enter post count"
+msgstr ""
+
+#: inc/modify.php:35 inc/vc-maps.php:1241
+msgid "Ignore sticky posts?"
+msgstr ""
+
+#: inc/modify.php:43 inc/vc-maps.php:1249
+msgid "Display Thumbnail Image?"
+msgstr ""
+
+#: inc/modify.php:52 inc/vc-maps.php:1258
+msgid "Order by"
+msgstr ""
+
+#: inc/modify.php:56 inc/vc-maps.php:1262
+msgid "Date"
+msgstr ""
+
+#: inc/modify.php:57 inc/vc-maps.php:1263
+msgid "ID"
+msgstr ""
+
+#: inc/modify.php:58 inc/vc-maps.php:1264
+msgid "Name"
+msgstr ""
+
+#: inc/modify.php:61 inc/vc-maps.php:1267
+msgid "Modified"
+msgstr ""
+
+#: inc/modify.php:62 inc/vc-maps.php:1268
+msgid "Random"
+msgstr ""
+
+#: inc/modify.php:63 inc/vc-maps.php:1269
+msgid "Comment count"
+msgstr ""
+
+#: inc/modify.php:64 inc/vc-maps.php:1270
+msgid "Menu order"
+msgstr ""
+
+#: inc/modify.php:71 inc/vc-maps.php:1277
+msgid "Sort order"
+msgstr ""
+
+#: inc/modify.php:75 inc/vc-maps.php:1281
+msgid "Ascending"
+msgstr ""
+
+#: inc/modify.php:76 inc/vc-maps.php:1282
+msgid "Descending"
+msgstr ""
+
+#: inc/modify.php:84
+msgid "Posts Per Row"
+msgstr ""
+
+#: inc/modify.php:92 inc/vc-maps.php:183 inc/vc-maps.php:333
+#: inc/vc-maps.php:438 inc/vc-maps.php:546 inc/vc-maps.php:644
+#: inc/vc-maps.php:737 inc/vc-maps.php:783 inc/vc-maps.php:861
+#: inc/vc-maps.php:929 inc/vc-maps.php:958 inc/vc-maps.php:1038
+#: inc/vc-maps.php:1078 inc/vc-maps.php:1196 inc/vc-maps.php:1323
+#: inc/vc-maps.php:1375 inc/vc-maps.php:1490 inc/vc-maps.php:1599
+#: inc/vc-maps.php:1706 inc/vc-maps.php:1879 inc/vc-maps.php:1951
+#: inc/vc-maps.php:1981 inc/vc-maps.php:2053 inc/vc-maps.php:2102
+#: inc/vc-maps.php:2125 inc/vc-maps.php:2211 inc/vc-maps.php:2273
+#: inc/vc-maps.php:2332 inc/vc-maps.php:2392 inc/vc-maps.php:2538
+#: inc/vc-maps.php:2598 inc/vc-maps.php:2662 inc/vc-maps.php:2781
+#: inc/vc-maps.php:2814 inc/vc-maps.php:2838 inc/vc-maps.php:2879
+#: inc/vc-maps.php:2912
+msgid "Class"
+msgstr ""
+
+#: inc/modify.php:93 inc/vc-maps.php:184 inc/vc-maps.php:334
+#: inc/vc-maps.php:439 inc/vc-maps.php:547 inc/vc-maps.php:645
+#: inc/vc-maps.php:738 inc/vc-maps.php:784 inc/vc-maps.php:862
+#: inc/vc-maps.php:930 inc/vc-maps.php:959 inc/vc-maps.php:1039
+#: inc/vc-maps.php:1079 inc/vc-maps.php:1197 inc/vc-maps.php:1324
+#: inc/vc-maps.php:1376 inc/vc-maps.php:1491 inc/vc-maps.php:1600
+#: inc/vc-maps.php:1707 inc/vc-maps.php:1880 inc/vc-maps.php:1952
+#: inc/vc-maps.php:1982 inc/vc-maps.php:2054 inc/vc-maps.php:2103
+#: inc/vc-maps.php:2126 inc/vc-maps.php:2212 inc/vc-maps.php:2274
+#: inc/vc-maps.php:2333 inc/vc-maps.php:2393 inc/vc-maps.php:2539
+#: inc/vc-maps.php:2599 inc/vc-maps.php:2663 inc/vc-maps.php:2782
+#: inc/vc-maps.php:2815 inc/vc-maps.php:2839 inc/vc-maps.php:2880
+#: inc/vc-maps.php:2913
+msgid "Style particular content element differently - add a class name and refer to it in custom CSS."
+msgstr ""
+
+#: inc/modify.php:99 inc/vc-maps.php:190 inc/vc-maps.php:340
+#: inc/vc-maps.php:445 inc/vc-maps.php:553 inc/vc-maps.php:651
+#: inc/vc-maps.php:744 inc/vc-maps.php:790 inc/vc-maps.php:868
+#: inc/vc-maps.php:936 inc/vc-maps.php:965 inc/vc-maps.php:1045
+#: inc/vc-maps.php:1085 inc/vc-maps.php:1203 inc/vc-maps.php:1330
+#: inc/vc-maps.php:1382 inc/vc-maps.php:1497 inc/vc-maps.php:1606
+#: inc/vc-maps.php:1713 inc/vc-maps.php:1886 inc/vc-maps.php:1958
+#: inc/vc-maps.php:1988 inc/vc-maps.php:2060 inc/vc-maps.php:2109
+#: inc/vc-maps.php:2132 inc/vc-maps.php:2218 inc/vc-maps.php:2280
+#: inc/vc-maps.php:2339 inc/vc-maps.php:2399 inc/vc-maps.php:2545
+#: inc/vc-maps.php:2605 inc/vc-maps.php:2669 inc/vc-maps.php:2788
+#: inc/vc-maps.php:2821 inc/vc-maps.php:2845 inc/vc-maps.php:2886
+#: inc/vc-maps.php:2919
+msgid "CSS"
+msgstr ""
+
+#: inc/modify.php:101 inc/vc-maps.php:192 inc/vc-maps.php:342
+#: inc/vc-maps.php:447 inc/vc-maps.php:555 inc/vc-maps.php:653
+#: inc/vc-maps.php:746 inc/vc-maps.php:792 inc/vc-maps.php:870
+#: inc/vc-maps.php:938 inc/vc-maps.php:967 inc/vc-maps.php:1047
+#: inc/vc-maps.php:1087 inc/vc-maps.php:1205 inc/vc-maps.php:1332
+#: inc/vc-maps.php:1384 inc/vc-maps.php:1499 inc/vc-maps.php:1608
+#: inc/vc-maps.php:1715 inc/vc-maps.php:1888 inc/vc-maps.php:1960
+#: inc/vc-maps.php:1990 inc/vc-maps.php:2062 inc/vc-maps.php:2111
+#: inc/vc-maps.php:2134 inc/vc-maps.php:2220 inc/vc-maps.php:2282
+#: inc/vc-maps.php:2341 inc/vc-maps.php:2401 inc/vc-maps.php:2547
+#: inc/vc-maps.php:2607 inc/vc-maps.php:2671 inc/vc-maps.php:2790
+#: inc/vc-maps.php:2823 inc/vc-maps.php:2847 inc/vc-maps.php:2888
+#: inc/vc-maps.php:2921
+msgid "Design Options"
+msgstr ""
+
+#: inc/static.php:75
+msgid "Previous"
+msgstr ""
+
+#: inc/static.php:76
+msgid "Next"
+msgstr ""
+
+#: inc/vc-include.php:150
+msgid "Select button display style."
+msgstr ""
+
+#: inc/vc-include.php:154 inc/vc-include.php:287 inc/vc-include.php:350
+msgid "Modern"
+msgstr ""
+
+#: inc/vc-include.php:155 inc/vc-include.php:286 inc/vc-include.php:349
+msgid "Classic"
+msgstr ""
+
+#: inc/vc-include.php:156 inc/vc-include.php:288 inc/vc-include.php:351
+msgid "Flat"
+msgstr ""
+
+#: inc/vc-include.php:157 inc/vc-include.php:289 inc/vc-include.php:352
+msgid "Outline"
+msgstr ""
+
+#: inc/vc-include.php:158
+msgid "3d"
+msgstr ""
+
+#: inc/vc-include.php:160
+msgid "Outline custom"
+msgstr ""
+
+#: inc/vc-include.php:162
+msgid "Gradient Custom"
+msgstr ""
+
+#: inc/vc-include.php:163 inc/vc-include.php:307 inc/vc-include.php:353
+msgid "Theme Style"
+msgstr ""
+
+#: inc/vc-include.php:164
+msgid "Theme Style Custom"
+msgstr ""
+
+#: inc/vc-include.php:172 inc/vc-maps.php:920 inc/vc-maps.php:1670
+#: inc/vc-maps.php:2093 inc/vc-maps.php:2264 inc/vc-maps.php:2323
+#: inc/vc-maps.php:2383 inc/vc-maps.php:2589 inc/vc-maps.php:2653
+#: inc/vc-maps.php:2772
+msgid "Text Color"
+msgstr ""
+
+#: inc/vc-include.php:197
+msgid "Line Color?"
+msgstr ""
+
+#: inc/vc-include.php:212
+msgid "Start Color"
+msgstr ""
+
+#: inc/vc-include.php:224
+msgid "End Color"
+msgstr ""
+
+#: inc/vc-include.php:236
+msgid "Shape"
+msgstr ""
+
+#: inc/vc-include.php:237
+msgid "Select button shape."
+msgstr ""
+
+#: inc/vc-include.php:240
+msgid "Rounded"
+msgstr ""
+
+#: inc/vc-include.php:241
+msgid "Square"
+msgstr ""
+
+#: inc/vc-include.php:242
+msgid "Round"
+msgstr ""
+
+#: inc/vc-include.php:249 inc/vc-include.php:319 inc/vc-include.php:361
+#: inc/vc-maps.php:102 inc/vc-maps.php:252 inc/vc-maps.php:403
+#: inc/vc-maps.php:518 inc/vc-maps.php:616 inc/vc-maps.php:2031
+msgid "Color"
+msgstr ""
+
+#: inc/vc-include.php:251
+msgid "Select button color."
+msgstr ""
+
+#: inc/vc-include.php:255
+msgid "Classic Grey"
+msgstr ""
+
+#: inc/vc-include.php:256
+msgid "Classic Blue"
+msgstr ""
+
+#: inc/vc-include.php:257
+msgid "Classic Turquoise"
+msgstr ""
+
+#: inc/vc-include.php:258
+msgid "Classic Green"
+msgstr ""
+
+#: inc/vc-include.php:259
+msgid "Classic Orange"
+msgstr ""
+
+#: inc/vc-include.php:260
+msgid "Classic Red"
+msgstr ""
+
+#: inc/vc-include.php:261
+msgid "Classic Black"
+msgstr ""
+
+#: inc/vc-include.php:290
+msgid "Theme Style 1"
+msgstr ""
+
+#: inc/vc-include.php:291
+msgid "Theme Style 2"
+msgstr ""
+
+#: inc/vc-include.php:292
+msgid "Theme Style 3"
+msgstr ""
+
+#: inc/vc-include.php:296
+msgid "Select accordion display style."
+msgstr ""
+
+#: inc/vc-include.php:303 inc/vc-maps.php:1846 inc/vc-maps.php:2516
+msgid "None"
+msgstr ""
+
+#: inc/vc-include.php:304
+msgid "Chevron"
+msgstr ""
+
+#: inc/vc-include.php:305
+msgid "Plus"
+msgstr ""
+
+#: inc/vc-include.php:306
+msgid "Triangle"
+msgstr ""
+
+#: inc/vc-include.php:311
+msgid "Select accordion navigation icon."
+msgstr ""
+
+#: inc/vc-include.php:320
+msgid "Select accordion color."
+msgstr ""
+
+#: inc/vc-include.php:335
+msgid "Select text color."
+msgstr ""
+
+#: inc/vc-include.php:356
+msgid "Select tour display style."
+msgstr ""
+
+#: inc/vc-include.php:362
+msgid "Select tour color."
+msgstr ""
+
+#: inc/vc-maps.php:12
+msgid "Iconbox"
+msgstr ""
+
+#: inc/vc-maps.php:25
+msgid "Icon above title v1 center align"
+msgstr ""
+
+#: inc/vc-maps.php:26
+msgid "Icon above title v2 left align"
+msgstr ""
+
+#: inc/vc-maps.php:27
+msgid "Icon above title v3"
+msgstr ""
+
+#: inc/vc-maps.php:44 inc/vc-maps.php:1520
+msgid "Center"
+msgstr ""
+
+#: inc/vc-maps.php:52
+msgid "Direction"
+msgstr ""
+
+#: inc/vc-maps.php:76 inc/vc-maps.php:226 inc/vc-maps.php:377
+#: inc/vc-maps.php:492 inc/vc-maps.php:590
+msgid "Link of Title?"
+msgstr ""
+
+#: inc/vc-maps.php:95 inc/vc-maps.php:245 inc/vc-maps.php:396
+#: inc/vc-maps.php:511 inc/vc-maps.php:609
+msgid "Custom Color?"
+msgstr ""
+
+#: inc/vc-maps.php:112 inc/vc-maps.php:262 inc/vc-maps.php:413
+#: inc/vc-maps.php:528 inc/vc-maps.php:626
+msgid "Hover Color"
+msgstr ""
+
+#: inc/vc-maps.php:126 inc/vc-maps.php:276
+msgid "Use Font Icon"
+msgstr ""
+
+#: inc/vc-maps.php:133 inc/vc-maps.php:283
+msgid "Font Icon"
+msgstr ""
+
+#: inc/vc-maps.php:143 inc/vc-maps.php:293 inc/vc-maps.php:2038
+msgid "Font Size"
+msgstr ""
+
+#: inc/vc-maps.php:154 inc/vc-maps.php:304
+msgid "Font Color"
+msgstr ""
+
+#: inc/vc-maps.php:175 inc/vc-maps.php:325 inc/vc-maps.php:430
+#: inc/vc-maps.php:538 inc/vc-maps.php:1699
+msgid "Content"
+msgstr ""
+
+#: inc/vc-maps.php:198
+msgid "Social Activities"
+msgstr ""
+
+#: inc/vc-maps.php:211
+msgid "Activity Social style"
+msgstr ""
+
+#: inc/vc-maps.php:217
+msgid "Activity Title"
+msgstr ""
+
+#: inc/vc-maps.php:348
+msgid "Feature"
+msgstr ""
+
+#: inc/vc-maps.php:361 inc/vc-maps.php:574
+msgid "Style center align"
+msgstr ""
+
+#: inc/vc-maps.php:423
+msgid "Feature image"
+msgstr ""
+
+#: inc/vc-maps.php:425 inc/vc-maps.php:638 inc/vc-maps.php:1530
+msgid "Either upload a new, or choose an existing image from your media library"
+msgstr ""
+
+#: inc/vc-maps.php:453
+msgid "Featurebox"
+msgstr ""
+
+#: inc/vc-maps.php:466
+msgid "Style left align"
+msgstr ""
+
+#: inc/vc-maps.php:467
+msgid "Style right align"
+msgstr ""
+
+#: inc/vc-maps.php:468
+msgid "Style left align without featurebox number"
+msgstr ""
+
+#: inc/vc-maps.php:475
+msgid "Featurebox title"
+msgstr ""
+
+#: inc/vc-maps.php:483
+msgid "Featurebox number"
+msgstr ""
+
+#: inc/vc-maps.php:484
+msgid "Enter featurebox number"
+msgstr ""
+
+#: inc/vc-maps.php:561
+msgid "Ministries"
+msgstr ""
+
+#: inc/vc-maps.php:582
+msgid "Enter ministries title"
+msgstr ""
+
+#: inc/vc-maps.php:636
+msgid "Ministries image"
+msgstr ""
+
+#: inc/vc-maps.php:659
+msgid "Counter"
+msgstr ""
+
+#: inc/vc-maps.php:671
+msgid "Counters in horizontal align"
+msgstr ""
+
+#: inc/vc-maps.php:672
+msgid "Counters in vertical align"
+msgstr ""
+
+#: inc/vc-maps.php:687
+msgid "Number"
+msgstr ""
+
+#: inc/vc-maps.php:695
+msgid "Unit?"
+msgstr ""
+
+#: inc/vc-maps.php:713
+msgid "Unit Position"
+msgstr ""
+
+#: inc/vc-maps.php:773
+msgid "Video ID"
+msgstr ""
+
+#: inc/vc-maps.php:774
+msgid "Enter video ID, Ex: https://www.youtube.com/watch?v=22iu8byk5C8, ID = 22iu8byk5C8; https://vimeo.com/156602623, ID = 156602623"
+msgstr ""
+
+#: inc/vc-maps.php:799
+msgid "Testimonials"
+msgstr ""
+
+#: inc/vc-maps.php:811
+msgid "Grid"
+msgstr ""
+
+#: inc/vc-maps.php:812
+msgid "Carousel"
+msgstr ""
+
+#: inc/vc-maps.php:819 inc/vc-maps.php:904 inc/vc-maps.php:2077
+#: inc/vc-maps.php:2248 inc/vc-maps.php:2307 inc/vc-maps.php:2367
+#: inc/vc-maps.php:2573 inc/vc-maps.php:2637 inc/vc-maps.php:2755
+msgid "Post per row"
+msgstr ""
+
+#: inc/vc-maps.php:831 inc/vc-maps.php:912 inc/vc-maps.php:1014
+#: inc/vc-maps.php:2085 inc/vc-maps.php:2256 inc/vc-maps.php:2315
+#: inc/vc-maps.php:2375 inc/vc-maps.php:2581 inc/vc-maps.php:2645
+#: inc/vc-maps.php:2763 inc/vc-maps.php:2870
+msgid "Post count"
+msgstr ""
+
+#: inc/vc-maps.php:839 inc/vc-maps.php:1171
+msgid "Color 1"
+msgstr ""
+
+#: inc/vc-maps.php:845 inc/vc-maps.php:1183
+msgid "Color 2"
+msgstr ""
+
+#: inc/vc-maps.php:852
+msgid "Text Content"
+msgstr ""
+
+#: inc/vc-maps.php:853
+msgid "Select text color of content"
+msgstr ""
+
+#: inc/vc-maps.php:877
+msgid "Services"
+msgstr ""
+
+#: inc/vc-maps.php:890
+msgid "Style 3 Carousel"
+msgstr ""
+
+#: inc/vc-maps.php:891
+msgid "Style 4 Carousel"
+msgstr ""
+
+#: inc/vc-maps.php:892
+msgid "Style 5 Carousel"
+msgstr ""
+
+#: inc/vc-maps.php:893
+msgid "Style 6"
+msgstr ""
+
+#: inc/vc-maps.php:894
+msgid "Style 7"
+msgstr ""
+
+#: inc/vc-maps.php:895
+msgid "Style 7 Carousel"
+msgstr ""
+
+#: inc/vc-maps.php:899
+msgid "Choose Style"
+msgstr ""
+
+#: inc/vc-maps.php:944
+msgid "Bridge Service Carousel"
+msgstr ""
+
+#: inc/vc-maps.php:947
+msgid "Add a Service Carousel"
+msgstr ""
+
+#: inc/vc-maps.php:974
+msgid "Bridge Case Study"
+msgstr ""
+
+#: inc/vc-maps.php:977
+msgid "Add a Case Study"
+msgstr ""
+
+#: inc/vc-maps.php:1021
+msgid "Show filter"
+msgstr ""
+
+#: inc/vc-maps.php:1022
+msgid "Append filter to grid."
+msgstr ""
+
+#: inc/vc-maps.php:1029
+msgid "Grid elements per row"
+msgstr ""
+
+#: inc/vc-maps.php:1030
+msgid "Select number of single grid elements per row."
+msgstr ""
+
+#: inc/vc-maps.php:1054
+msgid "Pricing Table"
+msgstr ""
+
+#: inc/vc-maps.php:1067
+msgid "Table Columns"
+msgstr ""
+
+#: inc/vc-maps.php:1094
+msgid "Pricing Table Content"
+msgstr ""
+
+#: inc/vc-maps.php:1105
+msgid "Sale"
+msgstr ""
+
+#: inc/vc-maps.php:1106
+msgid "E.g: Save 20% - go annual"
+msgstr ""
+
+#: inc/vc-maps.php:1113
+msgid "Package Price"
+msgstr ""
+
+#: inc/vc-maps.php:1114
+msgid "Enter the price for this package. e.g. $99"
+msgstr ""
+
+#: inc/vc-maps.php:1122
+msgid "Package Name"
+msgstr ""
+
+#: inc/vc-maps.php:1123
+msgid "Enter the package name"
+msgstr ""
+
+#: inc/vc-maps.php:1131
+msgid "Price Unit"
+msgstr ""
+
+#: inc/vc-maps.php:1132
+msgid "Enter the price unit for this package. e.g. per month"
+msgstr ""
+
+#: inc/vc-maps.php:1140
+msgid "Button text"
+msgstr ""
+
+#: inc/vc-maps.php:1141
+msgid "Enter call to action button text"
+msgstr ""
+
+#: inc/vc-maps.php:1148
+msgid "Button link"
+msgstr ""
+
+#: inc/vc-maps.php:1149
+msgid "Select / enter the link for call to action button"
+msgstr ""
+
+#: inc/vc-maps.php:1155
+msgid "Features"
+msgstr ""
+
+#: inc/vc-maps.php:1156
+msgid "Create the features list using un-ordered list elements."
+msgstr ""
+
+#: inc/vc-maps.php:1164
+msgid "Featured Price Box"
+msgstr ""
+
+#: inc/vc-maps.php:1173
+msgid "Select main color for Table style"
+msgstr ""
+
+#: inc/vc-maps.php:1185
+msgid "Select sub color for Table style"
+msgstr ""
+
+#: inc/vc-maps.php:1224
+msgid "Blog Post Style 1"
+msgstr ""
+
+#: inc/vc-maps.php:1225
+msgid "Blog Post Carousel"
+msgstr ""
+
+#: inc/vc-maps.php:1290
+msgid "Columns"
+msgstr ""
+
+#: inc/vc-maps.php:1291
+msgid "Select post per row"
+msgstr ""
+
+#: inc/vc-maps.php:1339
+msgid "Brand Logo"
+msgstr ""
+
+#: inc/vc-maps.php:1360
+msgid "Enter Logo Brand title"
+msgstr ""
+
+#: inc/vc-maps.php:1368 inc/vc-maps.php:1902 inc/vc-maps.php:2717
+#: taxonomy-post_format.php:29
+msgid "Images"
+msgstr ""
+
+#: inc/vc-maps.php:1369 inc/vc-maps.php:1903 inc/vc-maps.php:2718
+msgid "Choose your images"
+msgstr ""
+
+#: inc/vc-maps.php:1391
+msgid "Progress Bar"
+msgstr ""
+
+#: inc/vc-maps.php:1399
+msgid "Values"
+msgstr ""
+
+#: inc/vc-maps.php:1401
+msgid "Enter values for graph - value, title and color."
+msgstr ""
+
+#: inc/vc-maps.php:1404
+msgid "Development"
+msgstr ""
+
+#: inc/vc-maps.php:1408
+msgid "Design"
+msgstr ""
+
+#: inc/vc-maps.php:1412
+msgid "Marketing"
+msgstr ""
+
+#: inc/vc-maps.php:1419
+msgid "Label"
+msgstr ""
+
+#: inc/vc-maps.php:1421
+msgid "Enter text used as title of bar."
+msgstr ""
+
+#: inc/vc-maps.php:1426
+msgid "Value"
+msgstr ""
+
+#: inc/vc-maps.php:1428
+msgid "Enter value of bar. (Note: value range from 0 to 100)"
+msgstr ""
+
+#: inc/vc-maps.php:1434
+msgid "Custom color?"
+msgstr ""
+
+#: inc/vc-maps.php:1436 inc/vc-maps.php:1447 inc/vc-maps.php:1458
+msgid "Select custom single bar background color."
+msgstr ""
+
+#: inc/vc-maps.php:1445
+msgid "Custom progress bar color 1"
+msgstr ""
+
+#: inc/vc-maps.php:1456
+msgid "Custom progress bar color 2"
+msgstr ""
+
+#: inc/vc-maps.php:1468
+msgid "Custom text color"
+msgstr ""
+
+#: inc/vc-maps.php:1470
+msgid "Select custom single bar text color."
+msgstr ""
+
+#: inc/vc-maps.php:1482
+msgid "Units"
+msgstr ""
+
+#: inc/vc-maps.php:1484
+msgid "Enter measurement units (Example: %, px, points, etc. Note: graph value and units will be appended to graph title)."
+msgstr ""
+
+#: inc/vc-maps.php:1506
+msgid "Team member"
+msgstr ""
+
+#: inc/vc-maps.php:1514
+msgid "Text Align"
+msgstr ""
+
+#: inc/vc-maps.php:1528
+msgid "Member image"
+msgstr ""
+
+#: inc/vc-maps.php:1536
+msgid "Member Name"
+msgstr ""
+
+#: inc/vc-maps.php:1538
+msgid "Name of the person"
+msgstr ""
+
+#: inc/vc-maps.php:1544
+msgid "Member Job"
+msgstr ""
+
+#: inc/vc-maps.php:1546
+msgid "Job title of the person"
+msgstr ""
+
+#: inc/vc-maps.php:1551
+msgid "Member Description"
+msgstr ""
+
+#: inc/vc-maps.php:1553
+msgid "Enter a few words that describe the person"
+msgstr ""
+
+#: inc/vc-maps.php:1557
+msgid "Member social profiles"
+msgstr ""
+
+#: inc/vc-maps.php:1567
+msgid "Social profile list"
+msgstr ""
+
+#: inc/vc-maps.php:1573
+msgid "Enter social media links such as Facebook, Twitter, Google Plus..."
+msgstr ""
+
+#: inc/vc-maps.php:1591
+msgid "Enter social media links"
+msgstr ""
+
+#: inc/vc-maps.php:1615
+msgid "Tabs"
+msgstr ""
+
+#: inc/vc-maps.php:1622
+msgid "Tabs content"
+msgstr ""
+
+#: inc/vc-maps.php:1654
+msgid "Nav"
+msgstr ""
+
+#: inc/vc-maps.php:1661
+msgid "Custom Nav"
+msgstr ""
+
+#: inc/vc-maps.php:1692
+msgid "Title Content"
+msgstr ""
+
+#: inc/vc-maps.php:1721
+msgid "Map"
+msgstr ""
+
+#: inc/vc-maps.php:1724
+msgid "Add a Custom Map"
+msgstr ""
+
+#: inc/vc-maps.php:1728
+msgid "Address or Coordinate"
+msgstr ""
+
+#: inc/vc-maps.php:1732
+msgid "Enter address or coordinate. (Note: separate values with \",\" )<br><a href=\"http://www.latlong.net/convert-address-to-lat-long.html\" target=\"_blank\" >Here is a tool</a> where you can find Latitude &amp; Longitude of your location."
+msgstr ""
+
+#: inc/vc-maps.php:1744 inc/vc-maps.php:2414
+msgid "Marker icon"
+msgstr ""
+
+#: inc/vc-maps.php:1746 inc/vc-maps.php:2416
+msgid "Choose a image for marker address"
+msgstr ""
+
+#: inc/vc-maps.php:1750 inc/vc-maps.php:2420
+msgid "Marker Information"
+msgstr ""
+
+#: inc/vc-maps.php:1752 inc/vc-maps.php:2422
+msgid "Content for info window"
+msgstr ""
+
+#: inc/vc-maps.php:1756 inc/vc-maps.php:2426
+msgid "Height"
+msgstr ""
+
+#: inc/vc-maps.php:1759 inc/vc-maps.php:2429
+msgid "Enter map height. Ex: 450"
+msgstr ""
+
+#: inc/vc-maps.php:1763 inc/vc-maps.php:2433
+msgid "Width"
+msgstr ""
+
+#: inc/vc-maps.php:1766 inc/vc-maps.php:2436
+msgid "Enter map width (in pixels or percentage)"
+msgstr ""
+
+#: inc/vc-maps.php:1770 inc/vc-maps.php:2440
+msgid "Zoom level"
+msgstr ""
+
+#: inc/vc-maps.php:1773 inc/vc-maps.php:2443
+msgid "Map zoom level"
+msgstr ""
+
+#: inc/vc-maps.php:1777 inc/vc-maps.php:2447
+msgid "Enable Map zoom"
+msgstr ""
+
+#: inc/vc-maps.php:1785 inc/vc-maps.php:2455
+msgid "Map type"
+msgstr ""
+
+#: inc/vc-maps.php:1788 inc/vc-maps.php:2458
+msgid "Choose a map type"
+msgstr ""
+
+#: inc/vc-maps.php:1790 inc/vc-maps.php:2460
+msgid "Roadmap"
+msgstr ""
+
+#: inc/vc-maps.php:1791 inc/vc-maps.php:2461
+msgid "Satellite"
+msgstr ""
+
+#: inc/vc-maps.php:1792 inc/vc-maps.php:2462
+msgid "Hybrid"
+msgstr ""
+
+#: inc/vc-maps.php:1793 inc/vc-maps.php:2463
+msgid "Terrain"
+msgstr ""
+
+#: inc/vc-maps.php:1798 inc/vc-maps.php:2468
+msgid "Map style"
+msgstr ""
+
+#: inc/vc-maps.php:1801 inc/vc-maps.php:2471
+msgid "Choose a map style. This approach changes the style of the Roadmap types (base imagery in terrain and satellite views is not affected, but roads, labels, etc. respect styling rules"
+msgstr ""
+
+#: inc/vc-maps.php:1804 inc/vc-maps.php:2474
+msgid "Grayscale"
+msgstr ""
+
+#: inc/vc-maps.php:1805 inc/vc-maps.php:2475
+msgid "Subtle Grayscale"
+msgstr ""
+
+#: inc/vc-maps.php:1806 inc/vc-maps.php:2476
+msgid "Apple Maps-esque"
+msgstr ""
+
+#: inc/vc-maps.php:1807 inc/vc-maps.php:2477
+msgid "Pale Dawn"
+msgstr ""
+
+#: inc/vc-maps.php:1808 inc/vc-maps.php:2478
+msgid "Muted Blue"
+msgstr ""
+
+#: inc/vc-maps.php:1809 inc/vc-maps.php:2479
+msgid "Paper"
+msgstr ""
+
+#: inc/vc-maps.php:1810 inc/vc-maps.php:2480
+msgid "Light Dream"
+msgstr ""
+
+#: inc/vc-maps.php:1811 inc/vc-maps.php:2481
+msgid "Retro"
+msgstr ""
+
+#: inc/vc-maps.php:1812 inc/vc-maps.php:2482
+msgid "Avocado World"
+msgstr ""
+
+#: inc/vc-maps.php:1813 inc/vc-maps.php:2483
+msgid "Shades of Grey"
+msgstr ""
+
+#: inc/vc-maps.php:1814 inc/vc-maps.php:2484
+msgid "Blue water"
+msgstr ""
+
+#: inc/vc-maps.php:1821 inc/vc-maps.php:2491
+msgid "Map style snippet"
+msgstr ""
+
+#: inc/vc-maps.php:1828 inc/vc-maps.php:2498
+msgid "You can visit <a href=\"https://snazzymaps.com/\" target=\"_blank\">https://snazzymaps.com/</a> to get Google Map styles"
+msgstr ""
+
+#: inc/vc-maps.php:1839 inc/vc-maps.php:2509
+msgid "Contact Map"
+msgstr ""
+
+#: inc/vc-maps.php:1840 inc/vc-maps.php:2510
+msgid "Select position of Contact Map."
+msgstr ""
+
+#: inc/vc-maps.php:1852
+msgid "Contact Map Title"
+msgstr ""
+
+#: inc/vc-maps.php:1859
+msgid "Enter Title of Contact Map"
+msgstr ""
+
+#: inc/vc-maps.php:1863 inc/vc-maps.php:2522
+msgid "Contact Map Info"
+msgstr ""
+
+#: inc/vc-maps.php:1869 inc/vc-maps.php:1928 inc/vc-maps.php:2528
+msgid "Write some text"
+msgstr ""
+
+#: inc/vc-maps.php:1894
+msgid "Landing"
+msgstr ""
+
+#: inc/vc-maps.php:1909
+msgid "Url"
+msgstr ""
+
+#: inc/vc-maps.php:1910
+msgid "Enter your url"
+msgstr ""
+
+#: inc/vc-maps.php:1919
+msgid "Enter the title"
+msgstr ""
+
+#: inc/vc-maps.php:1927
+msgid "Description"
+msgstr ""
+
+#: inc/vc-maps.php:1936
+msgid "Custom hover color 1"
+msgstr ""
+
+#: inc/vc-maps.php:1943
+msgid "Custom hover color 2"
+msgstr ""
+
+#: inc/vc-maps.php:1967
+msgid "Iconbox Carousel"
+msgstr ""
+
+#: inc/vc-maps.php:1970
+msgid "Add a Carousel of Iconbox"
+msgstr ""
+
+#: inc/vc-maps.php:1998
+msgid "Video Lightbox"
+msgstr ""
+
+#: inc/vc-maps.php:2001
+msgid "Add a Video Lightbox"
+msgstr ""
+
+#: inc/vc-maps.php:2005
+msgid "Video Url"
+msgstr ""
+
+#: inc/vc-maps.php:2007
+msgid "Enter video url here. This options support Vimeo and Youtube. Ex: https://vimeo.com/137213101"
+msgstr ""
+
+#: inc/vc-maps.php:2013
+msgid "Left heading"
+msgstr ""
+
+#: inc/vc-maps.php:2022
+msgid "Right heading"
+msgstr ""
+
+#: inc/vc-maps.php:2046
+msgid "Icon play"
+msgstr ""
+
+#: inc/vc-maps.php:2049
+msgid "Select icon from library."
+msgstr ""
+
+#: inc/vc-maps.php:2070
+msgid "Stories"
+msgstr ""
+
+#: inc/vc-maps.php:2117
+msgid "Portfolio Title"
+msgstr ""
+
+#: inc/vc-maps.php:2140
+msgid "Countdown Time"
+msgstr ""
+
+#: inc/vc-maps.php:2143
+msgid "Add a Countdown Time"
+msgstr ""
+
+#: inc/vc-maps.php:2148
+msgid "Time"
+msgstr ""
+
+#: inc/vc-maps.php:2151
+msgid "Enter datetime. For example: 10/20/2020 17:30:00"
+msgstr ""
+
+#: inc/vc-maps.php:2160
+msgid "Day text"
+msgstr ""
+
+#: inc/vc-maps.php:2171
+msgid "Hours text"
+msgstr ""
+
+#: inc/vc-maps.php:2182
+msgid "Minute text"
+msgstr ""
+
+#: inc/vc-maps.php:2193
+msgid "Second text"
+msgstr ""
+
+#: inc/vc-maps.php:2204
+msgid "URL"
+msgstr ""
+
+#: inc/vc-maps.php:2206
+msgid "Go to the URL when end countdown (Optional)"
+msgstr ""
+
+#: inc/vc-maps.php:2226
+msgid "Events"
+msgstr ""
+
+#: inc/vc-maps.php:2237
+msgid "Style 1 Grid v1"
+msgstr ""
+
+#: inc/vc-maps.php:2238
+msgid "Style 2 Grid v2 "
+msgstr ""
+
+#: inc/vc-maps.php:2239
+msgid "Style 3 List v1"
+msgstr ""
+
+#: inc/vc-maps.php:2240
+msgid "Style 4 List v2 "
+msgstr ""
+
+#: inc/vc-maps.php:2288
+msgid "Event Organizers"
+msgstr ""
+
+#: inc/vc-maps.php:2299
+msgid "Event Organizer"
+msgstr ""
+
+#: inc/vc-maps.php:2347
+msgid "Event Current Item"
+msgstr ""
+
+#: inc/vc-maps.php:2358
+msgid "Event Current Item Style 1"
+msgstr ""
+
+#: inc/vc-maps.php:2359
+msgid "Event Current Item Style 2"
+msgstr ""
+
+#: inc/vc-maps.php:2407
+msgid "Event Map"
+msgstr ""
+
+#: inc/vc-maps.php:2410
+msgid "Add a Custom Map Event"
+msgstr ""
+
+#: inc/vc-maps.php:2553
+msgid "Staff"
+msgstr ""
+
+#: inc/vc-maps.php:2565
+msgid "Style Carousel"
+msgstr ""
+
+#: inc/vc-maps.php:2613
+msgid "Sermon"
+msgstr ""
+
+#: inc/vc-maps.php:2624
+msgid "Sermon style 1"
+msgstr ""
+
+#: inc/vc-maps.php:2625
+msgid "Sermon style 2"
+msgstr ""
+
+#: inc/vc-maps.php:2626
+msgid "Sermon style 3 without sermon image"
+msgstr ""
+
+#: inc/vc-maps.php:2627
+msgid "Sermon Style Carousel"
+msgstr ""
+
+#: inc/vc-maps.php:2628
+msgid "Sermon style 4"
+msgstr ""
+
+#: inc/vc-maps.php:2629
+msgid "Sermon style 5"
+msgstr ""
+
+#: inc/vc-maps.php:2689
+msgid "Style Full width"
+msgstr ""
+
+#: inc/vc-maps.php:2690
+msgid "Style Standard"
+msgstr ""
+
+#: inc/vc-maps.php:2700
+msgid "Enter Gallery subtitle"
+msgstr ""
+
+#: inc/vc-maps.php:2709
+msgid "Enter Gallery title"
+msgstr ""
+
+#: inc/vc-maps.php:2724
+msgid "Image size"
+msgstr ""
+
+#: inc/vc-maps.php:2727
+msgid "Enter image size. Example: thumbnail, medium, large, full or other sizes defined by current theme. Alternatively enter image size in pixels: 200x100 (Width x Height). Leave empty to use \"thumbnail\" size."
+msgstr ""
+
+#: inc/vc-maps.php:2735
+msgid "Cause"
+msgstr ""
+
+#: inc/vc-maps.php:2745
+msgid "Cause Standard"
+msgstr ""
+
+#: inc/vc-maps.php:2746
+msgid "Cause List"
+msgstr ""
+
+#: inc/vc-maps.php:2747
+msgid "Cause Grid"
+msgstr ""
+
+#: inc/vc-maps.php:2797
+msgid "Social Sharing"
+msgstr ""
+
+#: inc/vc-maps.php:2805
+msgid "Enter social sharing title"
+msgstr ""
+
+#: inc/vc-maps.php:2830
+msgid "Campaign Information"
+msgstr ""
+
+#: inc/vc-maps.php:2854
+msgid "Related Causes"
+msgstr ""
+
+#: inc/vc-maps.php:2862 inc/vc-maps.php:2903
+msgid "Enter title"
+msgstr ""
+
+#: inc/vc-maps.php:2895
+#: inc/widgets/cause-search/class-widget-cause-search.php:10
+#: inc/widgets/cause-search/class-widget-cause-search.php:36
+msgid "Search for causes"
+msgstr ""
+
+#: inc/widgets/blog-tabs/class-widget-blog-tabs.php:10
+msgid "Blog Tabs"
+msgstr ""
+
+#: inc/widgets/cause-info/class-widget-cause-info.php:10
+msgid "Cause Information with Donate Button"
+msgstr ""
+
+#: inc/widgets/cause-info/class-widget-cause-info.php:13
+#: inc/widgets/cause-info/class-widget-cause-info.php:36
+msgid "Cause Information"
+msgstr ""
+
+#: inc/widgets/cause-search/class-widget-cause-search.php:13
+msgid "Search for Causes"
+msgstr ""
+
+#: inc/widgets/facebook-page-stream/class-widget-facebook-page-stream.php:15
+msgid "Facebook"
+msgstr ""
+
+#: inc/widgets/mailchimp-subscribe/class-widget-mailchimp-subscribe.php:10
+msgid "Mailchimp Subscribe Form"
+msgstr ""
+
+#: inc/widgets/recent-posts/class-widget-recent-posts.php:10
+msgid "List recent posts with thubmnail"
+msgstr ""
+
+#: inc/widgets/recent-posts/class-widget-recent-posts.php:13
+msgid "Recent Posts with Thumbnail"
+msgstr ""
+
+#: inc/widgets/recent-posts/class-widget-recent-posts.php:37
+msgid "Recent Posts"
+msgstr ""
+
+#: inc/widgets/related-causes/class-widget-related-causes.php:10
+msgid "List related causes with thubmnail"
+msgstr ""
+
+#: inc/widgets/related-causes/class-widget-related-causes.php:13
+msgid "Related Causes with Thumbnail"
+msgstr ""
+
+#: inc/widgets/related-causes/class-widget-related-causes.php:37
+msgid "Related causes"
+msgstr ""
+
+#: inc/widgets/sharing/class-widget-sharing.php:10
+msgid "Share post with Social Network"
+msgstr ""
+
+#: inc/widgets/sharing/class-widget-sharing.php:13
+msgid "Sharing"
+msgstr ""
+
+#: inc/widgets/sharing/class-widget-sharing.php:36
+msgid "Share this cause"
+msgstr ""
+
+#: inc/widgets/social/class-widget-social.php:6
+msgid "Social links"
+msgstr ""
+
+#: inc/widgets/social/class-widget-social.php:8
+msgid "Social"
+msgstr ""
+
+#: inc/widgets/social/class-widget-social.php:41
+msgid "Social Title:"
+msgstr ""
+
+#: inc/widgets/social/class-widget-social.php:42
+msgid "Google URL:"
+msgstr ""
+
+#: inc/widgets/social/class-widget-social.php:43
+msgid "Facebook URL:"
+msgstr ""
+
+#: inc/widgets/social/class-widget-social.php:44
+msgid "Twitter URL:"
+msgstr ""
+
+#: inc/widgets/social/class-widget-social.php:45
+msgid "Dribbble URL:"
+msgstr ""
+
+#: inc/widgets/social/class-widget-social.php:46
+msgid "Vimeo-square URL:"
+msgstr ""
+
+#: inc/widgets/social/class-widget-social.php:47
+msgid "Linkedin URL:"
+msgstr ""
+
+#: inc/widgets/social/class-widget-social.php:48
+msgid "Instagram URL:"
+msgstr ""
+
+#: inc/widgets/twitter/class-widget-twitter.php:13
+msgid "Twitter Feed"
+msgstr ""
+
+#: inc/widgets/twitter/class-widget-twitter.php:14
+msgid "Twitter"
+msgstr ""
+
+#: inc/widgets/twitter/class-widget-twitter.php:58
+msgid "User"
+msgstr ""
+
+#: inc/widgets/twitter/class-widget-twitter.php:64
+msgid "Number of tweets"
+msgstr ""
+
+#: page-templates/page-header.php:150
+#, php-format
+msgid "Daily Archives: %s"
+msgstr ""
+
+#: page-templates/page-header.php:152
+#, php-format
+msgid "Monthly Archives: %s"
+msgstr ""
+
+#: page-templates/page-header.php:159
+#, php-format
+msgid "Yearly Archives: %s"
+msgstr ""
+
+#: search-cause.php:23
+#, php-format
+msgid "Search results for cause: %s"
+msgstr ""
+
+#: search.php:15
+#, php-format
+msgid "Search results for: %s"
+msgstr ""
+
+#: taxonomy-post_format.php:26
+msgid "Asides"
+msgstr ""
+
+#: taxonomy-post_format.php:32
+msgid "Videos"
+msgstr ""
+
+#: taxonomy-post_format.php:38
+msgid "Quotes"
+msgstr ""
+
+#: taxonomy-post_format.php:41
+msgid "Links"
+msgstr ""
+
+#: taxonomy-post_format.php:44
+msgid "Galleries"
+msgstr ""
+
+#: taxonomy-post_format.php:47
+msgid "Archives"
+msgstr ""
+
+#: tribe-events/day/loop.php:56 tribe-events/list/loop.php:53
+#: vc_templates/event_current_item.php:32 vc_templates/events.php:49
+#: vc_templates/events.php:88 vc_templates/events.php:133
+#: vc_templates/events.php:171
+msgid "Location:"
+msgstr ""
+
+#: tribe-events/day/loop.php:60 tribe-events/list/loop.php:57
+#: vc_templates/event_current_item.php:36 vc_templates/events.php:53
+#: vc_templates/events.php:92 vc_templates/events.php:137
+#: vc_templates/events.php:175
+msgid "Date:"
+msgstr ""
+
+#: vc_templates/brand.php:22
+msgid "Brand Logo image"
+msgstr ""
+
+#: vc_templates/event_organizer.php:27
+msgid "Pastor"
+msgstr ""
+
+#: vc_templates/event_organizer.php:43
+msgid "Email"
+msgstr ""
+
+#: vc_templates/event_organizer.php:50
+msgid "Website"
+msgstr ""
+
+#: vc_templates/gallery_img.php:30 vc_templates/gallery_img.php:49
+#: vc_templates/gallery_img.php:63
+msgid "Gallery image"
+msgstr ""
+
+#: vc_templates/iconbox.php:91 vc_templates/social_activities.php:82
+msgid "Image icon"
+msgstr ""

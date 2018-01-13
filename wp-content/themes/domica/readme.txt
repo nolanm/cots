@@ -1,0 +1,2 @@
+# Finazi theme
+## From Haintheme

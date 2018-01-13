@@ -1,0 +1,55 @@
+<?php
+/**
+ * The template for displaying campaign content within loops.
+ *
+ * This overrides the default Charitable template defined at charitable/templates/campaign-loop/campaign.php
+ *
+ * @author  Studio 164a
+ * @package Reach
+ * @since   1.0.0
+ * @version 1.0.0
+ */
+
+if ( ! defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly
+
+$campaign = charitable_get_current_campaign();
+
+?>
+<div id="campaign-<?php echo get_the_ID() ?>" class="campaign-widget campaign block cf">    
+	<?php
+
+	/**
+	 * @hook charitable_campaign_content_loop_before
+	 */
+	do_action( 'charitable_campaign_content_loop_before', $campaign, $view_args );
+
+	/**
+	 * @hook charitable_campaign_content_loop_before_title
+	 */
+	do_action( 'charitable_campaign_content_loop_before_title', $campaign, $view_args );
+
+	?>
+	<div class="campaign-box">
+		<div class="title-wrapper">
+			<h5 class="block-title">
+				<a href="<?php  ?>" title="<?php the_title_attribute() ?>" target="_parent"><?php the_title() ?></a>
+			</h5>
+		</div>
+		<div class="campaign-category">
+			<?php domica_charitable_category() ?>
+		</div>
+		<?php
+
+		/**
+		 * @hook charitable_campaign_content_loop_after_title
+		 */
+		do_action( 'charitable_campaign_content_loop_after_title', $campaign );
+
+		/**
+		 * @hook charitable_campaign_content_loop_after
+		 */
+		do_action( 'charitable_campaign_content_loop_after', $campaign );
+
+		?>
+	</div>
+</div>
