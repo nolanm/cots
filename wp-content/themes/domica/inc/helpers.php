@@ -1008,7 +1008,7 @@ function custom_text_header() {
 		);
 		$pid = get_queried_object_id();
 		$p_page_header = (function_exists('fw_get_db_post_option')) ? fw_get_db_post_option($pid, 'p_page_header') : '1';
-		$page_options = fw_get_db_post_option($pid, 'p_page_header');
+		$page_options =  (function_exists('fw_get_db_post_option')) ? fw_get_db_post_option($pid, 'p_page_header') : '';
 		$color_text = $page_options[1]['page_header_text_color'];
 		
         $custom_css = "

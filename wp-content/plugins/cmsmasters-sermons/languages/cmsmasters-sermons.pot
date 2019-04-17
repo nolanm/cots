@@ -1,0 +1,336 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: CMSMasters Sermons 1.0.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-22 15:22+0200\n"
+"PO-Revision-Date: 2016-11-22 15:22+0200\n"
+"Last-Translator: \n"
+"Language-Team: cmsmasters <cmsmstrs@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__;esc_html_e;esc_attr__;esc_attr_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-Country: UNITED STATES\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: cmsmasters-sermons.php:89
+#: inc/sermons-posttype.php:25
+#: inc/sermons-posttype.php:26
+#: inc/sermons-posttype.php:27
+msgid "Sermons"
+msgstr ""
+
+#: cmsmasters-sermons.php:90
+msgid "Choose what parameter your sermons will be ordered by"
+msgstr ""
+
+#: cmsmasters-sermons.php:91
+msgid "Sermons Number"
+msgstr ""
+
+#: cmsmasters-sermons.php:92
+msgid "Enter the number of sermons to be shown per page"
+msgstr ""
+
+#: cmsmasters-sermons.php:93
+msgid "number, if empty - show all sermons"
+msgstr ""
+
+#: cmsmasters-sermons.php:94
+msgid "Choose sermons metadata you want to be shown"
+msgstr ""
+
+#: cmsmasters-sermons.php:95
+msgid "Show sermons associated with certain categories"
+msgstr ""
+
+#: cmsmasters-sermons.php:96
+msgid "If you don't choose any sermon categories, all your sermons will be shown"
+msgstr ""
+
+#: cmsmasters-sermons.php:97
+msgid "Choose number of sermons per row"
+msgstr ""
+
+#: cmsmasters-sermons.php:98
+msgid "Choose your method of viewing additional sermons"
+msgstr ""
+
+#: cmsmasters-sermons.php:99
+msgid "Disable additional sermons"
+msgstr ""
+
+#: cmsmasters-sermons.php:132
+msgid "Your theme doesn't support CMSMasters Sermons plugin. Please use appropriate CMSMasters theme."
+msgstr ""
+
+#: cmsmasters-sermons.php:133
+msgid "Error!"
+msgstr ""
+
+#: cmsmasters-sermons.php:159
+msgid "CMSMasters Sermons plugin was deactivated, because your theme doesn't support it. Please use appropriate CMSMasters theme."
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-options-filter.php:53
+#: inc/cmsmasters-sermons-theme-settings-filter.php:55
+msgid "Sermon"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-options-filter.php:81
+msgid "Embedded Video Link"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-options-filter.php:90
+msgid "Audio Link"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-options-filter.php:99
+msgid "Download Link"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-options-filter.php:108
+msgid "PDF Link"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-options-filter.php:117
+#: inc/cmsmasters-sermons-theme-settings-filter.php:97
+msgid "Sermon Title"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-options-filter.php:118
+#: inc/cmsmasters-sermons-theme-options-filter.php:127
+#: inc/cmsmasters-sermons-theme-options-filter.php:136
+msgid "Show"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-options-filter.php:126
+#: inc/cmsmasters-sermons-theme-settings-filter.php:169
+msgid "Sharing Box"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-options-filter.php:135
+#: inc/cmsmasters-sermons-theme-settings-filter.php:178
+msgid "About Author Box"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-options-filter.php:144
+#: inc/cmsmasters-sermons-theme-settings-filter.php:187
+msgid "More Sermons Box"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-options-filter.php:152
+msgid "Show Related Tab"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-options-filter.php:156
+msgid "Show Popular Tab"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-options-filter.php:160
+msgid "Show Recent Tab"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-options-filter.php:164
+#: inc/cmsmasters-sermons-theme-settings-filter.php:195
+msgid "Hide More Sermons Box"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-settings-filter.php:68
+msgid "Sermons Options"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-settings-filter.php:83
+msgid "Sermon Layout Type"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-settings-filter.php:88
+msgid "Right Sidebar"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-settings-filter.php:89
+msgid "Left Sidebar"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-settings-filter.php:90
+msgid "Full Width"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-settings-filter.php:98
+#: inc/cmsmasters-sermons-theme-settings-filter.php:107
+#: inc/cmsmasters-sermons-theme-settings-filter.php:116
+#: inc/cmsmasters-sermons-theme-settings-filter.php:125
+#: inc/cmsmasters-sermons-theme-settings-filter.php:134
+#: inc/cmsmasters-sermons-theme-settings-filter.php:143
+#: inc/cmsmasters-sermons-theme-settings-filter.php:152
+#: inc/cmsmasters-sermons-theme-settings-filter.php:161
+#: inc/cmsmasters-sermons-theme-settings-filter.php:170
+#: inc/cmsmasters-sermons-theme-settings-filter.php:179
+msgid "show"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-settings-filter.php:106
+msgid "Sermon Date"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-settings-filter.php:115
+#: inc/sermons-posttype.php:78
+msgid "Sermon Categories"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-settings-filter.php:124
+#: inc/sermons-posttype.php:96
+msgid "Sermon Tags"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-settings-filter.php:133
+msgid "Sermon Author"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-settings-filter.php:142
+msgid "Sermon Comments"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-settings-filter.php:151
+msgid "Sermon Likes"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-settings-filter.php:160
+msgid "Sermon Navigation Box"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-settings-filter.php:192
+msgid "Show Related Sermons"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-settings-filter.php:193
+msgid "Show Popular Sermons"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-settings-filter.php:194
+msgid "Show Recent Sermons"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-settings-filter.php:202
+msgid "More Sermons Box Items Number"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-settings-filter.php:203
+msgid "sermons"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-settings-filter.php:213
+msgid "More Sermons Slider Pause Time"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-settings-filter.php:214
+msgid "in seconds, if '0' - autoslide disabled"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-settings-filter.php:224
+msgid "Sermon Slug"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-settings-filter.php:225
+msgid "Enter a page slug that should be used for your sermons single item"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-settings-filter.php:234
+msgid "Sermon Categories Slug"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-settings-filter.php:235
+msgid "Enter page slug that should be used on sermons categories archive page"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-settings-filter.php:244
+msgid "Sermon Tags Slug"
+msgstr ""
+
+#: inc/cmsmasters-sermons-theme-settings-filter.php:245
+msgid "Enter page slug that should be used on sermons tags archive page"
+msgstr ""
+
+#: inc/sermons-posttype.php:28
+msgid "All Sermons"
+msgstr ""
+
+#: inc/sermons-posttype.php:29
+msgid "Add New"
+msgstr ""
+
+#: inc/sermons-posttype.php:30
+msgid "Add New Sermon"
+msgstr ""
+
+#: inc/sermons-posttype.php:31
+msgid "Edit Sermon"
+msgstr ""
+
+#: inc/sermons-posttype.php:32
+msgid "New Sermon"
+msgstr ""
+
+#: inc/sermons-posttype.php:33
+msgid "View Sermon"
+msgstr ""
+
+#: inc/sermons-posttype.php:34
+msgid "Search Sermons"
+msgstr ""
+
+#: inc/sermons-posttype.php:35
+msgid "No Sermons found"
+msgstr ""
+
+#: inc/sermons-posttype.php:36
+msgid "No Sermons found in Trash"
+msgstr ""
+
+#: inc/sermons-posttype.php:79
+msgid "Sermon Category"
+msgstr ""
+
+#: inc/sermons-posttype.php:97
+msgid "Sermon Tag"
+msgstr ""
+
+#: inc/sermons-posttype.php:128
+msgid "Title"
+msgstr ""
+
+#: inc/sermons-posttype.php:129
+msgid "Thumbnail"
+msgstr ""
+
+#: inc/sermons-posttype.php:130
+msgid "Categories"
+msgstr ""
+
+#: inc/sermons-posttype.php:131
+msgid "Tags"
+msgstr ""
+
+#: inc/sermons-posttype.php:132
+msgid "Comments"
+msgstr ""
+
+#: inc/sermons-posttype.php:133
+msgid "Order"
+msgstr ""
+
+#: inc/sermons-posttype.php:162
+msgid "No Thumbnail"
+msgstr ""
+
+#: inc/sermons-posttype.php:181
+msgid "Uncategorized"
+msgstr ""
+
+#: inc/sermons-posttype.php:200
+msgid "No Tags"
+msgstr ""
+

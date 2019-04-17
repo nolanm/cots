@@ -1,0 +1,209 @@
+/**
+ * @package 	WordPress
+ * @subpackage 	Salvation
+ * @version 	1.0.0
+ * 
+ * CMSMasters Sermons CSS Rules
+ * Created by CMSMasters
+ * 
+ */
+
+
+
+@import "../../../../../theme-framework/theme-style/css/less/general.less";
+
+
+/*-------------------------------------------------------------------------*/
+/* Global Styles
+/*-------------------------------------------------------------------------*/
+.cmsmasters_theme_icon_sermon_pdf:before {content:'\e884';}
+.cmsmasters_theme_icon_sermon_download:before {content:'\e882';}
+.cmsmasters_theme_icon_sermon_video:before {content:'\e87d';}
+.cmsmasters_theme_icon_sermon_audio:before {content:'\e83c';}
+
+.cmsmasters_sermon_audio_content{
+	position:absolute;
+	top:-30px;
+	width:100%;
+	visibility:hidden;
+	.op(0);
+	z-index:2;
+	
+	.mejs-container.wp-audio-shortcode {
+		margin:0;
+	}
+}
+
+.current_audio {
+	.cmsmasters_sermon_audio_content {
+		visibility:visible;
+		.op(1);
+		top:-45px;
+	}
+}
+
+
+
+/*-------------------------------------------------------------------------*/
+/* Single Sermon
+/*-------------------------------------------------------------------------*/
+.cmsmasters_open_sermon {
+	margin-bottom:30px;
+	position:relative;
+	
+	+ .post_nav {
+		.bdt;
+	}
+	
+	.cmsmasters_sermon_date {
+		+ .cmsmasters_sermon_cont_info {
+			.bdt;
+		}
+	}
+	
+	.cmsmasters_sermon_title {
+		+ .cmsmasters_sermon_cont_info {
+			.bdt;
+		}
+	}
+	
+	.cmsmasters_sermon_cont_info {
+		padding:15px 0;
+		.ovh;
+		
+		> div {
+			display:inline-block;
+			margin-right:15px;
+		}
+	
+		.cmsmasters_sermon_info {
+			.fr;
+			margin-right:0;
+			
+			> span {
+				margin-left:10px;
+			}
+		}
+	}
+	
+	.cmsmasters_img_wrap {
+		margin-bottom:20px;
+	}
+	
+	.cmsmasters_sermon_media {
+		margin-top:20px;
+		position:relative;
+		
+		.cmsmasters_sermon_media_item {
+			.bd;
+			padding:12px 17px;
+			display:inline-block;
+			margin:0 5px 5px 0;
+			
+			&:before {
+				font-size:20px;
+				display:inline-block;
+				vertical-align:middle;
+			}
+		}
+		
+		&.current_audio {
+			.cmsmasters_sermon_audio_content {
+				top:-50px;
+			}
+		}
+		
+		.cmsmasters_sermon_media_title {
+			display:inline-block;
+			vertical-align:middle;
+			margin-left:20px;
+			margin-bottom:-2px;
+		}
+	}
+	
+	.cmsmasters_sermon_content {
+		margin-top:30px;
+	}
+}
+
+
+
+/*-------------------------------------------------------------------------*/
+/* Shortcode Sermons
+/*-------------------------------------------------------------------------*/
+.cmsmasters_sermons {
+	margin:0 -@col_mar;
+	
+	.cmsmasters_wrap_more_posts {
+		padding:0 @col_mar;
+		
+		.cmsmasters_wrap_pagination {
+			padding:30px 0 0;
+		}
+	}
+}
+
+.cmsmasters_sermon {
+	padding-bottom:50px;
+	
+	.cmsmasters_img_rollover_wrap {
+		margin-bottom:15px;
+	}
+	
+	.preloader {
+		padding-bottom:@preloader_blog_masonry_pad;
+	}
+	
+	.cmsmasters_sermon_media {
+		padding-bottom:14px;
+		margin-bottom:15px;
+		position:relative;
+		.bdb;
+	}
+	
+	.cmsmasters_sermon_title {
+		margin:0 0 10px;
+		padding-top:10px;
+	}
+	
+	&.one_third {
+		&:nth-child(3n+1) {
+			.cl;
+		}
+	}
+	
+	.cmsmasters_sermon_media_item {
+		display:inline-block;
+		height:20px;
+		width:20px;
+		font-size:16px;
+		margin-right:17px;
+	}
+	
+	.cmsmasters_sermon_content {
+		padding-top:20px;
+		margin-top:20px;
+		.bdt;
+		
+		> * {
+			margin:0;
+			padding:0;
+		}
+	}
+}
+
+
+
+/*-------------------------------------------------------------------------*/
+/* CSS3 Animations
+/*-------------------------------------------------------------------------*/
+
+html.csstransitions {
+	.cmsmasters_open_sermon .cmsmasters_sermon_media .cmsmasters_sermon_media_item:before {
+		.trans(~'color .3s ease-in-out');
+	}
+	
+	.cmsmasters_sermon_audio_content {
+		.trans(~'top .3s ease-in-out, visibility .3s ease-in-out, opacity .3s ease-in-out');
+	}
+}

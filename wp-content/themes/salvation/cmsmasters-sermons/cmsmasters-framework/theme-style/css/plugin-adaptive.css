@@ -1,0 +1,19 @@
+/**
+ * @package 	WordPress
+ * @subpackage 	Salvation
+ * @version 	1.0.0
+ * 
+ * CMSMasters Sermons Responsive CSS Rules
+ * Created by CMSMasters
+ * 
+ */
+@media only screen {
+  /*-------------------------------------------------------------------------*/
+  /* Tablet Monitor 600
+/*-------------------------------------------------------------------------*/
+}
+@media only screen and (max-width: 600px) {
+  .cmsmasters_sermons {
+    outline: none;
+  }
+}
