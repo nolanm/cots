@@ -22,6 +22,7 @@ $cmsmasters_option = salvation_get_global_options();
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="pingback" href="<?php esc_url(bloginfo('pingback_url')); ?>" />
 <script src="https://js.churchcenter.com/modal/v1"></script>
+<link href="//db.onlinewebfonts.com/c/f19a1f5337e471a31f146915d59e0656?family=STONE+HARBOUR" rel="stylesheet" type="text/css"/>
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>

@@ -11,7 +11,15 @@ Text Domain: salvation
 Domain Path: /theme-vars/languages
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-image-header, featured-images, flexible-header, full-width-template, microformats, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
 */
-
+@import url(//db.onlinewebfonts.com/c/f19a1f5337e471a31f146915d59e0656?family=STONE+HARBOUR);
+@font-face {font-family: "STONE HARBOUR";
+    src: url("//db.onlinewebfonts.com/t/f19a1f5337e471a31f146915d59e0656.eot");
+    src: url("//db.onlinewebfonts.com/t/f19a1f5337e471a31f146915d59e0656.eot?#iefix") format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/f19a1f5337e471a31f146915d59e0656.woff2") format("woff2"),
+    url("//db.onlinewebfonts.com/t/f19a1f5337e471a31f146915d59e0656.woff") format("woff"),
+    url("//db.onlinewebfonts.com/t/f19a1f5337e471a31f146915d59e0656.ttf") format("truetype"),
+    url("//db.onlinewebfonts.com/t/f19a1f5337e471a31f146915d59e0656.svg#STONE HARBOUR") format("svg");
+}
 html,
 body,
 div,
